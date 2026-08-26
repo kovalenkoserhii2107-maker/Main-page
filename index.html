@@ -31,6 +31,7 @@
             right: 20px;
             display: flex;
             gap: 10px;
+            z-index: 100;
         }
         .lang-btn {
             background: transparent;
@@ -49,7 +50,7 @@
             background: var(--accent-hover);
         }
 
-        /* Language visibility logic */
+        /* БЕЗОПАСНОЕ СКРЫТИЕ ЯЗЫКОВ */
         body [lang="uk"], body [lang="en"] { display: none; }
         body.uk [lang="uk"] { display: block; }
         body.en [lang="en"] { display: block; }
@@ -103,6 +104,8 @@
             overflow: hidden;
             box-shadow: 0 10px 20px rgba(0,0,0,0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
@@ -110,15 +113,20 @@
             box-shadow: 0 15px 30px rgba(0,0,0,0.5);
         }
 
+        /* Картинка для ОСББ (скриншот с телефона) имеет другие пропорции, делаем обрезку красивой */
         .project-image {
             width: 100%;
             height: 220px;
             object-fit: cover;
+            object-position: top; /* Чтобы скриншот мобильного прижимался к верху */
             border-bottom: 1px solid #333;
         }
 
         .project-content {
             padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-content h3 {
@@ -134,6 +142,7 @@
             font-size: 0.95rem;
             margin: 1.2rem 0;
             color: var(--text-secondary);
+            flex: 1;
         }
         
         .mechanics ul {
@@ -151,8 +160,9 @@
             font-weight: 600;
             transition: background 0.3s;
             text-align: center;
-            width: calc(100% - 2.4rem);
-            box-sizing: content-box;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: auto;
         }
         
         .btn:hover {
@@ -216,8 +226,8 @@
             <span lang="en">Serhii KOVALENKO</span>
         </h1>
         <p>
-            <span lang="uk">Розробка ігор | Веб-розробка | Програмна інженерія</span>
-            <span lang="en">Game Development | Web Development | Software Engineering</span>
+            <span lang="uk">Full-Stack Веб-розробка | Розробка ігор | Програмна інженерія</span>
+            <span lang="en">Full-Stack Web Development | Game Development | Software Engineering</span>
         </p>
     </header>
 
@@ -228,97 +238,105 @@
         </h2>
         
         <div class="projects-grid">
-            <!-- Project 1: Helicopter -->
+            
+            <!-- Project 1: UABiz -->
             <div class="project-card hidden-scroll">
-                <img src="images/heli.jpg" alt="Helicopter Game" class="project-image">
+                <img src="images/wiki_finance_1786758956618.jpg" alt="UABiz Financial Dashboard" class="project-image">
                 <div class="project-content">
-                    <h3 lang="uk">3D Екшен про гелікоптери</h3>
-                    <h3 lang="en">3D Helicopter Action</h3>
+                    <h3 lang="uk">UABiz: Економічний симулятор</h3>
+                    <h3 lang="en">UABiz: Economic Simulator</h3>
                     
-                    <p lang="uk">Динамічна гра з реалістичною фізикою польоту та напруженими бойовими місіями. Розроблена на рушії Unity.</p>
-                    <p lang="en">A dynamic game with realistic flight physics and intense combat missions. Developed using the Unity engine.</p>
+                    <p lang="uk">Масштабна браузерна стратегія. Керуйте компанією від малого бізнесу до мегакорпорації, контролюючи виробництво, логістику та фінанси.</p>
+                    <p lang="en">A massive browser-based grand strategy. Manage a company from a small business to a mega-corporation by controlling production, logistics, and finance.</p>
                     
                     <div class="mechanics">
-                        <strong lang="uk">Основні механіки:</strong>
-                        <strong lang="en">Core Mechanics:</strong>
+                        <strong lang="uk">Основні фічі:</strong>
+                        <strong lang="en">Core Features:</strong>
                         <ul lang="uk">
-                            <li>Просунута фізика польоту</li>
-                            <li>Система озброєння та захоплення цілей</li>
-                            <li>Штучний інтелект супротивників</li>
+                            <li>Макроекономіка та банківські кредити</li>
+                            <li>Складні виробничі ланцюжки (B2B/B2C/B2G)</li>
+                            <li>Інтеграція Chart.js для МСФЗ звітності</li>
                         </ul>
                         <ul lang="en">
-                            <li>Advanced flight physics</li>
-                            <li>Weaponry and target lock systems</li>
-                            <li>Enemy Artificial Intelligence</li>
+                            <li>Macroeconomics and bank loans</li>
+                            <li>Complex production chains (B2B/B2C/B2G)</li>
+                            <li>Chart.js integration for IFRS reporting</li>
                         </ul>
                     </div>
-                    <a href="[ВСТАВИТИ ПОСИЛАННЯ / INSERT LINK]" class="btn" target="_blank">
-                        <span lang="uk">Грати / Детальніше</span>
-                        <span lang="en">Play / View More</span>
+                    <!-- Ссылка на внутреннюю страницу проекта -->
+                    <a href="uabiz.html" class="btn">
+                        <span lang="uk">Детальніше про проект</span>
+                        <span lang="en">View Project Details</span>
                     </a>
                 </div>
             </div>
 
-            <!-- Project 2: Strategy -->
+            <!-- Project 2: ОСББ "Успіх-25" -->
             <div class="project-card hidden-scroll">
-                <img src="images/strategy.jpg" alt="Grand Strategy Game" class="project-image">
+                <!-- Путь к твоему мобильному скриншоту -->
+                <img src="images/image.png" alt="ОСББ Успіх-25 App" class="project-image">
                 <div class="project-content">
-                    <h3 lang="uk">Глобальна Web-стратегія</h3>
-                    <h3 lang="en">Web Grand Strategy</h3>
+                    <h3 lang="uk">ОСББ «Успіх-25»</h3>
+                    <h3 lang="en">HOA "Uspih-25" PWA</h3>
                     
-                    <p lang="uk">Браузерна політико-економічна гра (grand strategy) з інтерактивною картою світу.</p>
-                    <p lang="en">A browser-based political and economic grand strategy game with an interactive world map.</p>
+                    <p lang="uk">Progressive Web App (PWA) для управління багатоквартирним будинком. Замінює паперовий документообіг та месенджери.</p>
+                    <p lang="en">A Progressive Web App (PWA) for residential building management. Replaces paper document flow and messengers.</p>
                     
                     <div class="mechanics">
-                        <strong lang="uk">Основні механіки:</strong>
-                        <strong lang="en">Core Mechanics:</strong>
+                        <strong lang="uk">Основні фічі:</strong>
+                        <strong lang="en">Core Features:</strong>
                         <ul lang="uk">
-                            <li>Взаємодія з векторною SVG-картою</li>
-                            <li>Економічне та військове планування</li>
-                            <li>Керування ресурсами держави</li>
+                            <li>Захищена система голосувань (Firestore Rules)</li>
+                            <li>Автоматизація парсингу графіків ДТЕК</li>
+                            <li>Власний генератор .xlsx звітів (Typed Arrays)</li>
+                            <li>Vanilla JS, Firebase (Auth, Storage, Functions)</li>
                         </ul>
                         <ul lang="en">
-                            <li>Interaction with a vector SVG map</li>
-                            <li>Economic and military planning</li>
-                            <li>State resource management</li>
+                            <li>Secure voting system (Firestore Rules)</li>
+                            <li>Automated blackout schedule parsing (IoT/Cloud)</li>
+                            <li>Custom .xlsx report generator (Typed Arrays)</li>
+                            <li>Vanilla JS, Firebase (Auth, Storage, Functions)</li>
                         </ul>
                     </div>
-                    <a href="[ВСТАВИТИ ПОСИЛАННЯ / INSERT LINK]" class="btn" target="_blank">
-                        <span lang="uk">Грати / Детальніше</span>
-                        <span lang="en">Play / View More</span>
+                    <!-- Ссылка на внутреннюю страницу проекта -->
+                    <a href="uspih25.html" class="btn">
+                        <span lang="uk">Детальніше про проект</span>
+                        <span lang="en">View Project Details</span>
                     </a>
                 </div>
             </div>
-            
-            <!-- Project 3: UABissGame -->
+
+            <!-- Project 3: Placeholder (Вертолеты или другое) -->
             <div class="project-card hidden-scroll">
-                <img src="images/cicd.jpg" alt="UABissGame CI/CD" class="project-image">
+                <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=800&q=80" alt="Game Dev" class="project-image">
                 <div class="project-content">
-                    <h3>UABissGame</h3>
+                    <h3 lang="uk">3D Вертолітний Екшен (У розробці)</h3>
+                    <h3 lang="en">3D Helicopter Action (WIP)</h3>
                     
-                    <p lang="uk">Веб-проект із повністю налаштованим пайплайном автоматичного тестування та розгортання (CI/CD).</p>
-                    <p lang="en">A web project with a fully configured automated testing and deployment pipeline (CI/CD).</p>
+                    <p lang="uk">Динамічна 3D-гра на рушії Unity з реалістичною фізикою польоту та бойовою системою.</p>
+                    <p lang="en">A dynamic 3D game built with Unity engine featuring realistic flight physics and combat systems.</p>
                     
                     <div class="mechanics">
-                        <strong lang="uk">Технологічний стек:</strong>
-                        <strong lang="en">Tech Stack:</strong>
+                        <strong lang="uk">Технології:</strong>
+                        <strong lang="en">Technologies:</strong>
                         <ul lang="uk">
-                            <li>Сучасні Web-технології</li>
-                            <li>GitHub Actions для автоматизації</li>
-                            <li>Хмарний хостинг (GitHub Pages)</li>
+                            <li>C# та Unity Engine</li>
+                            <li>Фізика твердих тіл (Rigidbody)</li>
+                            <li>Штучний інтелект супротивників</li>
                         </ul>
                         <ul lang="en">
-                            <li>Modern Web Technologies</li>
-                            <li>GitHub Actions for automation</li>
-                            <li>Cloud hosting (GitHub Pages)</li>
+                            <li>C# and Unity Engine</li>
+                            <li>Rigidbody physics</li>
+                            <li>Enemy Artificial Intelligence</li>
                         </ul>
                     </div>
-                    <a href="uabiz.html" class="btn">
-                        <span lang="uk">Перейти до репозиторію</span>
-                        <span lang="en">View Repository</span>
+                    <a href="#" class="btn" style="background: var(--surface-color); border: 1px solid var(--text-secondary); color: var(--text-secondary);">
+                        <span lang="uk">Очікується реліз</span>
+                        <span lang="en">Coming Soon</span>
                     </a>
                 </div>
             </div>
+
         </div>
 
         <!-- About Section -->
@@ -328,8 +346,8 @@
                 <span lang="en">About Me</span>
             </h2>
             
-            <p lang="uk">Вітаю! Я розробник з великим інтересом до створення ігрових світів та веб-додатків. Цей сайт слугує портфоліо моїх пет-проектів, прототипів та експериментів з новими технологіями.</p>
-            <p lang="en">Hello! I'm a developer with a deep passion for creating game worlds and web applications. This site serves as a portfolio for my pet projects, prototypes, and experiments with new technologies.</p>
+            <p lang="uk">Вітаю! Я розробник з великим інтересом до створення ігрових світів, складних веб-додатків та систем автоматизації. Цей сайт слугує портфоліо моїх пет-проектів, прототипів та експериментів з новими технологіями.</p>
+            <p lang="en">Hello! I'm a developer with a deep passion for creating game worlds, complex web applications, and automation systems. This site serves as a portfolio for my pet projects, prototypes, and experiments with new technologies.</p>
             
             <h3 style="color: #fff; margin-top: 2rem;">
                 <span lang="uk">Контакти</span>
@@ -349,7 +367,6 @@
         function setLang(lang) {
             document.body.className = lang;
             
-            // Update active button state
             const buttons = document.querySelectorAll('.lang-btn');
             buttons.forEach(btn => {
                 if(btn.innerText.toLowerCase() === lang.toLowerCase()) {
@@ -360,21 +377,18 @@
             });
         }
 
-        // Scroll Animation Logic (Intersection Observer)
+        // Scroll Animation Logic
         const observerOptions = {
             root: null,
             rootMargin: '0px',
-            threshold: 0.15 // Срабатывает когда 15% элемента видно
+            threshold: 0.15
         };
 
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('show-scroll');
-                    // Если хочешь чтобы анимация проигрывалась только один раз при скролле вниз, раскомментируй строку ниже:
-                    // observer.unobserve(entry.target);
                 } else {
-                    // Убираем класс если элемент пропал из виду (анимация сработает снова при скролле)
                     entry.target.classList.remove('show-scroll');
                 }
             });
