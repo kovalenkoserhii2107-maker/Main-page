@@ -1,182 +1,387 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Олег Самойленко | Портфолио проектов</title>
+    <title>Сергій Коваленко | Serhii Kovalenko - Portfolio</title>
     <style>
         :root {
-            --primary: #2d3436;
-            --accent: #0984e3;
-            --bg: #f5f6fa;
-            --text: #2d3436;
+            --bg-color: #121212;
+            --surface-color: #1e1e1e;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent: #3498db;
+            --accent-hover: #2980b9;
         }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: var(--bg);
-            color: var(--text);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            overflow-x: hidden;
         }
+
+        /* Language Switcher */
+        .lang-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .lang-btn {
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--text-primary);
+            padding: 5px 15px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        .lang-btn.active {
+            background: var(--accent);
+            color: #fff;
+        }
+        .lang-btn:hover {
+            background: var(--accent-hover);
+        }
+
+        /* Language visibility logic */
+        [lang="uk"], [lang="en"] { display: none; }
+        body.uk [lang="uk"] { display: block; }
+        body.en [lang="en"] { display: block; }
+        span[lang="uk"], span[lang="en"] { display: none; }
+        body.uk span[lang="uk"] { display: inline; }
+        body.en span[lang="en"] { display: inline; }
+
         header {
-            background-color: var(--primary);
-            color: white;
-            padding: 3rem 1rem;
+            background-color: var(--surface-color);
+            padding: 5rem 1rem 3rem;
             text-align: center;
+            border-bottom: 1px solid #333;
         }
         header h1 {
             margin: 0;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
+            color: #fff;
         }
         header p {
             font-size: 1.2rem;
-            opacity: 0.8;
+            color: var(--text-secondary);
+            margin-top: 10px;
         }
+
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 2rem 1rem;
         }
+
         h2 {
+            font-size: 2rem;
             border-bottom: 2px solid var(--accent);
             padding-bottom: 0.5rem;
             margin-top: 2rem;
+            color: #fff;
+            display: inline-block;
         }
-        /* Сетка проектов */
+
+        /* Projects Grid */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
+            margin-top: 3rem;
         }
+
         .project-card {
-            background: white;
-            border-radius: 8px;
+            background: var(--surface-color);
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
         .project-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
         }
+
         .project-image {
             width: 100%;
-            height: 200px;
-            background-color: #dfe6e9;
+            height: 220px;
             object-fit: cover;
+            border-bottom: 1px solid #333;
         }
+
         .project-content {
             padding: 1.5rem;
         }
-        .mechanics {
-            background: var(--bg);
-            padding: 0.8rem;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            margin: 1rem 0;
+
+        .project-content h3 {
+            margin-top: 0;
+            color: #fff;
+            font-size: 1.4rem;
         }
+
+        .mechanics {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            margin: 1.2rem 0;
+            color: var(--text-secondary);
+        }
+        
+        .mechanics ul {
+            margin: 5px 0 0 0;
+            padding-left: 20px;
+        }
+
         .btn {
             display: inline-block;
             background: var(--accent);
-            color: white;
-            padding: 0.5rem 1rem;
+            color: #fff;
+            padding: 0.7rem 1.2rem;
             text-decoration: none;
-            border-radius: 4px;
-            font-weight: bold;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background 0.3s;
+            text-align: center;
+            width: calc(100% - 2.4rem);
+            box-sizing: content-box;
         }
+        
         .btn:hover {
-            background: #074b83;
+            background: var(--accent-hover);
         }
-        /* Блок контактов */
+
+        /* About & Contacts */
         .about-section {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            margin-top: 3rem;
+            background: var(--surface-color);
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin-top: 4rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
+
+        .contact-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
         .contact-links a {
-            color: var(--accent);
+            color: #fff;
+            background: #333;
+            padding: 10px 20px;
             text-decoration: none;
-            margin-right: 15px;
+            border-radius: 6px;
             font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .contact-links a:hover {
+            background: var(--accent);
+        }
+
+        /* Scroll Animations */
+        .hidden-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .show-scroll {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
-<body>
+<body class="uk">
+
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button class="lang-btn active" onclick="setLang('uk')">UA</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
 
     <header>
-        <h1>Олег Самойленко</h1>
-        <p>Game Development | Web Development | Software Engineering</p>
+        <h1>
+            <span lang="uk">Коваленко Сергій Пилипович</span>
+            <span lang="en">Serhii KOVALENKO</span>
+        </h1>
+        <p>
+            <span lang="uk">Розробка ігор | Веб-розробка | Програмна інженерія</span>
+            <span lang="en">Game Development | Web Development | Software Engineering</span>
+        </p>
     </header>
 
     <div class="container">
-        <h2>Мои проекты</h2>
+        <h2>
+            <span lang="uk">Мої проекти</span>
+            <span lang="en">My Projects</span>
+        </h2>
         
         <div class="projects-grid">
-            <!-- Проект 1 -->
-            <div class="project-card">
-                <!-- Замените src на ссылку на вашу картинку -->
-                <img src="https://via.placeholder.com/400x200?text=Скриншот+Игры" alt="Вертолетный экшен" class="project-image">
+            <!-- Project 1: Helicopter -->
+            <div class="project-card hidden-scroll">
+                <img src="images/heli.jpg" alt="Helicopter Game" class="project-image">
                 <div class="project-content">
-                    <h3>3D Вертолетный Экшен</h3>
-                    <p>Динамичная игра, вдохновленная классическими хитами. Разработана на движке Unity.</p>
+                    <h3 lang="uk">3D Екшен про гелікоптери</h3>
+                    <h3 lang="en">3D Helicopter Action</h3>
+                    
+                    <p lang="uk">Динамічна гра з реалістичною фізикою польоту та напруженими бойовими місіями. Розроблена на рушії Unity.</p>
+                    <p lang="en">A dynamic game with realistic flight physics and intense combat missions. Developed using the Unity engine.</p>
+                    
                     <div class="mechanics">
-                        <strong>Основные механики:</strong>
-                        <ul>
-                            <li>Управление физикой полета</li>
-                            <li>Боевая система и захват целей</li>
+                        <strong lang="uk">Основні механіки:</strong>
+                        <strong lang="en">Core Mechanics:</strong>
+                        <ul lang="uk">
+                            <li>Просунута фізика польоту</li>
+                            <li>Система озброєння та захоплення цілей</li>
+                            <li>Штучний інтелект супротивників</li>
+                        </ul>
+                        <ul lang="en">
+                            <li>Advanced flight physics</li>
+                            <li>Weaponry and target lock systems</li>
+                            <li>Enemy Artificial Intelligence</li>
                         </ul>
                     </div>
-                    <a href="https://ВАШ_ЛОГИН.github.io/ССЫЛКА_НА_ИГРУ" class="btn" target="_blank">Играть / Смотреть</a>
+                    <a href="[ВСТАВИТИ ПОСИЛАННЯ / INSERT LINK]" class="btn" target="_blank">
+                        <span lang="uk">Грати / Детальніше</span>
+                        <span lang="en">Play / View More</span>
+                    </a>
                 </div>
             </div>
 
-            <!-- Проект 2 -->
-            <div class="project-card">
-                <img src="https://via.placeholder.com/400x200?text=Скриншот+Стратегии" alt="SVG Стратегия" class="project-image">
+            <!-- Project 2: Strategy -->
+            <div class="project-card hidden-scroll">
+                <img src="images/strategy.jpg" alt="Grand Strategy Game" class="project-image">
                 <div class="project-content">
-                    <h3>Глобальная Web-стратегия</h3>
-                    <p>Политико-экономическая grand strategy игра, работающая прямо в браузере.</p>
+                    <h3 lang="uk">Глобальна Web-стратегія</h3>
+                    <h3 lang="en">Web Grand Strategy</h3>
+                    
+                    <p lang="uk">Браузерна політико-економічна гра (grand strategy) з інтерактивною картою світу.</p>
+                    <p lang="en">A browser-based political and economic grand strategy game with an interactive world map.</p>
+                    
                     <div class="mechanics">
-                        <strong>Основные механики:</strong>
-                        <ul>
-                            <li>Интерактивная SVG-карта мира</li>
-                            <li>Экономическое планирование</li>
+                        <strong lang="uk">Основні механіки:</strong>
+                        <strong lang="en">Core Mechanics:</strong>
+                        <ul lang="uk">
+                            <li>Взаємодія з векторною SVG-картою</li>
+                            <li>Економічне та військове планування</li>
+                            <li>Керування ресурсами держави</li>
+                        </ul>
+                        <ul lang="en">
+                            <li>Interaction with a vector SVG map</li>
+                            <li>Economic and military planning</li>
+                            <li>State resource management</li>
                         </ul>
                     </div>
-                    <a href="https://ВАШ_ЛОГИН.github.io/ССЫЛКА_НА_СТРАТЕГИЮ" class="btn" target="_blank">Играть / Смотреть</a>
+                    <a href="[ВСТАВИТИ ПОСИЛАННЯ / INSERT LINK]" class="btn" target="_blank">
+                        <span lang="uk">Грати / Детальніше</span>
+                        <span lang="en">Play / View More</span>
+                    </a>
                 </div>
             </div>
             
-            <!-- Место для UABissGame или других проектов -->
-            <div class="project-card">
-                <img src="https://via.placeholder.com/400x200?text=Проект+UABissGame" alt="UABissGame" class="project-image">
+            <!-- Project 3: UABissGame -->
+            <div class="project-card hidden-scroll">
+                <img src="images/cicd.jpg" alt="UABissGame CI/CD" class="project-image">
                 <div class="project-content">
                     <h3>UABissGame</h3>
-                    <p>Проект с настроенным пайплайном автоматического развертывания (CI/CD).</p>
+                    
+                    <p lang="uk">Веб-проект із повністю налаштованим пайплайном автоматичного тестування та розгортання (CI/CD).</p>
+                    <p lang="en">A web project with a fully configured automated testing and deployment pipeline (CI/CD).</p>
+                    
                     <div class="mechanics">
-                        <strong>Стек:</strong> Web-технологии, GitHub Actions
+                        <strong lang="uk">Технологічний стек:</strong>
+                        <strong lang="en">Tech Stack:</strong>
+                        <ul lang="uk">
+                            <li>Сучасні Web-технології</li>
+                            <li>GitHub Actions для автоматизації</li>
+                            <li>Хмарний хостинг (GitHub Pages)</li>
+                        </ul>
+                        <ul lang="en">
+                            <li>Modern Web Technologies</li>
+                            <li>GitHub Actions for automation</li>
+                            <li>Cloud hosting (GitHub Pages)</li>
+                        </ul>
                     </div>
-                    <a href="https://github.com/ВАШ_ЛОГИН/UABissGame" class="btn" target="_blank">Перейти в репозиторий</a>
+                    <a href="[ВСТАВИТИ ПОСИЛАННЯ / INSERT LINK]" class="btn" target="_blank">
+                        <span lang="uk">Перейти до репозиторію</span>
+                        <span lang="en">View Repository</span>
+                    </a>
                 </div>
             </div>
         </div>
 
-        <div class="about-section">
-            <h2>Обо мне</h2>
-            <p>Привет! Я нахожусь в Одессе. Моя основная профессиональная деятельность связана с банковским сектором и развитием VIP-бизнеса, однако мое большое увлечение — это программирование, создание игр на Unity и веб-разработка.</p>
-            <p>Здесь я собираю свои прототипы и пет-проекты.</p>
+        <!-- About Section -->
+        <div class="about-section hidden-scroll">
+            <h2>
+                <span lang="uk">Про мене</span>
+                <span lang="en">About Me</span>
+            </h2>
             
-            <h3>Контакты</h3>
+            <p lang="uk">Вітаю! Я розробник з великим інтересом до створення ігрових світів та веб-додатків. Цей сайт слугує портфоліо моїх пет-проектів, прототипів та експериментів з новими технологіями.</p>
+            <p lang="en">Hello! I'm a developer with a deep passion for creating game worlds and web applications. This site serves as a portfolio for my pet projects, prototypes, and experiments with new technologies.</p>
+            
+            <h3 style="color: #fff; margin-top: 2rem;">
+                <span lang="uk">Контакти</span>
+                <span lang="en">Contact</span>
+            </h3>
             <div class="contact-links">
-                <a href="mailto:твой@email.com">Email</a>
-                <a href="https://github.com/ТВОЙ_ЛОГИН" target="_blank">GitHub</a>
-                <a href="https://t.me/ТВОЙ_ТЕЛЕГРАМ" target="_blank">Telegram</a>
+                <a href="mailto:[ВСТАВИТИ EMAIL / INSERT EMAIL]">Email</a>
+                <a href="[ВСТАВИТИ GITHUB / INSERT GITHUB]" target="_blank">GitHub</a>
+                <a href="[ВСТАВИТИ ТЕЛЕГРАМ / INSERT TELEGRAM]" target="_blank">Telegram</a>
+                <a href="[ВСТАВИТИ LINKEDIN АБО ІНШЕ / INSERT OTHER]" target="_blank">LinkedIn</a>
             </div>
         </div>
     </div>
 
+    <script>
+        // Language Switcher Logic
+        function setLang(lang) {
+            document.body.className = lang;
+            
+            // Update active button state
+            const buttons = document.querySelectorAll('.lang-btn');
+            buttons.forEach(btn => {
+                if(btn.innerText.toLowerCase() === lang.toLowerCase()) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+
+        // Scroll Animation Logic (Intersection Observer)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15 // Срабатывает когда 15% элемента видно
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show-scroll');
+                    // Если хочешь чтобы анимация проигрывалась только один раз при скролле вниз, раскомментируй строку ниже:
+                    // observer.unobserve(entry.target);
+                } else {
+                    // Убираем класс если элемент пропал из виду (анимация сработает снова при скролле)
+                    entry.target.classList.remove('show-scroll');
+                }
+            });
+        }, observerOptions);
+
+        const hiddenElements = document.querySelectorAll('.hidden-scroll');
+        hiddenElements.forEach((el) => observer.observe(el));
+    </script>
 </body>
 </html>
