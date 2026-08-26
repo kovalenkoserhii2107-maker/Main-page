@@ -1,279 +1,268 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="uk" data-accent="blue">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UABiz - Project Details | Serhii Kovalenko</title>
-    <style>
-        :root {
-            --bg-color: #121212;
-            --surface-color: #1e1e1e;
-            --text-primary: #e0e0e0;
-            --text-secondary: #a0a0a0;
-            --accent: #3498db;
-            --accent-hover: #2980b9;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            overflow-x: hidden;
-        }
-
-        /* Language Switcher */
-        .lang-switcher {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            gap: 10px;
-        }
-        .lang-btn {
-            background: transparent;
-            border: 1px solid var(--accent);
-            color: var(--text-primary);
-            padding: 5px 15px;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: all 0.3s;
-        }
-        .lang-btn.active {
-            background: var(--accent);
-            color: #fff;
-        }
-        .lang-btn:hover {
-            background: var(--accent-hover);
-        }
-
-        /* БЕЗОПАСНОЕ СКРЫТИЕ ЯЗЫКОВ (тег html не затрагивается) */
-        *[lang]:not(html) { display: none; }
-        
-        body.uk *[lang="uk"]:not(span) { display: block; }
-        body.uk span[lang="uk"] { display: inline; }
-        
-        body.en *[lang="en"]:not(span) { display: block; }
-        body.en span[lang="en"] { display: inline; }
-
-        .back-link {
-            display: inline-block;
-            margin-top: 20px;
-            margin-left: 20px;
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-        .back-link:hover {
-            color: var(--accent-hover);
-        }
-
-        header {
-            padding: 3rem 1rem 2rem;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            color: #fff;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 1rem 4rem;
-        }
-
-        .hero-image {
-            width: 100%;
-            height: auto;
-            max-height: 450px;
-            object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            margin-bottom: 2rem;
-            border: 1px solid #333;
-        }
-
-        .section-card {
-            background: var(--surface-color);
-            padding: 2rem;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-        }
-
-        h2 {
-            color: #fff;
-            border-bottom: 2px solid var(--accent);
-            padding-bottom: 0.5rem;
-            display: inline-block;
-            margin-top: 0;
-        }
-
-        .feature-list {
-            list-style: none;
-            padding: 0;
-        }
-        .feature-list li {
-            margin-bottom: 1rem;
-            padding-left: 24px;
-            position: relative;
-        }
-        .feature-list li::before {
-            content: '⚡';
-            position: absolute;
-            left: 0;
-            top: 2px;
-            font-size: 0.9rem;
-        }
-
-        .tech-stack {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-        }
-        .tech-tag {
-            background: rgba(52, 152, 219, 0.1);
-            color: var(--accent);
-            border: 1px solid var(--accent);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: bold;
-        }
-
-        .btn-group {
-            display: flex;
-            gap: 15px;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-        .btn {
-            background: var(--accent);
-            color: #fff;
-            padding: 0.8rem 1.5rem;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            transition: background 0.3s;
-            text-align: center;
-            flex: 1;
-            min-width: 200px;
-        }
-        .btn:hover { background: var(--accent-hover); }
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--accent);
-            color: var(--accent);
-        }
-        .btn-outline:hover {
-            background: rgba(52, 152, 219, 0.1);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UABiz — економічний симулятор | Сергій Коваленко</title>
+<meta name="description" content="Браузерна стратегія управління бізнесом: виробничі ланцюжки, логістика між містами, банківські кредити та звітність за МСФЗ. Vanilla JS + Chart.js.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#05060a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UABiz — економічний симулятор">
+<meta property="og:description" content="Від першого магазину до національної корпорації: 40 ресурсів, подвійний запис, P&L і баланс за МСФЗ.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/main.css">
 </head>
-<body class="uk">
+<body>
 
-    <div class="lang-switcher">
-        <button class="lang-btn active" onclick="setLang('uk')">UA</button>
-        <button class="lang-btn" onclick="setLang('en')">EN</button>
+<a class="skip" href="#main" data-i18n="common.skip">Перейти до вмісту</a>
+
+<div class="bg-layer" aria-hidden="true"></div>
+<canvas id="bg-grid" aria-hidden="true"></canvas>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-github" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.4.5 0 5.9 0 12.6c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.4 3.6 1 .1-.8.4-1.4.8-1.7-2.7-.3-5.5-1.4-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.6 4.9 18.6 5.2 18.6 5.2c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A12.1 12.1 0 0 0 24 12.6C24 5.9 18.6.5 12 .5z"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+  <symbol id="i-chev-l" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></symbol>
+  <symbol id="i-chev-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="shell nav-in">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">SK</span>
+      <span class="brand-txt">Сергій Коваленко<small data-i18n="common.role">Software Engineer</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Основна навігація">
+      <a href="index.html#projects" data-i18n="nav.projects">Проєкти</a>
+      <a href="index.html#stack" data-i18n="nav.stack">Стек</a>
+      <a href="index.html#about" data-i18n="nav.about">Про мене</a>
+      <a href="index.html#contact" data-i18n="nav.contact">Контакти</a>
+    </nav>
+    <div class="nav-tools">
+      <button class="kbd-btn" data-cmdk-open type="button" aria-haspopup="dialog">
+        <span data-i18n="nav.search">Пошук</span><kbd>⌘K</kbd>
+      </button>
+      <div class="lang" role="group" aria-label="Мова / Language">
+        <button type="button" data-lang="uk" aria-pressed="true">UA</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
     </div>
+  </div>
+  <div class="scroll-bar" id="scroll-bar" aria-hidden="true"></div>
+</header>
 
-    <a href="index.html" class="back-link">
-        <span lang="uk">← Повернутися до портфоліо</span>
-        <span lang="en">← Back to Portfolio</span>
+<main id="main">
+
+  <section class="p-hero shell">
+    <a class="crumb" href="index.html#projects">
+      <svg><use href="#i-back"></use></svg>
+      <span data-i18n="common.back">Усі проєкти</span>
     </a>
 
-    <header>
-        <h1>UABiz</h1>
-        <p>
-            <span lang="uk">Глобальний Економічний Симулятор</span>
-            <span lang="en">Global Economic Simulator</span>
-        </p>
-    </header>
+    <span class="status status-live" data-i18n="common.live">Працює</span>
+    <h1 class="p-title">UABiz</h1>
+    <p class="p-tag" data-i18n="uabiz.tag">Браузерна стратегія управління бізнесом. Старт — $25 000 і один магазин. Фініш — корпорація із заводами, складами, дослідницьким центром і власними акціями на біржі. Усе, що ви робите, потрапляє у фінансову звітність за МСФЗ.</p>
 
-    <div class="container">
-        <!-- Временная картинка-заглушка из интернета, чтобы сразу работало -->
-        <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80" alt="UABiz Dashboard" class="hero-image">
-
-        <div class="section-card">
-            <h2>
-                <span lang="uk">Про проект</span>
-                <span lang="en">About the Project</span>
-            </h2>
-            <p lang="uk">
-                <strong>UABiz</strong> — це масштабна браузерна стратегія та симулятор управління бізнесом. Гравець починає з невеликим стартовим капіталом у $25,000 і має можливість виростити свою компанію до рівня національного монополіста з власними заводами, логістичною мережею, дослідницькими центрами (R&D) та виходом на фондову біржу. Проект має глибоку математичну модель, що імітує реальні макроекономічні процеси.
-            </p>
-            <p lang="en">
-                <strong>UABiz</strong> is a massive browser-based grand strategy and business management simulator. The player starts with a small seed capital of $25,000 and can grow their company into a national monopolist with its own factories, logistics network, R&D centers, and an IPO on the stock exchange. The project features a deep mathematical model simulating real macroeconomic processes.
-            </p>
-
-            <div class="tech-stack">
-                <span class="tech-tag">HTML5</span>
-                <span class="tech-tag">CSS3</span>
-                <span class="tech-tag">Vanilla JavaScript</span>
-                <span class="tech-tag">Chart.js</span>
-                <span class="tech-tag">State Management</span>
-            </div>
-        </div>
-
-        <div class="section-card">
-            <h2>
-                <span lang="uk">Ключові механіки</span>
-                <span lang="en">Key Mechanics</span>
-            </h2>
-            <ul class="feature-list">
-                <li>
-                    <span lang="uk"><strong>Гео-економіка та Логістика:</strong> Управління складами та транспортними витратами між містами України.</span>
-                    <span lang="en"><strong>Geo-economics & Logistics:</strong> Warehouse management and transport costs between Ukrainian cities.</span>
-                </li>
-                <li>
-                    <span lang="uk"><strong>Глобальний B2B Ринок:</strong> Динамічне ціноутворення на сировину та готову продукцію.</span>
-                    <span lang="en"><strong>Global B2B Market:</strong> Dynamic pricing for raw materials and finished goods.</span>
-                </li>
-                <li>
-                    <span lang="uk"><strong>Виробничі ланцюжки:</strong> Понад 30 видів ресурсів (від пшениці до FPV-дронів).</span>
-                    <span lang="en"><strong>Production Chains:</strong> Over 30 types of resources (from wheat to FPV drones).</span>
-                </li>
-                <li>
-                    <span lang="uk"><strong>Фінансова звітність (МСФЗ):</strong> Автоматична генерація детальних звітів: P&L, Баланс, Cash Flow.</span>
-                    <span lang="en"><strong>IFRS Financial Reporting:</strong> Automated generation of detailed reports: P&L, Balance Sheet, Cash Flow.</span>
-                </li>
-                <li>
-                    <span lang="uk"><strong>Банкінг та Податки:</strong> Динамічний кредитний рейтинг, заставні ліміти, депозити та податки.</span>
-                    <span lang="en"><strong>Banking & Taxes:</strong> Dynamic credit scoring, collateral limits, deposits, and corporate tax payments.</span>
-                </li>
-            </ul>
-        </div>
-
-        <div class="btn-group">
-            <a href="#" class="btn">
-                <span lang="uk">🎮 Грати в браузері</span>
-                <span lang="en">🎮 Play in Browser</span>
-            </a>
-            <a href="#" class="btn btn-outline">
-                <span lang="uk">💻 Код на GitHub</span>
-                <span lang="en">💻 Source Code</span>
-            </a>
-        </div>
+    <div class="p-cta">
+      <a class="btn btn-primary" href="https://kovalenkoserhii2107-maker.github.io/UABissGame/" target="_blank" rel="noopener">
+        <svg><use href="#i-ext"></use></svg>
+        <span data-i18n="uabiz.cta">Грати в браузері</span>
+      </a>
+      <a class="btn btn-ghost" href="https://github.com/kovalenkoserhii2107-maker/UABissGame" target="_blank" rel="noopener">
+        <svg><use href="#i-github"></use></svg>
+        <span data-i18n="common.source">Код на GitHub</span>
+      </a>
     </div>
 
-    <script>
-        function setLang(lang) {
-            document.body.className = lang;
-            const buttons = document.querySelectorAll('.lang-btn');
-            buttons.forEach(btn => {
-                if(btn.innerText.toLowerCase() === lang.toLowerCase()) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
-        }
-    </script>
+    <dl class="meta-grid" data-reveal>
+      <div><dt data-i18n="common.m.type">Тип</dt><dd data-i18n="uabiz.m.type">Економічна стратегія</dd></div>
+      <div><dt data-i18n="common.m.stack">Стек</dt><dd>Vanilla JS · Chart.js</dd></div>
+      <div><dt data-i18n="common.m.scale">Обсяг</dt><dd data-i18n="uabiz.m.scale">16 менеджерів · ~9k рядків JS</dd></div>
+      <div><dt data-i18n="uabiz.m.res">Ресурси</dt><dd data-i18n="uabiz.m.resv">40 видів · 13 вкладок</dd></div>
+    </dl>
+  </section>
+
+  <nav class="subnav" aria-label="Розділи сторінки">
+    <div class="shell">
+      <ul>
+        <li><a href="#overview" data-i18n="common.s.overview">Огляд</a></li>
+        <li><a href="#features" data-i18n="common.s.features">Механіки</a></li>
+        <li><a href="#arch" data-i18n="common.s.arch">Архітектура</a></li>
+        <li><a href="#shots" data-i18n="common.s.shots">Скріншоти</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="block" id="overview">
+    <div class="shell">
+      <span class="eyebrow" data-i18n="common.s.overview">Огляд</span>
+      <h2 data-i18n="uabiz.o.h">Ідея</h2>
+      <div class="prose" data-reveal>
+        <p data-i18n="uabiz.o.p1">Більшість бізнес-симуляторів зводяться до однієї формули: купив дешевше — продав дорожче. UABiz побудований навколо іншої тези — <strong>цікаво не заробляти, а розуміти, звідки взявся прибуток</strong>.</p>
+        <p data-i18n="uabiz.o.p2">Тому в грі немає абстрактного «балансу». Є каса, дебіторка, запаси на складах, товар у дорозі, основні засоби з амортизацією, кредити із заставою та податки. Кожна дія проходить через головну книгу, а вкладка «Звітність» збирає з неї P&amp;L, баланс і рух коштів за стандартом МСФЗ.</p>
+        <p data-i18n="uabiz.o.p3">Прогрес розбитий на п'ять розділів — від виживання роздрібної точки до національної корпорації. Навчання на 23 кроки проводить нового гравця через усі вкладки, не блокуючи досвідчених.</p>
+      </div>
+      <div class="chip-row" style="margin-top:26px">
+        <span class="chip">Vanilla JS (ES2022)</span>
+        <span class="chip">Chart.js</span>
+        <span class="chip">Double-entry ledger</span>
+        <span class="chip">IFRS / МСФЗ</span>
+        <span class="chip">Event-driven managers</span>
+        <span class="chip">GitHub Pages</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="features">
+    <div class="shell">
+      <span class="eyebrow" data-i18n="common.s.features">Механіки</span>
+      <h2 data-i18n="uabiz.f.h">Що всередині</h2>
+      <div class="feat">
+        <article class="card feat-item" data-reveal>
+          <span class="feat-num">01</span>
+          <h3 data-i18n="uabiz.f1.t">Звітність за МСФЗ</h3>
+          <p data-i18n="uabiz.f1.p">Звіт про прибутки і збитки, баланс (активи = пасиви + капітал), рух грошових коштів і фінансові коефіцієнти: ROS, ROE, ROA, EBITDA margin, current ratio.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:70ms">
+          <span class="feat-num">02</span>
+          <h3 data-i18n="uabiz.f2.t">Виробничі ланцюжки</h3>
+          <p data-i18n="uabiz.f2.p">40 ресурсів — від пшениці та бавовни до кремнію, літію й FPV-дронів. Кожен завод має рецепт, станки, робітників за рівнями та власну собівартість.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:140ms">
+          <span class="feat-num">03</span>
+          <h3 data-i18n="uabiz.f3.t">Гео-економіка та логістика</h3>
+          <p data-i18n="uabiz.f3.p">Довідник міст із власною макроекономікою: податок на прибуток, ЄСВ, ПДВ. Товар між містами їде за гроші й за час — вартість доставки лягає в собівартість.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:210ms">
+          <span class="feat-num">04</span>
+          <h3 data-i18n="uabiz.f4.t">Банк, застава й скоринг</h3>
+          <p data-i18n="uabiz.f4.p">Кредитний ліміт рахується від застави: готівка 50%, депозити 90%, нерухомість 70%, запаси 50%. Перевищення боргового навантаження D/E &gt; 1.0 обвалює рейтинг.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:280ms">
+          <span class="feat-num">05</span>
+          <h3 data-i18n="uabiz.f5.t">R&amp;D і дерево технологій</h3>
+          <p data-i18n="uabiz.f5.p">НДІ виробляє очки досліджень: лаборанти й старші науковці мають різну продуктивність і зарплату. Дослідження відкривають нові креслення заводів і апгрейди.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:350ms">
+          <span class="feat-num">06</span>
+          <h3 data-i18n="uabiz.f6.t">B2B, B2G і фондовий ринок</h3>
+          <p data-i18n="uabiz.f6.p">Оптова біржа з динамічним ціноутворенням, державні тендери, маркетинг із силою бренду й вихід на біржу з власними акціями.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="arch">
+    <div class="shell">
+      <span class="eyebrow" data-i18n="common.s.arch">Архітектура</span>
+      <h2 data-i18n="uabiz.a.h">Як це влаштовано</h2>
+      <div class="prose" style="margin-bottom:26px" data-reveal>
+        <p data-i18n="uabiz.a.p">Ядро — один операційний день. Цикл <code>gameLoop</code> послідовно викликає менеджерів, кожен із яких відповідає за свою предметну область і не знає про інтерфейс. Стан гри лежить в одному об'єкті, інтерфейс лише читає його та перемальовує активну вкладку.</p>
+      </div>
+      <div class="code-panel" data-reveal>
+        <div class="code-head">UABissGame / <span data-i18n="uabiz.a.tree">структура репозиторію</span></div>
+<pre data-i18n="uabiz.a.pre"><b>index.html</b>          <i>усі 13 вкладок інтерфейсу</i>
+<b>js/core/</b>
+  gameLoop.js       <i>операційний день: порядок виклику менеджерів</i>
+  state.js          <i>єдиний об'єкт стану гри</i>
+  utils.js          <i>формати грошей, дат, чисел</i>
+<b>js/data/</b>
+  recipes.js        <i>40 ресурсів і рецепти виробництва</i>
+  geoData.js        <i>міста, податки, макроекономіка</i>
+<b>js/managers/</b>
+  ledger.js         <i>головна книга: подвійний запис</i>
+  finance.js        <i>P&amp;L, баланс, cash flow, коефіцієнти</i>
+  production.js     <i>заводи, станки, зміни</i>
+  warehouse.js      <i>склади, обсяги, залишки</i>
+  logistics.js      <i>маршрути й вартість доставки</i>
+  market.js         <i>роздрібний попит і ціни</i>
+  b2bAI.js          <i>поведінка оптових контрагентів</i>
+  contracts.js      <i>B2B-угоди та B2G-тендери</i>
+  retail.js         <i>магазини, вітрини, персонал</i>
+  rnd.js            <i>дослідження й дерево технологій</i>
+  stockMarket.js    <i>котирування та емісія акцій</i>
+  taxes.js          <i>податок на прибуток, ЄСВ, ПДВ</i>
+  hr.js             <i>наймання, зарплати, продуктивність</i>
+  events.js         <i>випадкові події та кризи</i>
+  quests.js         <i>п'ять розділів прогресу</i>
+<b>js/ui/</b>
+  dashboardUI.js    <i>рендер вкладок і графіків</i>
+  wikiUI.js         <i>вбудована база знань</i>
+  tutorial.js       <i>навчання на 23 кроки</i>
+  notify.js         <i>сповіщення й бізнес-журнал</i></pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="shots">
+    <div class="shell">
+      <span class="eyebrow" data-i18n="common.s.shots">Скріншоти</span>
+      <h2 data-i18n="common.shots.h">Інтерфейс</h2>
+      <p class="prose" style="margin-bottom:26px" data-i18n="common.shots.hint">Натисніть на зображення, щоб відкрити його на весь екран. Стрілки ← → гортають галерею.</p>
+      <div class="gal" data-reveal>
+        <figure>
+          <img src="assets/screens/uabiz-dashboard.webp" alt="Зведення компанії: розділ прогресу, завдання та ключові метрики" loading="lazy" width="1600" height="1000">
+          <figcaption data-i18n="uabiz.g1">Зведення компанії та розділи прогресу</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/screens/uabiz-finance.webp" alt="Звіт про прибутки і збитки та баланс за стандартом МСФЗ" loading="lazy" width="1600" height="1000">
+          <figcaption data-i18n="uabiz.g2">Звітність: P&amp;L і баланс за МСФЗ</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/screens/uabiz-bank.webp" alt="Банківська вкладка: кредитний ліміт, застава, депозити" loading="lazy" width="1600" height="1000">
+          <figcaption data-i18n="uabiz.g3">Банк: застава, кредити, депозити</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/screens/uabiz-rnd.webp" alt="Центр досліджень і розробок: персонал лабораторії та генерація очок дослідження" loading="lazy" width="1600" height="1000">
+          <figcaption data-i18n="uabiz.g4">R&amp;D: лабораторія та дерево технологій</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/screens/uabiz-catalog.webp" alt="Каталог підприємств із заблокованими за технологіями заводами" loading="lazy" width="1600" height="1000">
+          <figcaption data-i18n="uabiz.g5">Каталог підприємств</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="shell">
+    <a class="card next-strip stretch" href="politics.html" data-reveal>
+      <span>
+        <small data-i18n="common.next">Наступний проєкт</small>
+        <strong>Grand Strategy — <span data-i18n="proj.politics.kick">Політичний симулятор</span></strong>
+      </span>
+      <span class="link-arrow"><span data-i18n="common.more">Детальніше</span> <svg><use href="#i-arrow"></use></svg></span>
+    </a>
+  </div>
+
+</main>
+
+<footer class="foot">
+  <div class="shell foot-in">
+    <span>© <span id="year">2026</span> Сергій Коваленко</span>
+    <span class="foot-meta" data-i18n="foot.meta">Зроблено вручну · Vanilla JS · GitHub Pages</span>
+  </div>
+</footer>
+
+<div class="cmdk" id="cmdk" role="dialog" aria-modal="true" aria-label="Навігація">
+  <div class="cmdk-box">
+    <input class="cmdk-input" id="cmdk-input" type="text" autocomplete="off" spellcheck="false" placeholder="Куди йдемо?" data-i18n-attr="placeholder:cmd.ph">
+    <ul class="cmdk-list" id="cmdk-list" role="listbox"></ul>
+    <div class="cmdk-foot">
+      <span>↑↓ <span data-i18n="cmd.nav">навігація</span></span>
+      <span>↵ <span data-i18n="cmd.open">відкрити</span></span>
+      <span>esc <span data-i18n="cmd.close">закрити</span></span>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/app.js"></script>
 </body>
 </html>

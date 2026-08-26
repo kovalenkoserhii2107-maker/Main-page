@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="uk" data-accent="mint">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404 — сторінку не знайдено | Сергій Коваленко</title>
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#05060a">
+<link rel="icon" href="/Main-page/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/Main-page/assets/css/main.css">
+<style>
+  .nf { min-height: 100vh; display: grid; place-items: center; text-align: center; padding: 40px 20px; }
+  .nf code { font-family: var(--f-mono); font-size: clamp(4rem, 18vw, 9rem); line-height: 1;
+             background: linear-gradient(120deg, var(--a1), var(--a2));
+             -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .nf p { color: var(--tx-dim); margin: 18px 0 30px; }
+</style>
+</head>
+<body>
+
+<div class="bg-layer" aria-hidden="true"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></symbol>
+</svg>
+
+<main class="nf">
+  <div>
+    <code>404</code>
+    <p>Такої сторінки немає. Можливо, посилання застаріло.<br><span lang="en">This page does not exist — the link may be out of date.</span></p>
+    <a class="btn btn-primary" href="/Main-page/">
+      <svg><use href="#i-back"></use></svg>
+      <span>На головну / Back home</span>
+    </a>
+  </div>
+</main>
+
+</body>
+</html>
