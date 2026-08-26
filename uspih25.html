@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ОСББ "Успіх-25" PWA | Serhii Kovalenko</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --surface-color: #1e1e1e;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent: #34c759; /* Яблочно-зеленый акцент под стиль приложения */
+            --accent-hover: #2eb150;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .lang-btn {
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--text-primary);
+            padding: 5px 15px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        .lang-btn.active {
+            background: var(--accent);
+            color: #121212;
+            font-weight: bold;
+        }
+        .lang-btn:hover {
+            background: var(--accent-hover);
+            color: #121212;
+        }
+
+        /* БЕЗОПАСНОЕ СКРЫТИЕ ЯЗЫКОВ */
+        body [lang="uk"], body [lang="en"] { display: none; }
+        body.uk [lang="uk"] { display: block; }
+        body.en [lang="en"] { display: block; }
+        body span[lang="uk"], body span[lang="en"] { display: none; }
+        body.uk span[lang="uk"] { display: inline; }
+        body.en span[lang="en"] { display: inline; }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            margin-left: 20px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .back-link:hover {
+            color: var(--accent-hover);
+        }
+
+        header {
+            padding: 3rem 1rem 2rem;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem 4rem;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            max-height: 450px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-bottom: 2rem;
+            border: 1px solid #333;
+        }
+
+        .section-card {
+            background: var(--surface-color);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            color: #fff;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+            margin-top: 0;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            margin-bottom: 1rem;
+            padding-left: 24px;
+            position: relative;
+        }
+        .feature-list li::before {
+            content: '✓';
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        .tech-tag {
+            background: rgba(52, 199, 89, 0.1);
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        .btn {
+            background: var(--accent);
+            color: #121212;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 800;
+            transition: background 0.3s;
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+        .btn:hover { background: var(--accent-hover); }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+        .btn-outline:hover {
+            background: rgba(52, 199, 89, 0.1);
+            color: var(--accent);
+        }
+
+        /* Scroll Animations */
+        .hidden-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .show-scroll {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="uk">
+
+    <div class="lang-switcher">
+        <button class="lang-btn active" onclick="setLang('uk')">UA</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+
+    <a href="index.html" class="back-link">
+        <span lang="uk">← Повернутися до портфоліо</span>
+        <span lang="en">← Back to Portfolio</span>
+    </a>
+
+    <header class="hidden-scroll">
+        <h1>ОСББ «Успіх-25»</h1>
+        <p>
+            <span lang="uk">Progressive Web App для управління будинком</span>
+            <span lang="en">Progressive Web App for Residential Management</span>
+        </p>
+    </header>
+
+    <div class="container">
+        <!-- Временная заглушка приложения -->
+        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80" alt="App interface" class="hero-image hidden-scroll">
+
+        <div class="section-card hidden-scroll">
+            <h2>
+                <span lang="uk">Про проект</span>
+                <span lang="en">About the Project</span>
+            </h2>
+            <p lang="uk">
+                Комплексний веб-додаток (PWA) для автоматизації процесів управління об'єднанням співвласників багатоквартирного будинку. Додаток надає окремі інтерфейси для мешканців та правління. Проект дозволяє відмовитися від паперового документообігу та месенджерів на користь єдиної, безпечної екосистеми з юридично значущими інструментами.
+            </p>
+            <p lang="en">
+                A comprehensive web application (PWA) for automating the management processes of a homeowners' association. The app provides separate interfaces for residents and the board. The project allows replacing paper documents and messengers with a single, secure ecosystem featuring legally significant tools.
+            </p>
+
+            <div class="tech-stack">
+                <span class="tech-tag">HTML5 / CSS3 (Apple HIG)</span>
+                <span class="tech-tag">Vanilla JavaScript (ES Modules)</span>
+                <span class="tech-tag">Firebase (Firestore, Auth, Storage)</span>
+                <span class="tech-tag">PWA (Service Workers)</span>
+                <span class="tech-tag">Google Cloud Functions</span>
+            </div>
+        </div>
+
+        <div class="section-card hidden-scroll">
+            <h2>
+                <span lang="uk">Основний функціонал</span>
+                <span lang="en">Core Functionality</span>
+            </h2>
+            <ul class="feature-list">
+                <li>
+                    <span lang="uk"><strong>Захищене голосування:</strong> Система опитувань із гарантією "1 квартира = 1 голос" на рівні правил бази даних Firestore, з автоматичним підрахунком кворуму за площею та часткою власності.</span>
+                    <span lang="en"><strong>Secure Voting:</strong> Polling system with "1 apartment = 1 vote" guarantee enforced by Firestore database rules, featuring automatic quorum calculation by area and ownership share.</span>
+                </li>
+                <li>
+                    <span lang="uk"><strong>Біллінг та Квитанції:</strong> Автоматизований імпорт заборгованостей з CSV (створено власний парсер), генерація звітів про витрати ОСББ та інтеграція платіжних реквізитів.</span>
+                    <span lang="en"><strong>Billing & Receipts:</strong> Automated debt import from CSV (custom parser built), generation of association expense reports, and payment details integration.</span>
+                </li>
+                <li>
+                    <span lang="uk"><strong>Автоматизація ДТЕК (IoT):</strong> Інтеграція апаратного датчика (Android + MacroDroid), який передає статус електропостачання в додаток, та Cloud-скрейпер графіків відключень з сайту ДТЕК.</span>
+                    <span lang="en"><strong>DTEK Automation (IoT):</strong> Integration of a hardware sensor (Android + MacroDroid) transmitting power status to the app, alongside a Cloud scraper for blackout schedules from the DTEK website.</span>
+                </li>
+                <li>
+                    <span lang="uk"><strong>Кастомний генератор Excel:</strong> Реалізовано власний генератор файлів <code>.xlsx</code> (ZIP-архів + XML) на чистих Typed Arrays без використання важких сторонніх бібліотек, що дозволяє експортувати реєстри власників на льоту.</span>
+                    <span lang="en"><strong>Custom Excel Generator:</strong> Built a native <code>.xlsx</code> file generator (ZIP archive + XML) using raw Typed Arrays without heavy third-party libraries, allowing on-the-fly export of ownership registries.</span>
+                </li>
+                <li>
+                    <span lang="uk"><strong>Service Workers & Офлайн:</strong> PWA кешує інтерфейс та правила Статуту (FAQ), дозволяючи користуватися додатком навіть без підключення до мережі. Власна реалізація pull-to-refresh жесту.</span>
+                    <span lang="en"><strong>Service Workers & Offline:</strong> The PWA caches the UI and association bylaws (FAQ), enabling app usage even without a network connection. Custom implementation of the pull-to-refresh gesture.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="btn-group hidden-scroll">
+            <a href="https://kovalenkoserhii2107-maker.github.io/USPIH-25" target="_blank" class="btn">
+                <span lang="uk">📱 Відкрити додаток</span>
+                <span lang="en">📱 Open Web App</span>
+            </a>
+            <a href="https://github.com/kovalenkoserhii2107-maker/USPIH-25" target="_blank" class="btn btn-outline">
+                <span lang="uk">💻 Код на GitHub</span>
+                <span lang="en">💻 Source Code</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function setLang(lang) {
+            document.body.className = lang;
+            const buttons = document.querySelectorAll('.lang-btn');
+            buttons.forEach(btn => {
+                if(btn.innerText.toLowerCase() === lang.toLowerCase()) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show-scroll');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.hidden-scroll').forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>
