@@ -600,8 +600,13 @@ p:last-child { margin-bottom: 0; }
     left: 14px;
     top: 14px;
     z-index: 2;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    /* screenshots underneath run from near-white to fully saturated, so the
+       badge carries its own dark plate instead of tinting whatever is behind */
+    background: rgba(6, 8, 13, 0.88);
+    border-color: color-mix(in srgb, currentColor 55%, transparent);
+    box-shadow: 0 6px 20px -8px rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px) saturate(140%);
+    -webkit-backdrop-filter: blur(10px) saturate(140%);
 }
 
 .proj-body {
