@@ -12,7 +12,6 @@
             --text-secondary: #a0a0a0;
             --accent: #3498db;
             --accent-hover: #2980b9;
-            --green: #2ecc71;
         }
 
         body {
@@ -50,11 +49,13 @@
             background: var(--accent-hover);
         }
 
-        [lang="uk"], [lang="en"] { display: none; }
-        body.uk [lang="uk"] { display: block; }
-        body.en [lang="en"] { display: block; }
-        span[lang="uk"], span[lang="en"] { display: none; }
+        /* БЕЗОПАСНОЕ СКРЫТИЕ ЯЗЫКОВ (тег html не затрагивается) */
+        *[lang]:not(html) { display: none; }
+        
+        body.uk *[lang="uk"]:not(span) { display: block; }
         body.uk span[lang="uk"] { display: inline; }
+        
+        body.en *[lang="en"]:not(span) { display: block; }
         body.en span[lang="en"] { display: inline; }
 
         .back-link {
@@ -173,17 +174,6 @@
         .btn-outline:hover {
             background: rgba(52, 152, 219, 0.1);
         }
-
-        /* Scroll Animations */
-        .hidden-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .show-scroll {
-            opacity: 1;
-            transform: translateY(0);
-        }
     </style>
 </head>
 <body class="uk">
@@ -198,7 +188,7 @@
         <span lang="en">← Back to Portfolio</span>
     </a>
 
-    <header class="hidden-scroll">
+    <header>
         <h1>UABiz</h1>
         <p>
             <span lang="uk">Глобальний Економічний Симулятор</span>
@@ -207,10 +197,10 @@
     </header>
 
     <div class="container">
-        <!-- Hero Image (Используем ту же финансовую картинку, что и для превью) -->
-        <img src="images/wiki_finance_1786758956618.jpg" alt="UABiz Dashboard" class="hero-image hidden-scroll">
+        <!-- Временная картинка-заглушка из интернета, чтобы сразу работало -->
+        <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80" alt="UABiz Dashboard" class="hero-image">
 
-        <div class="section-card hidden-scroll">
+        <div class="section-card">
             <h2>
                 <span lang="uk">Про проект</span>
                 <span lang="en">About the Project</span>
@@ -231,45 +221,41 @@
             </div>
         </div>
 
-        <div class="section-card hidden-scroll">
+        <div class="section-card">
             <h2>
                 <span lang="uk">Ключові механіки</span>
                 <span lang="en">Key Mechanics</span>
             </h2>
             <ul class="feature-list">
                 <li>
-                    <span lang="uk"><strong>Гео-економіка та Логістика:</strong> Управління складами та транспортними витратами між Києвом, Харковом, Одесою, Дніпром та Львовом. Кожне місто має власні коефіцієнти оренди, зарплат та попиту.</span>
-                    <span lang="en"><strong>Geo-economics & Logistics:</strong> Warehouse management and transport costs between Kyiv, Kharkiv, Odesa, Dnipro, and Lviv. Each city has unique multipliers for rent, salaries, and demand.</span>
+                    <span lang="uk"><strong>Гео-економіка та Логістика:</strong> Управління складами та транспортними витратами між містами України.</span>
+                    <span lang="en"><strong>Geo-economics & Logistics:</strong> Warehouse management and transport costs between Ukrainian cities.</span>
                 </li>
                 <li>
-                    <span lang="uk"><strong>Глобальний B2B Ринок:</strong> Динамічне ціноутворення на сировину та готову продукцію. Інерція виробництва, інфляція та конкуренція з AI-корпораціями, які можуть демпінгувати ціни.</span>
-                    <span lang="en"><strong>Global B2B Market:</strong> Dynamic pricing for raw materials and finished goods. Production inertia, inflation, and competition with AI corporations that can dump prices.</span>
+                    <span lang="uk"><strong>Глобальний B2B Ринок:</strong> Динамічне ціноутворення на сировину та готову продукцію.</span>
+                    <span lang="en"><strong>Global B2B Market:</strong> Dynamic pricing for raw materials and finished goods.</span>
                 </li>
                 <li>
-                    <span lang="uk"><strong>Виробничі ланцюжки:</strong> Понад 30 видів ресурсів (від пшениці до мікросхем). Можливість виробляти продукти харчування, одяг, сервери та навіть військові FPV-дрони.</span>
-                    <span lang="en"><strong>Production Chains:</strong> Over 30 types of resources (from wheat to microchips). Ability to produce food, clothing, servers, and even military FPV drones.</span>
+                    <span lang="uk"><strong>Виробничі ланцюжки:</strong> Понад 30 видів ресурсів (від пшениці до FPV-дронів).</span>
+                    <span lang="en"><strong>Production Chains:</strong> Over 30 types of resources (from wheat to FPV drones).</span>
                 </li>
                 <li>
-                    <span lang="uk"><strong>Фінансова звітність (МСФЗ):</strong> Автоматична генерація детальних звітів: P&L (Прибутки та збитки), Баланс, Cash Flow. Розрахунок EBITDA, ROE, ROA та маржинальності.</span>
-                    <span lang="en"><strong>IFRS Financial Reporting:</strong> Automated generation of detailed reports: P&L, Balance Sheet, Cash Flow. Calculation of EBITDA, ROE, ROA, and profit margins.</span>
+                    <span lang="uk"><strong>Фінансова звітність (МСФЗ):</strong> Автоматична генерація детальних звітів: P&L, Баланс, Cash Flow.</span>
+                    <span lang="en"><strong>IFRS Financial Reporting:</strong> Automated generation of detailed reports: P&L, Balance Sheet, Cash Flow.</span>
                 </li>
                 <li>
-                    <span lang="uk"><strong>Банкінг та Податки:</strong> Динамічний кредитний рейтинг, заставні ліміти, депозити, штрафи за овердрафт та сплата корпоративних податків.</span>
-                    <span lang="en"><strong>Banking & Taxes:</strong> Dynamic credit scoring, collateral limits, deposits, overdraft penalties, and corporate tax payments.</span>
-                </li>
-                <li>
-                    <span lang="uk"><strong>HR та Наука (R&D):</strong> Наймання та навчання персоналу, управління фондом оплати праці. Дослідження нових креслень та покращення якості продукції.</span>
-                    <span lang="en"><strong>HR & R&D:</strong> Hiring and training staff, managing the payroll fund. Researching new blueprints and improving product quality.</span>
+                    <span lang="uk"><strong>Банкінг та Податки:</strong> Динамічний кредитний рейтинг, заставні ліміти, депозити та податки.</span>
+                    <span lang="en"><strong>Banking & Taxes:</strong> Dynamic credit scoring, collateral limits, deposits, and corporate tax payments.</span>
                 </li>
             </ul>
         </div>
 
-        <div class="btn-group hidden-scroll">
-            <a href="[ВСТАВИТИ ПОСИЛАННЯ НА ГРУ UABIZ]" target="_blank" class="btn">
+        <div class="btn-group">
+            <a href="#" class="btn">
                 <span lang="uk">🎮 Грати в браузері</span>
                 <span lang="en">🎮 Play in Browser</span>
             </a>
-            <a href="[ВСТАВИТИ ПОСИЛАННЯ НА РЕПОЗИТОРІЙ UABIZ]" target="_blank" class="btn btn-outline">
+            <a href="#" class="btn btn-outline">
                 <span lang="uk">💻 Код на GitHub</span>
                 <span lang="en">💻 Source Code</span>
             </a>
@@ -277,7 +263,6 @@
     </div>
 
     <script>
-        // Language Switcher Logic
         function setLang(lang) {
             document.body.className = lang;
             const buttons = document.querySelectorAll('.lang-btn');
@@ -289,17 +274,6 @@
                 }
             });
         }
-
-        // Scroll Animation Logic
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show-scroll');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.hidden-scroll').forEach((el) => observer.observe(el));
     </script>
 </body>
 </html>
