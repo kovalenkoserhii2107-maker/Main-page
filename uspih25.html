@@ -1,303 +1,248 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="uk" data-accent="mint">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ОСББ "Успіх-25" PWA | Serhii Kovalenko</title>
-    <style>
-        :root {
-            --bg-color: #121212;
-            --surface-color: #1e1e1e;
-            --text-primary: #e0e0e0;
-            --text-secondary: #a0a0a0;
-            --accent: #34c759; /* Яблочно-зеленый акцент под стиль приложения */
-            --accent-hover: #2eb150;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            overflow-x: hidden;
-        }
-
-        /* Language Switcher */
-        .lang-switcher {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            gap: 10px;
-        }
-        .lang-btn {
-            background: transparent;
-            border: 1px solid var(--accent);
-            color: var(--text-primary);
-            padding: 5px 15px;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: all 0.3s;
-        }
-        .lang-btn.active {
-            background: var(--accent);
-            color: #121212;
-            font-weight: bold;
-        }
-        .lang-btn:hover {
-            background: var(--accent-hover);
-            color: #121212;
-        }
-
-        /* БЕЗОПАСНОЕ СКРЫТИЕ ЯЗЫКОВ */
-        body [lang="uk"], body [lang="en"] { display: none; }
-        body.uk [lang="uk"] { display: block; }
-        body.en [lang="en"] { display: block; }
-        body span[lang="uk"], body span[lang="en"] { display: none; }
-        body.uk span[lang="uk"] { display: inline; }
-        body.en span[lang="en"] { display: inline; }
-
-        .back-link {
-            display: inline-block;
-            margin-top: 20px;
-            margin-left: 20px;
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-        .back-link:hover {
-            color: var(--accent-hover);
-        }
-
-        header {
-            padding: 3rem 1rem 2rem;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            color: #fff;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 1rem 4rem;
-        }
-
-        .hero-image {
-            width: 100%;
-            height: auto;
-            max-height: 450px;
-            object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            margin-bottom: 2rem;
-            border: 1px solid #333;
-        }
-
-        .section-card {
-            background: var(--surface-color);
-            padding: 2rem;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-        }
-
-        h2 {
-            color: #fff;
-            border-bottom: 2px solid var(--accent);
-            padding-bottom: 0.5rem;
-            display: inline-block;
-            margin-top: 0;
-        }
-
-        .feature-list {
-            list-style: none;
-            padding: 0;
-        }
-        .feature-list li {
-            margin-bottom: 1rem;
-            padding-left: 24px;
-            position: relative;
-        }
-        .feature-list li::before {
-            content: '✓';
-            color: var(--accent);
-            position: absolute;
-            left: 0;
-            top: 0;
-            font-size: 1rem;
-        }
-
-        .tech-stack {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-        }
-        .tech-tag {
-            background: rgba(52, 199, 89, 0.1);
-            color: var(--accent);
-            border: 1px solid var(--accent);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: bold;
-        }
-
-        .btn-group {
-            display: flex;
-            gap: 15px;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-        .btn {
-            background: var(--accent);
-            color: #121212;
-            padding: 0.8rem 1.5rem;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 800;
-            transition: background 0.3s;
-            text-align: center;
-            flex: 1;
-            min-width: 200px;
-        }
-        .btn:hover { background: var(--accent-hover); }
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--accent);
-            color: var(--accent);
-        }
-        .btn-outline:hover {
-            background: rgba(52, 199, 89, 0.1);
-            color: var(--accent);
-        }
-
-        /* Scroll Animations */
-        .hidden-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .show-scroll {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ОСББ «Успіх-25» — PWA для управління будинком | Сергій Коваленко</title>
+<meta name="description" content="Progressive Web App для ОСББ: захищене голосування з кворумом за площею, білінг, звернення мешканців, графіки відключень ДТЕК. Vanilla JS + Firebase.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#05060a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ОСББ «Успіх-25» — PWA для управління будинком">
+<meta property="og:description" content="Голосування з кворумом за площею, білінг, офлайн-режим і власний генератор .xlsx у браузері.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/main.css">
 </head>
-<body class="uk">
+<body>
 
-    <div class="lang-switcher">
-        <button class="lang-btn active" onclick="setLang('uk')">UA</button>
-        <button class="lang-btn" onclick="setLang('en')">EN</button>
+<a class="skip" href="#main" data-i18n="common.skip">Перейти до вмісту</a>
+
+<div class="bg-layer" aria-hidden="true"></div>
+<canvas id="bg-grid" aria-hidden="true"></canvas>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-github" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.4.5 0 5.9 0 12.6c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.4 3.6 1 .1-.8.4-1.4.8-1.7-2.7-.3-5.5-1.4-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.6 4.9 18.6 5.2 18.6 5.2c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A12.1 12.1 0 0 0 24 12.6C24 5.9 18.6.5 12 .5z"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+  <symbol id="i-chev-l" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></symbol>
+  <symbol id="i-chev-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="shell nav-in">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">SK</span>
+      <span class="brand-txt">Сергій Коваленко<small data-i18n="common.role">Software Engineer</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Основна навігація">
+      <a href="index.html#projects" data-i18n="nav.projects">Проєкти</a>
+      <a href="index.html#stack" data-i18n="nav.stack">Стек</a>
+      <a href="index.html#about" data-i18n="nav.about">Про мене</a>
+      <a href="index.html#contact" data-i18n="nav.contact">Контакти</a>
+    </nav>
+    <div class="nav-tools">
+      <button class="kbd-btn" data-cmdk-open type="button" aria-haspopup="dialog">
+        <span data-i18n="nav.search">Пошук</span><kbd>⌘K</kbd>
+      </button>
+      <div class="lang" role="group" aria-label="Мова / Language">
+        <button type="button" data-lang="uk" aria-pressed="true">UA</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
     </div>
+  </div>
+  <div class="scroll-bar" id="scroll-bar" aria-hidden="true"></div>
+</header>
 
-    <a href="index.html" class="back-link">
-        <span lang="uk">← Повернутися до портфоліо</span>
-        <span lang="en">← Back to Portfolio</span>
+<main id="main">
+
+  <section class="p-hero shell">
+    <a class="crumb" href="index.html#projects">
+      <svg><use href="#i-back"></use></svg>
+      <span data-i18n="common.back">Усі проєкти</span>
     </a>
 
-    <header class="hidden-scroll">
-        <h1>ОСББ «Успіх-25»</h1>
-        <p>
-            <span lang="uk">Progressive Web App для управління будинком</span>
-            <span lang="en">Progressive Web App for Residential Management</span>
-        </p>
-    </header>
+    <span class="status status-live" data-i18n="common.inprod">Працює в реальному будинку</span>
+    <h1 class="p-title">ОСББ «Успіх-25»</h1>
+    <p class="p-tag" data-i18n="uspih.tag">Progressive Web App для об'єднання співвласників: голосування з юридично коректним кворумом, білінг, звернення мешканців і графіки відключень світла — замість паперу, чатів і таблиць.</p>
 
-    <div class="container">
-        <!-- Временная заглушка приложения -->
-        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80" alt="App interface" class="hero-image hidden-scroll">
-
-        <div class="section-card hidden-scroll">
-            <h2>
-                <span lang="uk">Про проект</span>
-                <span lang="en">About the Project</span>
-            </h2>
-            <p lang="uk">
-                Комплексний веб-додаток (PWA) для автоматизації процесів управління об'єднанням співвласників багатоквартирного будинку. Додаток надає окремі інтерфейси для мешканців та правління. Проект дозволяє відмовитися від паперового документообігу та месенджерів на користь єдиної, безпечної екосистеми з юридично значущими інструментами.
-            </p>
-            <p lang="en">
-                A comprehensive web application (PWA) for automating the management processes of a homeowners' association. The app provides separate interfaces for residents and the board. The project allows replacing paper documents and messengers with a single, secure ecosystem featuring legally significant tools.
-            </p>
-
-            <div class="tech-stack">
-                <span class="tech-tag">HTML5 / CSS3 (Apple HIG)</span>
-                <span class="tech-tag">Vanilla JavaScript (ES Modules)</span>
-                <span class="tech-tag">Firebase (Firestore, Auth, Storage)</span>
-                <span class="tech-tag">PWA (Service Workers)</span>
-                <span class="tech-tag">Google Cloud Functions</span>
-            </div>
-        </div>
-
-        <div class="section-card hidden-scroll">
-            <h2>
-                <span lang="uk">Основний функціонал</span>
-                <span lang="en">Core Functionality</span>
-            </h2>
-            <ul class="feature-list">
-                <li>
-                    <span lang="uk"><strong>Захищене голосування:</strong> Система опитувань із гарантією "1 квартира = 1 голос" на рівні правил бази даних Firestore, з автоматичним підрахунком кворуму за площею та часткою власності.</span>
-                    <span lang="en"><strong>Secure Voting:</strong> Polling system with "1 apartment = 1 vote" guarantee enforced by Firestore database rules, featuring automatic quorum calculation by area and ownership share.</span>
-                </li>
-                <li>
-                    <span lang="uk"><strong>Біллінг та Квитанції:</strong> Автоматизований імпорт заборгованостей з CSV (створено власний парсер), генерація звітів про витрати ОСББ та інтеграція платіжних реквізитів.</span>
-                    <span lang="en"><strong>Billing & Receipts:</strong> Automated debt import from CSV (custom parser built), generation of association expense reports, and payment details integration.</span>
-                </li>
-                <li>
-                    <span lang="uk"><strong>Автоматизація ДТЕК (IoT):</strong> Інтеграція апаратного датчика (Android + MacroDroid), який передає статус електропостачання в додаток, та Cloud-скрейпер графіків відключень з сайту ДТЕК.</span>
-                    <span lang="en"><strong>DTEK Automation (IoT):</strong> Integration of a hardware sensor (Android + MacroDroid) transmitting power status to the app, alongside a Cloud scraper for blackout schedules from the DTEK website.</span>
-                </li>
-                <li>
-                    <span lang="uk"><strong>Кастомний генератор Excel:</strong> Реалізовано власний генератор файлів <code>.xlsx</code> (ZIP-архів + XML) на чистих Typed Arrays без використання важких сторонніх бібліотек, що дозволяє експортувати реєстри власників на льоту.</span>
-                    <span lang="en"><strong>Custom Excel Generator:</strong> Built a native <code>.xlsx</code> file generator (ZIP archive + XML) using raw Typed Arrays without heavy third-party libraries, allowing on-the-fly export of ownership registries.</span>
-                </li>
-                <li>
-                    <span lang="uk"><strong>Service Workers & Офлайн:</strong> PWA кешує інтерфейс та правила Статуту (FAQ), дозволяючи користуватися додатком навіть без підключення до мережі. Власна реалізація pull-to-refresh жесту.</span>
-                    <span lang="en"><strong>Service Workers & Offline:</strong> The PWA caches the UI and association bylaws (FAQ), enabling app usage even without a network connection. Custom implementation of the pull-to-refresh gesture.</span>
-                </li>
-            </ul>
-        </div>
-
-        <div class="btn-group hidden-scroll">
-            <a href="https://kovalenkoserhii2107-maker.github.io/USPIH-25" target="_blank" class="btn">
-                <span lang="uk">📱 Відкрити додаток</span>
-                <span lang="en">📱 Open Web App</span>
-            </a>
-            <a href="https://github.com/kovalenkoserhii2107-maker/USPIH-25" target="_blank" class="btn btn-outline">
-                <span lang="uk">💻 Код на GitHub</span>
-                <span lang="en">💻 Source Code</span>
-            </a>
-        </div>
+    <div class="p-cta">
+      <a class="btn btn-primary" href="https://kovalenkoserhii2107-maker.github.io/USPIH-25/" target="_blank" rel="noopener">
+        <svg><use href="#i-ext"></use></svg>
+        <span data-i18n="uspih.cta">Відкрити застосунок</span>
+      </a>
+      <a class="btn btn-ghost" href="https://github.com/kovalenkoserhii2107-maker/USPIH-25" target="_blank" rel="noopener">
+        <svg><use href="#i-github"></use></svg>
+        <span data-i18n="common.source">Код на GitHub</span>
+      </a>
     </div>
 
-    <script>
-        function setLang(lang) {
-            document.body.className = lang;
-            const buttons = document.querySelectorAll('.lang-btn');
-            buttons.forEach(btn => {
-                if(btn.innerText.toLowerCase() === lang.toLowerCase()) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
-        }
+    <dl class="meta-grid" data-reveal>
+      <div><dt data-i18n="common.m.type">Тип</dt><dd data-i18n="uspih.m.type">PWA, offline-first</dd></div>
+      <div><dt data-i18n="common.m.stack">Стек</dt><dd>Vanilla JS · Firebase</dd></div>
+      <div><dt data-i18n="common.m.role">Роль</dt><dd data-i18n="common.solo">Один розробник</dd></div>
+      <div><dt data-i18n="common.m.scale">Обсяг</dt><dd data-i18n="uspih.m.scale">25 модулів · ~10k рядків JS</dd></div>
+    </dl>
+  </section>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show-scroll');
-                }
-            });
-        }, { threshold: 0.1 });
+  <nav class="subnav" aria-label="Розділи сторінки">
+    <div class="shell">
+      <ul>
+        <li><a href="#overview" data-i18n="common.s.overview">Огляд</a></li>
+        <li><a href="#features" data-i18n="common.s.features">Можливості</a></li>
+        <li><a href="#arch" data-i18n="common.s.arch">Архітектура</a></li>
+        <li><a href="#shots" data-i18n="common.s.shots">Скріншоти</a></li>
+      </ul>
+    </div>
+  </nav>
 
-        document.querySelectorAll('.hidden-scroll').forEach((el) => observer.observe(el));
-    </script>
+  <section class="block" id="overview">
+    <div class="shell">
+      <span class="eyebrow" data-i18n="common.s.overview">Огляд</span>
+      <h2 data-i18n="uspih.o.h">Задача</h2>
+      <div class="prose" data-reveal>
+        <p data-i18n="uspih.o.p1">Управління багатоквартирним будинком тримається на паперових бюлетенях, чатах у месенджерах і таблицях, які веде хтось один. Голосування легко оскаржити, борги видно тільки бухгалтеру, а звернення губляться у стрічці повідомлень.</p>
+        <p data-i18n="uspih.o.p2">«Успіх-25» збирає це в один застосунок із двома ролями — мешканець і правління. Він встановлюється на телефон як звичайна програма, працює без мережі й не потребує ані магазину застосунків, ані власного сервера.</p>
+        <p data-i18n="uspih.o.p3">Найважливіше рішення архітектури — <strong>довіра лежить на сервері, а не на клієнті</strong>. Номер квартири береться не з тексту на екрані, а з токена автентифікації, і правила Firestore підтверджують це на кожен запис.</p>
+      </div>
+      <div class="chip-row" style="margin-top:26px">
+        <span class="chip">Vanilla JS (ES Modules)</span>
+        <span class="chip">Firebase Auth</span>
+        <span class="chip">Firestore + Security Rules</span>
+        <span class="chip">Cloud Storage</span>
+        <span class="chip">Cloud Functions</span>
+        <span class="chip">Service Workers</span>
+        <span class="chip">GitHub Pages</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="features">
+    <div class="shell">
+      <span class="eyebrow" data-i18n="common.s.features">Можливості</span>
+      <h2 data-i18n="uspih.f.h">Що вміє застосунок</h2>
+      <div class="feat">
+        <article class="card feat-item" data-reveal>
+          <span class="feat-num">01</span>
+          <h3 data-i18n="uspih.f1.t">Голосування з кворумом за площею</h3>
+          <p data-i18n="uspih.f1.p">Правило «1 квартира = 1 голос» закріплене в Firestore Rules, а не в інтерфейсі. Кворум рахується за площею та часткою власності — так, як вимагає закон про ОСББ.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:70ms">
+          <span class="feat-num">02</span>
+          <h3 data-i18n="uspih.f2.t">Білінг і квитанції</h3>
+          <p data-i18n="uspih.f2.p">Імпорт заборгованостей із CSV власним парсером, звіти про витрати ОСББ, реквізити для оплати й історія нарахувань по кожній квартирі.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:140ms">
+          <span class="feat-num">03</span>
+          <h3 data-i18n="uspih.f3.t">Світло: датчик і графіки ДТЕК</h3>
+          <p data-i18n="uspih.f3.p">Апаратний датчик на базі Android + MacroDroid передає в застосунок реальний стан електропостачання, а Cloud Function щодня знімає графіки відключень із сайту ДТЕК.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:210ms">
+          <span class="feat-num">04</span>
+          <h3 data-i18n="uspih.f4.t">Генератор .xlsx у браузері</h3>
+          <p data-i18n="uspih.f4.p">Реєстри співвласників вивантажуються у справжній <code>.xlsx</code>. Файл (ZIP + XML) збирається вручну на Typed Arrays — без важких бібліотек і без запиту на сервер.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:280ms">
+          <span class="feat-num">05</span>
+          <h3 data-i18n="uspih.f5.t">Звернення й база документів</h3>
+          <p data-i18n="uspih.f5.p">Мешканець створює звернення з фото, правління бачить чергу зі статусами. Статут, протоколи та акти лежать у спільній базі з переглядачем документів.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:350ms">
+          <span class="feat-num">06</span>
+          <h3 data-i18n="uspih.f6.t">Офлайн і встановлення на телефон</h3>
+          <p data-i18n="uspih.f6.p">Service Worker кешує інтерфейс і розділ питань-відповідей, тож застосунок відкривається без мережі. Жест pull-to-refresh написаний власноруч, щоб поводитись як у нативних застосунках.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="arch">
+    <div class="shell">
+      <span class="eyebrow" data-i18n="common.s.arch">Архітектура</span>
+      <h2 data-i18n="uspih.a.h">Як це влаштовано</h2>
+      <div class="prose" style="margin-bottom:26px" data-reveal>
+        <p data-i18n="uspih.a.p">Жодного бандлера і жодного кроку збірки: браузер сам вантажить ES-модулі, GitHub Pages роздає статику, Firebase закриває автентифікацію, дані та файли. Уся палітра та типографіка живуть у CSS-змінних одного файлу.</p>
+      </div>
+      <div class="code-panel" data-reveal>
+        <div class="code-head">USPIH-25 / <span data-i18n="uspih.a.tree">структура репозиторію</span></div>
+<pre data-i18n="uspih.a.pre"><b>index.html</b>          <i>розмітка всіх екранів</i>
+<b>style.css</b>           <i>дизайн-система, усі кольори в :root</i>
+<b>firestore.rules</b>     <i>297 рядків правил доступу — головний захист</i>
+<b>sw.js</b>               <i>service worker, офлайн-кеш</i>
+<b>manifest.json</b>       <i>встановлення на домашній екран</i>
+<b>js/</b>
+  firebase.js       <i>ініціалізація + об'єкт сесії</i>
+  app.js            <i>вхід, маршрутизація екранів, навігація</i>
+  polls.js          <i>голосування, підрахунок кворуму</i>
+  finance.js        <i>баланс, витрати, квитанції</i>
+  owners.js         <i>співвласники, атомарне збереження</i>
+  requests.js       <i>звернення + база документів ОСББ</i>
+  dtek.js           <i>графіки відключень</i>
+  power.js          <i>статус електропостачання</i>
+  xlsx-write.js     <i>власний генератор .xlsx</i>
+  ledger.js         <i>журнал операцій</i>
+  ui.js             <i>панелі, сповіщення, формати</i>
+  <i>… ще 14 модулів</i>
+<b>functions/</b>
+  dtek.js           <i>Cloud Function: скрейпер графіків ДТЕК</i></pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="shots">
+    <div class="shell">
+      <span class="eyebrow" data-i18n="common.s.shots">Скріншоти</span>
+      <h2 data-i18n="common.shots.h">Інтерфейс</h2>
+      <p class="prose" style="margin-bottom:26px" data-i18n="common.shots.hint">Натисніть на зображення, щоб відкрити його на весь екран. Стрілки ← → гортають галерею.</p>
+      <div class="gal" data-reveal>
+        <figure class="tall">
+          <img src="assets/screens/uspih-dashboard.webp" alt="Головний екран мешканця: квартира, статус світла, переплата, залишок на рахунку ОСББ" loading="lazy" width="900" height="1653">
+          <figcaption data-i18n="uspih.g1">Кабінет мешканця</figcaption>
+        </figure>
+        <figure class="tall">
+          <img src="assets/screens/uspih-login.webp" alt="Екран входу за номером квартири та паролем" loading="lazy" width="900" height="1060">
+          <figcaption data-i18n="uspih.g2">Вхід за номером квартири</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="shell">
+    <a class="card next-strip stretch" href="uabiz.html" data-reveal>
+      <span>
+        <small data-i18n="common.next">Наступний проєкт</small>
+        <strong>UABiz — <span data-i18n="proj.uabiz.kick">Економічний симулятор</span></strong>
+      </span>
+      <span class="link-arrow"><span data-i18n="common.more">Детальніше</span> <svg><use href="#i-arrow"></use></svg></span>
+    </a>
+  </div>
+
+</main>
+
+<footer class="foot">
+  <div class="shell foot-in">
+    <span>© <span id="year">2026</span> Сергій Коваленко</span>
+    <span class="foot-meta" data-i18n="foot.meta">Зроблено вручну · Vanilla JS · GitHub Pages</span>
+  </div>
+</footer>
+
+<div class="cmdk" id="cmdk" role="dialog" aria-modal="true" aria-label="Навігація">
+  <div class="cmdk-box">
+    <input class="cmdk-input" id="cmdk-input" type="text" autocomplete="off" spellcheck="false" placeholder="Куди йдемо?" data-i18n-attr="placeholder:cmd.ph">
+    <ul class="cmdk-list" id="cmdk-list" role="listbox"></ul>
+    <div class="cmdk-foot">
+      <span>↑↓ <span data-i18n="cmd.nav">навігація</span></span>
+      <span>↵ <span data-i18n="cmd.open">відкрити</span></span>
+      <span>esc <span data-i18n="cmd.close">закрити</span></span>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/app.js"></script>
 </body>
 </html>

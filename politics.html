@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="uk" data-accent="amber">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grand Strategy — політичний симулятор | Сергій Коваленко</title>
+<meta name="description" content="Покрокова стратегія на карті світу: 236 держав, 743 згенеровані області, армії, податки й дипломатія. Власний SVG-рушій без бібліотек.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#05060a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Grand Strategy — політичний симулятор">
+<meta property="og:description" content="236 держав, 743 області, нарізані з Natural Earth офлайн-генератором. Карта, армії, бюджет.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<a class="skip" href="#main" data-i18n="common.skip">Перейти до вмісту</a>
+
+<div class="bg-layer" aria-hidden="true"></div>
+<canvas id="bg-grid" aria-hidden="true"></canvas>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-github" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.4.5 0 5.9 0 12.6c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.4 3.6 1 .1-.8.4-1.4.8-1.7-2.7-.3-5.5-1.4-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.6 4.9 18.6 5.2 18.6 5.2c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A12.1 12.1 0 0 0 24 12.6C24 5.9 18.6.5 12 .5z"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+  <symbol id="i-chev-l" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></symbol>
+  <symbol id="i-chev-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="shell nav-in">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">SK</span>
+      <span class="brand-txt">Сергій Коваленко<small data-i18n="common.role">Software Engineer</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Основна навігація">
+      <a href="index.html#projects" data-i18n="nav.projects">Проєкти</a>
+      <a href="index.html#stack" data-i18n="nav.stack">Стек</a>
+      <a href="index.html#about" data-i18n="nav.about">Про мене</a>
+      <a href="index.html#contact" data-i18n="nav.contact">Контакти</a>
+    </nav>
+    <div class="nav-tools">
+      <button class="kbd-btn" data-cmdk-open type="button" aria-haspopup="dialog">
+        <span data-i18n="nav.search">Пошук</span><kbd>⌘K</kbd>
+      </button>
+      <div class="lang" role="group" aria-label="Мова / Language">
+        <button type="button" data-lang="uk" aria-pressed="true">UA</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-bar" id="scroll-bar" aria-hidden="true"></div>
+</header>
+
+<main id="main">
+
+  <section class="p-hero shell">
+    <a class="crumb" href="index.html#projects">
+      <svg><use href="#i-back"></use></svg>
+      <span data-i18n="common.back">Усі проєкти</span>
+    </a>
+
+    <span class="status status-live" data-i18n="common.live">Працює</span>
+    <h1 class="p-title">Grand Strategy</h1>
+    <p class="p-tag" data-i18n="politics.tag">Покрокова політична стратегія на карті світу. Оберіть будь-яку з 236 держав, керуйте бюджетом і армією, віддавайте накази областям і закривайте хід. Карта не намальована вручну — вона згенерована з реальних географічних даних.</p>
+
+    <div class="p-cta">
+      <a class="btn btn-primary" href="https://kovalenkoserhii2107-maker.github.io/Politics-Game/" target="_blank" rel="noopener">
+        <svg><use href="#i-ext"></use></svg>
+        <span data-i18n="politics.cta">Грати в браузері</span>
+      </a>
+      <a class="btn btn-ghost" href="https://github.com/kovalenkoserhii2107-maker/Politics-Game" target="_blank" rel="noopener">
+        <svg><use href="#i-github"></use></svg>
+        <span data-i18n="common.source">Код на GitHub</span>
+      </a>
+    </div>
+
+    <dl class="meta-grid" data-reveal>
+      <div><dt data-i18n="common.m.type">Тип</dt><dd data-i18n="politics.m.type">Покрокова стратегія</dd></div>
+      <div><dt data-i18n="common.m.stack">Стек</dt><dd>Vanilla JS · SVG · Node.js</dd></div>
+      <div><dt data-i18n="politics.m.world">Світ</dt><dd data-i18n="politics.m.worldv">236 держав · 743 області</dd></div>
+      <div><dt data-i18n="politics.m.cities">Міста</dt><dd data-i18n="politics.m.citiesv">1013 у довіднику</dd></div>
+    </dl>
+  </section>
+
+  <nav class="subnav" aria-label="Розділи сторінки">
+    <div class="shell">
+      <ul>
+        <li><a href="#overview" data-i18n="common.s.overview">Огляд</a></li>
+        <li><a href="#features" data-i18n="common.s.features">Механіки</a></li>
+        <li><a href="#arch" data-i18n="common.s.arch">Архітектура</a></li>
+        <li><a href="#shots" data-i18n="common.s.shots">Скріншоти</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="block" id="overview">
+    <div class="shell">
+      <span class="eyebrow" data-i18n="common.s.overview">Огляд</span>
+      <h2 data-i18n="politics.o.h">Найцікавіше тут — карта</h2>
+      <div class="prose" data-reveal>
+        <p data-i18n="politics.o.p1">Ігрова карта світу зазвичай або малюється дизайнером, або береться готовою. Тут вона <strong>обчислюється</strong>: офлайн-генератор на Node.js бере геометрію країн із Natural Earth, ріже кожну державу сіткою квадратів і обрізає шматки по державному кордону.</p>
+        <p data-i18n="politics.o.p2">Кількість областей залежить від площі за формулою <code>N = clamp(round(20 · (S / S_max) ^ 0.4145), 1, 20)</code>. Опорні точки правила підібрані так, щоб велика держава отримала 20 областей, Україна — 5, Молдова — 2, а мікродержава — одну.</p>
+        <p data-i18n="politics.o.p3">Дрібні шматки, менші за 30% середньої площі, приклеюються до сусіда з найдовшим спільним кордоном. Назви областей беруться від найбільшого міста всередині; якщо міст немає — за стороною світу, причому сектор 3×3 гарантує, що назви не повторяться.</p>
+        <p data-i18n="politics.o.p4">Сусідство рахується по геометрії: спільний сухопутний кордон плюс морські переправи коротші за 120 км. Генератор детермінований — однаковий вхід завжди дає однаковий вихід, тому карту можна перезбирати без сюрпризів.</p>
+      </div>
+      <div class="chip-row" style="margin-top:26px">
+        <span class="chip">Vanilla JS (ES Modules)</span>
+        <span class="chip" data-i18n="chip.svgrender">SVG-рендеринг</span>
+        <span class="chip">Web Mercator</span>
+        <span class="chip">Natural Earth 1:50m</span>
+        <span class="chip" data-i18n="chip.nodegen">Node.js (генератор)</span>
+        <span class="chip">GitHub Pages</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="features">
+    <div class="shell">
+      <span class="eyebrow" data-i18n="common.s.features">Механіки</span>
+      <h2 data-i18n="politics.f.h">Що всередині</h2>
+      <div class="feat">
+        <article class="card feat-item" data-reveal>
+          <span class="feat-num">01</span>
+          <h3 data-i18n="politics.f1.t">Згенерована карта світу</h3>
+          <p data-i18n="politics.f1.p">743 області, нарізані з геометрії 236 держав. Проєкція Web Mercator у системі координат viewBox 1200×800, граф областей кожної країни гарантовано зв'язний.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:70ms">
+          <span class="feat-num">02</span>
+          <h3 data-i18n="politics.f2.t">Власний рушій рендерингу</h3>
+          <p data-i18n="politics.f2.p">Камера з панорамуванням, зумом колесом і жестом pinch, підписи країн із масштабуванням за рівнем наближення, маркери армій — усе без картографічних бібліотек.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:140ms">
+          <span class="feat-num">03</span>
+          <h3 data-i18n="politics.f3.t">Економіка держави</h3>
+          <p data-i18n="politics.f3.p">Податкова ставка від 1% до 20%, прогноз бюджету на хід, населення, нафта, аграрний та індустріальний потенціал кожної області.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:210ms">
+          <span class="feat-num">04</span>
+          <h3 data-i18n="politics.f4.t">Роди військ і контрзаходи</h3>
+          <p data-i18n="politics.f4.p">Піхота, танки, артилерія, авіація та ППО. У кожного — атака, захист, вартість утримання, вимога до індустрії області та список того, кого він контрить.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:280ms">
+          <span class="feat-num">05</span>
+          <h3 data-i18n="politics.f5.t">Хід і накази</h3>
+          <p data-i18n="politics.f5.p">Марш, атака, скасування наказу — усе накопичується у журналі та розв'язується одночасно наприкінці ходу, як у класичних покрокових стратегіях.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:350ms">
+          <span class="feat-num">06</span>
+          <h3 data-i18n="politics.f6.t">Довідник із 1013 міст</h3>
+          <p data-i18n="politics.f6.p">Координати й населення міст беруться з відкритих наборів даних і використовуються для назв областей та розрахунку їхньої ваги.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="arch">
+    <div class="shell">
+      <span class="eyebrow" data-i18n="common.s.arch">Архітектура</span>
+      <h2 data-i18n="politics.a.h">Як це влаштовано</h2>
+      <div class="prose" style="margin-bottom:26px" data-reveal>
+        <p data-i18n="politics.a.p">Репозиторій поділений навпіл: <code>js/</code> — це рушій, який вантажиться у браузер, а <code>tools/</code> — офлайн-генератор на Node.js, який один раз перемелює географічні дані у статичні довідники. Файли в <code>js/data/</code> згенеровані й ніколи не правляться руками.</p>
+      </div>
+      <div class="code-panel" data-reveal>
+        <div class="code-head">Politics-Game / <span data-i18n="politics.a.tree">структура репозиторію</span></div>
+<pre data-i18n="politics.a.pre"><b>index.html</b>          <i>розмітка й стилі інтерфейсу</i>
+<b>js/</b>
+  main.js           <i>контролер і стартовий екран</i>
+  GameData.js       <i>модель світу, накази, розв'язання ходу</i>
+  MapEngine.js      <i>відрисовка карти, камера, підписи</i>
+  UIManager.js      <i>бічна панель, модалки, журнал</i>
+  GameLoop.js       <i>хід і економіка</i>
+  UnitsDB.js        <i>роди військ</i>
+  data/             <i>ЗГЕНЕРОВАНО — вручну не правити</i>
+    RegionsDB.js    <i>743 області · 1.5 МБ SVG-шляхів</i>
+    CountriesDB.js  <i>236 держав</i>
+    CitiesDB.js     <i>1013 міст</i>
+    NeighborsDB.js  <i>граф сусідства</i>
+<b>tools/</b>          <i>офлайн-генератор, ~40 с на перезбірку</i>
+  build_map.js      <i>точка входу генератора</i>
+  lib/geo.js        <i>проєкція Web Mercator, константи</i>
+  lib/svgmap.js     <i>нарізка країн і обрізка по кордону</i>
+  lib/translit.js   <i>транслітерація назв міст</i></pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="shots">
+    <div class="shell">
+      <span class="eyebrow" data-i18n="common.s.shots">Скріншоти</span>
+      <h2 data-i18n="common.shots.h">Інтерфейс</h2>
+      <p class="prose" style="margin-bottom:26px" data-i18n="common.shots.hint">Натисніть на зображення, щоб відкрити його на весь екран. Стрілки ← → гортають галерею.</p>
+      <div class="gal" data-reveal>
+        <figure>
+          <img src="assets/screens/politics-map.webp" alt="Політична карта Європи та Азії з підписами держав" loading="lazy" width="1600" height="1000">
+          <figcaption data-i18n="politics.g1">Карта світу на середньому зумі</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/screens/politics-region.webp" alt="Наближений вигляд карти: Україна та сусідні держави" loading="lazy" width="1600" height="1000">
+          <figcaption data-i18n="politics.g2">Наближення до регіону</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/screens/politics-gov.webp" alt="Модальне вікно управління державою: податкова ставка, армія, прогноз бюджету" loading="lazy" width="1600" height="1000">
+          <figcaption data-i18n="politics.g3">Управління державою: податки й армія</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/screens/politics-menu.webp" alt="Стартовий екран із вибором держави та її статистикою" loading="lazy" width="1600" height="1000">
+          <figcaption data-i18n="politics.g4">Вибір держави на старті</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="shell">
+    <a class="card next-strip stretch" href="uabank.html" data-reveal>
+      <span>
+        <small data-i18n="common.next">Наступний проєкт</small>
+        <strong>UABankSim — <span data-i18n="proj.bank.kick">Банківський симулятор</span></strong>
+      </span>
+      <span class="link-arrow"><span data-i18n="common.more">Детальніше</span> <svg><use href="#i-arrow"></use></svg></span>
+    </a>
+  </div>
+
+</main>
+
+<footer class="foot">
+  <div class="shell foot-in">
+    <span>© <span id="year">2026</span> Сергій Коваленко</span>
+    <span class="foot-meta" data-i18n="foot.meta">Зроблено вручну · Vanilla JS · GitHub Pages</span>
+  </div>
+</footer>
+
+<div class="cmdk" id="cmdk" role="dialog" aria-modal="true" aria-label="Навігація">
+  <div class="cmdk-box">
+    <input class="cmdk-input" id="cmdk-input" type="text" autocomplete="off" spellcheck="false" placeholder="Куди йдемо?" data-i18n-attr="placeholder:cmd.ph">
+    <ul class="cmdk-list" id="cmdk-list" role="listbox"></ul>
+    <div class="cmdk-foot">
+      <span>↑↓ <span data-i18n="cmd.nav">навігація</span></span>
+      <span>↵ <span data-i18n="cmd.open">відкрити</span></span>
+      <span>esc <span data-i18n="cmd.close">закрити</span></span>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

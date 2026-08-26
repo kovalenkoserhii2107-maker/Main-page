@@ -1,401 +1,371 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="uk" data-accent="mint">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сергій Коваленко | Serhii Kovalenko - Portfolio</title>
-    <style>
-        :root {
-            --bg-color: #121212;
-            --surface-color: #1e1e1e;
-            --text-primary: #e0e0e0;
-            --text-secondary: #a0a0a0;
-            --accent: #3498db;
-            --accent-hover: #2980b9;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Сергій Коваленко — симулятори, PWA та веб-системи</title>
+<meta name="description" content="Портфоліо Сергія Коваленка: браузерні економічні та політичні симулятори, offline-first PWA на Firebase, фінансові моделі. Vanilla JS без фреймворків.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#05060a">
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            overflow-x: hidden;
-        }
+<meta property="og:type" content="website">
+<meta property="og:title" content="Сергій Коваленко — симулятори, PWA та веб-системи">
+<meta property="og:description" content="Чотири проєкти: ОСББ «Успіх-25», UABiz, Grand Strategy і UABankSim. Vanilla JS, Firebase, власні симуляційні рушії.">
+<meta property="og:url" content="https://kovalenkoserhii2107-maker.github.io/Main-page/">
+<meta name="twitter:card" content="summary_large_image">
 
-        /* Language Switcher */
-        .lang-switcher {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            gap: 10px;
-            z-index: 100;
-        }
-        .lang-btn {
-            background: transparent;
-            border: 1px solid var(--accent);
-            color: var(--text-primary);
-            padding: 5px 15px;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: all 0.3s;
-        }
-        .lang-btn.active {
-            background: var(--accent);
-            color: #fff;
-        }
-        .lang-btn:hover {
-            background: var(--accent-hover);
-        }
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/main.css">
 
-        /* БЕЗОПАСНОЕ СКРЫТИЕ ЯЗЫКОВ */
-        body [lang="uk"], body [lang="en"] { display: none; }
-        body.uk [lang="uk"] { display: block; }
-        body.en [lang="en"] { display: block; }
-        body span[lang="uk"], body span[lang="en"] { display: none; }
-        body.uk span[lang="uk"] { display: inline; }
-        body.en span[lang="en"] { display: inline; }
-
-        header {
-            background-color: var(--surface-color);
-            padding: 5rem 1rem 3rem;
-            text-align: center;
-            border-bottom: 1px solid #333;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.8rem;
-            color: #fff;
-        }
-        header p {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            margin-top: 10px;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
-        }
-
-        h2 {
-            font-size: 2rem;
-            border-bottom: 2px solid var(--accent);
-            padding-bottom: 0.5rem;
-            margin-top: 2rem;
-            color: #fff;
-            display: inline-block;
-        }
-
-        /* Projects Grid */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .project-card {
-            background: var(--surface-color);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
-        }
-
-        /* Картинка для ОСББ (скриншот с телефона) имеет другие пропорции, делаем обрезку красивой */
-        .project-image {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            object-position: top; /* Чтобы скриншот мобильного прижимался к верху */
-            border-bottom: 1px solid #333;
-        }
-
-        .project-content {
-            padding: 1.5rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-content h3 {
-            margin-top: 0;
-            color: #fff;
-            font-size: 1.4rem;
-        }
-
-        .mechanics {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 1rem;
-            border-radius: 6px;
-            font-size: 0.95rem;
-            margin: 1.2rem 0;
-            color: var(--text-secondary);
-            flex: 1;
-        }
-        
-        .mechanics ul {
-            margin: 5px 0 0 0;
-            padding-left: 20px;
-        }
-
-        .btn {
-            display: inline-block;
-            background: var(--accent);
-            color: #fff;
-            padding: 0.7rem 1.2rem;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            transition: background 0.3s;
-            text-align: center;
-            width: 100%;
-            box-sizing: border-box;
-            margin-top: auto;
-        }
-        
-        .btn:hover {
-            background: var(--accent-hover);
-        }
-
-        /* About & Contacts */
-        .about-section {
-            background: var(--surface-color);
-            padding: 2.5rem;
-            border-radius: 12px;
-            margin-top: 4rem;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-        }
-
-        .contact-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-
-        .contact-links a {
-            color: #fff;
-            background: #333;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-
-        .contact-links a:hover {
-            background: var(--accent);
-        }
-
-        /* Scroll Animations */
-        .hidden-scroll {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .show-scroll {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Serhii Kovalenko",
+  "alternateName": "Коваленко Сергій Пилипович",
+  "jobTitle": "Software Engineer",
+  "url": "https://kovalenkoserhii2107-maker.github.io/Main-page/",
+  "sameAs": ["https://github.com/kovalenkoserhii2107-maker"],
+  "knowsAbout": ["JavaScript", "Progressive Web Apps", "Firebase", "Simulation engines", "Financial modelling"]
+}
+</script>
 </head>
-<body class="uk">
+<body>
 
-    <!-- Language Switcher -->
-    <div class="lang-switcher">
-        <button class="lang-btn active" onclick="setLang('uk')">UA</button>
-        <button class="lang-btn" onclick="setLang('en')">EN</button>
+<a class="skip" href="#main" data-i18n="common.skip">Перейти до вмісту</a>
+
+<div class="bg-layer" aria-hidden="true"></div>
+<canvas id="bg-grid" aria-hidden="true"></canvas>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-github" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.4.5 0 5.9 0 12.6c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.4 3.6 1 .1-.8.4-1.4.8-1.7-2.7-.3-5.5-1.4-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.6 4.9 18.6 5.2 18.6 5.2c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A12.1 12.1 0 0 0 24 12.6C24 5.9 18.6.5 12 .5z"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+  <symbol id="i-chev-l" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></symbol>
+  <symbol id="i-chev-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="shell nav-in">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">SK</span>
+      <span class="brand-txt">Сергій Коваленко<small data-i18n="common.role">Software Engineer</small></span>
+    </a>
+
+    <nav class="nav-links" aria-label="Основна навігація">
+      <a href="#projects" data-i18n="nav.projects">Проєкти</a>
+      <a href="#stack" data-i18n="nav.stack">Стек</a>
+      <a href="#about" data-i18n="nav.about">Про мене</a>
+      <a href="#contact" data-i18n="nav.contact">Контакти</a>
+    </nav>
+
+    <div class="nav-tools">
+      <button class="kbd-btn" data-cmdk-open type="button" aria-haspopup="dialog">
+        <span data-i18n="nav.search">Пошук</span><kbd>⌘K</kbd>
+      </button>
+      <div class="lang" role="group" aria-label="Мова / Language">
+        <button type="button" data-lang="uk" aria-pressed="true">UA</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
     </div>
+  </div>
+  <div class="scroll-bar" id="scroll-bar" aria-hidden="true"></div>
+</header>
 
-    <header>
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero shell">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow" data-i18n="hero.eyebrow">Full-stack · Симуляції · Україна</span>
         <h1>
-            <span lang="uk">Коваленко Сергій Пилипович</span>
-            <span lang="en">Serhii KOVALENKO</span>
+          <span data-i18n="hero.h1a">Будую браузерні</span><br>
+          <span class="grad" data-i18n="hero.h1b">симулятори та PWA</span>
         </h1>
-        <p>
-            <span lang="uk">Full-Stack Веб-розробка | Розробка ігор | Програмна інженерія</span>
-            <span lang="en">Full-Stack Web Development | Game Development | Software Engineering</span>
-        </p>
-    </header>
+        <p class="hero-sub" data-i18n="hero.sub">Складні системи без фреймворків: власні симуляційні рушії з подвійним бухгалтерським записом, offline-first застосунки на Firebase і генерація документів прямо в браузері. Нижче — чотири проєкти, кожен із відкритим кодом.</p>
 
-    <div class="container">
-        <h2>
-            <span lang="uk">Мої проекти</span>
-            <span lang="en">My Projects</span>
-        </h2>
-        
-        <div class="projects-grid">
-            
-            <!-- Project 1: UABiz -->
-            <div class="project-card hidden-scroll">
-                <img src="images/wiki_finance_1786758956618.jpg" alt="UABiz Financial Dashboard" class="project-image">
-                <div class="project-content">
-                    <h3 lang="uk">UABiz: Економічний симулятор</h3>
-                    <h3 lang="en">UABiz: Economic Simulator</h3>
-                    
-                    <p lang="uk">Масштабна браузерна стратегія. Керуйте компанією від малого бізнесу до мегакорпорації, контролюючи виробництво, логістику та фінанси.</p>
-                    <p lang="en">A massive browser-based grand strategy. Manage a company from a small business to a mega-corporation by controlling production, logistics, and finance.</p>
-                    
-                    <div class="mechanics">
-                        <strong lang="uk">Основні фічі:</strong>
-                        <strong lang="en">Core Features:</strong>
-                        <ul lang="uk">
-                            <li>Макроекономіка та банківські кредити</li>
-                            <li>Складні виробничі ланцюжки (B2B/B2C/B2G)</li>
-                            <li>Інтеграція Chart.js для МСФЗ звітності</li>
-                        </ul>
-                        <ul lang="en">
-                            <li>Macroeconomics and bank loans</li>
-                            <li>Complex production chains (B2B/B2C/B2G)</li>
-                            <li>Chart.js integration for IFRS reporting</li>
-                        </ul>
-                    </div>
-                    <!-- Ссылка на внутреннюю страницу проекта -->
-                    <a href="uabiz.html" class="btn">
-                        <span lang="uk">Детальніше про проект</span>
-                        <span lang="en">View Project Details</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Project 2: ОСББ "Успіх-25" -->
-            <div class="project-card hidden-scroll">
-                <!-- Путь к твоему мобильному скриншоту -->
-                <img src="images/image.png" alt="ОСББ Успіх-25 App" class="project-image">
-                <div class="project-content">
-                    <h3 lang="uk">ОСББ «Успіх-25»</h3>
-                    <h3 lang="en">HOA "Uspih-25" PWA</h3>
-                    
-                    <p lang="uk">Progressive Web App (PWA) для управління багатоквартирним будинком. Замінює паперовий документообіг та месенджери.</p>
-                    <p lang="en">A Progressive Web App (PWA) for residential building management. Replaces paper document flow and messengers.</p>
-                    
-                    <div class="mechanics">
-                        <strong lang="uk">Основні фічі:</strong>
-                        <strong lang="en">Core Features:</strong>
-                        <ul lang="uk">
-                            <li>Захищена система голосувань (Firestore Rules)</li>
-                            <li>Автоматизація парсингу графіків ДТЕК</li>
-                            <li>Власний генератор .xlsx звітів (Typed Arrays)</li>
-                            <li>Vanilla JS, Firebase (Auth, Storage, Functions)</li>
-                        </ul>
-                        <ul lang="en">
-                            <li>Secure voting system (Firestore Rules)</li>
-                            <li>Automated blackout schedule parsing (IoT/Cloud)</li>
-                            <li>Custom .xlsx report generator (Typed Arrays)</li>
-                            <li>Vanilla JS, Firebase (Auth, Storage, Functions)</li>
-                        </ul>
-                    </div>
-                    <!-- Ссылка на внутреннюю страницу проекта -->
-                    <a href="uspih25.html" class="btn">
-                        <span lang="uk">Детальніше про проект</span>
-                        <span lang="en">View Project Details</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Project 3: Placeholder (Вертолеты или другое) -->
-            <div class="project-card hidden-scroll">
-                <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=800&q=80" alt="Game Dev" class="project-image">
-                <div class="project-content">
-                    <h3 lang="uk">3D Вертолітний Екшен (У розробці)</h3>
-                    <h3 lang="en">3D Helicopter Action (WIP)</h3>
-                    
-                    <p lang="uk">Динамічна 3D-гра на рушії Unity з реалістичною фізикою польоту та бойовою системою.</p>
-                    <p lang="en">A dynamic 3D game built with Unity engine featuring realistic flight physics and combat systems.</p>
-                    
-                    <div class="mechanics">
-                        <strong lang="uk">Технології:</strong>
-                        <strong lang="en">Technologies:</strong>
-                        <ul lang="uk">
-                            <li>C# та Unity Engine</li>
-                            <li>Фізика твердих тіл (Rigidbody)</li>
-                            <li>Штучний інтелект супротивників</li>
-                        </ul>
-                        <ul lang="en">
-                            <li>C# and Unity Engine</li>
-                            <li>Rigidbody physics</li>
-                            <li>Enemy Artificial Intelligence</li>
-                        </ul>
-                    </div>
-                    <a href="#" class="btn" style="background: var(--surface-color); border: 1px solid var(--text-secondary); color: var(--text-secondary);">
-                        <span lang="uk">Очікується реліз</span>
-                        <span lang="en">Coming Soon</span>
-                    </a>
-                </div>
-            </div>
-
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#projects">
+            <span data-i18n="hero.cta1">Дивитися проєкти</span>
+            <svg><use href="#i-arrow"></use></svg>
+          </a>
+          <a class="btn btn-ghost" href="https://github.com/kovalenkoserhii2107-maker" target="_blank" rel="noopener">
+            <svg><use href="#i-github"></use></svg>
+            <span>GitHub</span>
+          </a>
         </div>
 
-        <!-- About Section -->
-        <div class="about-section hidden-scroll">
-            <h2>
-                <span lang="uk">Про мене</span>
-                <span lang="en">About Me</span>
-            </h2>
-            
-            <p lang="uk">Вітаю! Я розробник з великим інтересом до створення ігрових світів, складних веб-додатків та систем автоматизації. Цей сайт слугує портфоліо моїх пет-проектів, прототипів та експериментів з новими технологіями.</p>
-            <p lang="en">Hello! I'm a developer with a deep passion for creating game worlds, complex web applications, and automation systems. This site serves as a portfolio for my pet projects, prototypes, and experiments with new technologies.</p>
-            
-            <h3 style="color: #fff; margin-top: 2rem;">
-                <span lang="uk">Контакти</span>
-                <span lang="en">Contact</span>
-            </h3>
-            <div class="contact-links">
-                <a href="mailto:[ВСТАВИТИ EMAIL / INSERT EMAIL]">Email</a>
-                <a href="[ВСТАВИТИ GITHUB / INSERT GITHUB]" target="_blank">GitHub</a>
-                <a href="[ВСТАВИТИ ТЕЛЕГРАМ / INSERT TELEGRAM]" target="_blank">Telegram</a>
-                <a href="[ВСТАВИТИ LINKEDIN АБО ІНШЕ / INSERT OTHER]" target="_blank">LinkedIn</a>
-            </div>
+        <div class="stat-row" data-reveal>
+          <div class="stat"><b>4</b><span data-i18n="hero.s1">проєкти</span></div>
+          <div class="stat"><b>3</b><span data-i18n="hero.s2">у продакшні</span></div>
+          <div class="stat"><b>0</b><span data-i18n="hero.s3">фреймворків</span></div>
         </div>
+      </div>
+
+      <div class="term" data-reveal style="--d:120ms">
+        <div class="term-bar">
+          <i class="term-dot"></i><i class="term-dot"></i><i class="term-dot"></i>
+          <span class="term-name">~/portfolio — profile.json</span>
+        </div>
+        <div class="term-body" id="term" aria-hidden="true"></div>
+        <noscript><div class="term-body" style="min-height:0">
+          <span class="l"><span class="c-k">"stack"</span>: <span class="c-s">"Vanilla JS · Firebase · Chart.js · SVG"</span></span>
+          <span class="l"><span class="c-k">"focus"</span>: <span class="c-s">"simulation engines, PWA, fintech models"</span></span>
+        </div></noscript>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section class="section shell" id="projects">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow" data-i18n="proj.eyebrow">Вибрані роботи</span>
+        <h2 class="h-sec" data-i18n="proj.title">Проєкти</h2>
+      </div>
+      <p class="lede" data-i18n="proj.lede">Кожен проєкт має власну сторінку зі скріншотами, описом архітектури та посиланнями на репозиторій і живу версію.</p>
     </div>
 
-    <script>
-        // Language Switcher Logic
-        function setLang(lang) {
-            document.body.className = lang;
-            
-            const buttons = document.querySelectorAll('.lang-btn');
-            buttons.forEach(btn => {
-                if(btn.innerText.toLowerCase() === lang.toLowerCase()) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
-        }
+    <div class="proj-grid">
 
-        // Scroll Animation Logic
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.15
-        };
+      <!-- Успіх-25 -->
+      <article class="card proj" data-reveal>
+        <div class="proj-shot">
+          <span class="status status-live proj-badge" data-i18n="common.live">Працює</span>
+          <img src="assets/screens/uspih-dashboard.webp" alt="Головний екран застосунку ОСББ «Успіх-25»" loading="lazy" width="900" height="1653">
+        </div>
+        <div class="proj-body">
+          <span class="proj-kicker">PWA · Firebase</span>
+          <h3>ОСББ «Успіх-25»</h3>
+          <p class="proj-desc" data-i18n="proj.uspih.desc">Застосунок мешканця багатоквартирного будинку: голосування з кворумом за площею, білінг, звернення та графіки відключень світла.</p>
+          <div class="proj-facts">
+            <div data-i18n="proj.uspih.f1">Правила Firestore гарантують «1 квартира = 1 голос»</div>
+            <div data-i18n="proj.uspih.f2">Власний генератор .xlsx на Typed Arrays</div>
+            <div data-i18n="proj.uspih.f3">Офлайн-режим через Service Worker</div>
+          </div>
+          <div class="proj-foot">
+            <a class="link-arrow stretch" href="uspih25.html">
+              <span data-i18n="common.more">Детальніше</span>
+              <svg><use href="#i-arrow"></use></svg>
+            </a>
+            <div class="icon-links">
+              <a href="https://github.com/kovalenkoserhii2107-maker/USPIH-25" target="_blank" rel="noopener" aria-label="USPIH-25 на GitHub"><svg><use href="#i-github"></use></svg></a>
+              <a href="https://kovalenkoserhii2107-maker.github.io/USPIH-25/" target="_blank" rel="noopener" aria-label="Відкрити застосунок"><svg><use href="#i-ext"></use></svg></a>
+            </div>
+          </div>
+        </div>
+      </article>
 
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show-scroll');
-                } else {
-                    entry.target.classList.remove('show-scroll');
-                }
-            });
-        }, observerOptions);
+      <!-- UABiz -->
+      <article class="card proj" data-reveal style="--d:90ms">
+        <div class="proj-shot">
+          <span class="status status-live proj-badge" data-i18n="common.live">Працює</span>
+          <img src="assets/screens/uabiz-dashboard.webp" alt="Панель компанії в економічному симуляторі UABiz" loading="lazy" width="1600" height="1000">
+        </div>
+        <div class="proj-body">
+          <span class="proj-kicker" data-i18n="proj.uabiz.kick">Економічний симулятор</span>
+          <h3>UABiz</h3>
+          <p class="proj-desc" data-i18n="proj.uabiz.desc">Стратегія управління бізнесом: від першого магазину до національної корпорації з заводами, логістикою, R&amp;D і виходом на біржу.</p>
+          <div class="proj-facts">
+            <div data-i18n="proj.uabiz.f1">Звітність за МСФЗ: P&amp;L, баланс, cash flow</div>
+            <div data-i18n="proj.uabiz.f2">Виробничі ланцюжки B2B / B2C / B2G</div>
+            <div data-i18n="proj.uabiz.f3">Кредитний скоринг, застави й депозити</div>
+          </div>
+          <div class="proj-foot">
+            <a class="link-arrow stretch" href="uabiz.html">
+              <span data-i18n="common.more">Детальніше</span>
+              <svg><use href="#i-arrow"></use></svg>
+            </a>
+            <div class="icon-links">
+              <a href="https://github.com/kovalenkoserhii2107-maker/UABissGame" target="_blank" rel="noopener" aria-label="UABissGame на GitHub"><svg><use href="#i-github"></use></svg></a>
+              <a href="https://kovalenkoserhii2107-maker.github.io/UABissGame/" target="_blank" rel="noopener" aria-label="Грати в UABiz"><svg><use href="#i-ext"></use></svg></a>
+            </div>
+          </div>
+        </div>
+      </article>
 
-        const hiddenElements = document.querySelectorAll('.hidden-scroll');
-        hiddenElements.forEach((el) => observer.observe(el));
-    </script>
+      <!-- Grand Strategy -->
+      <article class="card proj" data-reveal style="--d:180ms">
+        <div class="proj-shot">
+          <span class="status status-live proj-badge" data-i18n="common.live">Працює</span>
+          <img src="assets/screens/politics-map.webp" alt="Політична карта світу в симуляторі Grand Strategy" loading="lazy" width="1600" height="1000">
+        </div>
+        <div class="proj-body">
+          <span class="proj-kicker" data-i18n="proj.politics.kick">Політичний симулятор</span>
+          <h3>Grand Strategy</h3>
+          <p class="proj-desc" data-i18n="proj.politics.desc">Покрокова стратегія на карті світу: близько 200 держав, згенеровані області, армії, податки та дипломатія.</p>
+          <div class="proj-facts">
+            <div data-i18n="proj.politics.f1">Карта нарізана офлайн-генератором із Natural Earth</div>
+            <div data-i18n="proj.politics.f2">Сусідство рахується по геометрії кордонів</div>
+            <div data-i18n="proj.politics.f3">Власний SVG-рушій із камерою та зумом</div>
+          </div>
+          <div class="proj-foot">
+            <a class="link-arrow stretch" href="politics.html">
+              <span data-i18n="common.more">Детальніше</span>
+              <svg><use href="#i-arrow"></use></svg>
+            </a>
+            <div class="icon-links">
+              <a href="https://github.com/kovalenkoserhii2107-maker/Politics-Game" target="_blank" rel="noopener" aria-label="Politics-Game на GitHub"><svg><use href="#i-github"></use></svg></a>
+              <a href="https://kovalenkoserhii2107-maker.github.io/Politics-Game/" target="_blank" rel="noopener" aria-label="Грати в Grand Strategy"><svg><use href="#i-ext"></use></svg></a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- UABankSim -->
+      <article class="card proj" data-reveal style="--d:270ms">
+        <div class="proj-shot">
+          <span class="status status-wip proj-badge" data-i18n="common.wip">У розробці</span>
+          <div style="position:absolute;inset:0;background:
+                radial-gradient(600px 300px at 20% 0%, rgba(183,155,255,.22), transparent 65%),
+                linear-gradient(160deg,#0d1018,#090b11);
+                font-family:var(--f-mono);font-size:.72rem;line-height:2;color:var(--tx-mute);
+                padding:22px;overflow:hidden" aria-hidden="true">
+            <div style="color:#b79bff">— GENERAL LEDGER ——————————</div>
+            <div>Dt 2620 Кошти клієнтів &nbsp;&nbsp;&nbsp; 1 250 000</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;Ct 1001 Каса &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 250 000</div>
+            <div style="color:#63c7ff">Н2 (адекватність капіталу) &nbsp; 11.4%</div>
+            <div>Резерв НБУ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OK</div>
+          </div>
+        </div>
+        <div class="proj-body">
+          <span class="proj-kicker" data-i18n="proj.bank.kick">Банківський симулятор</span>
+          <h3>UABankSim</h3>
+          <p class="proj-desc" data-i18n="proj.bank.desc">Симулятор комерційного банку в Україні: кожна дія породжує реальні бухгалтерські проводки, а головний продукт — це гроші й ризик.</p>
+          <div class="proj-facts">
+            <div data-i18n="proj.bank.f1">Подієво-орієнтована архітектура, ядро окремо від модулів</div>
+            <div data-i18n="proj.bank.f2">Нормативи НБУ: Н2, обов'язкові резерви, ОВДП</div>
+            <div data-i18n="proj.bank.f3">Стрес-тести: блекаути, набіги вкладників, кібератаки</div>
+          </div>
+          <div class="proj-foot">
+            <a class="link-arrow stretch" href="uabank.html">
+              <span data-i18n="common.more">Детальніше</span>
+              <svg><use href="#i-arrow"></use></svg>
+            </a>
+            <div class="icon-links">
+              <a href="https://github.com/kovalenkoserhii2107-maker/UABankSim" target="_blank" rel="noopener" aria-label="UABankSim на GitHub"><svg><use href="#i-github"></use></svg></a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ STACK ============ -->
+  <section class="section shell" id="stack">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow" data-i18n="stack.eyebrow">Інструменти</span>
+        <h2 class="h-sec" data-i18n="stack.title">Технічний стек</h2>
+      </div>
+      <p class="lede" data-i18n="stack.lede">Свідомий вибір на користь платформи: жодного бандлера, жодного рантайм-фреймворку. Усе, що є в проєктах, написано або зібрано вручну.</p>
+    </div>
+
+    <div class="stack-grid">
+      <div class="card stack-card" data-reveal>
+        <h3><span>01</span> Frontend</h3>
+        <p data-i18n="stack.c1">ES-модулі без бандлера, CSS-змінні як єдина дизайн-система, SVG-рендеринг із власною камерою, Canvas.</p>
+        <div class="chip-row">
+          <span class="chip">Vanilla JS (ES2022)</span><span class="chip">CSS Custom Properties</span>
+          <span class="chip">SVG</span><span class="chip">Canvas</span><span class="chip">Chart.js</span>
+        </div>
+      </div>
+      <div class="card stack-card" data-reveal style="--d:80ms">
+        <h3><span>02</span> Backend &amp; Cloud</h3>
+        <p data-i18n="stack.c2">Firebase як бекенд без сервера: правила доступу замість перевірок на клієнті, Cloud Functions для фонових задач.</p>
+        <div class="chip-row">
+          <span class="chip">Firestore + Rules</span><span class="chip">Firebase Auth</span>
+          <span class="chip">Storage</span><span class="chip">Cloud Functions</span><span class="chip">Node.js</span>
+        </div>
+      </div>
+      <div class="card stack-card" data-reveal style="--d:160ms">
+        <h3><span>03</span> <span data-i18n="stack.c3t">Симуляції</span></h3>
+        <p data-i18n="stack.c3">Подієво-орієнтоване ядро, подвійний запис у головній книзі, макроекономічні моделі та детерміновані генератори даних.</p>
+        <div class="chip-row">
+          <span class="chip">Event-driven core</span><span class="chip">Double-entry ledger</span>
+          <span class="chip">IFRS / МСФЗ</span><span class="chip">GeoJSON</span>
+        </div>
+      </div>
+      <div class="card stack-card" data-reveal style="--d:240ms">
+        <h3><span>04</span> <span data-i18n="stack.c4t">Платформа</span></h3>
+        <p data-i18n="stack.c4">PWA з офлайн-кешем, генерація .xlsx у браузері на Typed Arrays, тестування сценаріїв через Playwright.</p>
+        <div class="chip-row">
+          <span class="chip">Service Workers</span><span class="chip">Typed Arrays / ZIP</span>
+          <span class="chip">Playwright</span><span class="chip">GitHub Pages</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT / CONTACT ============ -->
+  <section class="section shell" id="about">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow" data-i18n="about.eyebrow">Про мене</span>
+        <h2 class="h-sec" data-i18n="about.title">Хто це пише</h2>
+      </div>
+    </div>
+
+    <div class="about-grid">
+      <div class="card about-body" data-reveal>
+        <p data-i18n="about.p1">Я розробник із Одеси. Мене цікавлять системи, у яких є справжня внутрішня механіка: економіка, що реагує на рішення гравця, бухгалтерія, яка сходиться до копійки, карта світу, згенерована з реальних географічних даних.</p>
+        <p data-i18n="about.p2">Через це майже все пишу без фреймворків — так простіше тримати контроль над моделлю і не платити рантайм-податок за абстракції, які проєкту не потрібні. Firebase закриває автентифікацію та зберігання, решта — власний код.</p>
+        <p data-i18n="about.p3">Останній проєкт — ОСББ «Успіх-25» — уже працює в реальному будинку: голосування, білінг, звернення мешканців і графіки відключень світла. Наступний — UABankSim, симулятор банку з повноцінною головною книгою.</p>
+        <div class="chip-row" style="margin-top:20px">
+          <span class="chip" data-i18n="about.t1">Одеса, Україна</span>
+          <span class="chip" data-i18n="about.t2">Українська · English</span>
+          <span class="chip" data-i18n="about.t3">Відкритий до співпраці</span>
+        </div>
+      </div>
+
+      <div id="contact">
+        <div class="contact-list">
+          <a class="contact-item" href="https://github.com/kovalenkoserhii2107-maker" target="_blank" rel="noopener" data-reveal>
+            <svg><use href="#i-github"></use></svg>
+            <span><b>GitHub</b><small>kovalenkoserhii2107-maker</small></span>
+            <svg class="go"><use href="#i-ext"></use></svg>
+          </a>
+          <a class="contact-item" href="mailto:kovalenkoserhii2107@gmail.com" data-reveal style="--d:80ms">
+            <svg><use href="#i-mail"></use></svg>
+            <span><b>Email</b><small>kovalenkoserhii2107@gmail.com</small></span>
+            <svg class="go"><use href="#i-arrow"></use></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="shell foot-in">
+    <span>© <span id="year">2026</span> Сергій Коваленко</span>
+    <span class="foot-meta" data-i18n="foot.meta">Зроблено вручну · Vanilla JS · GitHub Pages</span>
+  </div>
+</footer>
+
+<!-- command palette -->
+<div class="cmdk" id="cmdk" role="dialog" aria-modal="true" aria-label="Навігація">
+  <div class="cmdk-box">
+    <input class="cmdk-input" id="cmdk-input" type="text" autocomplete="off" spellcheck="false" placeholder="Куди йдемо?" data-i18n-attr="placeholder:cmd.ph">
+    <ul class="cmdk-list" id="cmdk-list" role="listbox"></ul>
+    <div class="cmdk-foot">
+      <span>↑↓ <span data-i18n="cmd.nav">навігація</span></span>
+      <span>↵ <span data-i18n="cmd.open">відкрити</span></span>
+      <span>esc <span data-i18n="cmd.close">закрити</span></span>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/app.js"></script>
 </body>
 </html>
