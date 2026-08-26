@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UABiz - Project Details | Serhii Kovalenko</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --surface-color: #1e1e1e;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent: #3498db;
+            --accent-hover: #2980b9;
+            --green: #2ecc71;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .lang-btn {
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--text-primary);
+            padding: 5px 15px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        .lang-btn.active {
+            background: var(--accent);
+            color: #fff;
+        }
+        .lang-btn:hover {
+            background: var(--accent-hover);
+        }
+
+        [lang="uk"], [lang="en"] { display: none; }
+        body.uk [lang="uk"] { display: block; }
+        body.en [lang="en"] { display: block; }
+        span[lang="uk"], span[lang="en"] { display: none; }
+        body.uk span[lang="uk"] { display: inline; }
+        body.en span[lang="en"] { display: inline; }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            margin-left: 20px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .back-link:hover {
+            color: var(--accent-hover);
+        }
+
+        header {
+            padding: 3rem 1rem 2rem;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem 4rem;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            max-height: 450px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-bottom: 2rem;
+            border: 1px solid #333;
+        }
+
+        .section-card {
+            background: var(--surface-color);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            color: #fff;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+            margin-top: 0;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            margin-bottom: 1rem;
+            padding-left: 24px;
+            position: relative;
+        }
+        .feature-list li::before {
+            content: '⚡';
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 0.9rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        .tech-tag {
+            background: rgba(52, 152, 219, 0.1);
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        .btn {
+            background: var(--accent);
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background 0.3s;
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+        .btn:hover { background: var(--accent-hover); }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+        .btn-outline:hover {
+            background: rgba(52, 152, 219, 0.1);
+        }
+
+        /* Scroll Animations */
+        .hidden-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .show-scroll {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="uk">
+
+    <div class="lang-switcher">
+        <button class="lang-btn active" onclick="setLang('uk')">UA</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+
+    <a href="index.html" class="back-link">
+        <span lang="uk">← Повернутися до портфоліо</span>
+        <span lang="en">← Back to Portfolio</span>
+    </a>
+
+    <header class="hidden-scroll">
+        <h1>UABiz</h1>
+        <p>
+            <span lang="uk">Глобальний Економічний Симулятор</span>
+            <span lang="en">Global Economic Simulator</span>
+        </p>
+    </header>
+
+    <div class="container">
+        <!-- Hero Image (Используем ту же финансовую картинку, что и для превью) -->
+        <img src="images/wiki_finance_1786758956618.jpg" alt="UABiz Dashboard" class="hero-image hidden-scroll">
+
+        <div class="section-card hidden-scroll">
+            <h2>
+                <span lang="uk">Про проект</span>
+                <span lang="en">About the Project</span>
+            </h2>
+            <p lang="uk">
+                <strong>UABiz</strong> — це масштабна браузерна стратегія та симулятор управління бізнесом. Гравець починає з невеликим стартовим капіталом у $25,000 і має можливість виростити свою компанію до рівня національного монополіста з власними заводами, логістичною мережею, дослідницькими центрами (R&D) та виходом на фондову біржу. Проект має глибоку математичну модель, що імітує реальні макроекономічні процеси.
+            </p>
+            <p lang="en">
+                <strong>UABiz</strong> is a massive browser-based grand strategy and business management simulator. The player starts with a small seed capital of $25,000 and can grow their company into a national monopolist with its own factories, logistics network, R&D centers, and an IPO on the stock exchange. The project features a deep mathematical model simulating real macroeconomic processes.
+            </p>
+
+            <div class="tech-stack">
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">Vanilla JavaScript</span>
+                <span class="tech-tag">Chart.js</span>
+                <span class="tech-tag">State Management</span>
+            </div>
+        </div>
+
+        <div class="section-card hidden-scroll">
+            <h2>
+                <span lang="uk">Ключові механіки</span>
+                <span lang="en">Key Mechanics</span>
+            </h2>
+            <ul class="feature-list">
+                <li>
+                    <span lang="uk"><strong>Гео-економіка та Логістика:</strong> Управління складами та транспортними витратами між Києвом, Харковом, Одесою, Дніпром та Львовом. Кожне місто має власні коефіцієнти оренди, зарплат та попиту.</span>
+                    <span lang="en"><strong>Geo-economics & Logistics:</strong> Warehouse management and transport costs between Kyiv, Kharkiv, Odesa, Dnipro, and Lviv. Each city has unique multipliers for rent, salaries, and demand.</span>
+                </li>
+                <li>
+                    <span lang="uk"><strong>Глобальний B2B Ринок:</strong> Динамічне ціноутворення на сировину та готову продукцію. Інерція виробництва, інфляція та конкуренція з AI-корпораціями, які можуть демпінгувати ціни.</span>
+                    <span lang="en"><strong>Global B2B Market:</strong> Dynamic pricing for raw materials and finished goods. Production inertia, inflation, and competition with AI corporations that can dump prices.</span>
+                </li>
+                <li>
+                    <span lang="uk"><strong>Виробничі ланцюжки:</strong> Понад 30 видів ресурсів (від пшениці до мікросхем). Можливість виробляти продукти харчування, одяг, сервери та навіть військові FPV-дрони.</span>
+                    <span lang="en"><strong>Production Chains:</strong> Over 30 types of resources (from wheat to microchips). Ability to produce food, clothing, servers, and even military FPV drones.</span>
+                </li>
+                <li>
+                    <span lang="uk"><strong>Фінансова звітність (МСФЗ):</strong> Автоматична генерація детальних звітів: P&L (Прибутки та збитки), Баланс, Cash Flow. Розрахунок EBITDA, ROE, ROA та маржинальності.</span>
+                    <span lang="en"><strong>IFRS Financial Reporting:</strong> Automated generation of detailed reports: P&L, Balance Sheet, Cash Flow. Calculation of EBITDA, ROE, ROA, and profit margins.</span>
+                </li>
+                <li>
+                    <span lang="uk"><strong>Банкінг та Податки:</strong> Динамічний кредитний рейтинг, заставні ліміти, депозити, штрафи за овердрафт та сплата корпоративних податків.</span>
+                    <span lang="en"><strong>Banking & Taxes:</strong> Dynamic credit scoring, collateral limits, deposits, overdraft penalties, and corporate tax payments.</span>
+                </li>
+                <li>
+                    <span lang="uk"><strong>HR та Наука (R&D):</strong> Наймання та навчання персоналу, управління фондом оплати праці. Дослідження нових креслень та покращення якості продукції.</span>
+                    <span lang="en"><strong>HR & R&D:</strong> Hiring and training staff, managing the payroll fund. Researching new blueprints and improving product quality.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="btn-group hidden-scroll">
+            <a href="[ВСТАВИТИ ПОСИЛАННЯ НА ГРУ UABIZ]" target="_blank" class="btn">
+                <span lang="uk">🎮 Грати в браузері</span>
+                <span lang="en">🎮 Play in Browser</span>
+            </a>
+            <a href="[ВСТАВИТИ ПОСИЛАННЯ НА РЕПОЗИТОРІЙ UABIZ]" target="_blank" class="btn btn-outline">
+                <span lang="uk">💻 Код на GitHub</span>
+                <span lang="en">💻 Source Code</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Language Switcher Logic
+        function setLang(lang) {
+            document.body.className = lang;
+            const buttons = document.querySelectorAll('.lang-btn');
+            buttons.forEach(btn => {
+                if(btn.innerText.toLowerCase() === lang.toLowerCase()) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+
+        // Scroll Animation Logic
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show-scroll');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.hidden-scroll').forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>
