@@ -53,12 +53,13 @@
         'chip.svgrender': 'SVG rendering',
         'chip.nodegen':   'Node.js (generator)',
         'chip.nbu':       'NBU ratios',
+        'chip.nobundler': 'HTML/JS/CSS, no bundler',
 
         /* ---------- home: hero ---------- */
         'hero.eyebrow': 'Full-stack · Simulations · Ukraine',
         'hero.h1a':     'I build browser',
         'hero.h1b':     'simulators and PWAs',
-        'hero.sub':     'Complex systems without frameworks: simulation engines with double-entry bookkeeping underneath, offline-first apps on Firebase, and document generation straight in the browser. Four projects below, each one open source.',
+        'hero.sub':     'Complex systems without frameworks: simulation engines with double-entry bookkeeping underneath, offline-first apps on Firebase, and document generation straight in the browser. Five projects below, each one open source.',
         'hero.cta1':    'See the projects',
         'hero.s1':      'projects',
         'hero.s2':      'in production',
@@ -92,12 +93,18 @@
         'proj.bank.f2':   'NBU ratios: capital adequacy, reserves, T-bills',
         'proj.bank.f3':   'Stress tests: blackouts, bank runs, cyberattacks',
 
+        'proj.space.kick': 'Space simulator',
+        'proj.space.desc': 'A multiplayer economic strategy game set in space: colonies, energy balance, fleets moving between systems, an exchange traded in crypto-hryvnia, and syndicates. Every calculation runs on the server.',
+        'proj.space.f1':   'A one-second tick: the world runs while you are offline',
+        'proj.space.f2':   'Broker-free exchange that matches at the midpoint',
+        'proj.space.f3':   'Bots driven by a language model',
+
         /* ---------- home: stack ---------- */
         'stack.eyebrow': 'Tooling',
         'stack.title':   'Technical stack',
         'stack.lede':    'A deliberate bet on the platform: no bundler, no runtime framework. Everything in these projects is either written or assembled by hand.',
         'stack.c1':      'ES modules with no bundler, CSS custom properties as the single design system, SVG rendering with a hand-written camera, Canvas.',
-        'stack.c2':      'Firebase as a serverless backend: security rules instead of client-side checks, Cloud Functions for background jobs.',
+        'stack.c2':      'Two approaches: Firebase as a serverless backend — security rules instead of client-side checks; or a Node.js server with a database of its own, when the world has to live on a tick rather than on requests.',
         'stack.c3t':     'Simulation',
         'stack.c3':      'An event-driven core, double-entry general ledger, macroeconomic models and deterministic data generators.',
         'stack.c4t':     'Platform',
@@ -108,7 +115,7 @@
         'about.title':   'Who is writing this',
         'about.p1':      'I am a developer based in Odesa. What interests me are systems with real machinery inside them: an economy that reacts to the player’s decisions, bookkeeping that balances to the last kopiyka, a world map generated from actual geographic data.',
         'about.p2':      'That is why almost everything I write skips frameworks — it keeps the model under my control and avoids paying a runtime tax for abstractions the project does not need. Firebase covers authentication and storage; the rest is my own code.',
-        'about.p3':      'The most recent project, HOA “Uspih-25”, is already in use in a real apartment building: voting, billing, resident requests and power-outage schedules. Next up is UABankSim, a bank simulator with a full general ledger.',
+        'about.p3':      'The largest of them is Space Strategy MMO: a multiplayer space strategy game where every formula lives on the server and the world advances on a one-second tick. Alongside it, HOA “Uspih-25” is already in use in a real apartment building. Next in line is UABankSim, a bank simulator with a full general ledger.',
         'about.t1':      'Odesa, Ukraine',
         'about.t2':      'Ukrainian · English',
         'about.t3':      'Open to collaboration',
@@ -351,7 +358,68 @@
         'bank.r4.t': 'Interface and reporting',
         'bank.r4.p': 'A board dashboard, a live balance sheet and P&amp;L, and returns for the regulator.',
         'bank.r5.t': 'Scenarios and stress tests',
-        'bank.r5.p': 'Crises, bank runs, financial-monitoring inspections, and a public demo build on GitHub Pages.'
+        'bank.r5.p': 'Crises, bank runs, financial-monitoring inspections, and a public demo build on GitHub Pages.',
+
+        /* ---------- Space Strategy MMO ---------- */
+        'space.tag':      'A browser-based multiplayer economic strategy game set in space: colonies on planets, energy balance, a technology tree, a shipyard, fleet logistics between systems, an exchange traded in crypto-hryvnia with no broker, syndicates with a shared treasury, and bots driven by a language model. Every calculation runs on the server; the client only draws state and sends intents.',
+        'space.cta':      'Play in the browser',
+        'space.m.type':   'Multiplayer strategy',
+        'space.m.scale':  '59 modules · ~22k lines of TS',
+        'space.m.tests':  'Tests',
+        'space.m.testsv': '492 assertions',
+
+        'space.o.h':  'The world runs on a tick, not on requests',
+        'space.o.p1': 'This is the largest of my projects and the only genuinely multiplayer one. The core architectural decision is the same as in the HOA app, only taken all the way: <strong>the client computes nothing</strong>. It draws state and sends intents, while every formula — mining, combat, logistics, prices — lives on the server.',
+        'space.o.p2': 'The game loop runs once a second whether or not anyone is playing. Construction, research and queues are computed from absolute timestamps, so processes keep running while a player is offline and survive a server restart. Offline mining — up to 24 hours — is credited across the intervals between expiring timers.',
+        'space.o.p3': 'That same tick is why the game is deployed as a single instance: <code>fly deploy --ha=false</code>, no autoscaling and no sleeping. Two machines would run two loops over their own copies of the world and start overwriting each other.',
+        'space.o.p4': 'The economy is tuned so that a month unlocks the full content: 30–60 minutes for the first session, then a few short visits a day. Mining grows more slowly than level costs, and science is the real gate — late technology levels take days to research.',
+
+        'space.f.h':  'What is inside',
+        'space.f1.t': 'Colonies and energy balance',
+        'space.f1.p': 'Eleven building types: three mines, a power plant, a research centre, a shipyard, an antimatter factory, a crypto farm and three separate storages. When energy runs short, output from every mine drops proportionally — <code>efficiency = output / usage</code>.',
+        'space.f2.t': 'A tree of fifteen technologies',
+        'space.f2.p': 'From energy and computing through to the hyperdrive, crypto-engineering and “Time Compression”, which halves every duration per level — and doubles energy draw at the same rate.',
+        'space.f3.t': 'An exchange with no broker',
+        'space.f3.p': 'The station neither buys nor sells anything — players trade with each other. Opposing orders match at the midpoint: a sell at 10 against a buy at 12 executes at 11, splitting the gain evenly. Fees are 0.5% from the seller and 0.6% from the buyer.',
+        'space.f4.t': 'Fleets, fog of war and logistics',
+        'space.f4.p': 'Twelve ship classes and five defence classes with Ukrainian call signs. Inside a system fleets burn plasma; between systems they make a hyperjump on antimatter. An enemy planet shows only its name and type, and a probe leaves behind a scouting snapshot that ages.',
+        'space.f5.t': 'Round-based combat with a rapid-fire matrix',
+        'space.f5.p': 'Shields and hull, debris and looting. Roles are separated by rapid fire: cruisers mow down fighters, battleships counter cruisers, bombers dismantle planetary defence. The “Perun” shield regenerates 3,000 per round, so a squadron with a weaker salvo does nothing to it at all.',
+        'space.f6.t': 'Bots on a language model',
+        'space.f6.p': 'The model plays two roles — strategist and diplomat — while the bot’s decisions stay a pure function from snapshot to intents. Any failed call returns <code>null</code> and the bot simply plays its static personality: that is the normal mode, not an outage.',
+
+        'space.a.h':  'How it is put together',
+        'space.a.p1': 'Game rules live in pure modules that never touch the database, so the formulas can be verified apart from the infrastructure. REST responses are typed through <code>Response&lt;…&gt;</code> and Socket.IO events through typed contracts, so any drift between server and client is caught by the compiler.',
+        'space.a.p2': 'Economy, combat and logistics all run in transactions: races are closed with conditional <code>UPDATE</code>s, and a hard restart between steps neither double-credits resources nor loses ships.',
+        'space.a.tree': 'repository layout',
+        'space.a.pre':
+'<b>src/index.ts</b>            <i>Express, Socket.IO, route mounting</i>\n' +
+'<b>src/game/</b>            <i>pure rule modules — no database access</i>\n' +
+'  rules.ts            <i>mining, cost, energy, storage capacity</i>\n' +
+'  techTree.ts         <i>15 technologies: requirements, time, bonuses</i>\n' +
+'  ships.ts            <i>12 ship classes and combat profiles</i>\n' +
+'  combat.ts           <i>rounds, shields and hull, rapid fire, debris</i>\n' +
+'  fleets.ts           <i>orbits, hyperjumps, cargo holds, fuel</i>\n' +
+'  fogOfWar.ts         <i>planet visibility and ageing scout snapshots</i>\n' +
+'  market.ts           <i>market price, fees, collateral, hub storage</i>\n' +
+'  espionage.ts        <i>the espionage ladder: what a probe sees</i>\n' +
+'  expeditions.ts      <i>the PvE event engine</i>\n' +
+'  score.ts            <i>ranking: what the resources went into</i>\n' +
+'  gameLoop.ts         <i>isolated tick: timers, queues, offline catch-up</i>\n' +
+'  bot/decide.ts       <i>bot decisions as a pure function</i>\n' +
+'  bot/mind.ts         <i>two model roles: strategist and diplomat</i>\n' +
+'  bot/llm.ts          <i>provider call; any failure returns null</i>\n' +
+'<b>src/services/</b>        <i>exchange, syndicates, mail, ranking, admin</i>\n' +
+'<b>src/routes/</b>          <i>REST + auth and input parsing</i>\n' +
+'<b>prisma/</b>              <i>schema and migrations</i>\n' +
+'<b>public/</b>              <i>client: maps, exchange, command centre</i>\n' +
+'<b>tests/</b>               <i>492 assertions: formulas + live-API stress</i>',
+        'space.g1': 'Colony command centre',
+        'space.g2': 'System map with fog of war',
+        'space.g3': 'Galaxy map: 13 systems',
+        'space.g4': 'Technology tree',
+        'space.g5': 'Shipyard and ship classes',
+        'space.g6': 'Colony infrastructure'
     };
 
     var STORE = 'sk-lang';
