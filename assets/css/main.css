@@ -49,6 +49,7 @@
 [data-accent="blue"]   { --a1: #6f9dff; --a2: #a78bfa; --a-glow: rgba(111, 157, 255, .30); }
 [data-accent="amber"]  { --a1: #ffc46b; --a2: #ff8a5c; --a-glow: rgba(255, 196, 107, .28); }
 [data-accent="violet"] { --a1: #b79bff; --a2: #63c7ff; --a-glow: rgba(183, 155, 255, .30); }
+[data-accent="cyan"]   { --a1: #5ad8ff; --a2: #8ef0c8; --a-glow: rgba(90, 216, 255, .30); }
 
 /* ---------- 2. Reset & base ---------- */
 

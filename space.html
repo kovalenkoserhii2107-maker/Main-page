@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="uk" data-accent="cyan">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Space Strategy MMO — космічний симулятор | Сергій Коваленко</title>
+<meta name="description" content="Браузерна мультиплеерна космічна стратегія: колонії, енергобаланс, дерево технологій, флот, біржа без посередників і боти під керуванням мовної моделі. TypeScript, Socket.IO, PostgreSQL.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#05060a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Space Strategy MMO — космічний симулятор">
+<meta property="og:description" content="Усі розрахунки на сервері, тік раз на секунду. Колонії, флот, біржа за криптогривню, синдикати й боти на мовній моделі.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/main.css?v=20260906a">
+</head>
+<body>
+
+<a class="skip" href="#main" data-i18n="common.skip">Перейти до вмісту</a>
+
+<div class="bg-layer" aria-hidden="true"></div>
+<canvas id="bg-grid" aria-hidden="true"></canvas>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-github" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.4.5 0 5.9 0 12.6c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.4 3.6 1 .1-.8.4-1.4.8-1.7-2.7-.3-5.5-1.4-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.6 4.9 18.6 5.2 18.6 5.2c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A12.1 12.1 0 0 0 24 12.6C24 5.9 18.6.5 12 .5z"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+  <symbol id="i-chev-l" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></symbol>
+  <symbol id="i-chev-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="shell nav-in">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">SK</span>
+      <span class="brand-txt">Сергій Коваленко<small data-i18n="common.role">Software Engineer</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Основна навігація">
+      <a href="index.html#projects" data-i18n="nav.projects">Проєкти</a>
+      <a href="index.html#stack" data-i18n="nav.stack">Стек</a>
+      <a href="index.html#about" data-i18n="nav.about">Про мене</a>
+      <a href="index.html#contact" data-i18n="nav.contact">Контакти</a>
+    </nav>
+    <div class="nav-tools">
+      <button class="kbd-btn" data-cmdk-open type="button" aria-haspopup="dialog">
+        <span data-i18n="nav.search">Пошук</span><kbd>⌘K</kbd>
+      </button>
+      <div class="lang" role="group" aria-label="Мова / Language">
+        <button type="button" data-lang="uk" aria-pressed="true">UA</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-bar" id="scroll-bar" aria-hidden="true"></div>
+</header>
+
+<main id="main">
+
+  <section class="p-hero shell">
+    <a class="crumb" href="index.html#projects">
+      <svg><use href="#i-back"></use></svg>
+      <span data-i18n="common.back">Усі проєкти</span>
+    </a>
+
+    <span class="status status-live" data-i18n="common.live">Працює</span>
+    <h1 class="p-title">Space Strategy MMO</h1>
+    <p class="p-tag" data-i18n="space.tag">Браузерна мультиплеерна економічна стратегія в космосі: колонії на планетах, енергобаланс, дерево технологій, верфь, логістика флоту між системами, біржа за криптогривню без посередників, синдикати зі спільним банком і боти під керуванням мовної моделі. Усі розрахунки — на сервері; клієнт лише малює стан і надсилає наміри.</p>
+
+    <div class="p-cta">
+      <a class="btn btn-primary" href="https://spacemmo.fly.dev" target="_blank" rel="noopener">
+        <svg><use href="#i-ext"></use></svg>
+        <span data-i18n="space.cta">Грати в браузері</span>
+      </a>
+      <a class="btn btn-ghost" href="https://github.com/kovalenkoserhii2107-maker/SpaceMMO" target="_blank" rel="noopener">
+        <svg><use href="#i-github"></use></svg>
+        <span data-i18n="common.source">Код на GitHub</span>
+      </a>
+    </div>
+
+    <dl class="meta-grid" data-reveal>
+      <div><dt data-i18n="common.m.type">Тип</dt><dd data-i18n="space.m.type">Мультиплеерна стратегія</dd></div>
+      <div><dt data-i18n="common.m.stack">Стек</dt><dd>TypeScript · Socket.IO · PostgreSQL</dd></div>
+      <div><dt data-i18n="common.m.scale">Обсяг</dt><dd data-i18n="space.m.scale">59 модулів · ~22k рядків TS</dd></div>
+      <div><dt data-i18n="space.m.tests">Тести</dt><dd data-i18n="space.m.testsv">492 перевірки</dd></div>
+    </dl>
+  </section>
+
+  <nav class="subnav" aria-label="Розділи сторінки">
+    <div class="shell">
+      <ul>
+        <li><a href="#overview" data-i18n="common.s.overview">Огляд</a></li>
+        <li><a href="#features" data-i18n="common.s.features">Механіки</a></li>
+        <li><a href="#arch" data-i18n="common.s.arch">Архітектура</a></li>
+        <li><a href="#shots" data-i18n="common.s.shots">Скріншоти</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="block" id="overview">
+    <div class="shell">
+      <span class="eyebrow" data-i18n="common.s.overview">Огляд</span>
+      <h2 data-i18n="space.o.h">Світ живе тіком, а не запитами</h2>
+      <div class="prose" data-reveal>
+        <p data-i18n="space.o.p1">Це найбільший із моїх проєктів і єдиний по-справжньому багатокористувацький. Головне рішення архітектури таке саме, як у застосунку ОСББ, тільки доведене до кінця: <strong>клієнт не рахує нічого</strong>. Він малює стан і надсилає наміри, а всі формули — видобуток, бій, логістика, ціни — живуть на сервері.</p>
+        <p data-i18n="space.o.p2">Ігровий цикл іде раз на секунду незалежно від того, чи хтось у грі. Будівництво, дослідження й черги рахуються від абсолютних міток часу, тому процеси не зупиняються, поки гравець офлайн, і переживають перезапуск сервера. Видобуток за офлайн — до доби — нараховується відрізками між завершеннями таймерів.</p>
+        <p data-i18n="space.o.p3">Через цей же тік гра розгорнута в одному екземплярі: <code>fly deploy --ha=false</code>, без автомасштабування й без засинання. Дві машини завели б два цикли зі своїми копіями світу, і вони почали б затирати одна одну.</p>
+        <p data-i18n="space.o.p4">Економіка розрахована на місяць до повного відкриття контенту: перша сесія 30–60 хвилин, далі кілька коротких заходів на день. Видобуток росте повільніше за ціну рівнів, а головні ворота — наука: пізні рівні технологій вивчаються днями.</p>
+      </div>
+      <div class="chip-row" style="margin-top:26px">
+        <span class="chip">TypeScript (strict, ESM)</span>
+        <span class="chip">Express 5</span>
+        <span class="chip">Socket.IO</span>
+        <span class="chip">PostgreSQL · Prisma 7</span>
+        <span class="chip" data-i18n="chip.nobundler">HTML/JS/CSS без збірника</span>
+        <span class="chip">Docker · Fly.io</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="features">
+    <div class="shell">
+      <span class="eyebrow" data-i18n="common.s.features">Механіки</span>
+      <h2 data-i18n="space.f.h">Що всередині</h2>
+      <div class="feat">
+        <article class="card feat-item" data-reveal>
+          <span class="feat-num">01</span>
+          <h3 data-i18n="space.f1.t">Колонії та енергобаланс</h3>
+          <p data-i18n="space.f1.p">Одинадцять типів будівель: три шахти, енергостанція, науковий центр, верфь, фабрика антиматерії, крипто-ферма і три роздільні сховища. При дефіциті енергії видобуток усіх шахт падає пропорційно — <code>efficiency = output / usage</code>.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:70ms">
+          <span class="feat-num">02</span>
+          <h3 data-i18n="space.f2.t">Дерево з п'ятнадцяти технологій</h3>
+          <p data-i18n="space.f2.p">Від енергетики й обчислювальної техніки до гіпердвигуна, криптоінженерії та «Стиснення часу», яке кожним рівнем скорочує вдвічі всі терміни — і вдвічі ж збільшує споживання енергії.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:140ms">
+          <span class="feat-num">03</span>
+          <h3 data-i18n="space.f3.t">Біржа без посередників</h3>
+          <p data-i18n="space.f3.p">Станція не купує й не продає нічого — торгують між собою гравці. Зустрічні заявки зводяться по середній ціні: продаж по 10 проти купівлі по 12 виконується по 11, і виграш ділиться навпіл. Комісія 0.5% з продавця і 0.6% з покупця.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:210ms">
+          <span class="feat-num">04</span>
+          <h3 data-i18n="space.f4.t">Флот, туман війни й логістика</h3>
+          <p data-i18n="space.f4.p">Дванадцять класів кораблів і п'ять класів оборони з українськими позивними. Усередині системи флот іде на плазмі, між системами — гіперстрибком на антиматерії. Чужа планета видна лише назвою й типом, після зонда лишається старіючий знімок розвідки.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:280ms">
+          <span class="feat-num">05</span>
+          <h3 data-i18n="space.f5.t">Бій раундами з матрицею скорострілу</h3>
+          <p data-i18n="space.f5.p">Щити й корпус, уламки та грабунок. Ролі розведені скорострілом: крейсер косить винищувачів, лінкор — крейсери, бомбардувальник розбирає оборону. Щит «Перуна» відновлює 3000 щороунду, тож ескадра зі слабшим залпом не завдає йому взагалі нічого.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:350ms">
+          <span class="feat-num">06</span>
+          <h3 data-i18n="space.f6.t">Боти на мовній моделі</h3>
+          <p data-i18n="space.f6.p">Модель грає дві ролі — стратега й дипломата, — а рішення бота лишаються чистою функцією «знімок → наміри». Будь-яка невдача виклику повертає <code>null</code>, і бот просто грає за статичним характером: це штатний режим, а не аварія.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="arch">
+    <div class="shell">
+      <span class="eyebrow" data-i18n="common.s.arch">Архітектура</span>
+      <h2 data-i18n="space.a.h">Як це влаштовано</h2>
+      <div class="prose" style="margin-bottom:26px" data-reveal>
+        <p data-i18n="space.a.p1">Ігрові правила винесені в чисті модулі без звернень до бази, тому формули перевіряються окремо від інфраструктури. Відповіді REST типізовані через <code>Response&lt;…&gt;</code>, події Socket.IO — типовими контрактами, тож розбіжність між сервером і клієнтом ловить компілятор.</p>
+        <p data-i18n="space.a.p2">Економіка, бій і логістика йдуть транзакціями: гонки закриті умовними <code>UPDATE</code>, а жорсткий перезапуск між кроками не задвоює нарахування й не втрачає кораблі.</p>
+      </div>
+      <div class="code-panel" data-reveal>
+        <div class="code-head">SpaceMMO / <span data-i18n="space.a.tree">структура репозиторію</span></div>
+<pre data-i18n="space.a.pre"><b>src/index.ts</b>            <i>Express, Socket.IO, монтування роутів</i>
+<b>src/game/</b>            <i>чисті модулі правил — без звернень до БД</i>
+  rules.ts            <i>видобуток, вартість, енергія, місткість складів</i>
+  techTree.ts         <i>15 технологій: вимоги, час, бонуси</i>
+  ships.ts            <i>12 класів кораблів і бойові профілі</i>
+  combat.ts           <i>раунди, щити й корпус, скоростріл, уламки</i>
+  fleets.ts           <i>орбіти, гіперстрибки, трюми, паливо</i>
+  fogOfWar.ts         <i>видимість планет і старіння знімків розвідки</i>
+  market.ts           <i>ціна ринку, комісії, застави, склади хаба</i>
+  espionage.ts        <i>драбина шпигунства: що бачить зонд</i>
+  expeditions.ts      <i>подієвий рушій PvE</i>
+  score.ts            <i>рейтинг: у що вкладені ресурси</i>
+  gameLoop.ts         <i>ізольований тік: таймери, черги, догін офлайну</i>
+  bot/decide.ts       <i>рішення бота як чиста функція</i>
+  bot/mind.ts         <i>дві ролі мовної моделі: стратег і дипломат</i>
+  bot/llm.ts          <i>виклик провайдера; будь-яка невдача → null</i>
+<b>src/services/</b>        <i>біржа, синдикати, пошта, рейтинг, адмінка</i>
+<b>src/routes/</b>          <i>REST + авторизація і розбір вводу</i>
+<b>prisma/</b>              <i>схема і міграції</i>
+<b>public/</b>              <i>клієнт: карти, біржа, командний центр</i>
+<b>tests/</b>               <i>492 перевірки: формули + стрес по живому API</i></pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="shots">
+    <div class="shell">
+      <span class="eyebrow" data-i18n="common.s.shots">Скріншоти</span>
+      <h2 data-i18n="common.shots.h">Інтерфейс</h2>
+      <p class="prose" style="margin-bottom:26px" data-i18n="common.shots.hint">Натисніть на зображення, щоб відкрити його на весь екран. Стрілки ← → гортають галерею.</p>
+      <div class="gal" data-reveal>
+        <figure>
+          <img src="assets/screens/space-center.webp" alt="Центр управління: паспорт колонії, сховища, енергобаланс і черги" loading="lazy" width="1600" height="1000">
+          <figcaption data-i18n="space.g1">Центр управління колонією</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/screens/space-system.webp" alt="Кругова карта системи: зірка, планети на орбітах, орбітальний хаб і вихід у глибокий космос" loading="lazy" width="1600" height="1000">
+          <figcaption data-i18n="space.g2">Карта системи з туманом війни</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/screens/space-galaxy.webp" alt="Карта галактики: тринадцять систем із координатами, дві з них — чорні діри" loading="lazy" width="1600" height="1000">
+          <figcaption data-i18n="space.g3">Карта галактики: 13 систем</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/screens/space-tech.webp" alt="Дерево технологій: картки досліджень із вартістю, часом і вимогами" loading="lazy" width="1600" height="1000">
+          <figcaption data-i18n="space.g4">Дерево технологій</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/screens/space-shipyard.webp" alt="Верфь: картки кораблів з атакою, щитом, корпусом і вартістю" loading="lazy" width="1600" height="1000">
+          <figcaption data-i18n="space.g5">Верфь і класи кораблів</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/screens/space-buildings.webp" alt="Інфраструктура колонії: картки будівель з рівнями та вартістю" loading="lazy" width="1600" height="1000">
+          <figcaption data-i18n="space.g6">Інфраструктура колонії</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="shell">
+    <a class="card next-strip stretch" href="uspih25.html" data-reveal>
+      <span>
+        <small data-i18n="common.next">Наступний проєкт</small>
+        <strong>ОСББ «Успіх-25»</strong>
+      </span>
+      <span class="link-arrow"><span data-i18n="common.more">Детальніше</span> <svg><use href="#i-arrow"></use></svg></span>
+    </a>
+  </div>
+
+</main>
+
+<footer class="foot">
+  <div class="shell foot-in">
+    <span>© <span id="year">2026</span> Сергій Коваленко</span>
+    <span class="foot-meta" data-i18n="foot.meta">Зроблено вручну · Vanilla JS · GitHub Pages</span>
+  </div>
+</footer>
+
+<div class="cmdk" id="cmdk" role="dialog" aria-modal="true" aria-label="Навігація">
+  <div class="cmdk-box">
+    <input class="cmdk-input" id="cmdk-input" type="text" autocomplete="off" spellcheck="false" placeholder="Куди йдемо?" data-i18n-attr="placeholder:cmd.ph">
+    <ul class="cmdk-list" id="cmdk-list" role="listbox"></ul>
+    <div class="cmdk-foot">
+      <span>↑↓ <span data-i18n="cmd.nav">навігація</span></span>
+      <span>↵ <span data-i18n="cmd.open">відкрити</span></span>
+      <span>esc <span data-i18n="cmd.close">закрити</span></span>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/i18n.js?v=20260906a"></script>
+<script src="assets/js/app.js?v=20260906a"></script>
+</body>
+</html>
