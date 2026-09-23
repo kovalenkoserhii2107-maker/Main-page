@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/css/main.css?v=20260906a">
+<link rel="stylesheet" href="assets/css/main.css?v=20260923a">
 </head>
 <body>
 
@@ -85,7 +85,8 @@
       <div><dt data-i18n="common.m.type">Тип</dt><dd data-i18n="uspih.m.type">PWA, offline-first</dd></div>
       <div><dt data-i18n="common.m.stack">Стек</dt><dd>Vanilla JS · Firebase</dd></div>
       <div><dt data-i18n="common.m.role">Роль</dt><dd data-i18n="common.solo">Один розробник</dd></div>
-      <div><dt data-i18n="common.m.scale">Обсяг</dt><dd data-i18n="uspih.m.scale">25 модулів · ~10k рядків JS</dd></div>
+      <div><dt data-i18n="common.m.scale">Обсяг</dt><dd data-i18n="uspih.m.scale">31 модуль · ~13k рядків JS</dd></div>
+      <div><dt data-i18n="common.m.cx">Складність</dt><dd><span class="cx" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span> 4 / 5</dd></div>
     </dl>
   </section>
 
@@ -156,6 +157,16 @@
           <h3 data-i18n="uspih.f6.t">Офлайн і встановлення на телефон</h3>
           <p data-i18n="uspih.f6.p">Service Worker кешує інтерфейс і розділ питань-відповідей, тож застосунок відкривається без мережі. Жест pull-to-refresh написаний власноруч, щоб поводитись як у нативних застосунках.</p>
         </article>
+        <article class="card feat-item" data-reveal style="--d:0ms">
+          <span class="feat-num">07</span>
+          <h3 data-i18n="uspih.f7.t">Загальні збори й протокол у PDF</h3>
+          <p data-i18n="uspih.f7.p">Порядок денний із проєктами рішень і голосування «за / проти / утримався» по кожному питанню. Голосування відкривається лише в час початку зборів — і це перевіряють і застосунок, і правила Firestore: голос до обговорення — це голос наосліп. Кнопка «Сформувати протокол» дає готовий PDF, який лягає в базу документів і йде розсилкою всьому будинку.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:70ms">
+          <span class="feat-num">08</span>
+          <h3 data-i18n="uspih.f8.t">Паперове голосування тим самим розрізом</h3>
+          <p data-i18n="uspih.f8.p">Листки опитування друкуються окремим комплектом на кожне питання й кожну парадну, з ПІБ відповідальної особи й місцем для підпису. Зібрані голоси вносяться тим самим розрізом — питання, парадна, суцільний список квартир — і записуються злиттям, тож голос за друге питання не стирає перший.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -184,9 +195,12 @@
   dtek.js           <i>графіки відключень</i>
   power.js          <i>статус електропостачання</i>
   xlsx-write.js     <i>власний генератор .xlsx</i>
+  meetings.js       <i>загальні збори: порядок денний, голосування</i>
+  paper_votes.js    <i>внесення голосів з обходу квартир</i>
+  protocol_pdf.js   <i>протокол зборів у PDF</i>
   ledger.js         <i>журнал операцій</i>
   ui.js             <i>панелі, сповіщення, формати</i>
-  <i>… ще 14 модулів</i>
+  <i>… ще 17 модулів</i>
 <b>functions/</b>
   dtek.js           <i>Cloud Function: скрейпер графіків ДТЕК</i></pre>
       </div>
@@ -207,15 +221,19 @@
           <img src="assets/screens/uspih-login.webp" alt="Екран входу за номером квартири та паролем" loading="lazy" width="900" height="1060">
           <figcaption data-i18n="uspih.g2">Вхід за номером квартири</figcaption>
         </figure>
+        <figure>
+          <img src="assets/screens/uspih-admin.webp" alt="Панель правління: поточні збори, кворум, порядок денний і термінові завдання" loading="lazy" width="1600" height="1046">
+          <figcaption data-i18n="uspih.g3">Панель правління: збори й кворум</figcaption>
+        </figure>
       </div>
     </div>
   </section>
 
   <div class="shell">
-    <a class="card next-strip stretch" href="uabiz.html" data-reveal>
+    <a class="card next-strip stretch" href="psy.html" data-reveal>
       <span>
         <small data-i18n="common.next">Наступний проєкт</small>
-        <strong>UABiz — <span data-i18n="proj.uabiz.kick">Економічний симулятор</span></strong>
+        <strong>PsyKovalenko — <span data-i18n="proj.psy.kick">Сайт і кабінет психологині</span></strong>
       </span>
       <span class="link-arrow"><span data-i18n="common.more">Детальніше</span> <svg><use href="#i-arrow"></use></svg></span>
     </a>
@@ -242,7 +260,7 @@
   </div>
 </div>
 
-<script src="assets/js/i18n.js?v=20260906a"></script>
-<script src="assets/js/app.js?v=20260906a"></script>
+<script src="assets/js/i18n.js?v=20260923a"></script>
+<script src="assets/js/app.js?v=20260923a"></script>
 </body>
 </html>

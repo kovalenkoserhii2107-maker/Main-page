@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/css/main.css?v=20260906a">
+<link rel="stylesheet" href="assets/css/main.css?v=20260923a">
 </head>
 <body>
 
@@ -84,8 +84,9 @@
     <dl class="meta-grid" data-reveal>
       <div><dt data-i18n="common.m.type">Тип</dt><dd data-i18n="space.m.type">Мультиплеерна стратегія</dd></div>
       <div><dt data-i18n="common.m.stack">Стек</dt><dd>TypeScript · Socket.IO · PostgreSQL</dd></div>
-      <div><dt data-i18n="common.m.scale">Обсяг</dt><dd data-i18n="space.m.scale">59 модулів · ~22k рядків TS</dd></div>
-      <div><dt data-i18n="space.m.tests">Тести</dt><dd data-i18n="space.m.testsv">492 перевірки</dd></div>
+      <div><dt data-i18n="common.m.scale">Обсяг</dt><dd data-i18n="space.m.scale">73 модулі · ~38k рядків TS</dd></div>
+      <div><dt data-i18n="space.m.tests">Тести</dt><dd data-i18n="space.m.testsv">22 набори тестів</dd></div>
+      <div><dt data-i18n="common.m.cx">Складність</dt><dd><span class="cx" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span> 5 / 5</dd></div>
     </dl>
   </section>
 
@@ -109,6 +110,7 @@
         <p data-i18n="space.o.p2">Ігровий цикл іде раз на секунду незалежно від того, чи хтось у грі. Будівництво, дослідження й черги рахуються від абсолютних міток часу, тому процеси не зупиняються, поки гравець офлайн, і переживають перезапуск сервера. Видобуток за офлайн — до доби — нараховується відрізками між завершеннями таймерів.</p>
         <p data-i18n="space.o.p3">Через цей же тік гра розгорнута в одному екземплярі: <code>fly deploy --ha=false</code>, без автомасштабування й без засинання. Дві машини завели б два цикли зі своїми копіями світу, і вони почали б затирати одна одну.</p>
         <p data-i18n="space.o.p4">Економіка розрахована на місяць до повного відкриття контенту: перша сесія 30–60 хвилин, далі кілька коротких заходів на день. Видобуток росте повільніше за ціну рівнів, а головні ворота — наука: пізні рівні технологій вивчаються днями.</p>
+        <p data-i18n="space.o.p5">Своя база стоїть на сусідній машині. Спершу був Neon, але тік ходить у базу щосекунди, і безкоштовні 5 ГБ трафіку на місяць вибиралися за три доби — база відмовляла, і весь світ ставав. Платний тариф за такого профілю коштував би близько $19 на місяць, власний Postgres поруч — $3, і мережа виходить із гарячого шляху.</p>
       </div>
       <div class="chip-row" style="margin-top:26px">
         <span class="chip">TypeScript (strict, ESM)</span>
@@ -156,6 +158,16 @@
           <h3 data-i18n="space.f6.t">Боти на мовній моделі</h3>
           <p data-i18n="space.f6.p">Модель грає дві ролі — стратега й дипломата, — а рішення бота лишаються чистою функцією «знімок → наміри». Будь-яка невдача виклику повертає <code>null</code>, і бот просто грає за статичним характером: це штатний режим, а не аварія.</p>
         </article>
+        <article class="card feat-item" data-reveal style="--d:0ms">
+          <span class="feat-num">07</span>
+          <h3 data-i18n="space.f7.t">Синдикати з рангами й Кошем</h3>
+          <p data-i18n="space.f7.p">Замість трьох ролей — до восьми рангів із власним набором прав: заявки, виключення, розсилка, видача з казни з денним лімітом, податок, кодекс, дипломатія. Війна синдикатів — утримання орбіти союзної колонії й наліт на чужий Кіш: переможець забирає до 90% незахищеної сировини, але гривню не грабують.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:70ms">
+          <span class="feat-num">08</span>
+          <h3 data-i18n="space.f8.t">Спільні дослідження колоній</h3>
+          <p data-i18n="space.f8.p">Технології спільні для всіх колоній, і вивчається одночасно одна. Лабораторія іншої колонії може приєднатися й узяти на себе частку: рівна або сильніша — половину, слабша — пропорційно рівню. На ту ж частку скорочується строк і доплачується ціна з її складу.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -190,7 +202,7 @@
 <b>src/routes/</b>          <i>REST + авторизація і розбір вводу</i>
 <b>prisma/</b>              <i>схема і міграції</i>
 <b>public/</b>              <i>клієнт: карти, біржа, командний центр</i>
-<b>tests/</b>               <i>492 перевірки: формули + стрес по живому API</i></pre>
+<b>tests/</b>               <i>22 набори: формули + стрес по живому API</i></pre>
       </div>
     </div>
   </section>
@@ -224,6 +236,10 @@
         <figure>
           <img src="assets/screens/space-buildings.webp" alt="Інфраструктура колонії: картки будівель з рівнями та вартістю" loading="lazy" width="1600" height="1000">
           <figcaption data-i18n="space.g6">Інфраструктура колонії</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/screens/space-market.webp" alt="Біржа: коридор цін, стакан заявок і резерв хаба" loading="lazy" width="1600" height="1000">
+          <figcaption data-i18n="space.g7">Біржа: коридор цін і резерв хаба</figcaption>
         </figure>
       </div>
     </div>
@@ -260,7 +276,7 @@
   </div>
 </div>
 
-<script src="assets/js/i18n.js?v=20260906a"></script>
-<script src="assets/js/app.js?v=20260906a"></script>
+<script src="assets/js/i18n.js?v=20260923a"></script>
+<script src="assets/js/app.js?v=20260923a"></script>
 </body>
 </html>

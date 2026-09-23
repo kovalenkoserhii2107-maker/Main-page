@@ -140,9 +140,9 @@
             ['', '{'],
             ['', '  <span class="c-k">"name"</span>: <span class="c-s">"Serhii Kovalenko"</span>,'],
             ['', '  <span class="c-k">"focus"</span>: [<span class="c-s">"simulation engines"</span>, <span class="c-s">"PWA"</span>],'],
-            ['', '  <span class="c-k">"stack"</span>: [<span class="c-s">"typescript"</span>, <span class="c-s">"vanilla-js"</span>, <span class="c-s">"firebase"</span>],'],
-            ['', '  <span class="c-k">"projects"</span>: <span class="c-n">5</span>,'],
-            ['', '  <span class="c-k">"frameworks"</span>: <span class="c-n">0</span>,'],
+            ['', '  <span class="c-k">"stack"</span>: [<span class="c-s">"node"</span>, <span class="c-s">"postgres"</span>, <span class="c-s">"firebase"</span>],'],
+            ['', '  <span class="c-k">"projects"</span>: <span class="c-n">10</span>,'],
+            ['', '  <span class="c-k">"languages"</span>: [<span class="c-s">"ts"</span>, <span class="c-s">"js"</span>, <span class="c-s">"python"</span>],'],
             ['', '  <span class="c-k">"source"</span>: <span class="c-s">"github.com/kovalenkoserhii2107-maker"</span>'],
             ['', '}'],
             ['c-d', '$ _']
@@ -277,16 +277,21 @@
         var base  = location.pathname.replace(/[^/]*$/, '');
 
         var ITEMS = [
-            { uk: 'Головна',                    en: 'Home',                    kind: 'page', href: 'index.html' },
-            { uk: 'ОСББ «Успіх-25»',            en: 'HOA "Uspih-25"',          kind: 'проєкт', kindEn: 'project', href: 'uspih25.html' },
-            { uk: 'UABiz — економічний симулятор', en: 'UABiz — economic sim',  kind: 'проєкт', kindEn: 'project', href: 'uabiz.html' },
-            { uk: 'Grand Strategy — політичний симулятор', en: 'Grand Strategy — political sim', kind: 'проєкт', kindEn: 'project', href: 'politics.html' },
-            { uk: 'UABankSim — банківський симулятор', en: 'UABankSim — banking sim', kind: 'проєкт', kindEn: 'project', href: 'uabank.html' },
+            { uk: 'Головна', en: 'Home', kind: 'сторінка', kindEn: 'page', href: 'index.html' },
             { uk: 'Space Strategy MMO — космічний симулятор', en: 'Space Strategy MMO — space sim', kind: 'проєкт', kindEn: 'project', href: 'space.html' },
-            { uk: 'Стек',                       en: 'Stack',                   kind: 'секція', kindEn: 'section', href: 'index.html#stack' },
-            { uk: 'Про мене',                   en: 'About',                   kind: 'секція', kindEn: 'section', href: 'index.html#about' },
-            { uk: 'Контакти',                   en: 'Contact',                 kind: 'секція', kindEn: 'section', href: 'index.html#contact' },
-            { uk: 'GitHub',                     en: 'GitHub',                  kind: 'зовнішнє', kindEn: 'external', href: 'https://github.com/kovalenkoserhii2107-maker', ext: true }
+            { uk: 'ОСББ «Успіх-25»', en: 'HOA "Uspih-25"', kind: 'проєкт', kindEn: 'project', href: 'uspih25.html' },
+            { uk: 'PsyKovalenko — сайт і кабінет психологині', en: 'PsyKovalenko — psychologist site', kind: 'проєкт', kindEn: 'project', href: 'psy.html' },
+            { uk: 'CodeQuest — гра, що вчить програмувати', en: 'CodeQuest — learn-to-code game', kind: 'проєкт', kindEn: 'project', href: 'codequest.html' },
+            { uk: 'UABiz — економічний симулятор', en: 'UABiz — economic sim', kind: 'проєкт', kindEn: 'project', href: 'uabiz.html' },
+            { uk: 'Grand Strategy — політичний симулятор', en: 'Grand Strategy — political sim', kind: 'проєкт', kindEn: 'project', href: 'politics.html' },
+            { uk: 'Minecraft Bedrock Server — сервер Майнкрафт', en: 'Minecraft Bedrock Server', kind: 'проєкт', kindEn: 'project', href: 'minecraft.html' },
+            { uk: 'Аудит закупівель ЄІБ', en: 'EIB Procurement Audit', kind: 'проєкт', kindEn: 'project', href: 'eib.html' },
+            { uk: 'Хроніки влади', en: 'Chronicles of Power', kind: 'проєкт', kindEn: 'project', href: 'chronicles.html' },
+            { uk: 'UABankSim — банківський симулятор', en: 'UABankSim — banking sim', kind: 'проєкт', kindEn: 'project', href: 'uabank.html' },
+            { uk: 'Стек', en: 'Stack', kind: 'секція', kindEn: 'section', href: 'index.html#stack' },
+            { uk: 'Про мене', en: 'About', kind: 'секція', kindEn: 'section', href: 'index.html#about' },
+            { uk: 'Контакти', en: 'Contact', kind: 'секція', kindEn: 'section', href: 'index.html#contact' },
+            { uk: 'GitHub', en: 'GitHub', kind: 'зовнішнє', kindEn: 'external', href: 'https://github.com/kovalenkoserhii2107-maker', ext: true }
         ];
 
         var view = [], sel = 0;

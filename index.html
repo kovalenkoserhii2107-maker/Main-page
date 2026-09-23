@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Сергій Коваленко — симулятори, PWA та веб-системи</title>
-<meta name="description" content="Портфоліо Сергія Коваленка: браузерні економічні та політичні симулятори, offline-first PWA на Firebase, фінансові моделі. Vanilla JS без фреймворків.">
+<meta name="description" content="Портфоліо Сергія Коваленка: десять проєктів, упорядкованих за складністю, — від мультиплеерної космічної стратегії й сайту психологині до гри, що вчить JavaScript, і юридичного аудиту закупівель.">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#05060a">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Сергій Коваленко — симулятори, PWA та веб-системи">
-<meta property="og:description" content="П’ять проєктів: Space Strategy MMO, ОСББ «Успіх-25», UABiz, Grand Strategy і UABankSim. TypeScript, Vanilla JS, Firebase, власні симуляційні рушії.">
+<meta property="og:description" content="Десять проєктів за складністю: Space Strategy MMO, ОСББ «Успіх-25», PsyKovalenko, CodeQuest, UABiz, Grand Strategy, Minecraft-сервер, аудит ЄІБ, «Хроніки влади», UABankSim.">
 <meta property="og:url" content="https://kovalenkoserhii2107-maker.github.io/Main-page/">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/css/main.css?v=20260906a">
+<link rel="stylesheet" href="assets/css/main.css?v=20260923a">
 
 <script type="application/ld+json">
 {
@@ -84,12 +84,12 @@
   <section class="hero shell">
     <div class="hero-grid">
       <div>
-        <span class="eyebrow" data-i18n="hero.eyebrow">Full-stack · Симуляції · Україна</span>
+        <span class="eyebrow" data-i18n="hero.eyebrow">Full-stack · Симуляції · Ігри · Україна</span>
         <h1>
           <span data-i18n="hero.h1a">Будую браузерні</span><br>
-          <span class="grad" data-i18n="hero.h1b">симулятори та PWA</span>
+          <span class="grad" data-i18n="hero.h1b">симулятори та веб-системи</span>
         </h1>
-        <p class="hero-sub" data-i18n="hero.sub">Складні системи без фреймворків: власні симуляційні рушії з подвійним бухгалтерським записом, offline-first застосунки на Firebase і генерація документів прямо в браузері. Нижче — п’ять проєктів, кожен із відкритим кодом.</p>
+        <p class="hero-sub" data-i18n="hero.sub">Від офлайн-застосунку, яким користується реальний будинок, до мультиплеерної космічної стратегії з власним сервером. Десять проєктів нижче впорядковані за складністю — і кожен із відкритим кодом.</p>
 
         <div class="hero-cta">
           <a class="btn btn-primary" href="#projects">
@@ -103,9 +103,9 @@
         </div>
 
         <div class="stat-row" data-reveal>
-          <div class="stat"><b>5</b><span data-i18n="hero.s1">проєктів</span></div>
-          <div class="stat"><b>4</b><span data-i18n="hero.s2">у продакшні</span></div>
-          <div class="stat"><b>0</b><span data-i18n="hero.s3">фреймворків</span></div>
+          <div class="stat"><b>10</b><span data-i18n="hero.s1">проєктів</span></div>
+          <div class="stat"><b>9</b><span data-i18n="hero.s2">працюють</span></div>
+          <div class="stat"><b>~127k</b><span data-i18n="hero.s3">рядків коду</span></div>
         </div>
       </div>
 
@@ -130,21 +130,32 @@
         <span class="eyebrow" data-i18n="proj.eyebrow">Вибрані роботи</span>
         <h2 class="h-sec" data-i18n="proj.title">Проєкти</h2>
       </div>
-      <p class="lede" data-i18n="proj.lede">Кожен проєкт має власну сторінку зі скріншотами, описом архітектури та посиланнями на репозиторій і живу версію.</p>
+      <p class="lede" data-i18n="proj.lede">Упорядковано за складністю — від найбільшої системи до найменшої. Рівень від 1 до 5 зважує архітектуру, обсяг коду, інтеграції, тести й інфраструктуру; під назвою кожного проєкту — чому саме такий.</p>
+    </div>
+
+    <div class="cx-legend" data-reveal>
+      <div><b data-i18n="cx.l1.t">Архітектура</b><span data-i18n="cx.l1.p">статичний клієнт → serverless → власний сервер із БД → realtime</span></div>
+      <div><b data-i18n="cx.l2.t">Обсяг</b><span data-i18n="cx.l2.p">рядки коду без згенерованих даних і залежностей</span></div>
+      <div><b data-i18n="cx.l3.t">Інтеграції</b><span data-i18n="cx.l3.p">зовнішні API, мовні моделі, OAuth, пристрої</span></div>
+      <div><b data-i18n="cx.l4.t">Надійність</b><span data-i18n="cx.l4.p">тести, CI, деплой і робота з реальними даними</span></div>
     </div>
 
     <div class="proj-grid">
 
-      <!-- Space Strategy MMO -->
-      <article class="card proj" data-reveal>
+      <!-- 1. Space Strategy MMO -->
+      <article class="card proj" data-accent="cyan" data-reveal style="--d:0ms">
         <div class="proj-shot">
           <span class="status status-live proj-badge" data-i18n="common.live">Працює</span>
           <img src="assets/screens/space-system.webp" alt="Карта системи в Space Strategy MMO" loading="lazy" width="1600" height="1000">
         </div>
         <div class="proj-body">
-          <span class="proj-kicker" data-i18n="proj.space.kick">Космічний симулятор</span>
+          <div class="proj-top">
+            <span class="proj-kicker" data-i18n="proj.space.kick">Космічний симулятор</span>
+            <span class="proj-cx" title="Складність 5 з 5"><span class="cx" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>5/5</span>
+          </div>
           <h3>Space Strategy MMO</h3>
-          <p class="proj-desc" data-i18n="proj.space.desc">Мультиплеерна економічна стратегія в космосі: колонії, енергобаланс, флот між системами, біржа за криптогривню й синдикати. Усі розрахунки — на сервері.</p>
+          <p class="proj-why" data-i18n="proj.space.why">realtime-мультиплеєр · власний сервер і PostgreSQL · ~55k рядків · 22 набори тестів</p>
+          <p class="proj-desc" data-i18n="proj.space.desc">Мультиплеерна економічна стратегія в космосі: колонії, енергобаланс, флот між системами, біржа за криптогривню й синдикати з рангами. Усі розрахунки — на сервері.</p>
           <div class="proj-facts">
             <div data-i18n="proj.space.f1">Тік раз на секунду: світ живе, поки гравець офлайн</div>
             <div data-i18n="proj.space.f2">Біржа без посередників зі зведенням по середній ціні</div>
@@ -163,20 +174,24 @@
         </div>
       </article>
 
-      <!-- Успіх-25 -->
-      <article class="card proj" data-reveal>
+      <!-- 2. ОСББ «Успіх-25» -->
+      <article class="card proj" data-accent="mint" data-reveal style="--d:90ms">
         <div class="proj-shot">
           <span class="status status-live proj-badge" data-i18n="common.live">Працює</span>
-          <img src="assets/screens/uspih-dashboard.webp" alt="Головний екран застосунку ОСББ «Успіх-25»" loading="lazy" width="900" height="1653">
+          <img src="assets/screens/uspih-dashboard.webp" alt="Головний екран застосунку ОСББ «Успіх-25»" loading="lazy" width="1600" height="1000">
         </div>
         <div class="proj-body">
-          <span class="proj-kicker">PWA · Firebase</span>
+          <div class="proj-top">
+            <span class="proj-kicker">PWA · Firebase</span>
+            <span class="proj-cx" title="Складність 4 з 5"><span class="cx" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>4/5</span>
+          </div>
           <h3>ОСББ «Успіх-25»</h3>
-          <p class="proj-desc" data-i18n="proj.uspih.desc">Застосунок мешканця багатоквартирного будинку: голосування з кворумом за площею, білінг, звернення та графіки відключень світла.</p>
+          <p class="proj-why" data-i18n="proj.uspih.why">Firebase із правилами доступу · Cloud Functions · IoT-датчик · ~20k рядків</p>
+          <p class="proj-desc" data-i18n="proj.uspih.desc">Застосунок мешканця багатоквартирного будинку: голосування з кворумом за площею, загальні збори з протоколом, білінг, звернення та графіки відключень світла.</p>
           <div class="proj-facts">
             <div data-i18n="proj.uspih.f1">Правила Firestore гарантують «1 квартира = 1 голос»</div>
             <div data-i18n="proj.uspih.f2">Власний генератор .xlsx на Typed Arrays</div>
-            <div data-i18n="proj.uspih.f3">Офлайн-режим через Service Worker</div>
+            <div data-i18n="proj.uspih.f3">Загальні збори з протоколом у PDF</div>
           </div>
           <div class="proj-foot">
             <a class="link-arrow stretch" href="uspih25.html">
@@ -191,15 +206,83 @@
         </div>
       </article>
 
-      <!-- UABiz -->
-      <article class="card proj" data-reveal style="--d:90ms">
+      <!-- 3. PsyKovalenko -->
+      <article class="card proj" data-accent="rose" data-reveal style="--d:0ms">
+        <div class="proj-shot">
+          <span class="status status-live proj-badge" data-i18n="common.live">Працює</span>
+          <img src="assets/screens/psy-landing.webp" alt="Публічний сайт психологині" loading="lazy" width="1600" height="1000">
+        </div>
+        <div class="proj-body">
+          <div class="proj-top">
+            <span class="proj-kicker" data-i18n="proj.psy.kick">Сайт і кабінет психологині</span>
+            <span class="proj-cx" title="Складність 4 з 5"><span class="cx" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>4/5</span>
+          </div>
+          <h3>PsyKovalenko</h3>
+          <p class="proj-why" data-i18n="proj.psy.why">Next.js із БД · три рівні доступу · Google Calendar і Claude API · ~10k рядків</p>
+          <p class="proj-desc" data-i18n="proj.psy.desc">Публічний сайт із блогом, кабінет клієнта й закрита картотека в одному застосунку: анкети за посиланням, календар, клінічне резюме.</p>
+          <div class="proj-facts">
+            <div data-i18n="proj.psy.f1">Три рівні доступу з перевіркою на сервері</div>
+            <div data-i18n="proj.psy.f2">Анкети за одноразовим посиланням, без входу</div>
+            <div data-i18n="proj.psy.f3">Персональні дані маскуються до запиту до моделі</div>
+          </div>
+          <div class="proj-foot">
+            <a class="link-arrow stretch" href="psy.html">
+              <span data-i18n="common.more">Детальніше</span>
+              <svg><use href="#i-arrow"></use></svg>
+            </a>
+            <div class="icon-links">
+              <a href="https://github.com/kovalenkoserhii2107-maker/psykovalenko" target="_blank" rel="noopener" aria-label="psykovalenko на GitHub"><svg><use href="#i-github"></use></svg></a>
+              <a href="https://psykovalenko.fly.dev" target="_blank" rel="noopener" aria-label="Відкрити сайт"><svg><use href="#i-ext"></use></svg></a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4. CodeQuest -->
+      <article class="card proj" data-accent="indigo" data-reveal style="--d:90ms">
+        <div class="proj-shot">
+          <span class="status status-live proj-badge" data-i18n="common.live">Працює</span>
+          <img src="assets/screens/codequest-path.webp" alt="Шлях корпорації в CodeQuest" loading="lazy" width="1600" height="1000">
+        </div>
+        <div class="proj-body">
+          <div class="proj-top">
+            <span class="proj-kicker" data-i18n="proj.cq.kick">Гра, що вчить програмувати</span>
+            <span class="proj-cx" title="Складність 3 з 5"><span class="cx" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span>3/5</span>
+          </div>
+          <h3>CodeQuest</h3>
+          <p class="proj-why" data-i18n="proj.cq.why">пісочниця для коду у Web Worker · Monaco · ~13k рядків</p>
+          <p class="proj-desc" data-i18n="proj.cq.desc">Космічною корпорацією керує ваш код на JavaScript: поки функцію не написано, розділ не працює. 17 завдань і редактор Monaco.</p>
+          <div class="proj-facts">
+            <div data-i18n="proj.cq.f1">Код гравця виконується в окремому потоці</div>
+            <div data-i18n="proj.cq.f2">Одна функція дороблюється через кілька завдань</div>
+            <div data-i18n="proj.cq.f3">Економіку рахують ваші ж функції</div>
+          </div>
+          <div class="proj-foot">
+            <a class="link-arrow stretch" href="codequest.html">
+              <span data-i18n="common.more">Детальніше</span>
+              <svg><use href="#i-arrow"></use></svg>
+            </a>
+            <div class="icon-links">
+              <a href="https://github.com/kovalenkoserhii2107-maker/CodeQuest" target="_blank" rel="noopener" aria-label="CodeQuest на GitHub"><svg><use href="#i-github"></use></svg></a>
+              <a href="https://kovalenkoserhii2107-maker.github.io/CodeQuest/" target="_blank" rel="noopener" aria-label="Грати в CodeQuest"><svg><use href="#i-ext"></use></svg></a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5. UABiz -->
+      <article class="card proj" data-accent="blue" data-reveal style="--d:0ms">
         <div class="proj-shot">
           <span class="status status-live proj-badge" data-i18n="common.live">Працює</span>
           <img src="assets/screens/uabiz-dashboard.webp" alt="Панель компанії в економічному симуляторі UABiz" loading="lazy" width="1600" height="1000">
         </div>
         <div class="proj-body">
-          <span class="proj-kicker" data-i18n="proj.uabiz.kick">Економічний симулятор</span>
+          <div class="proj-top">
+            <span class="proj-kicker" data-i18n="proj.uabiz.kick">Економічний симулятор</span>
+            <span class="proj-cx" title="Складність 3 з 5"><span class="cx" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span>3/5</span>
+          </div>
           <h3>UABiz</h3>
+          <p class="proj-why" data-i18n="proj.uabiz.why">лише клієнт · 16 менеджерів і головна книга · ~10k рядків</p>
           <p class="proj-desc" data-i18n="proj.uabiz.desc">Стратегія управління бізнесом: від першого магазину до національної корпорації з заводами, логістикою, R&amp;D і виходом на біржу.</p>
           <div class="proj-facts">
             <div data-i18n="proj.uabiz.f1">Звітність за МСФЗ: P&amp;L, баланс, cash flow</div>
@@ -219,19 +302,23 @@
         </div>
       </article>
 
-      <!-- Grand Strategy -->
-      <article class="card proj" data-reveal style="--d:180ms">
+      <!-- 6. Grand Strategy -->
+      <article class="card proj" data-accent="amber" data-reveal style="--d:90ms">
         <div class="proj-shot">
           <span class="status status-live proj-badge" data-i18n="common.live">Працює</span>
-          <img src="assets/screens/politics-map.webp" alt="Політична карта світу в симуляторі Grand Strategy" loading="lazy" width="1600" height="1000">
+          <img src="assets/screens/politics-map.webp" alt="Політична карта світу в Grand Strategy" loading="lazy" width="1600" height="1000">
         </div>
         <div class="proj-body">
-          <span class="proj-kicker" data-i18n="proj.politics.kick">Політичний симулятор</span>
+          <div class="proj-top">
+            <span class="proj-kicker" data-i18n="proj.politics.kick">Політичний симулятор</span>
+            <span class="proj-cx" title="Складність 3 з 5"><span class="cx" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span>3/5</span>
+          </div>
           <h3>Grand Strategy</h3>
-          <p class="proj-desc" data-i18n="proj.politics.desc">Покрокова стратегія на карті світу: близько 200 держав, згенеровані області, армії, податки та дипломатія.</p>
+          <p class="proj-why" data-i18n="proj.politics.why">лише клієнт + офлайн-генератор карти · ІІ країн · ~8k рядків</p>
+          <p class="proj-desc" data-i18n="proj.politics.desc">Покрокова стратегія на карті світу: 236 держав, згенеровані області, армії, податки, дипломатія й комп’ютерні суперники.</p>
           <div class="proj-facts">
             <div data-i18n="proj.politics.f1">Карта нарізана офлайн-генератором із Natural Earth</div>
-            <div data-i18n="proj.politics.f2">Сусідство рахується по геометрії кордонів</div>
+            <div data-i18n="proj.politics.f2">Комп’ютерні країни самі воюють і укладають мир</div>
             <div data-i18n="proj.politics.f3">Власний SVG-рушій із камерою та зумом</div>
           </div>
           <div class="proj-foot">
@@ -247,15 +334,120 @@
         </div>
       </article>
 
-      <!-- UABankSim -->
-      <article class="card proj" data-reveal style="--d:270ms">
+      <!-- 7. Minecraft Bedrock Server -->
+      <article class="card proj" data-accent="lime" data-reveal style="--d:0ms">
+        <div class="proj-shot">
+          <span class="status status-live proj-badge" data-i18n="mc.status">Приватний сервер</span>
+          <div style="position:absolute;inset:0;background:
+                radial-gradient(600px 300px at 20% 0%, rgba(184,243,107,.18), transparent 65%),
+                linear-gradient(160deg,#0d1210,#090b0a);
+                font-family:var(--f-mono);font-size:.7rem;line-height:1.9;color:var(--tx-mute);
+                padding:58px 22px 22px;overflow:hidden;white-space:pre" aria-hidden="true"><span style="color:#b8f36b">[ PS5 ]</span>            <span style="color:#5df2c4">[ Switch ]</span>
+   │ UDP 19132          │ DNS → BedrockConnect
+   ▼                    │
+[ Phantom ]             │
+   │ → :19133           ▼
+[ Bedrock Dedicated Server ]
+  economy · plots · war · blueprints</div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-top">
+            <span class="proj-kicker" data-i18n="proj.mc.kick">Ігровий сервер</span>
+            <span class="proj-cx" title="Складність 3 з 5"><span class="cx" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span>3/5</span>
+          </div>
+          <h3>Minecraft Bedrock Server</h3>
+          <p class="proj-why" data-i18n="proj.mc.why">обхідні шляхи для консолей · Docker і VPS · CI/CD · ~5.6k рядків</p>
+          <p class="proj-desc" data-i18n="proj.mc.desc">Сервер Minecraft Bedrock для Nintendo Switch і PS5 із дев’ятьма власними механіками на TypeScript: економіка, ділянки, війни, креслення.</p>
+          <div class="proj-facts">
+            <div data-i18n="proj.mc.f1">PS5 — через Phantom, Switch — через BedrockConnect</div>
+            <div data-i18n="proj.mc.f2">Усе керування — у предметі-комунікаторі</div>
+            <div data-i18n="proj.mc.f3">Docker локально, VPS DigitalOcean у продакшні</div>
+          </div>
+          <div class="proj-foot">
+            <a class="link-arrow stretch" href="minecraft.html">
+              <span data-i18n="common.more">Детальніше</span>
+              <svg><use href="#i-arrow"></use></svg>
+            </a>
+            <div class="icon-links">
+              <a href="https://github.com/kovalenkoserhii2107-maker/MinecraftServer" target="_blank" rel="noopener" aria-label="MinecraftServer на GitHub"><svg><use href="#i-github"></use></svg></a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 8. Аудит закупівель ЄІБ -->
+      <article class="card proj" data-accent="eu" data-reveal style="--d:90ms">
+        <div class="proj-shot">
+          <span class="status status-live proj-badge" data-i18n="common.live">Працює</span>
+          <img src="assets/screens/eib-overview.webp" alt="Звіт аудиту закупівель ЄІБ" loading="lazy" width="1600" height="1000">
+        </div>
+        <div class="proj-body">
+          <div class="proj-top">
+            <span class="proj-kicker" data-i18n="proj.eib.kick">Юридичний аудит</span>
+            <span class="proj-cx" title="Складність 2 з 5"><span class="cx" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span>2/5</span>
+          </div>
+          <h3><span data-i18n="proj.eib.name">Аудит закупівель ЄІБ</span></h3>
+          <p class="proj-why" data-i18n="proj.eib.why">конвеєр без залежностей · GitHub Actions · ~3k рядків</p>
+          <p class="proj-desc" data-i18n="proj.eib.desc">Рушій перевіряє закупівлі Prozorro на стиках Закону 922-VIII, постанови КМУ 1178 і вимог Європейського інвестиційного банку.</p>
+          <div class="proj-facts">
+            <div data-i18n="proj.eib.f1">14 перевірок: спрацював / чисто / неможливо перевірити</div>
+            <div data-i18n="proj.eib.f2">Щотижневий перезбір корпусу в GitHub Actions</div>
+            <div data-i18n="proj.eib.f3">Python без жодної залежності</div>
+          </div>
+          <div class="proj-foot">
+            <a class="link-arrow stretch" href="eib.html">
+              <span data-i18n="common.more">Детальніше</span>
+              <svg><use href="#i-arrow"></use></svg>
+            </a>
+            <div class="icon-links">
+              <a href="https://github.com/kovalenkoserhii2107-maker/eib-audit" target="_blank" rel="noopener" aria-label="eib-audit на GitHub"><svg><use href="#i-github"></use></svg></a>
+              <a href="https://kovalenkoserhii2107-maker.github.io/eib-audit/" target="_blank" rel="noopener" aria-label="Відкрити звіт"><svg><use href="#i-ext"></use></svg></a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 9. Хроніки влади -->
+      <article class="card proj" data-accent="gold" data-reveal style="--d:0ms">
+        <div class="proj-shot">
+          <span class="status status-live proj-badge" data-i18n="common.live">Працює</span>
+          <img src="assets/screens/chronicles-start.webp" alt="Показники держави в грі «Хроніки влади»" loading="lazy" width="1600" height="1000">
+        </div>
+        <div class="proj-body">
+          <div class="proj-top">
+            <span class="proj-kicker" data-i18n="proj.cop.kick">Сюжетна гра на мовній моделі</span>
+            <span class="proj-cx" title="Складність 2 з 5"><span class="cx" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span>2/5</span>
+          </div>
+          <h3><span data-i18n="proj.cop.name">Хроніки влади</span></h3>
+          <p class="proj-why" data-i18n="proj.cop.why">React + серверна функція з моделлю · ~2k рядків</p>
+          <p class="proj-desc" data-i18n="proj.cop.desc">Мобільний політичний детектив: сцени й наслідки пише модель, а код стежить, щоб вони походили лише з реально зроблених виборів.</p>
+          <div class="proj-facts">
+            <div data-i18n="proj.cop.f1">Відповідь моделі — строго за JSON-схемою</div>
+            <div data-i18n="proj.cop.f2">Ключ до моделі — лише в серверній функції</div>
+            <div data-i18n="proj.cop.f3">Обмеження частоти запитів у Postgres</div>
+          </div>
+          <div class="proj-foot">
+            <a class="link-arrow stretch" href="chronicles.html">
+              <span data-i18n="common.more">Детальніше</span>
+              <svg><use href="#i-arrow"></use></svg>
+            </a>
+            <div class="icon-links">
+              <a href="https://github.com/kovalenkoserhii2107-maker/-chronicles-of-power" target="_blank" rel="noopener" aria-label="Хроніки влади на GitHub"><svg><use href="#i-github"></use></svg></a>
+              <a href="https://kovalenkoserhii2107-maker.github.io/-chronicles-of-power/" target="_blank" rel="noopener" aria-label="Грати в Хроніки влади"><svg><use href="#i-ext"></use></svg></a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 10. UABankSim -->
+      <article class="card proj" data-accent="violet" data-reveal style="--d:90ms">
         <div class="proj-shot">
           <span class="status status-wip proj-badge" data-i18n="common.wip">У розробці</span>
           <div style="position:absolute;inset:0;background:
                 radial-gradient(600px 300px at 20% 0%, rgba(183,155,255,.22), transparent 65%),
                 linear-gradient(160deg,#0d1018,#090b11);
                 font-family:var(--f-mono);font-size:.72rem;line-height:2;color:var(--tx-mute);
-                padding:22px;overflow:hidden" aria-hidden="true">
+                padding:58px 22px 22px;overflow:hidden" aria-hidden="true">
             <div style="color:#b79bff">— GENERAL LEDGER ——————————</div>
             <div>Dt 2620 Кошти клієнтів &nbsp;&nbsp;&nbsp; 1 250 000</div>
             <div>&nbsp;&nbsp;&nbsp;&nbsp;Ct 1001 Каса &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 250 000</div>
@@ -264,12 +456,16 @@
           </div>
         </div>
         <div class="proj-body">
-          <span class="proj-kicker" data-i18n="proj.bank.kick">Банківський симулятор</span>
+          <div class="proj-top">
+            <span class="proj-kicker" data-i18n="proj.bank.kick">Банківський симулятор</span>
+            <span class="proj-cx" data-i18n="proj.bank.cxl">без оцінки</span>
+          </div>
           <h3>UABankSim</h3>
+          <p class="proj-why" data-i18n="proj.bank.why">стадія проєктування: коду ще немає</p>
           <p class="proj-desc" data-i18n="proj.bank.desc">Симулятор комерційного банку в Україні: кожна дія породжує реальні бухгалтерські проводки, а головний продукт — це гроші й ризик.</p>
           <div class="proj-facts">
             <div data-i18n="proj.bank.f1">Подієво-орієнтована архітектура, ядро окремо від модулів</div>
-            <div data-i18n="proj.bank.f2">Нормативи НБУ: Н2, обов'язкові резерви, ОВДП</div>
+            <div data-i18n="proj.bank.f2">Нормативи НБУ: Н2, обов’язкові резерви, ОВДП</div>
             <div data-i18n="proj.bank.f3">Стрес-тести: блекаути, набіги вкладників, кібератаки</div>
           </div>
           <div class="proj-foot">
@@ -294,42 +490,44 @@
         <span class="eyebrow" data-i18n="stack.eyebrow">Інструменти</span>
         <h2 class="h-sec" data-i18n="stack.title">Технічний стек</h2>
       </div>
-      <p class="lede" data-i18n="stack.lede">Свідомий вибір на користь платформи: жодного бандлера, жодного рантайм-фреймворку. Усе, що є в проєктах, написано або зібрано вручну.</p>
+      <p class="lede" data-i18n="stack.lede">Інструмент під задачу. Більшість проєктів — на чистому JavaScript без збірника; там, де потрібні сервер, база, рендеринг на сервері чи розмова з моделлю, з’являються TypeScript, Next.js, PostgreSQL і Python.</p>
     </div>
 
     <div class="stack-grid">
       <div class="card stack-card" data-reveal>
         <h3><span>01</span> Frontend</h3>
-        <p data-i18n="stack.c1">ES-модулі без бандлера, CSS-змінні як єдина дизайн-система, SVG-рендеринг із власною камерою, Canvas.</p>
+        <p data-i18n="stack.c1">ES-модулі без збірника там, де вистачає платформи; React і Next.js — де потрібні компоненти й рендеринг на сервері. SVG-рушій із власною камерою, Canvas, редактор Monaco.</p>
         <div class="chip-row">
-          <span class="chip">Vanilla JS (ES2022)</span><span class="chip">CSS Custom Properties</span>
-          <span class="chip">SVG</span><span class="chip">Canvas</span><span class="chip">Chart.js</span>
+          <span class="chip">Vanilla JS (ES2022)</span><span class="chip">TypeScript</span>
+          <span class="chip">React · Vite</span><span class="chip">Next.js 16</span>
+          <span class="chip">SVG · Canvas</span><span class="chip">Monaco · Web Workers</span>
         </div>
       </div>
       <div class="card stack-card" data-reveal style="--d:80ms">
         <h3><span>02</span> Backend &amp; Cloud</h3>
-        <p data-i18n="stack.c2">Два підходи: Firebase як бекенд без сервера — правила доступу замість перевірок на клієнті; або власний сервер на Node.js із базою, коли світ має жити тіком, а не запитами.</p>
+        <p data-i18n="stack.c2">Три підходи: Firebase чи Supabase як бекенд без сервера — з правилами доступу замість перевірок на клієнті; або власний сервер на Node.js із базою, коли світ має жити тіком, а не запитами.</p>
         <div class="chip-row">
-          <span class="chip">TypeScript (strict)</span><span class="chip">Express · Socket.IO</span>
-          <span class="chip">PostgreSQL · Prisma</span><span class="chip">Firestore + Rules</span>
-          <span class="chip">Firebase Auth</span><span class="chip">Cloud Functions</span>
-          <span class="chip">Docker · Fly.io</span>
+          <span class="chip">Node.js · Express · Socket.IO</span><span class="chip">PostgreSQL · Prisma</span>
+          <span class="chip">Firestore + Rules</span><span class="chip">Supabase Edge Functions</span>
+          <span class="chip">Auth.js · OAuth</span><span class="chip">Python</span>
         </div>
       </div>
       <div class="card stack-card" data-reveal style="--d:160ms">
         <h3><span>03</span> <span data-i18n="stack.c3t">Симуляції</span></h3>
-        <p data-i18n="stack.c3">Подієво-орієнтоване ядро, подвійний запис у головній книзі, макроекономічні моделі та детерміновані генератори даних.</p>
+        <p data-i18n="stack.c3">Подієво-орієнтоване ядро, подвійний запис у головній книзі, макроекономічні моделі, детерміновані генератори даних — і мовні моделі там, де вони пишуть сюжет чи резюме, а код стежить за їхньою відповіддю.</p>
         <div class="chip-row">
           <span class="chip">Event-driven core</span><span class="chip">Double-entry ledger</span>
           <span class="chip">IFRS / МСФЗ</span><span class="chip">GeoJSON</span>
+          <span class="chip">Structured Outputs</span>
         </div>
       </div>
       <div class="card stack-card" data-reveal style="--d:240ms">
         <h3><span>04</span> <span data-i18n="stack.c4t">Платформа</span></h3>
-        <p data-i18n="stack.c4">PWA з офлайн-кешем, генерація .xlsx у браузері на Typed Arrays, тестування сценаріїв через Playwright.</p>
+        <p data-i18n="stack.c4">PWA з офлайн-кешем, Docker на Fly.io й DigitalOcean, CI у GitHub Actions, тестування сценаріїв через Playwright.</p>
         <div class="chip-row">
-          <span class="chip">Service Workers</span><span class="chip">Typed Arrays / ZIP</span>
-          <span class="chip">Playwright</span><span class="chip">GitHub Pages</span>
+          <span class="chip">Service Workers</span><span class="chip">Docker</span>
+          <span class="chip">Fly.io · DigitalOcean</span><span class="chip">GitHub Actions</span>
+          <span class="chip">Cloudflare Workers</span><span class="chip">Playwright</span>
         </div>
       </div>
     </div>
@@ -347,8 +545,8 @@
     <div class="about-grid">
       <div class="card about-body" data-reveal>
         <p data-i18n="about.p1">Я розробник із Одеси. Мене цікавлять системи, у яких є справжня внутрішня механіка: економіка, що реагує на рішення гравця, бухгалтерія, яка сходиться до копійки, карта світу, згенерована з реальних географічних даних.</p>
-        <p data-i18n="about.p2">Через це майже все пишу без фреймворків — так простіше тримати контроль над моделлю і не платити рантайм-податок за абстракції, які проєкту не потрібні. Firebase закриває автентифікацію та зберігання, решта — власний код.</p>
-        <p data-i18n="about.p3">Найбільший із них — Space Strategy MMO: мультиплеерна космічна стратегія, де всі формули живуть на сервері, а світ іде тіком раз на секунду. Поруч — ОСББ «Успіх-25», що вже працює в реальному будинку. Наступний у черзі — UABankSim, симулятор банку з повноцінною головною книгою.</p>
+        <p data-i18n="about.p2">Беру найпростіший інструмент, якого досить. Більшість проєктів написані на чистому JavaScript без збірника — так простіше тримати модель під контролем. Next.js, React і власний сервер з’являються там, де без них не обійтися: у мультиплеєрі, у кабінеті з конфіденційними даними, у грі, що розмовляє з моделлю.</p>
+        <p data-i18n="about.p3">Найбільший — Space Strategy MMO: мультиплеерна космічна стратегія, де всі формули живуть на сервері, а світ іде тіком раз на секунду. Поруч — ОСББ «Успіх-25», яким користується реальний будинок, і сайт із робочим кабінетом для практикуючої психологині. Наступний у черзі — UABankSim, симулятор банку з повноцінною головною книгою.</p>
         <div class="chip-row" style="margin-top:20px">
           <span class="chip" data-i18n="about.t1">Одеса, Україна</span>
           <span class="chip" data-i18n="about.t2">Українська · English</span>
@@ -395,7 +593,7 @@
   </div>
 </div>
 
-<script src="assets/js/i18n.js?v=20260906a"></script>
-<script src="assets/js/app.js?v=20260906a"></script>
+<script src="assets/js/i18n.js?v=20260923a"></script>
+<script src="assets/js/app.js?v=20260923a"></script>
 </body>
 </html>

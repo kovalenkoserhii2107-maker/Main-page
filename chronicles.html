@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="uk" data-accent="gold">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Хроніки влади — сюжетна гра на мовній моделі | Сергій Коваленко</title>
+<meta name="description" content="Мобільний політичний детектив: сцени й наслідки пише мовна модель, а код стежить за причинністю. React, TypeScript, Supabase Edge Functions, Structured Outputs.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#05060a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Хроніки влади — сюжетна гра на мовній моделі">
+<meta property="og:description" content="Модель пише сюжет, сервер перевіряє причинність. Чотири показники держави й відкладені наслідки.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/main.css?v=20260923a">
+</head>
+<body>
+
+<a class="skip" href="#main" data-i18n="common.skip">Перейти до вмісту</a>
+
+<div class="bg-layer" aria-hidden="true"></div>
+<canvas id="bg-grid" aria-hidden="true"></canvas>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-github" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.4.5 0 5.9 0 12.6c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.4 3.6 1 .1-.8.4-1.4.8-1.7-2.7-.3-5.5-1.4-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.6 4.9 18.6 5.2 18.6 5.2c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A12.1 12.1 0 0 0 24 12.6C24 5.9 18.6.5 12 .5z"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+  <symbol id="i-chev-l" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></symbol>
+  <symbol id="i-chev-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="shell nav-in">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">SK</span>
+      <span class="brand-txt">Сергій Коваленко<small data-i18n="common.role">Software Engineer</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Основна навігація">
+      <a href="index.html#projects" data-i18n="nav.projects">Проєкти</a>
+      <a href="index.html#stack" data-i18n="nav.stack">Стек</a>
+      <a href="index.html#about" data-i18n="nav.about">Про мене</a>
+      <a href="index.html#contact" data-i18n="nav.contact">Контакти</a>
+    </nav>
+    <div class="nav-tools">
+      <button class="kbd-btn" data-cmdk-open type="button" aria-haspopup="dialog">
+        <span data-i18n="nav.search">Пошук</span><kbd>⌘K</kbd>
+      </button>
+      <div class="lang" role="group" aria-label="Мова / Language">
+        <button type="button" data-lang="uk" aria-pressed="true">UA</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-bar" id="scroll-bar" aria-hidden="true"></div>
+</header>
+
+<main id="main">
+
+  <section class="p-hero shell">
+    <a class="crumb" href="index.html#projects">
+      <svg><use href="#i-back"></use></svg>
+      <span data-i18n="common.back">Усі проєкти</span>
+    </a>
+
+    <span class="status status-live" data-i18n="common.live">Працює</span>
+    <h1 class="p-title"><span data-i18n="proj.cop.name">Хроніки влади</span></h1>
+    <p class="p-tag" data-i18n="cop.tag">Мобільний політичний детектив, у якому сцени, наслідки й наступні сюжетні лінії пише мовна модель, а гравець лише обирає. Сезон на дванадцять глав, чотири показники держави й відкладені наслідки рішень, що наздоганяють через кілька ходів.</p>
+
+    <div class="p-cta">
+      <a class="btn btn-primary" href="https://kovalenkoserhii2107-maker.github.io/-chronicles-of-power/" target="_blank" rel="noopener">
+        <svg><use href="#i-ext"></use></svg>
+        <span data-i18n="cop.cta">Грати на телефоні</span>
+      </a>
+      <a class="btn btn-ghost" href="https://github.com/kovalenkoserhii2107-maker/-chronicles-of-power" target="_blank" rel="noopener">
+        <svg><use href="#i-github"></use></svg>
+        <span data-i18n="common.source">Код на GitHub</span>
+      </a>
+    </div>
+
+    <dl class="meta-grid" data-reveal>
+      <div><dt data-i18n="common.m.type">Тип</dt><dd data-i18n="cop.m.type">Сюжетна PWA-гра</dd></div>
+      <div><dt data-i18n="common.m.stack">Стек</dt><dd>React · TypeScript · Supabase</dd></div>
+      <div><dt data-i18n="common.m.scale">Обсяг</dt><dd data-i18n="cop.m.scale">~2.1k рядків</dd></div>
+      <div><dt data-i18n="common.m.cx">Складність</dt><dd><span class="cx" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span> 2 / 5</dd></div>
+    </dl>
+  </section>
+
+  <nav class="subnav" aria-label="Розділи сторінки">
+    <div class="shell">
+      <ul>
+        <li><a href="#overview" data-i18n="common.s.overview">Огляд</a></li>
+        <li><a href="#features" data-i18n="common.s.features">Можливості</a></li>
+        <li><a href="#arch" data-i18n="common.s.arch">Архітектура</a></li>
+        <li><a href="#shots" data-i18n="common.s.shots">Скріншоти</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="block" id="overview">
+    <div class="shell">
+      <span class="eyebrow" data-i18n="common.s.overview">Огляд</span>
+      <h2 data-i18n="cop.o.h">Модель пише сюжет, код стежить за причинністю</h2>
+      <div class="prose" data-reveal>
+        <p data-i18n="cop.o.p1">Кожен хід гравець обирає одну з трьох дій. Серверна функція надсилає моделі стан історії й отримує наступну сцену строго за JSON-схемою, тож відповідь завжди має очікувану форму: сцена, три варіанти, зміни показників, нові зачіпки й теорії.</p>
+        <p data-i18n="cop.o.p2">Але форма — ще не сенс. Модель може «запам’ятати» наслідок від варіанта, якого гравець не обирав. Тому після відповіді код перевіряє <strong>причинність</strong>: відкладений ефект виживає лише тоді, коли походить від реально зробленого вибору, а не від двох відкинутих альтернатив.</p>
+        <p data-i18n="cop.o.p3">Ключ до моделі ніколи не потрапляє в браузер: виклик іде через Supabase Edge Function, а частоту запитів обмежує функція в Postgres — щоб одна вкладка не могла спалити весь бюджет.</p>
+      </div>
+      <div class="chip-row" style="margin-top:26px">
+        <span class="chip">React</span>
+        <span class="chip">TypeScript</span>
+        <span class="chip">Vite</span>
+        <span class="chip">Supabase Edge Functions</span>
+        <span class="chip">Postgres</span>
+        <span class="chip">Structured Outputs</span>
+        <span class="chip">GitHub Actions</span>
+        <span class="chip">PWA</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="features">
+    <div class="shell">
+      <span class="eyebrow" data-i18n="common.s.features">Механіки</span>
+      <h2 data-i18n="cop.f.h">Що всередині</h2>
+      <div class="feat">
+        <article class="card feat-item" data-reveal>
+          <span class="feat-num">01</span>
+          <h3 data-i18n="cop.f1.t">Чотири показники держави</h3>
+          <p data-i18n="cop.f1.p">Скарбниця, народ, еліти й порядок. Кожне рішення зсуває їх, і баланс між ними — головне напруження гри.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:70ms">
+          <span class="feat-num">02</span>
+          <h3 data-i18n="cop.f2.t">Відкладені наслідки</h3>
+          <p data-i18n="cop.f2.p">Частина ефектів спрацьовує не одразу, а через кілька ходів — і завжди з прив’язкою до вибору, що їх породив.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:140ms">
+          <span class="feat-num">03</span>
+          <h3 data-i18n="cop.f3.t">Детектив із теоріями</h3>
+          <p data-i18n="cop.f3.p">Зачіпки накопичуються, гравець тримає теорії з рівнем упевненості. Модель не може підмінити теорії гравця: якщо у відповіді з’являються невідомі, сервер повертає попередній список.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:210ms">
+          <span class="feat-num">04</span>
+          <h3 data-i18n="cop.f4.t">Відповідь за схемою</h3>
+          <p data-i18n="cop.f4.p">Structured output гарантує форму відповіді моделі, а серверна перевірка — зв’язність сюжету між ходами.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:280ms">
+          <span class="feat-num">05</span>
+          <h3 data-i18n="cop.f5.t">Обмеження частоти</h3>
+          <p data-i18n="cop.f5.p">Лічильник у Postgres повертає, скільки секунд чекати, і клієнт отримує заголовок <code>Retry-After</code> замість мовчазної відмови.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:350ms">
+          <span class="feat-num">06</span>
+          <h3 data-i18n="cop.f6.t">PWA для телефона</h3>
+          <p data-i18n="cop.f6.p">Ставиться на домашній екран; збирається GitHub Actions і публікується в GitHub Pages.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="arch">
+    <div class="shell">
+      <span class="eyebrow" data-i18n="common.s.arch">Архітектура</span>
+      <h2 data-i18n="cop.a.h">Як це влаштовано</h2>
+      <div class="prose" style="margin-bottom:26px" data-reveal>
+        <p data-i18n="cop.a.p1">Клієнт — React на Vite. Увесь стан історії живе в ньому й їде на сервер разом із вибором. Сервер нічого не пам’ятає між ходами, крім лічильника частоти, — тому його нема чого втрачати й легко масштабувати.</p>
+        <p data-i18n="cop.a.p2">Edge Function перевіряє ліміт, збирає запит до моделі з JSON-схемою, розбирає відповідь і відсікає все, що порушує причинність або з’являється нізвідки.</p>
+      </div>
+      <div class="code-panel" data-reveal>
+        <div class="code-head">-chronicles-of-power / <span data-i18n="cop.a.tree">структура репозиторію</span></div>
+<pre data-i18n="cop.a.pre"><b>src/</b>
+  App.tsx                   <i>стан історії, сцена, вибір, показники</i>
+  main.tsx                  <i>точка входу</i>
+<b>supabase/</b>
+  functions/story-turn/     <i>Edge Function: виклик моделі за JSON-схемою</i>
+    index.ts                <i>ліміт → запит → розбір → перевірка причинності</i>
+  rate-limit.sql            <i>обмеження частоти в Postgres</i>
+<b>public/</b>                   <i>маніфест і service worker</i>
+<b>.github/workflows/</b>        <i>збірка й публікація в GitHub Pages</i></pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="shots">
+    <div class="shell">
+      <span class="eyebrow" data-i18n="common.s.shots">Скріншоти</span>
+      <h2 data-i18n="common.shots.h">Інтерфейс</h2>
+      <p class="prose" style="margin-bottom:26px" data-i18n="common.shots.hint">Натисніть на зображення, щоб відкрити його на весь екран. Стрілки ← → гортають галерею.</p>
+      <div class="gal" data-reveal>
+        <figure>
+          <img src="assets/screens/chronicles-start.webp" alt="Шапка гри з показниками держави: скарбниця, народ, еліти, порядок" loading="lazy" width="900" height="500">
+          <figcaption data-i18n="cop.g1">Показники держави на старті сезону</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="shell">
+    <a class="card next-strip stretch" href="uabank.html" data-reveal>
+      <span>
+        <small data-i18n="common.next">Наступний проєкт</small>
+        <strong>UABankSim — <span data-i18n="proj.bank.kick">Банківський симулятор</span></strong>
+      </span>
+      <span class="link-arrow"><span data-i18n="common.more">Детальніше</span> <svg><use href="#i-arrow"></use></svg></span>
+    </a>
+  </div>
+
+</main>
+
+
+<footer class="foot">
+  <div class="shell foot-in">
+    <span>© <span id="year">2026</span> Сергій Коваленко</span>
+    <span class="foot-meta" data-i18n="foot.meta">Зроблено вручну · Vanilla JS · GitHub Pages</span>
+  </div>
+</footer>
+
+<div class="cmdk" id="cmdk" role="dialog" aria-modal="true" aria-label="Навігація">
+  <div class="cmdk-box">
+    <input class="cmdk-input" id="cmdk-input" type="text" autocomplete="off" spellcheck="false" placeholder="Куди йдемо?" data-i18n-attr="placeholder:cmd.ph">
+    <ul class="cmdk-list" id="cmdk-list" role="listbox"></ul>
+    <div class="cmdk-foot">
+      <span>↑↓ <span data-i18n="cmd.nav">навігація</span></span>
+      <span>↵ <span data-i18n="cmd.open">відкрити</span></span>
+      <span>esc <span data-i18n="cmd.close">закрити</span></span>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/i18n.js?v=20260923a"></script>
+<script src="assets/js/app.js?v=20260923a"></script>
+</body>
+</html>
