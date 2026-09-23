@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="uk" data-accent="lime">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Minecraft Bedrock Server для Switch і PS5 | Сергій Коваленко</title>
+<meta name="description" content="Виділений сервер Minecraft Bedrock із власними механіками на TypeScript для Nintendo Switch і PlayStation 5: економіка, ділянки, війни, креслення. Docker, DigitalOcean, CI/CD.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#05060a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Minecraft Bedrock Server для Switch і PS5">
+<meta property="og:description" content="Дві консолі — два різні обхідні шляхи підключення. Дев’ять механік на TypeScript.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/main.css?v=20260923a">
+</head>
+<body>
+
+<a class="skip" href="#main" data-i18n="common.skip">Перейти до вмісту</a>
+
+<div class="bg-layer" aria-hidden="true"></div>
+<canvas id="bg-grid" aria-hidden="true"></canvas>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-github" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.4.5 0 5.9 0 12.6c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.4 3.6 1 .1-.8.4-1.4.8-1.7-2.7-.3-5.5-1.4-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.6 4.9 18.6 5.2 18.6 5.2c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A12.1 12.1 0 0 0 24 12.6C24 5.9 18.6.5 12 .5z"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+  <symbol id="i-chev-l" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></symbol>
+  <symbol id="i-chev-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="shell nav-in">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">SK</span>
+      <span class="brand-txt">Сергій Коваленко<small data-i18n="common.role">Software Engineer</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Основна навігація">
+      <a href="index.html#projects" data-i18n="nav.projects">Проєкти</a>
+      <a href="index.html#stack" data-i18n="nav.stack">Стек</a>
+      <a href="index.html#about" data-i18n="nav.about">Про мене</a>
+      <a href="index.html#contact" data-i18n="nav.contact">Контакти</a>
+    </nav>
+    <div class="nav-tools">
+      <button class="kbd-btn" data-cmdk-open type="button" aria-haspopup="dialog">
+        <span data-i18n="nav.search">Пошук</span><kbd>⌘K</kbd>
+      </button>
+      <div class="lang" role="group" aria-label="Мова / Language">
+        <button type="button" data-lang="uk" aria-pressed="true">UA</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-bar" id="scroll-bar" aria-hidden="true"></div>
+</header>
+
+<main id="main">
+
+  <section class="p-hero shell">
+    <a class="crumb" href="index.html#projects">
+      <svg><use href="#i-back"></use></svg>
+      <span data-i18n="common.back">Усі проєкти</span>
+    </a>
+
+    <span class="status status-live" data-i18n="mc.status">Приватний сервер</span>
+    <h1 class="p-title">Minecraft Bedrock Server</h1>
+    <p class="p-tag" data-i18n="mc.tag">Виділений сервер Minecraft Bedrock із власними механіками на TypeScript — для гри з Nintendo Switch і PlayStation 5. Жодна з консолей не вміє підключатися до сервера за довільною адресою, тож для кожної знадобився свій обхідний шлях.</p>
+
+    <div class="p-cta">
+      <a class="btn btn-primary" href="https://github.com/kovalenkoserhii2107-maker/MinecraftServer" target="_blank" rel="noopener">
+        <svg><use href="#i-github"></use></svg>
+        <span data-i18n="common.source">Код на GitHub</span>
+      </a>
+      <span class="btn btn-ghost" aria-disabled="true" data-i18n="mc.nodemo">Сервер для своїх — без публічного доступу</span>
+    </div>
+
+    <dl class="meta-grid" data-reveal>
+      <div><dt data-i18n="common.m.type">Тип</dt><dd data-i18n="mc.m.type">Ігровий сервер</dd></div>
+      <div><dt data-i18n="common.m.stack">Стек</dt><dd>TypeScript · Docker · DigitalOcean</dd></div>
+      <div><dt data-i18n="common.m.scale">Обсяг</dt><dd data-i18n="mc.m.scale">9 механік · ~5.6k рядків</dd></div>
+      <div><dt data-i18n="common.m.cx">Складність</dt><dd><span class="cx" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span> 3 / 5</dd></div>
+    </dl>
+  </section>
+
+  <nav class="subnav" aria-label="Розділи сторінки">
+    <div class="shell">
+      <ul>
+        <li><a href="#overview" data-i18n="common.s.overview">Огляд</a></li>
+        <li><a href="#features" data-i18n="common.s.features">Можливості</a></li>
+        <li><a href="#arch" data-i18n="common.s.arch">Архітектура</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="block" id="overview">
+    <div class="shell">
+      <span class="eyebrow" data-i18n="common.s.overview">Огляд</span>
+      <h2 data-i18n="mc.o.h">Дві консолі — два різні обхідні шляхи</h2>
+      <div class="prose" data-reveal>
+        <p data-i18n="mc.o.p1">PlayStation шукає ігри в локальній мережі широкомовним UDP-запитом. На нього відповідає <strong>Phantom</strong> від імені віддаленого сервера, і той з’являється в розділі «Ігри в локальній мережі». Switch Phantom не підтримує — він підключається через <strong>BedrockConnect</strong>: підмінений DNS показує меню вибору сервера, а далі йде пряме з’єднання за IP і портом.</p>
+        <p data-i18n="mc.o.p2">Звідси нетривіальна історія з портами. Phantom мусить сам займати UDP 19132 на всіх інтерфейсах, інакше не отримає broadcast від консолі, тож локально сервер висить на 19133. На VPS Phantom не потрібен, і сервер повертається на стандартний порт.</p>
+        <p data-i18n="mc.o.p3">Друга половина — механіки. Набирати команди з геймпада незручно, тому все керування перенесено в предмет-«комунікатор»: узяв у руку, натиснув «Використати» — відкрилася панель. У чаті лишилася одна команда: повернути комунікатор, якщо він загубився.</p>
+      </div>
+      <div class="chip-row" style="margin-top:26px">
+        <span class="chip">TypeScript</span>
+        <span class="chip">Bedrock Script API</span>
+        <span class="chip">Docker Compose</span>
+        <span class="chip">DigitalOcean</span>
+        <span class="chip">GitHub Actions</span>
+        <span class="chip">Phantom</span>
+        <span class="chip">BedrockConnect</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="features">
+    <div class="shell">
+      <span class="eyebrow" data-i18n="common.s.features">Механіки</span>
+      <h2 data-i18n="mc.f.h">Що всередині</h2>
+      <div class="feat">
+        <article class="card feat-item" data-reveal>
+          <span class="feat-num">01</span>
+          <h3 data-i18n="mc.f1.t">Криптогривня й економіка</h3>
+          <p data-i18n="mc.f1.p">Баланс кожного гравця, стартові 100 000 і табло праворуч на екрані.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:70ms">
+          <span class="feat-num">02</span>
+          <h3 data-i18n="mc.f2.t">Ділянки з податком</h3>
+          <p data-i18n="mc.f2.p">Ділянки 16×16 і 32×32: захист від чужих і податок власнику.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:140ms">
+          <span class="feat-num">03</span>
+          <h3 data-i18n="mc.f3.t">Війни з правилами</h3>
+          <p data-i18n="mc.f3.p">PvP вимкнено за замовчуванням; війна проходить оголошення, підготовку, бій і підсумки.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:210ms">
+          <span class="feat-num">04</span>
+          <h3 data-i18n="mc.f4.t">Креслення будівель</h3>
+          <p data-i18n="mc.f4.p">Голограма габариту й зведення типових будівель із каталогу; оператор зберігає нові креслення прямо в грі.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:280ms">
+          <span class="feat-num">05</span>
+          <h3 data-i18n="mc.f5.t">Комунікатор замість команд</h3>
+          <p data-i18n="mc.f5.p">Не губиться при смерті, не викидається й не кладеться в скриню, розпізнається за міткою на предметі, а не за назвою — перейменована ковадлом копія панель не відкриє.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:350ms">
+          <span class="feat-num">06</span>
+          <h3 data-i18n="mc.f6.t">Модулі вмикаються на льоту</h3>
+          <p data-i18n="mc.f6.p">Кожна механіка — окремий модуль рушія; оператор бачить їхній стан і перемикає з панелі. Ще: повернення до місця смерті, нагороди за час у грі, смуга здоров’я цілі.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="arch">
+    <div class="shell">
+      <span class="eyebrow" data-i18n="common.s.arch">Архітектура</span>
+      <h2 data-i18n="mc.a.h">Як це влаштовано</h2>
+      <div class="prose" style="margin-bottom:26px" data-reveal>
+        <p data-i18n="mc.a.p1">Фаза перша — Docker на Mac для розробки, фаза друга — дроплет DigitalOcean у Франкфурті за Cloud Firewall. Аддон збирається з TypeScript, CI його перевіряє, а деплой розкочує на VPS.</p>
+        <p data-i18n="mc.a.p2">Механіки мають спільне ядро: економіка, розпізнавання позначених предметів, будівництво, журнал. Тести ганяють рушій на моках Bedrock API без запуску самого сервера.</p>
+      </div>
+      <div class="code-panel" data-reveal>
+        <div class="code-head">MinecraftServer / <span data-i18n="mc.a.tree">мережа й репозиторій</span></div>
+<pre data-i18n="mc.a.pre">   [ PlayStation 5 ]                  [ Nintendo Switch ]
+          │ пошук LAN-ігор                    │ DNS → BedrockConnect
+          │ broadcast UDP 19132                │ лише меню вибору сервера
+          ▼                                    │ далі — прямо за IP:порт
+   [ Phantom :19132 ]                          │
+          │ проброс на :19133                  │
+          ▼                                    ▼
+   [ Bedrock Dedicated Server ]   Docker · фаза 1: Mac · фаза 2: VPS
+
+<b>addon/src/</b>
+  mechanics/          <i>economy, plots, war, blueprints, device, …</i>
+  core/               <i>економіка, мітки предметів, будівництво</i>
+  ui/                 <i>панель комунікатора й форми</i>
+<b>deploy/</b>              <i>підготовка VPS</i>
+<b>tests/</b>               <i>рушій на моках Bedrock API</i>
+<b>docker-compose.yml</b></pre>
+      </div>
+    </div>
+  </section>
+
+  <div class="shell">
+    <a class="card next-strip stretch" href="eib.html" data-reveal>
+      <span>
+        <small data-i18n="common.next">Наступний проєкт</small>
+        <strong><span data-i18n="proj.eib.name">Аудит закупівель ЄІБ</span></strong>
+      </span>
+      <span class="link-arrow"><span data-i18n="common.more">Детальніше</span> <svg><use href="#i-arrow"></use></svg></span>
+    </a>
+  </div>
+
+</main>
+
+
+<footer class="foot">
+  <div class="shell foot-in">
+    <span>© <span id="year">2026</span> Сергій Коваленко</span>
+    <span class="foot-meta" data-i18n="foot.meta">Зроблено вручну · Vanilla JS · GitHub Pages</span>
+  </div>
+</footer>
+
+<div class="cmdk" id="cmdk" role="dialog" aria-modal="true" aria-label="Навігація">
+  <div class="cmdk-box">
+    <input class="cmdk-input" id="cmdk-input" type="text" autocomplete="off" spellcheck="false" placeholder="Куди йдемо?" data-i18n-attr="placeholder:cmd.ph">
+    <ul class="cmdk-list" id="cmdk-list" role="listbox"></ul>
+    <div class="cmdk-foot">
+      <span>↑↓ <span data-i18n="cmd.nav">навігація</span></span>
+      <span>↵ <span data-i18n="cmd.open">відкрити</span></span>
+      <span>esc <span data-i18n="cmd.close">закрити</span></span>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/i18n.js?v=20260923a"></script>
+<script src="assets/js/app.js?v=20260923a"></script>
+</body>
+</html>

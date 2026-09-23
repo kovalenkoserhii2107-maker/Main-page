@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/css/main.css?v=20260906a">
+<link rel="stylesheet" href="assets/css/main.css?v=20260923a">
 </head>
 <body>
 
@@ -86,6 +86,7 @@
       <div><dt data-i18n="common.m.stack">Стек</dt><dd>Vanilla JS · SVG · Node.js</dd></div>
       <div><dt data-i18n="politics.m.world">Світ</dt><dd data-i18n="politics.m.worldv">236 держав · 743 області</dd></div>
       <div><dt data-i18n="politics.m.cities">Міста</dt><dd data-i18n="politics.m.citiesv">1013 у довіднику</dd></div>
+      <div><dt data-i18n="common.m.cx">Складність</dt><dd><span class="cx" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span> 3 / 5</dd></div>
     </dl>
   </section>
 
@@ -156,6 +157,21 @@
           <h3 data-i18n="politics.f6.t">Довідник із 1013 міст</h3>
           <p data-i18n="politics.f6.p">Координати й населення міст беруться з відкритих наборів даних і використовуються для назв областей та розрахунку їхньої ваги.</p>
         </article>
+        <article class="card feat-item" data-reveal style="--d:0ms">
+          <span class="feat-num">07</span>
+          <h3 data-i18n="politics.f7.t">Комп’ютерні країни</h3>
+          <p data-i18n="politics.f7.p">Перед розв’язанням ходу ІІ кладе свої накази в ті самі черги, що й гравець, тож бій, марш і набір для всіх рахуються одним кодом. Думають лише ті, кому це потрібно: воюючі країни й сусіди гравця. Війни між ІІ обмежені — взяли п’яту частину земель, і мир.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:70ms">
+          <span class="feat-num">08</span>
+          <h3 data-i18n="politics.f8.t">Дипломатія й «Сценарій 2024»</h3>
+          <p data-i18n="politics.f8.p">Атакувати можна лише країну, з якою йде війна. Оголошення війни й мир коштують впливу, після миру — перемир’я на 10 ходів. «Сценарій 2024» стартує з війною Росії проти України з першого ходу.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:140ms">
+          <span class="feat-num">09</span>
+          <h3 data-i18n="politics.f9.t">Дослідження, збереження, PWA</h3>
+          <p data-i18n="politics.f9.p">Дослідження підсилюють роди військ і швидкість маршу. Гра зберігається автоматично після кожного ходу й ставиться на домашній екран як застосунок.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -176,6 +192,7 @@
   MapEngine.js      <i>відрисовка карти, камера, підписи</i>
   UIManager.js      <i>бічна панель, модалки, журнал</i>
   GameLoop.js       <i>хід і економіка</i>
+  AI.js             <i>ІІ країн: накази в ті самі черги, що й у гравця</i>
   UnitsDB.js        <i>роди військ</i>
   data/             <i>ЗГЕНЕРОВАНО — вручну не правити</i>
     RegionsDB.js    <i>743 області · 1.5 МБ SVG-шляхів</i>
@@ -213,15 +230,19 @@
           <img src="assets/screens/politics-menu.webp" alt="Стартовий екран із вибором держави та її статистикою" loading="lazy" width="1600" height="1000">
           <figcaption data-i18n="politics.g4">Вибір держави на старті</figcaption>
         </figure>
+        <figure>
+          <img src="assets/screens/politics-diplomacy.webp" alt="Вікно дипломатії: поточні війни, мир і сусіди з порівнянням армій" loading="lazy" width="1600" height="1000">
+          <figcaption data-i18n="politics.g5">Дипломатія: війни, мир і сусіди</figcaption>
+        </figure>
       </div>
     </div>
   </section>
 
   <div class="shell">
-    <a class="card next-strip stretch" href="uabank.html" data-reveal>
+    <a class="card next-strip stretch" href="minecraft.html" data-reveal>
       <span>
         <small data-i18n="common.next">Наступний проєкт</small>
-        <strong>UABankSim — <span data-i18n="proj.bank.kick">Банківський симулятор</span></strong>
+        <strong>Minecraft Bedrock Server</strong>
       </span>
       <span class="link-arrow"><span data-i18n="common.more">Детальніше</span> <svg><use href="#i-arrow"></use></svg></span>
     </a>
@@ -248,7 +269,7 @@
   </div>
 </div>
 
-<script src="assets/js/i18n.js?v=20260906a"></script>
-<script src="assets/js/app.js?v=20260906a"></script>
+<script src="assets/js/i18n.js?v=20260923a"></script>
+<script src="assets/js/app.js?v=20260923a"></script>
 </body>
 </html>

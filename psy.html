@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="uk" data-accent="rose">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PsyKovalenko — сайт і кабінет психологині | Сергій Коваленко</title>
+<meta name="description" content="Сайт практикуючої психологині з блогом, кабінетом клієнта та закритою картотекою: анкети за посиланням, Google Calendar, клінічне резюме з маскуванням персональних даних. Next.js, PostgreSQL, Fly.io.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#05060a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PsyKovalenko — сайт і кабінет психологині">
+<meta property="og:description" content="Публічний сайт, кабінет клієнта й картотека в одному застосунку. Next.js 16, Prisma, PostgreSQL.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/main.css?v=20260923a">
+</head>
+<body>
+
+<a class="skip" href="#main" data-i18n="common.skip">Перейти до вмісту</a>
+
+<div class="bg-layer" aria-hidden="true"></div>
+<canvas id="bg-grid" aria-hidden="true"></canvas>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-github" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.4.5 0 5.9 0 12.6c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.4 3.6 1 .1-.8.4-1.4.8-1.7-2.7-.3-5.5-1.4-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.6 4.9 18.6 5.2 18.6 5.2c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6A12.1 12.1 0 0 0 24 12.6C24 5.9 18.6.5 12 .5z"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+  <symbol id="i-chev-l" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></symbol>
+  <symbol id="i-chev-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="shell nav-in">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">SK</span>
+      <span class="brand-txt">Сергій Коваленко<small data-i18n="common.role">Software Engineer</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Основна навігація">
+      <a href="index.html#projects" data-i18n="nav.projects">Проєкти</a>
+      <a href="index.html#stack" data-i18n="nav.stack">Стек</a>
+      <a href="index.html#about" data-i18n="nav.about">Про мене</a>
+      <a href="index.html#contact" data-i18n="nav.contact">Контакти</a>
+    </nav>
+    <div class="nav-tools">
+      <button class="kbd-btn" data-cmdk-open type="button" aria-haspopup="dialog">
+        <span data-i18n="nav.search">Пошук</span><kbd>⌘K</kbd>
+      </button>
+      <div class="lang" role="group" aria-label="Мова / Language">
+        <button type="button" data-lang="uk" aria-pressed="true">UA</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-bar" id="scroll-bar" aria-hidden="true"></div>
+</header>
+
+<main id="main">
+
+  <section class="p-hero shell">
+    <a class="crumb" href="index.html#projects">
+      <svg><use href="#i-back"></use></svg>
+      <span data-i18n="common.back">Усі проєкти</span>
+    </a>
+
+    <span class="status status-live" data-i18n="common.live">Працює</span>
+    <h1 class="p-title">PsyKovalenko</h1>
+    <p class="p-tag" data-i18n="psy.tag">Сайт практикуючої психологині разом із робочим кабінетом: публічні сторінки й блог для нових клієнтів, особистий кабінет із домашніми завданнями й анкетами — і закрита картотека, з якої в кабінет клієнта не потрапляє нічого. Next.js, PostgreSQL, розгортання на Fly.io.</p>
+
+    <div class="p-cta">
+      <a class="btn btn-primary" href="https://psykovalenko.fly.dev" target="_blank" rel="noopener">
+        <svg><use href="#i-ext"></use></svg>
+        <span data-i18n="psy.cta">Відкрити сайт</span>
+      </a>
+      <a class="btn btn-ghost" href="https://github.com/kovalenkoserhii2107-maker/psykovalenko" target="_blank" rel="noopener">
+        <svg><use href="#i-github"></use></svg>
+        <span data-i18n="common.source">Код на GitHub</span>
+      </a>
+    </div>
+
+    <dl class="meta-grid" data-reveal>
+      <div><dt data-i18n="common.m.type">Тип</dt><dd data-i18n="psy.m.type">Сайт + робочий кабінет</dd></div>
+      <div><dt data-i18n="common.m.stack">Стек</dt><dd>Next.js 16 · Prisma · PostgreSQL</dd></div>
+      <div><dt data-i18n="common.m.scale">Обсяг</dt><dd data-i18n="psy.m.scale">93 файли · ~7.7k рядків TS</dd></div>
+      <div><dt data-i18n="common.m.cx">Складність</dt><dd><span class="cx" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span> 4 / 5</dd></div>
+    </dl>
+  </section>
+
+  <nav class="subnav" aria-label="Розділи сторінки">
+    <div class="shell">
+      <ul>
+        <li><a href="#overview" data-i18n="common.s.overview">Огляд</a></li>
+        <li><a href="#features" data-i18n="common.s.features">Можливості</a></li>
+        <li><a href="#arch" data-i18n="common.s.arch">Архітектура</a></li>
+        <li><a href="#shots" data-i18n="common.s.shots">Скріншоти</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="block" id="overview">
+    <div class="shell">
+      <span class="eyebrow" data-i18n="common.s.overview">Огляд</span>
+      <h2 data-i18n="psy.o.h">Одна система замість нотаток, таблиць і месенджера</h2>
+      <div class="prose" data-reveal>
+        <p data-i18n="psy.o.p1">Практика психолога тримається на трьох речах, які зазвичай живуть у різних місцях: сайт, куди приходять нові клієнти, записи про кожного клієнта й зв’язок між зустрічами. Тут це один застосунок із трьома рівнями доступу — гість, клієнт і психологиня.</p>
+        <p data-i18n="psy.o.p2">Найчутливіша частина — картотека: запит, контекст, нотатки до зустрічей, гіпотези й результати анкет. Звідси головне правило архітектури: <strong>усе, що бачить психологиня, не потрапляє в кабінет клієнта</strong>. Доступ перевіряється на сервері в кожному маршруті, а не ховається в інтерфейсі.</p>
+        <p data-i18n="psy.o.p3">Анкети надсилаються одноразовим посиланням із терміном дії. Його можна відкрити без входу, тож воно годиться й для людей з інстаграму, яких ще немає в базі. Відповідач бачить лише подяку й назву найпомітнішої шкали — бали й тлумачення лишаються для розбору на сесії.</p>
+      </div>
+      <div class="chip-row" style="margin-top:26px">
+        <span class="chip">Next.js 16 (App Router)</span>
+        <span class="chip">Auth.js</span>
+        <span class="chip">Prisma 7</span>
+        <span class="chip">PostgreSQL</span>
+        <span class="chip">Zod</span>
+        <span class="chip">Google Calendar API</span>
+        <span class="chip">Claude API</span>
+        <span class="chip">Docker · Fly.io</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="features">
+    <div class="shell">
+      <span class="eyebrow" data-i18n="common.s.features">Можливості</span>
+      <h2 data-i18n="psy.f.h">Що вміє система</h2>
+      <div class="feat">
+        <article class="card feat-item" data-reveal>
+          <span class="feat-num">01</span>
+          <h3 data-i18n="psy.f1.t">Картотека клієнтів</h3>
+          <p data-i18n="psy.f1.p">Картка із запитом, цілями й контекстом, стрічка нотаток трьох типів — підсумок зустрічі, спостереження, гіпотеза, — план на наступну сесію з галочками і червоний блок «Важливо пам’ятати» про ліки й ризики над усім іншим.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:70ms">
+          <span class="feat-num">02</span>
+          <h3 data-i18n="psy.f2.t">Анкети за посиланням</h3>
+          <p data-i18n="psy.f2.p">П’ять опитувальників із підрахунком за шкалами. Посилання проходить статуси «надіслано → відкрито → заповнено»; прострочене не відкривається, заповнене не приймає відповідей удруге.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:140ms">
+          <span class="feat-num">03</span>
+          <h3 data-i18n="psy.f3.t">Клінічне резюме без персональних даних</h3>
+          <p data-i18n="psy.f3.p">За результатами анкети модель пише резюме для психологині. Ім’я, пошта й телефон замінюються на позначки <em>ще до</em> формування запиту, тож персональні дані за межі сервера не виходять.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:210ms">
+          <span class="feat-num">04</span>
+          <h3 data-i18n="psy.f4.t">Календар і Google Calendar</h3>
+          <p data-i18n="psy.f4.p">Зустрічі записуються в кабінеті, а зайнятість підтягується з Google Calendar — щоб сесії не накладалися на решту життя.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:280ms">
+          <span class="feat-num">05</span>
+          <h3 data-i18n="psy.f5.t">Кабінет клієнта</h3>
+          <p data-i18n="psy.f5.p">Домашні завдання з файлами й анкети, надіслані саме цій людині. Вхід поштою з паролем або через Google.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:350ms">
+          <span class="feat-num">06</span>
+          <h3 data-i18n="psy.f6.t">Блог із власним редактором</h3>
+          <p data-i18n="psy.f6.p">Дописи й чернетки, адреса сторінки генерується із заголовка. Межу серверних дій Next піднято до 12 МБ свідомо: фото з телефона більше за типовий 1 МБ, і без цього обкладинка просто не завантажилася б.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="arch">
+    <div class="shell">
+      <span class="eyebrow" data-i18n="common.s.arch">Архітектура</span>
+      <h2 data-i18n="psy.a.h">Як це влаштовано</h2>
+      <div class="prose" style="margin-bottom:26px" data-reveal>
+        <p data-i18n="psy.a.p1">Next.js з App Router: публічні сторінки рендеряться на сервері, форми кабінету — серверними діями. Схему бази описує Prisma, а всі вхідні дані проходять через Zod ще до звернення до бази.</p>
+        <p data-i18n="psy.a.p2">Розгортання — Docker на Fly.io з окремим диском для завантажених файлів. Міграції йдуть повз пулер з’єднань: Prisma бере advisory-блокування, а через pgbouncer у transaction-режимі воно не працює й деплой падає.</p>
+      </div>
+      <div class="code-panel" data-reveal>
+        <div class="code-head">psykovalenko / <span data-i18n="psy.a.tree">структура репозиторію</span></div>
+<pre data-i18n="psy.a.pre"><b>app/</b>                    <i>маршрути Next.js</i>
+  page.tsx              <i>публічний сайт</i>
+  blog/                 <i>блог</i>
+  t/[token]/            <i>анкета за одноразовим посиланням, без входу</i>
+  client/               <i>кабінет клієнта: анкети, домашні завдання</i>
+  admin/                <i>кабінет психологині</i>
+    clients/            <i>картотека</i>
+    tests/              <i>анкети й облік посилань</i>
+    calendar/           <i>зустрічі + Google Calendar</i>
+    blog/               <i>редактор дописів</i>
+<b>lib/</b>
+  auth-guard.ts         <i>перевірка ролі на сервері</i>
+  tests.ts              <i>опитувальники та шкали</i>
+  test-scoring.ts       <i>підрахунок і тлумачення</i>
+  ai.ts                 <i>клінічне резюме, маскування персональних даних</i>
+  google.ts             <i>Google Calendar</i>
+  storage.ts            <i>файли на диску Fly</i>
+<b>prisma/</b>                 <i>13 моделей і міграції</i>
+<b>docs/</b>                   <i>інструкції для психологині</i></pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="shots">
+    <div class="shell">
+      <span class="eyebrow" data-i18n="common.s.shots">Скріншоти</span>
+      <h2 data-i18n="common.shots.h">Інтерфейс</h2>
+      <p class="prose" style="margin-bottom:26px" data-i18n="common.shots.hint">Натисніть на зображення, щоб відкрити його на весь екран. Стрілки ← → гортають галерею.</p>
+      <div class="gal" data-reveal>
+        <figure>
+          <img src="assets/screens/psy-landing.webp" alt="Головний екран публічного сайту психологині" loading="lazy" width="1600" height="1000">
+          <figcaption data-i18n="psy.g1">Публічний сайт</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/screens/psy-directions.webp" alt="Розділ сайту з напрямками роботи" loading="lazy" width="1600" height="1000">
+          <figcaption data-i18n="psy.g2">Напрямки роботи</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/screens/psy-cabinet.webp" alt="Кабінет психологині: форма надсилання анкети за посиланням" loading="lazy" width="1600" height="1000">
+          <figcaption data-i18n="psy.g3">Кабінет: анкети за посиланням (демо-база)</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="shell">
+    <a class="card next-strip stretch" href="codequest.html" data-reveal>
+      <span>
+        <small data-i18n="common.next">Наступний проєкт</small>
+        <strong>CodeQuest — <span data-i18n="proj.cq.kick">Гра, що вчить програмувати</span></strong>
+      </span>
+      <span class="link-arrow"><span data-i18n="common.more">Детальніше</span> <svg><use href="#i-arrow"></use></svg></span>
+    </a>
+  </div>
+
+</main>
+
+
+<footer class="foot">
+  <div class="shell foot-in">
+    <span>© <span id="year">2026</span> Сергій Коваленко</span>
+    <span class="foot-meta" data-i18n="foot.meta">Зроблено вручну · Vanilla JS · GitHub Pages</span>
+  </div>
+</footer>
+
+<div class="cmdk" id="cmdk" role="dialog" aria-modal="true" aria-label="Навігація">
+  <div class="cmdk-box">
+    <input class="cmdk-input" id="cmdk-input" type="text" autocomplete="off" spellcheck="false" placeholder="Куди йдемо?" data-i18n-attr="placeholder:cmd.ph">
+    <ul class="cmdk-list" id="cmdk-list" role="listbox"></ul>
+    <div class="cmdk-foot">
+      <span>↑↓ <span data-i18n="cmd.nav">навігація</span></span>
+      <span>↵ <span data-i18n="cmd.open">відкрити</span></span>
+      <span>esc <span data-i18n="cmd.close">закрити</span></span>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/i18n.js?v=20260923a"></script>
+<script src="assets/js/app.js?v=20260923a"></script>
+</body>
+</html>
