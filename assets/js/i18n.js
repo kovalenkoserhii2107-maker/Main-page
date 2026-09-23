@@ -448,7 +448,7 @@
         "bank.cx": "rated after the first release",
 
         /* ---------- new projects (generated from pages_new.py) ---------- */
-        "psy.tag": "A website for a practising psychologist together with her working cabinet: public pages and a blog for new clients, a personal area with homework and questionnaires — and a closed case file from which nothing ever reaches the client’s side. Next.js, PostgreSQL, deployed on Fly.io.",
+        "psy.tag": "A website for practising psychologist Tetiana Kovalenko together with her working cabinet: public pages and a blog for new clients, a personal area with homework and questionnaires — and a closed case file from which nothing ever reaches the client’s side. Next.js, PostgreSQL, deployed on Fly.io.",
         "psy.cta": "Open the site",
         "psy.m.type": "Website + working cabinet",
         "psy.m.scale": "93 files · ~7.7k lines of TS",
@@ -475,8 +475,8 @@
         "psy.a.tree": "repository layout",
         "psy.a.pre": "<b>app/</b>                    <i>Next.js routes</i>\n  page.tsx              <i>public website</i>\n  blog/                 <i>blog</i>\n  t/[token]/            <i>questionnaire by single-use link, no sign-in</i>\n  client/               <i>client area: questionnaires, homework</i>\n  admin/                <i>psychologist’s cabinet</i>\n    clients/            <i>case files</i>\n    tests/              <i>questionnaires and link tracking</i>\n    calendar/           <i>sessions + Google Calendar</i>\n    blog/               <i>post editor</i>\n<b>lib/</b>\n  auth-guard.ts         <i>server-side role check</i>\n  tests.ts              <i>questionnaires and scales</i>\n  test-scoring.ts       <i>scoring and interpretation</i>\n  ai.ts                 <i>clinical summary, personal-data masking</i>\n  google.ts             <i>Google Calendar</i>\n  storage.ts            <i>files on the Fly volume</i>\n<b>prisma/</b>                 <i>13 models and migrations</i>\n<b>docs/</b>                   <i>guides for the psychologist</i>",
         "psy.g1": "Public website",
-        "psy.g2": "Areas of work",
-        "psy.g3": "Cabinet: questionnaires by link (demo database)",
+        "psy.g2": "About the psychologist",
+        "psy.g3": "Qualifications and formats",
         "cq.tag": "An educational game where a space corporation is run by your own JavaScript. Every quest is a practical, story-driven task: until the function is written, the mechanic does not work and that part of the interface stays locked. Monaco editor, tests in a separate thread — and no backend at all.",
         "cq.cta": "Play in the browser",
         "cq.m.type": "Educational game",
@@ -635,6 +635,12 @@
         "proj.cop.f3": "Request rate limiting in Postgres",
         "proj.bank.why": "design stage: no code yet",
         "proj.bank.cxl": "not rated",
+        "psy.g4": "Services",
+        "psy.g5": "Areas of work",
+        "psy.g6": "Booking and contacts",
+        "psy.g7": "Cabinet: case files (demo data, names blurred)",
+        "psy.g8": "Cabinet: client card (demo data, name blurred)",
+        "psy.g9": "Cabinet: questionnaires by link",
     };
 
     var STORE = 'sk-lang';
