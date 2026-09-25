@@ -9,7 +9,7 @@
 
 ```
 index.html          головна: проєкти впорядковані за складністю (1–5)
-space.html          Space Strategy MMO — космічний симулятор            5/5
+space.html          Чумацький Шлях — космічна стратегія (SpaceMMO)       5/5
 uspih25.html        ОСББ «Успіх-25» — PWA для управління будинком       4/5
 psy.html            PsyKovalenko — сайт і кабінет психологині           4/5
 codequest.html      CodeQuest — гра, що вчить програмувати              3/5

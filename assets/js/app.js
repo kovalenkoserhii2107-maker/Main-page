@@ -278,7 +278,7 @@
 
         var ITEMS = [
             { uk: 'Головна', en: 'Home', kind: 'сторінка', kindEn: 'page', href: 'index.html' },
-            { uk: 'Space Strategy MMO — космічний симулятор', en: 'Space Strategy MMO — space sim', kind: 'проєкт', kindEn: 'project', href: 'space.html' },
+            { uk: 'Чумацький Шлях — космічна стратегія (Space MMO)', en: 'Chumatskyi Shliakh — space strategy MMO', kind: 'проєкт', kindEn: 'project', href: 'space.html' },
             { uk: 'ОСББ «Успіх-25»', en: 'HOA "Uspih-25"', kind: 'проєкт', kindEn: 'project', href: 'uspih25.html' },
             { uk: 'PsyKovalenko — сайт і кабінет психологині', en: 'PsyKovalenko — psychologist site', kind: 'проєкт', kindEn: 'project', href: 'psy.html' },
             { uk: 'CodeQuest — гра, що вчить програмувати', en: 'CodeQuest — learn-to-code game', kind: 'проєкт', kindEn: 'project', href: 'codequest.html' },

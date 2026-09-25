@@ -3,18 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Space Strategy MMO — космічний симулятор | Сергій Коваленко</title>
-<meta name="description" content="Браузерна мультиплеерна космічна стратегія: колонії, енергобаланс, дерево технологій, флот, біржа без посередників і боти під керуванням мовної моделі. TypeScript, Socket.IO, PostgreSQL.">
+<title>Чумацький Шлях — космічна стратегія | Сергій Коваленко</title>
+<meta name="description" content="«Чумацький Шлях» — браузерна мультиплеерна космічна стратегія: колонії, енергобаланс, флот, біржа без посередників, синдикати з Кошем і мережею Брам, боти на мовній моделі. TypeScript, Socket.IO, PostgreSQL.">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#05060a">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Space Strategy MMO — космічний симулятор">
-<meta property="og:description" content="Усі розрахунки на сервері, тік раз на секунду. Колонії, флот, біржа за криптогривню, синдикати й боти на мовній моделі.">
+<meta property="og:image" content="https://kovalenkoserhii2107-maker.github.io/Main-page/assets/screens/space-og.webp">
+<meta property="og:title" content="Чумацький Шлях — космічна стратегія">
+<meta property="og:description" content="Будуй колонії, збирай флот, торгуй на спільній біржі й об’єднуйся в синдикати. Усі розрахунки — на сервері, світ живе тіком раз на секунду.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/css/main.css?v=20260923b">
+<link rel="stylesheet" href="assets/css/main.css?v=20260925a">
 </head>
 <body>
 
@@ -67,8 +68,8 @@
     </a>
 
     <span class="status status-live" data-i18n="common.live">Працює</span>
-    <h1 class="p-title">Space Strategy MMO</h1>
-    <p class="p-tag" data-i18n="space.tag">Браузерна мультиплеерна економічна стратегія в космосі: колонії на планетах, енергобаланс, дерево технологій, верфь, логістика флоту між системами, біржа за криптогривню без посередників, синдикати зі спільним банком і боти під керуванням мовної моделі. Усі розрахунки — на сервері; клієнт лише малює стан і надсилає наміри.</p>
+    <h1 class="p-title" data-i18n="space.name">Чумацький Шлях</h1>
+    <p class="p-tag" data-i18n="space.tag">«Чумацький Шлях» — так українською називають Галактику. Браузерна мультиплеерна економічна стратегія: колонії на планетах, енергобаланс, дерево технологій, верфь, логістика флоту між системами, біржа за криптогривню без посередників, синдикати з Кошем і мережею Брам — і боти під керуванням мовної моделі. Усі розрахунки — на сервері; клієнт лише малює стан і надсилає наміри.</p>
 
     <div class="p-cta">
       <a class="btn btn-primary" href="https://spacemmo.fly.dev" target="_blank" rel="noopener">
@@ -84,8 +85,8 @@
     <dl class="meta-grid" data-reveal>
       <div><dt data-i18n="common.m.type">Тип</dt><dd data-i18n="space.m.type">Мультиплеерна стратегія</dd></div>
       <div><dt data-i18n="common.m.stack">Стек</dt><dd>TypeScript · Socket.IO · PostgreSQL</dd></div>
-      <div><dt data-i18n="common.m.scale">Обсяг</dt><dd data-i18n="space.m.scale">73 модулі · ~38k рядків TS</dd></div>
-      <div><dt data-i18n="space.m.tests">Тести</dt><dd data-i18n="space.m.testsv">22 набори тестів</dd></div>
+      <div><dt data-i18n="common.m.scale">Обсяг</dt><dd data-i18n="space.m.scale">75 модулів сервера · ~40k рядків TS</dd></div>
+      <div><dt data-i18n="space.m.tests">Тести</dt><dd data-i18n="space.m.testsv">23 набори тестів</dd></div>
       <div><dt data-i18n="common.m.cx">Складність</dt><dd><span class="cx" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span> 5 / 5</dd></div>
     </dl>
   </section>
@@ -111,6 +112,7 @@
         <p data-i18n="space.o.p3">Через цей же тік гра розгорнута в одному екземплярі: <code>fly deploy --ha=false</code>, без автомасштабування й без засинання. Дві машини завели б два цикли зі своїми копіями світу, і вони почали б затирати одна одну.</p>
         <p data-i18n="space.o.p4">Економіка розрахована на місяць до повного відкриття контенту: перша сесія 30–60 хвилин, далі кілька коротких заходів на день. Видобуток росте повільніше за ціну рівнів, а головні ворота — наука: пізні рівні технологій вивчаються днями.</p>
         <p data-i18n="space.o.p5">Своя база стоїть на сусідній машині. Спершу був Neon, але тік ходить у базу щосекунди, і безкоштовні 5 ГБ трафіку на місяць вибиралися за три доби — база відмовляла, і весь світ ставав. Платний тариф за такого профілю коштував би близько $19 на місяць, власний Postgres поруч — $3, і мережа виходить із гарячого шляху.</p>
+        <p data-i18n="space.o.p6">Із назвою гра отримала й обличчя: фірмовий напис на екрані входу, значок на телефоні та картинку-превʼю для Telegram і соцмереж. Новачка тепер зустрічає вступне навчання — привітання автора й девʼять кроків меню з підсвіткою, — а поруч лежить база знань на 23 статті, числа в яких сервер бере з тих самих формул, що й гра.</p>
       </div>
       <div class="chip-row" style="margin-top:26px">
         <span class="chip">TypeScript (strict, ESM)</span>
@@ -168,6 +170,26 @@
           <h3 data-i18n="space.f8.t">Спільні дослідження колоній</h3>
           <p data-i18n="space.f8.p">Технології спільні для всіх колоній, і вивчається одночасно одна. Лабораторія іншої колонії може приєднатися й узяти на себе частку: рівна або сильніша — половину, слабша — пропорційно рівню. На ту ж частку скорочується строк і доплачується ціна з її складу.</p>
         </article>
+        <article class="card feat-item" data-reveal style="--d:140ms">
+          <span class="feat-num">09</span>
+          <h3 data-i18n="space.f9.t">Брами: мережа врат синдикату</h3>
+          <p data-i18n="space.f9.p">Прохід через Браму миттєвий, а на картах рейс малюється ділянками. Власник здає мережу гравцю чи синдикату в оренду з оплатою наперед або продає разовий прохід за ціною на корабель і стрибок. Чужі врата можна взяти в облогу: бій з охороною Коша, залп проти щита, 6 годин простою й 12 — невразливості.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:210ms">
+          <span class="feat-num">10</span>
+          <h3 data-i18n="space.f10.t">Нові строки польотів</h3>
+          <p data-i18n="space.f10.p">Сусідня планета — близько 5 хвилин, система — 20, сусідня система — пів години-година, дальня — дві доби. Час росте з квадратом відстані, двигуни його скорочують; зонд став курʼєром: 20 секунд через систему. «Гіперпросторова фізика» знімає 6% антиматерії з кожного стрибка, до третини.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:280ms">
+          <span class="feat-num">11</span>
+          <h3 data-i18n="space.f11.t">Жива карта</h3>
+          <p data-i18n="space.f11.p">Орбіти, поле врат і пунктир рейсів, що біжить у реальному часі; станції ділять кільце порівну, тож тіла не налазять одне на одне.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:350ms">
+          <span class="feat-num">12</span>
+          <h3 data-i18n="space.f12.t">База знань і навчання</h3>
+          <p data-i18n="space.f12.p">23 статті з картинками, пошуком і посиланнями «Як це працює» з кожного розділу. Статті збирає сервер із тих самих функцій і констант, що й гра, а окремий набір тестів стежить, щоб у тексті не зʼявилося NaN чи undefined.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -202,7 +224,7 @@
 <b>src/routes/</b>          <i>REST + авторизація і розбір вводу</i>
 <b>prisma/</b>              <i>схема і міграції</i>
 <b>public/</b>              <i>клієнт: карти, біржа, командний центр</i>
-<b>tests/</b>               <i>22 набори: формули + стрес по живому API</i></pre>
+<b>tests/</b>               <i>23 набори: формули + стрес по живому API</i></pre>
       </div>
     </div>
   </section>
@@ -214,32 +236,40 @@
       <p class="prose" style="margin-bottom:26px" data-i18n="common.shots.hint">Натисніть на зображення, щоб відкрити його на весь екран. Стрілки ← → гортають галерею.</p>
       <div class="gal" data-reveal>
         <figure>
-          <img src="assets/screens/space-center.webp" alt="Центр управління: паспорт колонії, сховища, енергобаланс і черги" loading="lazy" width="1600" height="1000">
-          <figcaption data-i18n="space.g1">Центр управління колонією</figcaption>
+          <img src="assets/screens/space-og.webp" alt="Фірмова картинка гри «Чумацький Шлях»: напис, зірка й планета" loading="lazy" width="1200" height="630">
+          <figcaption data-i18n="space.g1">Фірмовий стиль</figcaption>
         </figure>
         <figure>
-          <img src="assets/screens/space-system.webp" alt="Кругова карта системи: зірка, планети на орбітах, орбітальний хаб і вихід у глибокий космос" loading="lazy" width="1600" height="1000">
-          <figcaption data-i18n="space.g2">Карта системи з туманом війни</figcaption>
+          <img src="assets/screens/space-login.webp" alt="Екран входу з фірмовим написом «Чумацький Шлях»" loading="lazy" width="1000" height="1000">
+          <figcaption data-i18n="space.g2">Екран входу</figcaption>
         </figure>
         <figure>
-          <img src="assets/screens/space-galaxy.webp" alt="Карта галактики: тринадцять систем із координатами, дві з них — чорні діри" loading="lazy" width="1600" height="1000">
-          <figcaption data-i18n="space.g3">Карта галактики: 13 систем</figcaption>
+          <img src="assets/screens/space-center.webp" alt="Центр управління: спершу те, що потребує уваги, далі сховища й енергобаланс" loading="lazy" width="1600" height="1000">
+          <figcaption data-i18n="space.g3">Центр управління</figcaption>
         </figure>
         <figure>
-          <img src="assets/screens/space-tech.webp" alt="Дерево технологій: картки досліджень із вартістю, часом і вимогами" loading="lazy" width="1600" height="1000">
-          <figcaption data-i18n="space.g4">Дерево технологій</figcaption>
+          <img src="assets/screens/space-system.webp" alt="Жива карта системи: зірка, планети на орбітах і орбітальний хаб" loading="lazy" width="1600" height="1000">
+          <figcaption data-i18n="space.g4">Жива карта системи</figcaption>
         </figure>
         <figure>
-          <img src="assets/screens/space-shipyard.webp" alt="Верфь: картки кораблів з атакою, щитом, корпусом і вартістю" loading="lazy" width="1600" height="1000">
-          <figcaption data-i18n="space.g5">Верфь і класи кораблів</figcaption>
+          <img src="assets/screens/space-galaxy.webp" alt="Карта галактики з системами за координатами" loading="lazy" width="1600" height="1000">
+          <figcaption data-i18n="space.g5">Карта галактики</figcaption>
         </figure>
         <figure>
-          <img src="assets/screens/space-buildings.webp" alt="Інфраструктура колонії: картки будівель з рівнями та вартістю" loading="lazy" width="1600" height="1000">
-          <figcaption data-i18n="space.g6">Інфраструктура колонії</figcaption>
+          <img src="assets/screens/space-guide.webp" alt="База знань: стаття «Перший час» з картинками й порадою" loading="lazy" width="1600" height="1000">
+          <figcaption data-i18n="space.g6">База знань: «Перший час»</figcaption>
         </figure>
         <figure>
           <img src="assets/screens/space-market.webp" alt="Біржа: коридор цін, стакан заявок і резерв хаба" loading="lazy" width="1600" height="1000">
           <figcaption data-i18n="space.g7">Біржа: коридор цін і резерв хаба</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/screens/space-tech.webp" alt="Дерево технологій: картки досліджень із вартістю, часом і вимогами" loading="lazy" width="1600" height="1000">
+          <figcaption data-i18n="space.g8">Дерево технологій</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/screens/space-shipyard.webp" alt="Верфь: картки кораблів з атакою, щитом, корпусом і вартістю" loading="lazy" width="1600" height="1000">
+          <figcaption data-i18n="space.g9">Верфь і класи кораблів</figcaption>
         </figure>
       </div>
     </div>
@@ -276,7 +306,7 @@
   </div>
 </div>
 
-<script src="assets/js/i18n.js?v=20260923b"></script>
-<script src="assets/js/app.js?v=20260923b"></script>
+<script src="assets/js/i18n.js?v=20260925a"></script>
+<script src="assets/js/app.js?v=20260925a"></script>
 </body>
 </html>
