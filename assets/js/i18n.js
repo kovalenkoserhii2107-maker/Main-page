@@ -94,7 +94,7 @@
         'proj.bank.f3':   'Stress tests: blackouts, bank runs, cyberattacks',
 
         'proj.space.kick': 'Space simulator',
-        "proj.space.desc": "A multiplayer economic strategy game set in space: colonies, energy balance, fleets moving between systems, an exchange traded in crypto-hryvnia, and ranked syndicates. Every calculation runs on the server.",
+        "proj.space.desc": "A multiplayer economic strategy game set in space: colonies, energy balance, fleets moving between systems, an exchange traded in crypto-hryvnia, syndicates with a Kish and a network of Gates. Every calculation runs on the server.",
         'proj.space.f1':   'A one-second tick: the world runs while you are offline',
         'proj.space.f2':   'Broker-free exchange that matches at the midpoint',
         'proj.space.f3':   'Bots driven by a language model',
@@ -115,7 +115,7 @@
         'about.title':   'Who is writing this',
         'about.p1':      'I am a developer based in Odesa. What interests me are systems with real machinery inside them: an economy that reacts to the player’s decisions, bookkeeping that balances to the last kopiyka, a world map generated from actual geographic data.',
         "about.p2": "I reach for the simplest tool that is enough. Most projects are written in plain JavaScript with no bundler — it keeps the model under control. Next.js, React and a server of my own appear where they cannot be avoided: in multiplayer, in a cabinet holding confidential data, in a game that talks to a model.",
-        "about.p3": "The largest is Space Strategy MMO: a multiplayer space strategy game where every formula lives on the server and the world advances on a one-second tick. Alongside it are HOA “Uspih-25”, which a real apartment building runs on, and a website with a working cabinet for a practising psychologist. Next in line is UABankSim, a bank simulator with a full general ledger.",
+        "about.p3": "The largest is “Chumatskyi Shliakh” (the Milky Way): a multiplayer space strategy game where every formula lives on the server and the world advances on a one-second tick. Alongside it are HOA “Uspih-25”, which a real apartment building runs on, and a website with a working cabinet for a practising psychologist. Next in line is UABankSim, a bank simulator with a full general ledger.",
         'about.t1':      'Odesa, Ukraine',
         'about.t2':      'Ukrainian · English',
         'about.t3':      'Open to collaboration',
@@ -364,13 +364,13 @@
         'bank.r5.t': 'Scenarios and stress tests',
         'bank.r5.p': 'Crises, bank runs, financial-monitoring inspections, and a public demo build on GitHub Pages.',
 
-        /* ---------- Space Strategy MMO ---------- */
-        'space.tag':      'A browser-based multiplayer economic strategy game set in space: colonies on planets, energy balance, a technology tree, a shipyard, fleet logistics between systems, an exchange traded in crypto-hryvnia with no broker, syndicates with a shared treasury, and bots driven by a language model. Every calculation runs on the server; the client only draws state and sends intents.',
+        /* ---------- Chumatskyi Shliakh (space.html) ---------- */
+        "space.tag": "“Chumatskyi Shliakh” is the Ukrainian name for the Milky Way. A browser-based multiplayer economic strategy game: colonies on planets, energy balance, a technology tree, a shipyard, fleet logistics between systems, an exchange traded in crypto-hryvnia with no broker, syndicates with a Kish and a network of Gates — and bots driven by a language model. Every calculation runs on the server; the client only draws state and sends intents.",
         'space.cta':      'Play in the browser',
         'space.m.type':   'Multiplayer strategy',
-        'space.m.scale':  '73 modules · ~38k lines of TS',
+        "space.m.scale": "75 server modules · ~40k lines of TS",
         'space.m.tests':  'Tests',
-        'space.m.testsv': '22 test suites',
+        "space.m.testsv": "23 test suites",
 
         'space.o.h':  'The world runs on a tick, not on requests',
         'space.o.p1': 'This is the largest of my projects and the only genuinely multiplayer one. The core architectural decision is the same as in the HOA app, only taken all the way: <strong>the client computes nothing</strong>. It draws state and sends intents, while every formula — mining, combat, logistics, prices — lives on the server.',
@@ -417,13 +417,13 @@
 '<b>src/routes/</b>          <i>REST + auth and input parsing</i>\n' +
 '<b>prisma/</b>              <i>schema and migrations</i>\n' +
 '<b>public/</b>              <i>client: maps, exchange, command centre</i>\n' +
-'<b>tests/</b>               <i>22 suites: formulas + live-API stress</i>',
-        'space.g1': 'Colony command centre',
-        'space.g2': 'System map with fog of war',
-        'space.g3': 'Galaxy map: 13 systems',
-        'space.g4': 'Technology tree',
-        'space.g5': 'Shipyard and ship classes',
-        'space.g6': 'Colony infrastructure',
+'<b>tests/</b>               <i>23 suites: formulas + live-API stress</i>',
+        "space.g1": "Brand artwork",
+        "space.g2": "Sign-in screen",
+        "space.g3": "Command centre",
+        "space.g4": "Live system map",
+        "space.g5": "Galaxy map",
+        "space.g6": "Knowledge base: “The first hour”",
 
         /* ---------- shared: complexity ---------- */
         'common.m.cx': 'Complexity',
@@ -598,7 +598,7 @@
         "cx.l3.p": "external APIs, language models, OAuth, devices",
         "cx.l4.t": "Reliability",
         "cx.l4.p": "tests, CI, deployment and handling real data",
-        "proj.space.why": "real-time multiplayer · own server and PostgreSQL · ~55k lines · 22 test suites",
+        "proj.space.why": "real-time multiplayer · own server and PostgreSQL · ~58k lines · 23 test suites",
         "proj.uspih.why": "Firebase with security rules · Cloud Functions · IoT sensor · ~20k lines",
         "proj.psy.kick": "Psychologist’s site and cabinet",
         "proj.psy.why": "Next.js with a database · three access levels · Google Calendar and Claude API · ~10k lines",
@@ -641,6 +641,20 @@
         "psy.g7": "Cabinet: case files (demo data, names blurred)",
         "psy.g8": "Cabinet: client card (demo data, name blurred)",
         "psy.g9": "Cabinet: questionnaires by link",
+
+        /* ---------- Chumatskyi Shliakh (ex Space Strategy MMO) ---------- */
+        "space.name": "Chumatskyi Shliakh",
+        "space.o.p6": "With the name the game got a face too: a wordmark on the sign-in screen, a phone icon and a link preview for Telegram and social networks. Newcomers are now met by an onboarding tour — a greeting from the author and nine highlighted menu steps — and next to it sits a 23-article knowledge base whose numbers the server takes from the very formulas the game uses.",
+        "space.f9.t": "Gates: a syndicate’s jump network",
+        "space.f9.p": "A jump through a Gate is instant, and the trip is drawn leg by leg on both maps. The owner can lease the network to a player or syndicate, paid up front, or sell a one-off pass priced per ship and jump. Enemy gates can be besieged: a battle with the Kish guard, a salvo against the gate shield, 6 hours of downtime and 12 of immunity.",
+        "space.f10.t": "New flight times",
+        "space.f10.p": "A neighbouring planet takes about 5 minutes, the system 20, a neighbouring system half an hour to an hour, a far one two days. Time grows with the square of distance and engines cut it; the probe became a courier: 20 seconds across a system. “Hyperspace Physics” shaves 6% of antimatter off every jump, up to a third.",
+        "space.f11.t": "A live map",
+        "space.f11.p": "Orbits, the gate field and dashed fleet routes moving in real time; stations share a ring evenly, so bodies never overlap.",
+        "space.f12.t": "Knowledge base and onboarding",
+        "space.f12.p": "23 illustrated articles with search and “How it works” links from every section. The server builds the articles from the same functions and constants as the game, and a dedicated test suite makes sure no NaN or undefined ever leaks into the text.",
+        "space.g8": "Technology tree",
+        "space.g9": "Shipyard and ship classes",
     };
 
     var STORE = 'sk-lang';
