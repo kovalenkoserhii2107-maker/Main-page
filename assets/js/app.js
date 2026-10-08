@@ -297,7 +297,8 @@
             { uk: 'Стек', en: 'Stack', kind: 'секція', kindEn: 'section', href: 'index.html#stack' },
             { uk: 'Про мене', en: 'About', kind: 'секція', kindEn: 'section', href: 'index.html#about' },
             { uk: 'Контакти', en: 'Contact', kind: 'секція', kindEn: 'section', href: 'index.html#contact' },
-            { uk: 'GitHub', en: 'GitHub', kind: 'зовнішнє', kindEn: 'external', href: 'https://github.com/kovalenkoserhii2107-maker', ext: true }
+            { uk: 'GitHub', en: 'GitHub', kind: 'зовнішнє', kindEn: 'external', href: 'https://github.com/kovalenkoserhii2107-maker', ext: true },
+            { uk: 'LinkedIn — Serhii Kovalenko', en: 'LinkedIn — Serhii Kovalenko', kind: 'зовнішнє', kindEn: 'external', href: 'https://www.linkedin.com/in/serhii-kovalenko-1145b8141/', ext: true }
         ];
 
         var view = [], sel = 0;
