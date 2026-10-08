@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Сергій Коваленко — симулятори, PWA та веб-системи</title>
-<meta name="description" content="Портфоліо Сергія Коваленка: десять проєктів, упорядкованих за складністю, — від мультиплеерної космічної стратегії й сайту психологині до гри, що вчить JavaScript, і юридичного аудиту закупівель.">
+<meta name="description" content="Портфоліо Сергія Коваленка: дванадцять проєктів, упорядкованих за складністю, — від мультиплеерної космічної стратегії й сайту психологині до гри, що вчить JavaScript, і юридичного аудиту закупівель.">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#05060a">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Сергій Коваленко — симулятори, PWA та веб-системи">
-<meta property="og:description" content="Десять проєктів за складністю: «Чумацький Шлях», ОСББ «Успіх-25», PsyKovalenko, CodeQuest, UABiz, Grand Strategy, Minecraft-сервер, аудит ЄІБ, «Хроніки влади», UABankSim.">
+<meta property="og:description" content="Дванадцять проєктів за складністю: «Чумацький Шлях», ОСББ «Успіх-25», PsyKovalenko, CodeQuest, UABiz, Grand Strategy, Minecraft-сервер, аудит ЄІБ, «Хроніки влади», Umbra, TikTakToe, UABankSim.">
 <meta property="og:url" content="https://kovalenkoserhii2107-maker.github.io/Main-page/">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/css/main.css?v=20261008a">
+<link rel="stylesheet" href="assets/css/main.css?v=20261008b">
 
 <script type="application/ld+json">
 {
@@ -89,7 +89,7 @@
           <span data-i18n="hero.h1a">Будую браузерні</span><br>
           <span class="grad" data-i18n="hero.h1b">симулятори та веб-системи</span>
         </h1>
-        <p class="hero-sub" data-i18n="hero.sub">Від застосунку для реального ОСББ до мультиплеерної космічної стратегії та навчальної платформи JavaScript. Нижче — дев’ять реалізованих проєктів і концепція банківського симулятора, впорядковані за складністю.</p>
+        <p class="hero-sub" data-i18n="hero.sub">Від застосунку для реального ОСББ до мультиплеерної космічної стратегії, особистої медіатеки та навчальної платформи JavaScript. Нижче — одинадцять реалізованих проєктів і концепція банківського симулятора, впорядковані за складністю.</p>
 
         <div class="hero-cta">
           <a class="btn btn-primary" href="#projects">
@@ -103,8 +103,8 @@
         </div>
 
         <div class="stat-row" data-reveal>
-          <div class="stat"><b>10</b><span data-i18n="hero.s1">проєктів</span></div>
-          <div class="stat"><b>9</b><span data-i18n="hero.s2">з кодом</span></div>
+          <div class="stat"><b>12</b><span data-i18n="hero.s1">проєктів</span></div>
+          <div class="stat"><b>11</b><span data-i18n="hero.s2">з кодом</span></div>
           <div class="stat"><b>2</b><span data-i18n="hero.s3">мови сайту</span></div>
         </div>
       </div>
@@ -206,8 +206,37 @@
         </div>
       </article>
 
-      <!-- 3. CodeQuest -->
-      <article class="card proj" data-accent="indigo" data-reveal style="--d:80ms">
+      <!-- 3. Umbra-->
+      <article class="card proj" data-accent="violet" data-reveal style="--d:80ms">
+        <div class="proj-shot">
+          <span class="status status-live proj-badge" data-i18n="common.implemented">Реалізовано</span>
+          <img src="assets/screens/umbra-login.webp" alt="Вхід у Umbra через Google або email" loading="lazy" width="1600" height="1000">
+        </div>
+        <div class="proj-body">
+          <div class="proj-top">
+            <span class="proj-kicker" data-i18n="proj.umbra.kick">Колекція фільмів, серіалів та ігор</span>
+            <span class="proj-cx" title="Складність 4 з 5"><span class="cx" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>4/5</span>
+          </div>
+          <h3>Umbra</h3>
+          <p class="proj-why" data-i18n="proj.umbra.why">React · Firebase-синхронізація · 14 модулів Worker · зовнішні API</p>
+          <p class="proj-desc" data-i18n="proj.umbra.desc">Особиста медіатека: оцінки й нотатки, прогрес серіалів, ігрова колекція, друзі та підбір на вечір. Дані синхронізуються між пристроями одного акаунта.</p>
+          <div class="proj-facts">
+            <div data-i18n="proj.umbra.f1">TMDB, IGDB і Steam: каталог, рейтинги та ігрові дані</div>
+            <div data-i18n="proj.umbra.f2">Firebase Auth, Firestore та офлайн-черга змін</div>
+            <div data-i18n="proj.umbra.f3">Cloudflare Worker: API, ціни та AI-підбір</div>
+          </div>
+          <div class="proj-foot">
+            <a class="link-arrow stretch" href="umbra.html"><span data-i18n="common.more">Детальніше</span><svg><use href="#i-arrow"></use></svg></a>
+            <div class="icon-links">
+              <a href="https://github.com/kovalenkoserhii2107-maker/umbra" target="_blank" rel="noopener" aria-label="Umbra на GitHub"><svg><use href="#i-github"></use></svg></a>
+              <a href="https://kovalenkoserhii2107-maker.github.io/umbra/" target="_blank" rel="noopener" aria-label="Відкрити Umbra"><svg><use href="#i-ext"></use></svg></a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4. CodeQuest -->
+      <article class="card proj" data-accent="indigo" data-reveal style="--d:120ms">
         <div class="proj-shot">
           <span class="status status-live proj-badge" data-i18n="common.live">Працює</span>
           <img src="assets/screens/codequest-campaigns.png" alt="Дві кампанії CodeQuest" loading="lazy" width="1600" height="1000">
@@ -238,8 +267,8 @@
         </div>
       </article>
 
-      <!-- 4. UABiz -->
-      <article class="card proj" data-accent="blue" data-reveal style="--d:120ms">
+      <!-- 5. UABiz -->
+      <article class="card proj" data-accent="blue" data-reveal style="--d:160ms">
         <div class="proj-shot">
           <span class="status status-live proj-badge" data-i18n="common.live">Працює</span>
           <img src="assets/screens/uabiz-dashboard.webp" alt="Панель компанії в економічному симуляторі UABiz" loading="lazy" width="1600" height="1000">
@@ -270,8 +299,8 @@
         </div>
       </article>
 
-      <!-- 5. Grand Strategy -->
-      <article class="card proj" data-accent="amber" data-reveal style="--d:160ms">
+      <!-- 6. Grand Strategy -->
+      <article class="card proj" data-accent="amber" data-reveal style="--d:200ms">
         <div class="proj-shot">
           <span class="status status-live proj-badge" data-i18n="common.live">Працює</span>
           <img src="assets/screens/politics-map.webp" alt="Політична карта світу в Grand Strategy" loading="lazy" width="1600" height="1000">
@@ -302,8 +331,8 @@
         </div>
       </article>
 
-      <!-- 6. Minecraft Bedrock Server -->
-      <article class="card proj" data-accent="lime" data-reveal style="--d:200ms">
+      <!-- 7. Minecraft Bedrock Server -->
+      <article class="card proj" data-accent="lime" data-reveal style="--d:240ms">
         <div class="proj-shot">
           <span class="status status-live proj-badge" data-i18n="mc.status">Приватний сервер</span>
           <div style="position:absolute;inset:0;background:
@@ -343,8 +372,37 @@
         </div>
       </article>
 
-      <!-- 7. Аудит закупівель ЄІБ -->
-      <article class="card proj" data-accent="eu" data-reveal style="--d:240ms">
+      <!-- 8. TikTakToe-->
+      <article class="card proj" data-accent="rose" data-reveal style="--d:280ms">
+        <div class="proj-shot">
+          <span class="status status-live proj-badge" data-i18n="common.implemented">Реалізовано</span>
+          <img src="assets/screens/tiktaktoe-lobby.webp" alt="Лобі TikTakToe: ім’я та створення гри" loading="lazy" width="1600" height="1000">
+        </div>
+        <div class="proj-body">
+          <div class="proj-top">
+            <span class="proj-kicker" data-i18n="proj.tiktaktoe.kick">Мережева PWA-гра</span>
+            <span class="proj-cx" title="Складність 2 з 5"><span class="cx" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span>2/5</span>
+          </div>
+          <h3>TikTakToe</h3>
+          <p class="proj-why" data-i18n="proj.tiktaktoe.why">MQTT/WebSocket · журнал подій · 2–3 гравці · PWA</p>
+          <p class="proj-desc" data-i18n="proj.tiktaktoe.desc">Мережеві хрестики-нулики на двох або трьох: лобі, «цар гори», рахунок і повернення до незавершеної партії. Статичний клієнт обмінюється станом через MQTT-брокер.</p>
+          <div class="proj-facts">
+            <div data-i18n="proj.tiktaktoe.f1">Третій гравець спостерігає й змінює переможеного</div>
+            <div data-i18n="proj.tiktaktoe.f2">Дошка, черга та очки відновлюються з журналу подій</div>
+            <div data-i18n="proj.tiktaktoe.f3">Встановлення на телефон і кеш оболонки</div>
+          </div>
+          <div class="proj-foot">
+            <a class="link-arrow stretch" href="tiktaktoe.html"><span data-i18n="common.more">Детальніше</span><svg><use href="#i-arrow"></use></svg></a>
+            <div class="icon-links">
+              <a href="https://github.com/kovalenkoserhii2107-maker/TikTakToe" target="_blank" rel="noopener" aria-label="TikTakToe на GitHub"><svg><use href="#i-github"></use></svg></a>
+              <a href="https://kovalenkoserhii2107-maker.github.io/TikTakToe/" target="_blank" rel="noopener" aria-label="Відкрити TikTakToe"><svg><use href="#i-ext"></use></svg></a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 9. Аудит закупівель ЄІБ -->
+      <article class="card proj" data-accent="eu" data-reveal style="--d:320ms">
         <div class="proj-shot">
           <span class="status status-live proj-badge" data-i18n="common.live">Працює</span>
           <img src="assets/screens/eib-overview.webp" alt="Звіт аудиту закупівель ЄІБ" loading="lazy" width="1600" height="1000">
@@ -375,8 +433,8 @@
         </div>
       </article>
 
-      <!-- 8. Хроніки влади -->
-      <article class="card proj" data-accent="gold" data-reveal style="--d:280ms">
+      <!-- 10. Хроніки влади -->
+      <article class="card proj" data-accent="gold" data-reveal style="--d:360ms">
         <div class="proj-shot">
           <span class="status status-live proj-badge" data-i18n="common.live">Працює</span>
           <img src="assets/screens/chronicles-start.webp" alt="Показники держави в грі «Хроніки влади»" loading="lazy" width="1600" height="1000">
@@ -407,8 +465,8 @@
         </div>
       </article>
 
-      <!-- 9. PsyKovalenko -->
-      <article class="card proj" data-accent="rose" data-reveal style="--d:320ms">
+      <!-- 11. PsyKovalenko -->
+      <article class="card proj" data-accent="rose" data-reveal style="--d:400ms">
         <div class="proj-shot">
           <span class="status status-live proj-badge" data-i18n="common.live">Працює</span>
           <img src="assets/screens/psy-landing-current.webp" alt="Публічний сайт психологині" loading="lazy" width="1600" height="1000">
@@ -439,8 +497,8 @@
         </div>
       </article>
 
-      <!-- 10. UABankSim -->
-      <article class="card proj" data-accent="violet" data-reveal style="--d:360ms">
+      <!-- 12. UABankSim -->
+      <article class="card proj" data-accent="violet" data-reveal style="--d:440ms">
         <div class="proj-shot">
           <span class="status status-wip proj-badge" data-i18n="bank.status">Концепція</span>
           <div style="position:absolute;inset:0;background:
@@ -504,7 +562,7 @@
       </div>
       <div class="card stack-card" data-reveal style="--d:80ms">
         <h3><span>02</span> Backend &amp; Cloud</h3>
-        <p data-i18n="stack.c2">Три підходи: Firebase чи Supabase як бекенд без сервера — з правилами доступу замість перевірок на клієнті; або власний сервер на Node.js із базою, коли світ має жити тіком, а не запитами.</p>
+        <p data-i18n="stack.c2">Firebase чи Supabase відповідають за вхід, дані та правила доступу. Cloudflare Worker об’єднує зовнішні API й серверні AI-запити; власний Node.js із базою підтримує світ, який має жити на тіках.</p>
         <div class="chip-row">
           <span class="chip">Node.js · Express · Socket.IO</span><span class="chip">PostgreSQL · Prisma</span>
           <span class="chip">Firestore + Rules</span><span class="chip">Supabase Edge Functions</span>
@@ -544,8 +602,8 @@
     <div class="about-grid">
       <div class="card about-body" data-reveal>
         <p data-i18n="about.p1">Я розробник із Одеси. Мене цікавлять системи, у яких є справжня внутрішня механіка: економіка, що реагує на рішення гравця, бухгалтерія, яка сходиться до копійки, карта світу, згенерована з реальних географічних даних.</p>
-        <p data-i18n="about.p2">Беру найпростіший інструмент, якого досить. Більшість проєктів — на JavaScript; TypeScript і власний сервер використовую для мультиплеєра, React — для гри з мовною моделлю, Next.js зі статичним експортом — для лендинга психологині.</p>
-        <p data-i18n="about.p3">Найбільший — «Чумацький Шлях»: світ із серверним тіком, PostgreSQL і спільною біржею. Поруч — ОСББ «Успіх-25», навчальні кампанії CodeQuest і статичний PsyKovalenko. UABankSim поки описаний як концепція: реалізації ядра й публічного демо ще немає.</p>
+        <p data-i18n="about.p2">Беру найпростіший інструмент, якого досить. JavaScript використовую для симуляторів і мережевих ігор; React та TypeScript — для медіатеки й гри з мовною моделлю, Next.js зі статичним експортом — для лендинга психологині.</p>
+        <p data-i18n="about.p3">Найбільший — «Чумацький Шлях»: світ із серверним тіком, PostgreSQL і спільною біржею. Поруч — ОСББ «Успіх-25», медіатека Umbra, навчальні кампанії CodeQuest і мережева TikTakToe. UABankSim поки описаний як концепція: реалізації ядра й публічного демо ще немає.</p>
         <div class="chip-row" style="margin-top:20px">
           <span class="chip" data-i18n="about.t1">Одеса, Україна</span>
           <span class="chip" data-i18n="about.t2">Українська · English</span>
@@ -592,7 +650,7 @@
   </div>
 </div>
 
-<script src="assets/js/i18n.js?v=20261008a"></script>
-<script src="assets/js/app.js?v=20261008a"></script>
+<script src="assets/js/i18n.js?v=20261008b"></script>
+<script src="assets/js/app.js?v=20261008b"></script>
 </body>
 </html>
