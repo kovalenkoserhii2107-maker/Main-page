@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PsyKovalenko — сайт і кабінет психологині | Сергій Коваленко</title>
-<meta name="description" content="Сайт практикуючої психологині з блогом, кабінетом клієнта та закритою картотекою: анкети за посиланням, Google Calendar, клінічне резюме з маскуванням персональних даних. Next.js, PostgreSQL, Fly.io.">
+<title>PsyKovalenko — статичний лендинг психологині | Сергій Коваленко</title>
+<meta name="description" content="Статичний лендинг психологині на Next.js і React: консультації, FAQ та контакти. Експорт на GitHub Pages; попередній кабінет збережений в історії Git.">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#05060a">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PsyKovalenko — сайт і кабінет психологині">
-<meta property="og:description" content="Публічний сайт, кабінет клієнта й картотека в одному застосунку. Next.js 16, Prisma, PostgreSQL.">
+<meta property="og:description" content="Статичний лендинг психологині на Next.js і React: консультації, FAQ та контакти. Експорт на GitHub Pages; попередній кабінет збережений в історії Git.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/css/main.css?v=20260925a">
+<link rel="stylesheet" href="assets/css/main.css?v=20261008a">
 </head>
 <body>
 
@@ -68,10 +68,10 @@
 
     <span class="status status-live" data-i18n="common.live">Працює</span>
     <h1 class="p-title">PsyKovalenko</h1>
-    <p class="p-tag" data-i18n="psy.tag">Сайт практикуючої психологині Тетяни Коваленко разом із робочим кабінетом: публічні сторінки й блог для нових клієнтів, особистий кабінет із домашніми завданнями й анкетами — і закрита картотека, з якої в кабінет клієнта не потрапляє нічого. Next.js, PostgreSQL, розгортання на Fly.io.</p>
+    <p class="p-tag" data-i18n="psy.tag">Статичний лендинг практикуючої психологині Тетяни Коваленко: про фахівчиню, формати консультацій, досвід клієнтів, соціальні мережі, питання й запис. Next.js з App Router експортує готові сторінки для GitHub Pages; база даних і сервер застосунку не потрібні.</p>
 
     <div class="p-cta">
-      <a class="btn btn-primary" href="https://psykovalenko.fly.dev" target="_blank" rel="noopener">
+      <a class="btn btn-primary" href="https://kovalenkoserhii2107-maker.github.io/psykovalenko/" target="_blank" rel="noopener">
         <svg><use href="#i-ext"></use></svg>
         <span data-i18n="psy.cta">Відкрити сайт</span>
       </a>
@@ -82,10 +82,10 @@
     </div>
 
     <dl class="meta-grid" data-reveal>
-      <div><dt data-i18n="common.m.type">Тип</dt><dd data-i18n="psy.m.type">Сайт + робочий кабінет</dd></div>
-      <div><dt data-i18n="common.m.stack">Стек</dt><dd>Next.js 16 · Prisma · PostgreSQL</dd></div>
-      <div><dt data-i18n="common.m.scale">Обсяг</dt><dd data-i18n="psy.m.scale">93 файли · ~7.7k рядків TS</dd></div>
-      <div><dt data-i18n="common.m.cx">Складність</dt><dd><span class="cx" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span> 4 / 5</dd></div>
+      <div><dt data-i18n="common.m.type">Тип</dt><dd data-i18n="psy.m.type">Статичний лендинг</dd></div>
+      <div><dt data-i18n="common.m.stack">Стек</dt><dd>Next.js 16 · React 19 · GitHub Pages</dd></div>
+      <div><dt data-i18n="common.m.scale">Обсяг</dt><dd data-i18n="psy.m.scale">1 сторінка · 5 модулів TS/TSX</dd></div>
+      <div><dt data-i18n="common.m.cx">Складність</dt><dd><span class="cx" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i></span> 1 / 5</dd></div>
     </dl>
   </section>
 
@@ -103,21 +103,18 @@
   <section class="block" id="overview">
     <div class="shell">
       <span class="eyebrow" data-i18n="common.s.overview">Огляд</span>
-      <h2 data-i18n="psy.o.h">Одна система замість нотаток, таблиць і месенджера</h2>
+      <h2 data-i18n="psy.o.h">Публічний сайт без витрат на бекенд</h2>
       <div class="prose" data-reveal>
-        <p data-i18n="psy.o.p1">Практика психолога тримається на трьох речах, які зазвичай живуть у різних місцях: сайт, куди приходять нові клієнти, записи про кожного клієнта й зв’язок між зустрічами. Тут це один застосунок із трьома рівнями доступу — гість, клієнт і психологиня.</p>
-        <p data-i18n="psy.o.p2">Найчутливіша частина — картотека: запит, контекст, нотатки до зустрічей, гіпотези й результати анкет. Звідси головне правило архітектури: <strong>усе, що бачить психологиня, не потрапляє в кабінет клієнта</strong>. Доступ перевіряється на сервері в кожному маршруті, а не ховається в інтерфейсі.</p>
-        <p data-i18n="psy.o.p3">Анкети надсилаються одноразовим посиланням із терміном дії. Його можна відкрити без входу, тож воно годиться й для людей з інстаграму, яких ще немає в базі. Відповідач бачить лише подяку й назву найпомітнішої шкали — бали й тлумачення лишаються для розбору на сесії.</p>
+        <p data-i18n="psy.o.p1">Поточна версія зосереджена на публічній презентації практики: відвідувач знайомиться з психологинею, переглядає формати роботи, читає відповіді на поширені питання й переходить до контактів для запису.</p>
+        <p data-i18n="psy.o.p2">До вересня 2026 року проєкт мав кабінет клієнта, CRM, блог і анкети на PostgreSQL із розгортанням на Fly.io. Ці частини прибрано з поточного застосунку, щоб не утримувати базу й сервер заради публічного лендинга.</p>
+        <p data-i18n="psy.o.p3">Попередня система збережена в історії Git у коміті <code>5fa23c8</code>. Її можна відновити окремо, але в поточній версії немає входу, картотеки, серверних анкет або AI-резюме. Актуальне демо — статичний сайт на GitHub Pages.</p>
       </div>
       <div class="chip-row" style="margin-top:26px">
-        <span class="chip">Next.js 16 (App Router)</span>
-        <span class="chip">Auth.js</span>
-        <span class="chip">Prisma 7</span>
-        <span class="chip">PostgreSQL</span>
-        <span class="chip">Zod</span>
-        <span class="chip">Google Calendar API</span>
-        <span class="chip">Claude API</span>
-        <span class="chip">Docker · Fly.io</span>
+        <span class="chip">Next.js 16 · App Router</span>
+        <span class="chip">React 19 · TypeScript</span>
+        <span class="chip">Static export</span>
+        <span class="chip">GitHub Actions · Pages</span>
+        <span class="chip">Web app manifest</span>
       </div>
     </div>
   </section>
@@ -125,37 +122,37 @@
   <section class="block" id="features">
     <div class="shell">
       <span class="eyebrow" data-i18n="common.s.features">Можливості</span>
-      <h2 data-i18n="psy.f.h">Що вміє система</h2>
+      <h2 data-i18n="psy.f.h">Що є в поточній версії</h2>
       <div class="feat">
         <article class="card feat-item" data-reveal>
           <span class="feat-num">01</span>
-          <h3 data-i18n="psy.f1.t">Картотека клієнтів</h3>
-          <p data-i18n="psy.f1.p">Картка із запитом, цілями й контекстом, стрічка нотаток трьох типів — підсумок зустрічі, спостереження, гіпотеза, — план на наступну сесію з галочками і червоний блок «Важливо пам’ятати» про ліки й ризики над усім іншим.</p>
+          <h3 data-i18n="psy.f1.t">Про психологиню й формати роботи</h3>
+          <p data-i18n="psy.f1.p">Публічні секції пояснюють напрямки роботи, підхід і формати онлайн та очних консультацій. Уся основна інформація доступна без реєстрації.</p>
         </article>
         <article class="card feat-item" data-reveal style="--d:70ms">
           <span class="feat-num">02</span>
-          <h3 data-i18n="psy.f2.t">Анкети за посиланням</h3>
-          <p data-i18n="psy.f2.p">П’ять опитувальників із підрахунком за шкалами. Посилання проходить статуси «надіслано → відкрито → заповнено»; прострочене не відкривається, заповнене не приймає відповідей удруге.</p>
+          <h3 data-i18n="psy.f2.t">Відповіді на часті питання</h3>
+          <p data-i18n="psy.f2.p">Акордеони з відповідями допомагають відвідувачу підготуватися до першої консультації. Розкриття питань працює на клієнті без звернень до сервера.</p>
         </article>
         <article class="card feat-item" data-reveal style="--d:140ms">
           <span class="feat-num">03</span>
-          <h3 data-i18n="psy.f3.t">Клінічне резюме без персональних даних</h3>
-          <p data-i18n="psy.f3.p">За результатами анкети модель пише резюме для психологині. Ім’я, пошта й телефон замінюються на позначки <em>ще до</em> формування запиту, тож персональні дані за межі сервера не виходять.</p>
+          <h3 data-i18n="psy.f3.t">Контакти й запис</h3>
+          <p data-i18n="psy.f3.p">Кнопки запису ведуть до контактного розділу; соціальні мережі й способи зв’язку зібрані на одній сторінці. Автоматичного календаря бронювання в поточній версії немає.</p>
         </article>
         <article class="card feat-item" data-reveal style="--d:210ms">
           <span class="feat-num">04</span>
-          <h3 data-i18n="psy.f4.t">Календар і Google Calendar</h3>
-          <p data-i18n="psy.f4.p">Зустрічі записуються в кабінеті, а зайнятість підтягується з Google Calendar — щоб сесії не накладалися на решту життя.</p>
+          <h3 data-i18n="psy.f4.t">Адаптивна навігація</h3>
+          <p data-i18n="psy.f4.p">Мобільне меню, шапка зі зміною стану при прокручуванні та поява блоків реалізовані в окремому компоненті взаємодії.</p>
         </article>
         <article class="card feat-item" data-reveal style="--d:280ms">
           <span class="feat-num">05</span>
-          <h3 data-i18n="psy.f5.t">Кабінет клієнта</h3>
-          <p data-i18n="psy.f5.p">Домашні завдання з файлами й анкети, надіслані саме цій людині. Вхід поштою з паролем або через Google.</p>
+          <h3 data-i18n="psy.f5.t">Значок на головному екрані</h3>
+          <p data-i18n="psy.f5.p">Маніфест задає значки, колір і запуск в окремому вікні. Це можливість додати сайт на домашній екран; офлайн-кеш у поточній версії не реалізований.</p>
         </article>
         <article class="card feat-item" data-reveal style="--d:350ms">
           <span class="feat-num">06</span>
-          <h3 data-i18n="psy.f6.t">Блог із власним редактором</h3>
-          <p data-i18n="psy.f6.p">Дописи й чернетки, адреса сторінки генерується із заголовка. Межу серверних дій Next піднято до 12 МБ свідомо: фото з телефона більше за типовий 1 МБ, і без цього обкладинка просто не завантажилася б.</p>
+          <h3 data-i18n="psy.f6.t">Статична публікація</h3>
+          <p data-i18n="psy.f6.p">GitHub Actions збирає Next.js зі статичним експортом і публікує готові файли на GitHub Pages. PostgreSQL, Prisma, серверна авторизація й Fly.io більше не потрібні для поточного сайту.</p>
         </article>
       </div>
     </div>
@@ -166,30 +163,22 @@
       <span class="eyebrow" data-i18n="common.s.arch">Архітектура</span>
       <h2 data-i18n="psy.a.h">Як це влаштовано</h2>
       <div class="prose" style="margin-bottom:26px" data-reveal>
-        <p data-i18n="psy.a.p1">Next.js з App Router: публічні сторінки рендеряться на сервері, форми кабінету — серверними діями. Схему бази описує Prisma, а всі вхідні дані проходять через Zod ще до звернення до бази.</p>
-        <p data-i18n="psy.a.p2">Розгортання — Docker на Fly.io з окремим диском для завантажених файлів. Міграції йдуть повз пулер з’єднань: Prisma бере advisory-блокування, а через pgbouncer у transaction-режимі воно не працює й деплой падає.</p>
+        <p data-i18n="psy.a.p1">Next.js 16 з App Router і React 19. Уся сторінка — в <code>app/page.tsx</code>, взаємодія — в <code>app/landing-interactions.tsx</code>. Налаштування <code>output: "export"</code> створює статичні файли замість серверного застосунку.</p>
+        <p data-i18n="psy.a.p2">Префікс <code>/psykovalenko/</code> задається під час збірки; спільний helper формує шляхи до зображень і значків. Workflow Pages публікує результат збірки, а код попереднього кабінету лишається в історії репозиторію.</p>
       </div>
       <div class="code-panel" data-reveal>
         <div class="code-head">psykovalenko / <span data-i18n="psy.a.tree">структура репозиторію</span></div>
-<pre data-i18n="psy.a.pre"><b>app/</b>                    <i>маршрути Next.js</i>
-  page.tsx              <i>публічний сайт</i>
-  blog/                 <i>блог</i>
-  t/[token]/            <i>анкета за одноразовим посиланням, без входу</i>
-  client/               <i>кабінет клієнта: анкети, домашні завдання</i>
-  admin/                <i>кабінет психологині</i>
-    clients/            <i>картотека</i>
-    tests/              <i>анкети й облік посилань</i>
-    calendar/           <i>зустрічі + Google Calendar</i>
-    blog/               <i>редактор дописів</i>
-<b>lib/</b>
-  auth-guard.ts         <i>перевірка ролі на сервері</i>
-  tests.ts              <i>опитувальники та шкали</i>
-  test-scoring.ts       <i>підрахунок і тлумачення</i>
-  ai.ts                 <i>клінічне резюме, маскування персональних даних</i>
-  google.ts             <i>Google Calendar</i>
-  storage.ts            <i>файли на диску Fly</i>
-<b>prisma/</b>                 <i>13 моделей і міграції</i>
-<b>docs/</b>                   <i>інструкції для психологині</i></pre>
+<pre data-i18n="psy.a.pre"><b>app/</b>
+  page.tsx                 <i>публічний лендинг</i>
+  landing-interactions.tsx  <i>меню, FAQ, прокручування</i>
+  landing.css              <i>стилі компонентів</i>
+  globals.css              <i>палітра й типографіка</i>
+  layout.tsx               <i>шрифти й метадані</i>
+  manifest.ts              <i>значки й standalone-режим</i>
+<b>lib/base-path.ts</b>         <i>шляхи для GitHub Pages</i>
+<b>next.config.ts</b>           <i>output: export, basePath</i>
+<b>public/</b>                  <i>фотографії та значки</i>
+<b>.github/workflows/pages.yml</b> <i>збірка й публікація</i></pre>
       </div>
     </div>
   </section>
@@ -201,50 +190,26 @@
       <p class="prose" style="margin-bottom:26px" data-i18n="common.shots.hint">Натисніть на зображення, щоб відкрити його на весь екран. Стрілки ← → гортають галерею.</p>
       <div class="gal" data-reveal>
         <figure>
-          <img src="assets/screens/psy-landing.webp" alt="Головний екран публічного сайту психологині" loading="lazy" width="1600" height="1000">
-          <figcaption data-i18n="psy.g1">Публічний сайт</figcaption>
+          <img src="assets/screens/psy-landing-current.webp" alt="Поточний лендинг PsyKovalenko: головний екран" loading="lazy" width="1600" height="1000">
+          <figcaption data-i18n="psy.g1">Поточний лендинг: головний екран</figcaption>
         </figure>
         <figure>
-          <img src="assets/screens/psy-about.webp" alt="Розділ «Про мене» з фото психологині, освітою та підходом до терапії" loading="lazy" width="1600" height="1000">
-          <figcaption data-i18n="psy.g2">Про психологиню</figcaption>
+          <img src="assets/screens/psy-about-current.webp" alt="Поточний PsyKovalenko: про психологиню" loading="lazy" width="1600" height="1000">
+          <figcaption data-i18n="psy.g2">Поточна версія: про психологиню</figcaption>
         </figure>
         <figure>
-          <img src="assets/screens/psy-credentials.webp" alt="Блок кваліфікації: транзакційний аналіз, диплом 2025 року, 90 годин курсу, онлайн і очні сесії" loading="lazy" width="1600" height="1000">
-          <figcaption data-i18n="psy.g3">Кваліфікація й формати роботи</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/screens/psy-services.webp" alt="Картки послуг: індивідуальна терапія, робота з парою, підтримувальні консультації" loading="lazy" width="1600" height="1000">
-          <figcaption data-i18n="psy.g4">Послуги</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/screens/psy-directions.webp" alt="Розділ сайту з напрямками роботи" loading="lazy" width="1600" height="1000">
-          <figcaption data-i18n="psy.g5">Напрямки роботи</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/screens/psy-contact.webp" alt="Заклик записатися на першу консультацію і підвал сайту з контактами та соцмережами" loading="lazy" width="1600" height="1000">
-          <figcaption data-i18n="psy.g6">Запис і контакти</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/screens/psy-clients.webp" alt="Кабінет психологині: картотека клієнтів із запитами, наступними зустрічами й анкетами; імена розмито" loading="lazy" width="1600" height="1000">
-          <figcaption data-i18n="psy.g7">Кабінет: картотека (демо-дані, імена розмито)</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/screens/psy-card.webp" alt="Картка клієнта: блок «Важливо пам’ятати», запит і цілі, план на наступну зустріч, нотатки; ім’я розмито" loading="lazy" width="1600" height="1000">
-          <figcaption data-i18n="psy.g8">Кабінет: картка клієнта (демо-дані, ім’я розмито)</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/screens/psy-cabinet.webp" alt="Кабінет психологині: форма надсилання анкети за посиланням" loading="lazy" width="1600" height="1000">
-          <figcaption data-i18n="psy.g9">Кабінет: анкети за посиланням</figcaption>
+          <img src="assets/screens/psy-services-current.webp" alt="Поточний PsyKovalenko: формати консультацій" loading="lazy" width="1600" height="1000">
+          <figcaption data-i18n="psy.g3">Поточна версія: формати консультацій</figcaption>
         </figure>
       </div>
     </div>
   </section>
 
   <div class="shell">
-    <a class="card next-strip stretch" href="codequest.html" data-reveal>
+    <a class="card next-strip stretch" href="uabank.html" data-reveal>
       <span>
         <small data-i18n="common.next">Наступний проєкт</small>
-        <strong>CodeQuest — <span data-i18n="proj.cq.kick">Гра, що вчить програмувати</span></strong>
+        <strong>UABankSim — <span data-i18n="proj.bank.kick">Банківський симулятор</span></strong>
       </span>
       <span class="link-arrow"><span data-i18n="common.more">Детальніше</span> <svg><use href="#i-arrow"></use></svg></span>
     </a>
@@ -272,7 +237,7 @@
   </div>
 </div>
 
-<script src="assets/js/i18n.js?v=20260925a"></script>
-<script src="assets/js/app.js?v=20260925a"></script>
+<script src="assets/js/i18n.js?v=20261008a"></script>
+<script src="assets/js/app.js?v=20261008a"></script>
 </body>
 </html>

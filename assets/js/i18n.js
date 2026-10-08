@@ -59,44 +59,44 @@
         "hero.eyebrow": "Full-stack · Simulations · Games · Ukraine",
         'hero.h1a':     'I build browser',
         "hero.h1b": "simulators and web systems",
-        "hero.sub": "From an offline app a real apartment building runs on to a multiplayer space strategy game with its own server. The ten projects below are ordered by complexity — and every one is open source.",
+        "hero.sub": "From an app for a real apartment building to a multiplayer space strategy game and a JavaScript learning platform. Below are nine implemented projects and a banking simulator concept, ordered by complexity.",
         'hero.cta1':    'See the projects',
         "hero.s1": "projects",
-        "hero.s2": "running",
-        "hero.s3": "lines of code",
+        "hero.s2": "with code",
+        "hero.s3": "site languages",
 
         /* ---------- home: projects ---------- */
         'proj.eyebrow': 'Selected work',
         'proj.title':   'Projects',
         "proj.lede": "Ordered by complexity — from the largest system to the smallest. The 1–5 level weighs architecture, code size, integrations, tests and infrastructure; under each project’s name is why it got that level.",
 
-        "proj.uspih.desc": "A resident app for an apartment building: voting with a legally correct quorum, general meetings with minutes, billing, maintenance requests and power-outage schedules.",
-        'proj.uspih.f1':   'Firestore rules enforce “one apartment = one vote”',
+        "proj.uspih.desc": "An app for residents and an HOA board: general meetings, online and paper votes, PDF minutes, finances, maintenance requests and power status.",
+        'proj.uspih.f1':   "Votes and quorum counted by co-owners under the HOA charter",
         'proj.uspih.f2':   'Custom .xlsx generator built on Typed Arrays',
-        "proj.uspih.f3": "General meetings with PDF minutes",
+        "proj.uspih.f3": "PDF minutes and server publication without duplicates",
 
         'proj.uabiz.kick': 'Economic simulator',
-        'proj.uabiz.desc': 'A business strategy game: from a single shop to a national corporation with factories, logistics, R&amp;D and a stock listing.',
+        'proj.uabiz.desc': "A single-player business simulator: retail, production, research, logistics, loans and an IPO. Finances separate profit from cash movement; progress can be saved and transferred.",
         'proj.uabiz.f1':   'IFRS reporting: P&amp;L, balance sheet, cash flow',
         'proj.uabiz.f2':   'Production chains across B2B / B2C / B2G',
-        'proj.uabiz.f3':   'Credit scoring, collateral and deposits',
+        'proj.uabiz.f3':   "Save export, safe restart and a manual IPO",
 
         'proj.politics.kick': 'Political simulator',
-        "proj.politics.desc": "A turn-based world-map strategy: 236 states, generated regions, armies, taxes, diplomacy and computer opponents.",
+        "proj.politics.desc": "A turn-based world strategy game: 180 countries, resource economy, finances, diplomacy, navy and straits. Play solo, share a device or join a network game with 2–4 players.",
         'proj.politics.f1':   'Map sliced offline from Natural Earth data',
-        "proj.politics.f2": "Computer countries wage war and make peace on their own",
-        'proj.politics.f3':   'Custom SVG engine with camera and zoom',
+        "proj.politics.f2": "Budgets, public debt, trade and naval blockades",
+        'proj.politics.f3':   "Shared turns through PeerJS and local saves",
 
         'proj.bank.kick': 'Banking simulator',
-        'proj.bank.desc': 'A simulator of a Ukrainian commercial bank, where every action posts real accounting entries and the product you sell is money and risk.',
-        'proj.bank.f1':   'Event-driven core, isolated from product modules',
-        'proj.bank.f2':   'NBU ratios: capital adequacy, reserves, T-bills',
-        'proj.bank.f3':   'Stress tests: blackouts, bank runs, cyberattacks',
+        'proj.bank.desc': "A concept for a Ukrainian commercial-bank simulator: general ledger, risk management, NBU ratios and banking-product development. These mechanics are a proposal, rather than implemented features.",
+        'proj.bank.f1':   "Planned event-driven core and double-entry accounting",
+        'proj.bank.f2':   "Concept includes NBU ratios, reserves and government bonds",
+        'proj.bank.f3':   "Planned crises and bank stress tests",
 
         'proj.space.kick': 'Space simulator',
-        "proj.space.desc": "A multiplayer economic strategy game set in space: colonies, energy balance, fleets moving between systems, an exchange traded in crypto-hryvnia, syndicates with a Kish and a network of Gates. Every calculation runs on the server.",
+        "proj.space.desc": "A multiplayer economic strategy game with colonies, energy, fleets, syndicates and a Gate network. The shared exchange has a hub reserve that limits extreme prices; calculations run on the server.",
         'proj.space.f1':   'A one-second tick: the world runs while you are offline',
-        'proj.space.f2':   'Broker-free exchange that matches at the midpoint',
+        'proj.space.f2':   "Shared exchange and a hub reserve with a limited buyback fund",
         'proj.space.f3':   'Bots driven by a language model',
 
         /* ---------- home: stack ---------- */
@@ -114,17 +114,17 @@
         'about.eyebrow': 'About',
         'about.title':   'Who is writing this',
         'about.p1':      'I am a developer based in Odesa. What interests me are systems with real machinery inside them: an economy that reacts to the player’s decisions, bookkeeping that balances to the last kopiyka, a world map generated from actual geographic data.',
-        "about.p2": "I reach for the simplest tool that is enough. Most projects are written in plain JavaScript with no bundler — it keeps the model under control. Next.js, React and a server of my own appear where they cannot be avoided: in multiplayer, in a cabinet holding confidential data, in a game that talks to a model.",
-        "about.p3": "The largest is “Chumatskyi Shliakh” (the Milky Way): a multiplayer space strategy game where every formula lives on the server and the world advances on a one-second tick. Alongside it are HOA “Uspih-25”, which a real apartment building runs on, and a website with a working cabinet for a practising psychologist. Next in line is UABankSim, a bank simulator with a full general ledger.",
+        "about.p2": "I choose the simplest tool that fits. Most projects use JavaScript; TypeScript and a dedicated server support multiplayer, React powers the language-model game, and Next.js static export serves the psychologist’s landing page.",
+        "about.p3": "The largest is Chumatskyi Shliakh: a world with a server tick, PostgreSQL and a shared market. Alongside it are HOA Uspih-25, CodeQuest’s learning campaigns and the static PsyKovalenko site. UABankSim remains a concept; its core and public demo have not been implemented.",
         'about.t1':      'Odesa, Ukraine',
         'about.t2':      'Ukrainian · English',
         'about.t3':      'Open to collaboration',
 
         /* ---------- Uspih-25 ---------- */
-        'uspih.tag':     'A Progressive Web App for a homeowners’ association: voting with a legally correct quorum, billing, resident requests and power-outage schedules — instead of paper, group chats and spreadsheets.',
+        'uspih.tag':     "A PWA for residents and an HOA board: general meetings with online and paper votes, PDF minutes, finances, requests and outage schedules. Meeting results count co-owners under the charter; completion and publication run on the server.",
         'uspih.cta':     'Open the app',
         'uspih.m.type':  'PWA, offline-first',
-        'uspih.m.scale': '31 modules · ~13k lines of JS',
+        'uspih.m.scale': "32 JS modules · Cloud Functions",
 
         'uspih.o.h':  'The problem',
         'uspih.o.p1': 'Running an apartment building usually rests on paper ballots, messenger groups and a spreadsheet kept by one person. Votes are easy to challenge, only the accountant can see the debts, and requests get lost in the message feed.',
@@ -132,10 +132,10 @@
         'uspih.o.p3': 'The key architectural decision: <strong>trust lives on the server, not on the client</strong>. The apartment number comes from the auth token rather than from text on screen, and Firestore rules confirm it on every write.',
 
         'uspih.f.h':  'What the app does',
-        'uspih.f1.t': 'Voting with an area-weighted quorum',
-        'uspih.f1.p': 'The “one apartment = one vote” rule is enforced in Firestore rules, not in the interface. Quorum is calculated by floor area and ownership share, the way Ukrainian HOA law requires.',
+        'uspih.f1.t': "Meetings and co-owner votes",
+        'uspih.f1.p': "A vote is stored under the apartment number, and totals account for its co-owners. Under the charter, decisions require a majority of all co-owners; the chair and secretary are elected by those present. Area is reported separately in documents. Electronic signatures remain planned.",
         'uspih.f2.t': 'Billing and receipts',
-        'uspih.f2.p': 'Debt import from CSV through a custom parser, association expense reports, payment details, and a charge history for every apartment.',
+        'uspih.f2.p': "CSV debt import, expense reports, payment details and apartment charge history. The transaction ledger is adapted for phone screens; finances and documents are available according to the resident or board role.",
         'uspih.f3.t': 'Power: a sensor and DTEK schedules',
         'uspih.f3.p': 'A hardware sensor built on Android + MacroDroid reports the real power state into the app, while a Cloud Function scrapes the outage schedules from the DTEK site every day.',
         'uspih.f4.t': 'An .xlsx generator in the browser',
@@ -176,21 +176,21 @@
         'uspih.g2': 'Sign-in by apartment number',
 
         /* ---------- UABiz ---------- */
-        'uabiz.tag':     'A browser-based business strategy game. You start with $25,000 and one shop. You finish with a corporation that owns factories, warehouses, a research centre and its own shares on the exchange. Everything you do lands in IFRS financial statements.',
+        'uabiz.tag':     "A single-player browser economic simulator: retail, factories, research, logistics, loans and the stock market. Five company-development chapters, financial reports, detailed cash transactions and transferable saves. There is no shared online market or server ranking.",
         'uabiz.cta':     'Play in the browser',
         'uabiz.m.type':  'Economic strategy',
-        'uabiz.m.scale': '16 managers · ~9k lines of JS',
+        'uabiz.m.scale': "15 managers · 27 JS modules",
         'uabiz.m.res':   'Resources',
-        'uabiz.m.resv':  '40 types · 13 tabs',
+        'uabiz.m.resv':  "35 resources · 14 tabs",
 
         'uabiz.o.h':  'The idea',
         'uabiz.o.p1': 'Most business simulators come down to one formula: buy low, sell high. UABiz is built on a different premise — <strong>the interesting part is not making the profit, it is knowing where the profit came from</strong>.',
         'uabiz.o.p2': 'So the game has no abstract “balance”. It has cash, receivables, warehouse stock, goods in transit, fixed assets with depreciation, collateralised loans and taxes. Every action passes through the general ledger, and the Reporting tab assembles a P&amp;L, a balance sheet and a cash-flow statement from it under IFRS.',
-        'uabiz.o.p3': 'Progress is split into five chapters, from a corner shop fighting to survive to a national corporation. A 23-step tutorial walks a new player through every tab without getting in an experienced one’s way.',
+        'uabiz.o.p3': "Five chapters lead from the first sale to a large company. Tutorials and the reference are combined in Help; actions and day completion save progress automatically. Competitors and the market are local procedural simulations.",
 
         'uabiz.f.h':  'What is inside',
         'uabiz.f1.t': 'IFRS financial statements',
-        'uabiz.f1.p': 'Profit and loss, a balance sheet (assets = liabilities + equity), cash flow, and financial ratios: ROS, ROE, ROA, EBITDA margin, current ratio.',
+        'uabiz.f1.p': "P&amp;L, balance sheet and Cash Flow distinguish profit, capitalization and cash balance. Purchasing and delivery costs are capitalized into inventory and expensed on sale; the Company tab breaks down cash transactions.",
         'uabiz.f2.t': 'Production chains',
         'uabiz.f2.p': '40 resources — from wheat and cotton to silicon, lithium and FPV drones. Every factory has a recipe, machines, workers by grade and its own unit cost.',
         'uabiz.f3.t': 'Geo-economics and logistics',
@@ -199,42 +199,14 @@
         'uabiz.f4.p': 'The credit limit is derived from collateral: cash at 50%, deposits at 90%, real estate at 70%, inventory at 50%. Push leverage past a D/E of 1.0 and the rating collapses.',
         'uabiz.f5.t': 'R&amp;D and a technology tree',
         'uabiz.f5.p': 'The research centre produces research points; lab assistants and senior scientists differ in both output and salary. Research unlocks new factory blueprints and upgrades.',
-        'uabiz.f6.t': 'B2B, B2G and the stock market',
-        'uabiz.f6.p': 'A wholesale exchange with dynamic pricing, government tenders, marketing that drives brand strength, and an IPO with shares of your own.',
+        'uabiz.f6.t': "Saves, restart and stock listing",
+        'uabiz.f6.p': "Autosave is complemented by JSON export and import. Restart requires confirmation and keeps a backup; invalid imports preserve progress. An IPO is launched manually once capitalization reaches $500,000.",
 
         'uabiz.a.h':    'How it is put together',
-        'uabiz.a.p':    'The core is a single operating day. The <code>gameLoop</code> cycle calls the managers in order; each owns one domain and knows nothing about the interface. Game state lives in one object, and the UI only reads it and repaints the active tab.',
+        'uabiz.a.p':    "Static HTML/JS with no build or application server. Chart.js 4.5.1 ships in the repository, so mechanics work without internet access. Failed day completion restores the previous state; logic tests cover trading, accounting, delivery and saves.",
         'uabiz.a.tree': 'repository layout',
         'uabiz.a.pre':
-'<b>index.html</b>          <i>all 13 interface tabs</i>\n' +
-'<b>js/core/</b>\n' +
-'  gameLoop.js       <i>the operating day: manager call order</i>\n' +
-'  state.js          <i>the single game-state object</i>\n' +
-'  utils.js          <i>money, date and number formatting</i>\n' +
-'<b>js/data/</b>\n' +
-'  recipes.js        <i>40 resources and production recipes</i>\n' +
-'  geoData.js        <i>cities, taxes, macroeconomics</i>\n' +
-'<b>js/managers/</b>\n' +
-'  ledger.js         <i>general ledger: double-entry posting</i>\n' +
-'  finance.js        <i>P&amp;L, balance sheet, cash flow, ratios</i>\n' +
-'  production.js     <i>factories, machines, shifts</i>\n' +
-'  warehouse.js      <i>warehouses, volume, stock levels</i>\n' +
-'  logistics.js      <i>routes and shipping cost</i>\n' +
-'  market.js         <i>retail demand and prices</i>\n' +
-'  b2bAI.js          <i>behaviour of wholesale counterparties</i>\n' +
-'  contracts.js      <i>B2B deals and B2G tenders</i>\n' +
-'  retail.js         <i>shops, shelves, staff</i>\n' +
-'  rnd.js            <i>research and the technology tree</i>\n' +
-'  stockMarket.js    <i>quotes and share issuance</i>\n' +
-'  taxes.js          <i>corporate tax, payroll, VAT</i>\n' +
-'  hr.js             <i>hiring, salaries, productivity</i>\n' +
-'  events.js         <i>random events and crises</i>\n' +
-'  quests.js         <i>the five progression chapters</i>\n' +
-'<b>js/ui/</b>\n' +
-'  dashboardUI.js    <i>tab and chart rendering</i>\n' +
-'  wikiUI.js         <i>built-in knowledge base</i>\n' +
-'  tutorial.js       <i>23-step tutorial</i>\n' +
-'  notify.js         <i>toasts and the business journal</i>',
+"<b>index.html</b>             <i>14 interface tabs</i>\n<b>js/core/</b>\n  state.js                <i>company state</i>\n  operations.js           <i>shared inventory operations</i>\n  persistence.js          <i>saves, import, restart</i>\n  gameLoop.js             <i>day completion and error recovery</i>\n<b>js/managers/</b>            <i>15 managers</i>\n  ledger.js               <i>cash transaction ledger</i>\n  finance.js              <i>profit, assets, Cash Flow</i>\n  production.js           <i>production lines</i>\n  warehouse.js            <i>warehouses and inventory</i>\n  logistics.js            <i>routes and deliveries</i>\n  stockMarket.js          <i>manual IPO and exchange</i>\n  quests.js               <i>5 development chapters</i>\n<b>js/ui/</b>                  <i>dashboards, help, accessibility</i>\n<b>js/vendor/</b>              <i>local Chart.js</i>\n<b>tests/</b>                  <i>logic, saves, browser scenarios</i>",
         'uabiz.g1': 'Company summary and progression chapters',
         'uabiz.g2': 'Reporting: IFRS P&amp;L and balance sheet',
         'uabiz.g3': 'Bank: collateral, loans, deposits',
@@ -242,13 +214,13 @@
         'uabiz.g5': 'Factory catalogue',
 
         /* ---------- Grand Strategy ---------- */
-        'politics.tag':      'A turn-based political strategy game on a world map. Pick any of 236 states, run the budget and the army, give orders to your regions and end the turn. The map is not hand-drawn — it is generated from real geographic data.',
+        'politics.tag':      "A turn-based political and economic world strategy game. The current data contains 180 countries, 799 regions and 1,203 cities. Manage resources, budgets, debt, diplomacy, armies and fleets; play solo or with 2–4 participants.",
         'politics.cta':      'Play in the browser',
         'politics.m.type':   'Turn-based strategy',
         'politics.m.world':  'World',
-        'politics.m.worldv': '236 states · 743 regions',
+        'politics.m.worldv': "180 countries · 799 regions",
         'politics.m.cities': 'Cities',
-        'politics.m.citiesv':'1,013 in the dataset',
+        'politics.m.citiesv':"1,203 in the database",
 
         'politics.o.h':  'The map is the interesting part',
         'politics.o.p1': 'A game world map is normally either drawn by a designer or taken off the shelf. Here it is <strong>computed</strong>: an offline Node.js generator takes country geometry from Natural Earth, cuts each state with a grid of squares and clips the pieces along the national border.',
@@ -258,78 +230,60 @@
 
         'politics.f.h':  'What is inside',
         'politics.f1.t': 'A generated world map',
-        'politics.f1.p': '743 regions cut from the geometry of 236 states. Web Mercator projection inside a 1200×800 viewBox, with every country’s region graph guaranteed to be connected.',
+        'politics.f1.p': "799 regions from the geometry of 180 countries; the sea map contains 513 zones. Geographic data and adjacency are prepared offline, with a custom browser renderer.",
         'politics.f2.t': 'A hand-written rendering engine',
         'politics.f2.p': 'A camera with panning, wheel zoom and pinch, country labels that scale with zoom level, army markers — all without a single mapping library.',
-        'politics.f3.t': 'State economy',
-        'politics.f3.p': 'A tax rate from 1% to 20%, a per-turn budget forecast, and population, oil, agriculture and industry values for every region.',
-        'politics.f4.t': 'Unit types and counters',
-        'politics.f4.p': 'Infantry, tanks, artillery, aircraft and air defence. Each has attack, defence, upkeep, an industry requirement in the region that builds it, and a list of what it counters.',
+        'politics.f3.t': "Resources, budgets and debt",
+        'politics.f3.p': "Food, energy and goods are produced, consumed and traded on the shared game market. The finance window compares forecasts with actuals; bonds, IMF programs and bank loans are available.",
+        'politics.f4.t': "Armies, navy and straits",
+        'politics.f4.p': "Land forces and research-unlocked units, shipyards and vessels. Fleets move between sea zones, support coastal combat and blockade ports; strait owners can restrict passage and charge tolls.",
         'politics.f5.t': 'Turns and orders',
         'politics.f5.p': 'March, attack, cancel — orders accumulate in a journal and resolve simultaneously at the end of the turn, the way classic turn-based strategy games do it.',
-        'politics.f6.t': 'A dataset of 1,013 cities',
-        'politics.f6.p': 'City coordinates and populations come from open datasets and drive both region naming and how much weight each region carries.',
+        'politics.f6.t': "Cities and geographic data",
+        'politics.f6.p': "1,203 cities with coordinates and populations support region names and world rendering. The economy also accounts for country differences and maritime geography.",
 
         'politics.a.h':    'How it is put together',
         'politics.a.p':    'The repository splits in two: <code>js/</code> is the engine the browser loads, and <code>tools/</code> is the offline Node.js generator that grinds geographic data into static tables once. Files under <code>js/data/</code> are generated and never edited by hand.',
         'politics.a.tree': 'repository layout',
         'politics.a.pre':
-'<b>index.html</b>          <i>interface markup and styles</i>\n' +
-'<b>js/</b>\n' +
-'  main.js           <i>controller and start screen</i>\n' +
-'  GameData.js       <i>world model, orders, turn resolution</i>\n' +
-'  MapEngine.js      <i>map drawing, camera, labels</i>\n' +
-'  UIManager.js      <i>side panel, modals, order journal</i>\n' +
-'  GameLoop.js       <i>the turn and the economy</i>\n' +
-'  AI.js             <i>country AI: orders go into the same queues as the player’s</i>\n' +
-'  UnitsDB.js        <i>unit types</i>\n' +
-'  data/             <i>GENERATED — never edited by hand</i>\n' +
-'    RegionsDB.js    <i>743 regions · 1.5 MB of SVG paths</i>\n' +
-'    CountriesDB.js  <i>236 states</i>\n' +
-'    CitiesDB.js     <i>1,013 cities</i>\n' +
-'    NeighborsDB.js  <i>adjacency graph</i>\n' +
-'<b>tools/</b>          <i>offline generator, ~40 s per rebuild</i>\n' +
-'  build_map.js      <i>generator entry point</i>\n' +
-'  lib/geo.js        <i>Web Mercator projection, constants</i>\n' +
-'  lib/svgmap.js     <i>country slicing and border clipping</i>\n' +
-'  lib/translit.js   <i>city-name transliteration</i>',
+"<b>index.html</b>           <i>interface and campaign start</i>\n<b>js/</b>\n  GameData.js           <i>world state and rules</i>\n  Economy.js            <i>food, energy, goods, market</i>\n  Finance.js, Credit.js <i>budgets, debt, forecast and actuals</i>\n  Navy.js, Shipping.js  <i>navy, ports, straits</i>\n  Diplomacy.js          <i>relations and treaties</i>\n  Council.js, Nuclear.js <i>UN and nuclear deterrence</i>\n  Net.js                <i>PeerJS and shared turns</i>\n  AI.js                 <i>computer countries</i>\n  MapEngine.js          <i>map and camera</i>\n  data/\n    CountriesDB.js      <i>180 countries</i>\n    RegionsDB.js        <i>799 regions</i>\n    CitiesDB.js         <i>1,203 cities</i>\n    SeasDB.js           <i>513 sea zones</i>\n<b>tools/</b>                <i>geographic data generation</i>\n<b>tests/</b>                <i>game logic and assets</i>",
         'politics.g1': 'The world map at medium zoom',
         'politics.g2': 'Zoomed in on a region',
         'politics.g3': 'Running the state: taxes and army',
         'politics.g4': 'Choosing a state at the start',
 
         /* ---------- UABankSim ---------- */
-        'bank.tag':       'A simulator of a Ukrainian commercial bank. You chair the board, your product is money rather than goods, and your main instrument is risk management. Every action, from issuing a loan to fuelling an armoured cash-in-transit van, posts real accounting entries.',
+        'bank.tag':       "A concept for a Ukrainian commercial-bank simulator, combining accounting entries, risk management, NBU ratios and growth from one department to board-level management. The repository currently contains only a README; code, tests and a demo have not been implemented.",
         'bank.soon':      'Demo coming later',
         'bank.m.type':    'Financial simulator',
-        'bank.m.stack':   'JS · event-driven core',
-        'bank.m.statusv': 'Design and core',
+        'bank.m.stack':   "Planned: event-driven architecture",
+        'bank.m.statusv': "README concept · no implementation",
         'bank.m.base':    'Built on',
-        'bank.m.basev':   'General ledger and NBU ratios',
+        'bank.m.basev':   "Planned general ledger and NBU ratios",
 
         'bank.o.h':  'Why a bank and not a factory',
         'bank.o.p1': 'UABiz showed that a simulator gets interesting once real bookkeeping sits underneath it. UABankSim takes that idea all the way: a bank has <strong>nothing but bookkeeping</strong> — there is no product, only obligations, claims, and the risk they will not be met.',
-        'bank.o.p2': 'The career scales with the player. You start running a single department — card products, say, or foreign exchange — and work up to board level, where you are deciding the macroeconomics of the whole bank.',
-        'bank.o.p3': 'The market is specifically Ukrainian: the NBU policy rate from historical data, mandatory reserves, the H2 capital adequacy ratio, NBU deposit certificates and government bonds. The crises in the game are not abstract either.',
+        'bank.o.p2': "The proposed career grows from managing a department, such as cards or foreign exchange, to board-level decisions. This progression has not been implemented.",
+        'bank.o.p3': "The concept targets the Ukrainian market: historical NBU rates, reserves, capital adequacy, deposit certificates and government bonds. The current repository has no data integrations or calculation modules.",
 
         'bank.f.h':  'What will be inside',
         'bank.f1.t': 'A complete general ledger',
-        'bank.f1.p': 'Every single action produces a posting and shows up immediately in the balance sheet and the P&amp;L. The balance must always reconcile — that is the project’s founding rule.',
+        'bank.f1.p': "Double-entry accounting for every operation and balance-sheet/P&amp;L generation are planned requirements for the future core, not an existing accounting system.",
         'bank.f2.t': 'Ratios and the regulator',
-        'bank.f2.p': 'Mandatory reserves, the H2 capital adequacy ratio, NBU deposit certificates and government bonds. Breaching a ratio is not a warning — it has consequences.',
+        'bank.f2.p': "The concept includes reserves, capital adequacy, NBU deposit certificates and government bonds. Formulas and breach consequences still need implementation.",
         'bank.f3.t': 'Three business verticals',
-        'bank.f3.p': 'Mass retail — high volume and high NPL. SME — cash management and payroll projects. VIP — concierge service, individual exchange rates and extreme reputation sensitivity.',
+        'bank.f3.p': "Mass retail, SME and VIP banking are planned with different risk and service profiles. Product modules do not exist yet.",
         'bank.f4.t': 'Infrastructure and CAPEX',
-        'bank.f4.p': 'Four branch formats, an ATM fleet, cash logistics. The pivotal call: pay for outsourced card processing, or build your own in-house centre.',
+        'bank.f4.p': "The proposal includes branch types, ATMs, cash transport and a choice between in-house processing and outsourcing. These are future CAPEX/OPEX mechanics.",
         'bank.f5.t': 'Stress tests',
-        'bank.f5.p': 'Blackouts, bank runs, hacker attacks and unannounced financial-monitoring inspections — the scenarios that prove how much the model can take.',
+        'bank.f5.p': "Blackouts, bank runs, cyberattacks and financial-monitoring inspections are proposed scenarios. No stress-test engine has been implemented.",
         'bank.f6.t': 'Historical NBU data',
-        'bank.f6.p': 'The policy rate and crisis periods come from real history, so the conditions in the game replay what the Ukrainian banking sector actually went through.',
+        'bank.f6.p': "Historical NBU rates and crisis periods are planned. Data sources and import still need to be defined and implemented.",
 
-        'bank.a.h':  'An event-driven core',
-        'bank.a.p1': 'The simulation core is fully isolated from the product modules. A module never mutates state directly — it publishes an event, the core posts it through the general ledger, and the remaining modules react to the result.',
-        'bank.a.p2': 'Because of that, a new banking product can be added without rewriting the foundation: it only has to declare which entries it posts and which events it listens to.',
-        'bank.a.flow': 'the path of one transaction',
+        'bank.a.h':  "Planned architecture",
+        'bank.a.p1': "The README proposes a modular event-driven architecture with a core separated from product modules. The flow below illustrates the concept; it is not code from an existing engine.",
+        'bank.a.p2': "The first technical step is to implement the general ledger, state model and event contracts, then test them. Products, the interface and scenarios can follow.",
+        'bank.a.flow': "illustration of a future operation",
         'bank.a.pre':
 '<i>// issuing a ₴250,000 loan</i>\n' +
 '\n' +
@@ -352,11 +306,11 @@
 '   ├─ <b>reporting</b>   <i>balance sheet, P&amp;L, NBU return</i>\n' +
 '   └─ <b>reputation</b>  <i>how customers see the bank</i>',
 
-        'bank.r.h':  'Where it stands',
+        'bank.r.h':  "Concept and next steps",
         'bank.r1.t': 'Domain model',
-        'bank.r1.p': 'Chart of accounts, product catalogue, NBU ratios and the sources of historical data — all written up.',
+        'bank.r1.p': "The README describes the goal, product areas, regulatory mechanics and architecture concept. A detailed chart of accounts and module contracts still need design.",
         'bank.r2.t': 'General ledger core',
-        'bank.r2.p': 'Double-entry posting, the event bus, and the contract between the core and the product modules.',
+        'bank.r2.p': "Next: implement double-entry accounting, the event bus and balance invariants. The repository has no completed core.",
         'bank.r3.t': 'Retail products',
         'bank.r3.p': 'Deposits, consumer loans, cards and processing; the arrears and provisioning model.',
         'bank.r4.t': 'Interface and reporting',
@@ -365,15 +319,15 @@
         'bank.r5.p': 'Crises, bank runs, financial-monitoring inspections, and a public demo build on GitHub Pages.',
 
         /* ---------- Chumatskyi Shliakh (space.html) ---------- */
-        "space.tag": "“Chumatskyi Shliakh” is the Ukrainian name for the Milky Way. A browser-based multiplayer economic strategy game: colonies on planets, energy balance, a technology tree, a shipyard, fleet logistics between systems, an exchange traded in crypto-hryvnia with no broker, syndicates with a Kish and a network of Gates — and bots driven by a language model. Every calculation runs on the server; the client only draws state and sends intents.",
+        "space.tag": "Chumatskyi Shliakh is a browser multiplayer economic strategy game: colonies, technologies, fleet logistics, syndicates with Gate networks and language-model bots. The exchange combines player trading with a hub reserve; the client displays state while the server performs the calculations.",
         'space.cta':      'Play in the browser',
         'space.m.type':   'Multiplayer strategy',
-        "space.m.scale": "75 server modules · ~40k lines of TS",
+        "space.m.scale": "65 server logic modules",
         'space.m.tests':  'Tests',
-        "space.m.testsv": "23 test suites",
+        "space.m.testsv": "12 offline suites + live API checks",
 
         'space.o.h':  'The world runs on a tick, not on requests',
-        'space.o.p1': 'This is the largest of my projects and the only genuinely multiplayer one. The core architectural decision is the same as in the HOA app, only taken all the way: <strong>the client computes nothing</strong>. It draws state and sends intents, while every formula — mining, combat, logistics, prices — lives on the server.',
+        'space.o.p1': "This is my largest project: its world runs in one server process. <strong>The client displays state and submits intentions</strong>, while mining, combat, logistics and trading are calculated on the server. Other projects have local and network modes, but this world keeps running without connected players.",
         'space.o.p2': 'The game loop runs once a second whether or not anyone is playing. Construction, research and queues are computed from absolute timestamps, so processes keep running while a player is offline and survive a server restart. Offline mining — up to 24 hours — is credited across the intervals between expiring timers.',
         'space.o.p3': 'That same tick is why the game is deployed as a single instance: <code>fly deploy --ha=false</code>, no autoscaling and no sleeping. Two machines would run two loops over their own copies of the world and start overwriting each other.',
         'space.o.p4': 'The economy is tuned so that a month unlocks the full content: 30–60 minutes for the first session, then a few short visits a day. Mining grows more slowly than level costs, and science is the real gate — late technology levels take days to research.',
@@ -383,8 +337,8 @@
         'space.f1.p': 'Eleven building types: three mines, a power plant, a research centre, a shipyard, an antimatter factory, a crypto farm and three separate storages. When energy runs short, output from every mine drops proportionally — <code>efficiency = output / usage</code>.',
         'space.f2.t': 'A tree of fifteen technologies',
         'space.f2.p': 'From energy and computing through to the hyperdrive, crypto-engineering and “Time Compression”, which halves every duration per level — and doubles energy draw at the same rate.',
-        'space.f3.t': 'An exchange with no broker',
-        'space.f3.p': 'The station neither buys nor sells anything — players trade with each other. Opposing orders match at the midpoint: a sell at 10 against a buy at 12 executes at 11, splitting the gain evenly. Fees are 0.5% from the seller and 0.6% from the buyer.',
+        'space.f3.t': "Exchange and hub reserve",
+        'space.f3.p': "Players trade through a shared order book with partial fills. The hub reserve sells resources at the upper price boundary and buys at the lower one, using only its accumulated fund. Buybacks also respect the order quantity; the reserve does not create unfunded money.",
         'space.f4.t': 'Fleets, fog of war and logistics',
         'space.f4.p': 'Twelve ship classes and five defence classes with Ukrainian call signs. Inside a system fleets burn plasma; between systems they make a hyperjump on antimatter. An enemy planet shows only its name and type, and a probe leaves behind a scouting snapshot that ages.',
         'space.f5.t': 'Round-based combat with a rapid-fire matrix',
@@ -397,27 +351,7 @@
         'space.a.p2': 'Economy, combat and logistics all run in transactions: races are closed with conditional <code>UPDATE</code>s, and a hard restart between steps neither double-credits resources nor loses ships.',
         'space.a.tree': 'repository layout',
         'space.a.pre':
-'<b>src/index.ts</b>            <i>Express, Socket.IO, route mounting</i>\n' +
-'<b>src/game/</b>            <i>pure rule modules — no database access</i>\n' +
-'  rules.ts            <i>mining, cost, energy, storage capacity</i>\n' +
-'  techTree.ts         <i>15 technologies: requirements, time, bonuses</i>\n' +
-'  ships.ts            <i>12 ship classes and combat profiles</i>\n' +
-'  combat.ts           <i>rounds, shields and hull, rapid fire, debris</i>\n' +
-'  fleets.ts           <i>orbits, hyperjumps, cargo holds, fuel</i>\n' +
-'  fogOfWar.ts         <i>planet visibility and ageing scout snapshots</i>\n' +
-'  market.ts           <i>market price, fees, collateral, hub storage</i>\n' +
-'  espionage.ts        <i>the espionage ladder: what a probe sees</i>\n' +
-'  expeditions.ts      <i>the PvE event engine</i>\n' +
-'  score.ts            <i>ranking: what the resources went into</i>\n' +
-'  gameLoop.ts         <i>isolated tick: timers, queues, offline catch-up</i>\n' +
-'  bot/decide.ts       <i>bot decisions as a pure function</i>\n' +
-'  bot/mind.ts         <i>two model roles: strategist and diplomat</i>\n' +
-'  bot/llm.ts          <i>provider call; any failure returns null</i>\n' +
-'<b>src/services/</b>        <i>exchange, syndicates, mail, ranking, admin</i>\n' +
-'<b>src/routes/</b>          <i>REST + auth and input parsing</i>\n' +
-'<b>prisma/</b>              <i>schema and migrations</i>\n' +
-'<b>public/</b>              <i>client: maps, exchange, command centre</i>\n' +
-'<b>tests/</b>               <i>23 suites: formulas + live-API stress</i>',
+"<b>src/index.ts</b>            <i>Express and Socket.IO</i>\n<b>src/game/</b>\n  gameLoop.ts             <i>server tick</i>\n  market.ts               <i>shared order book and trades</i>\n  reserve.ts              <i>price corridor and hub fund</i>\n  fleets.ts               <i>logistics and fleet missions</i>\n  combat.ts               <i>round-based combat</i>\n<b>src/services/</b>\n  reserveService.ts       <i>reserve exchange orders</i>\n<b>src/routes/</b>             <i>game API</i>\n<b>prisma/</b>                 <i>PostgreSQL schema and migrations</i>\n<b>public/</b>                 <i>HTML/JS/CSS client</i>\n<b>tests/</b>                  <i>12 offline suites + live API</i>",
         "space.g1": "Brand artwork",
         "space.g2": "Sign-in screen",
         "space.g3": "Command centre",
@@ -441,75 +375,73 @@
         "politics.f7.t": "Computer-controlled countries",
         "politics.f7.p": "Before the turn resolves, the AI puts its orders into the same queues as the player, so combat, marches and recruitment are computed by one piece of code for everyone. Only those who need to think do: countries at war and the player’s neighbours. Wars between AIs are limited — take a fifth of the land, then make peace.",
         "politics.f8.t": "Diplomacy and “Scenario 2024”",
-        "politics.f8.p": "You may only attack a country you are at war with. Declaring war and making peace cost influence, and peace brings a 10-turn truce. “Scenario 2024” starts with Russia’s war against Ukraine from the very first turn.",
-        "politics.f9.t": "Research, saving, PWA",
-        "politics.f9.p": "Research strengthens unit types and marching speed. The game saves automatically after every turn and installs to the home screen as an app.",
+        "politics.f8.p": "Treaties, alliances, tribute, aid, UN voting and sanctions, and nuclear deterrence. Scenario 2024 starts with Russia’s war against Ukraine; the peaceful scenario does not.",
+        "politics.f9.t": "Shared games and saves",
+        "politics.f9.p": "Share a device with 2–4 participants, or use PeerJS with one player’s browser as host. Features include simultaneous turns, chat, save export/import and a manifest for home-screen installation.",
         "politics.g5": "Diplomacy: wars, peace and neighbours",
         "bank.cx": "rated after the first release",
 
         /* ---------- new projects (generated from pages_new.py) ---------- */
-        "psy.tag": "A website for practising psychologist Tetiana Kovalenko together with her working cabinet: public pages and a blog for new clients, a personal area with homework and questionnaires — and a closed case file from which nothing ever reaches the client’s side. Next.js, PostgreSQL, deployed on Fly.io.",
+        "psy.tag": "A static landing page for practising psychologist Tetiana Kovalenko: background, consultation formats, client experience, social links, FAQs and booking. Next.js App Router exports ready-made pages for GitHub Pages; no database or application server is required.",
         "psy.cta": "Open the site",
-        "psy.m.type": "Website + working cabinet",
-        "psy.m.scale": "93 files · ~7.7k lines of TS",
-        "psy.o.h": "One system instead of notes, spreadsheets and a messenger",
-        "psy.o.p1": "A therapy practice rests on three things that usually live in different places: a website new clients arrive at, records about each client, and contact between sessions. Here they are one application with three access levels — guest, client and psychologist.",
-        "psy.o.p2": "The most sensitive part is the case file: the request, context, session notes, hypotheses and questionnaire results. Hence the core architectural rule: <strong>nothing the psychologist sees ever reaches the client’s area</strong>. Access is checked on the server in every route rather than hidden in the interface.",
-        "psy.o.p3": "Questionnaires go out as single-use links with an expiry date. They open without signing in, so they work for people from Instagram who are not in the database yet. The respondent sees only a thank-you and the name of the most prominent scale — scores and interpretation are kept for the session.",
-        "psy.f.h": "What the system does",
-        "psy.f1.t": "Client case files",
-        "psy.f1.p": "A card with the request, goals and context, a feed of three kinds of notes — session summary, observation, hypothesis — a checklist plan for the next session, and a red “Keep in mind” block about medication and risks above everything else.",
-        "psy.f2.t": "Questionnaires by link",
-        "psy.f2.p": "Five questionnaires with scale-based scoring. A link moves through “sent → opened → completed”; an expired link does not open and a completed one does not accept answers twice.",
-        "psy.f3.t": "Clinical summary without personal data",
-        "psy.f3.p": "From questionnaire results the model writes a summary for the psychologist. Name, email and phone are replaced with placeholders <em>before</em> the request is built, so personal data never leaves the server.",
-        "psy.f4.t": "Calendar and Google Calendar",
-        "psy.f4.p": "Sessions are booked in the cabinet, while busy slots are pulled from Google Calendar — so therapy never collides with the rest of life.",
-        "psy.f5.t": "Client area",
-        "psy.f5.p": "Homework with attachments and the questionnaires sent to this particular person. Sign-in by email and password or with Google.",
-        "psy.f6.t": "A blog with its own editor",
-        "psy.f6.p": "Posts and drafts, with the page address generated from the title. The Next server-action limit was deliberately raised to 12 MB: a phone photo is larger than the default 1 MB, and without that a cover image would simply fail to upload.",
+        "psy.m.type": "Static landing page",
+        "psy.m.scale": "1 page · 5 TS/TSX modules",
+        "psy.o.h": "A public site without a backend to maintain",
+        "psy.o.p1": "The current version focuses on presenting the practice: visitors learn about the psychologist, explore consultation formats, read common questions and follow booking contacts.",
+        "psy.o.p2": "Before September 2026, the project included a client area, CRM, blog and questionnaires on PostgreSQL, deployed on Fly.io. These components were removed from the current application so the public landing page no longer requires a database or server.",
+        "psy.o.p3": "The previous system is preserved in Git history at commit <code>5fa23c8</code> and can be restored separately. The current version has no sign-in, case files, server questionnaires or AI summaries. The current demo is the static GitHub Pages site.",
+        "psy.f.h": "What the current version includes",
+        "psy.f1.t": "Background and consultation formats",
+        "psy.f1.p": "Public sections explain areas of practice, approach and online or in-person consultation formats. The main information is available without registration.",
+        "psy.f2.t": "Frequently asked questions",
+        "psy.f2.p": "Expandable answers help visitors prepare for their first consultation. The accordion works in the browser without server requests.",
+        "psy.f3.t": "Contacts and booking",
+        "psy.f3.p": "Booking buttons lead to the contact section; social links and contact methods are collected on one page. The current version does not include an automatic booking calendar.",
+        "psy.f4.t": "Responsive navigation",
+        "psy.f4.p": "A mobile menu, a header that responds to scrolling and section reveals are implemented in a separate interaction component.",
+        "psy.f5.t": "Home-screen icon",
+        "psy.f5.p": "The manifest defines icons, colors and standalone display. Visitors can add the site to their home screen; the current version does not implement offline caching.",
+        "psy.f6.t": "Static publication",
+        "psy.f6.p": "GitHub Actions builds Next.js with static export and publishes ready-made files to GitHub Pages. The current site no longer needs PostgreSQL, Prisma, server authentication or Fly.io.",
         "psy.a.h": "How it is put together",
-        "psy.a.p1": "Next.js with the App Router: public pages render on the server, cabinet forms run as server actions. Prisma describes the database schema, and every input goes through Zod before it touches the database.",
-        "psy.a.p2": "Deployment is Docker on Fly.io with a separate volume for uploaded files. Migrations bypass the connection pooler: Prisma takes an advisory lock, which does not work through pgbouncer in transaction mode, and the deploy fails.",
+        "psy.a.p1": "Next.js 16 App Router and React 19. The page lives in <code>app/page.tsx</code>, and interactions in <code>app/landing-interactions.tsx</code>. The <code>output: \"export\"</code> setting creates static files instead of a runtime server application.",
+        "psy.a.p2": "The <code>/psykovalenko/</code> prefix is set during the build; a shared helper creates image and icon paths. The Pages workflow publishes the build, while the previous client-area code remains in repository history.",
         "psy.a.tree": "repository layout",
-        "psy.a.pre": "<b>app/</b>                    <i>Next.js routes</i>\n  page.tsx              <i>public website</i>\n  blog/                 <i>blog</i>\n  t/[token]/            <i>questionnaire by single-use link, no sign-in</i>\n  client/               <i>client area: questionnaires, homework</i>\n  admin/                <i>psychologist’s cabinet</i>\n    clients/            <i>case files</i>\n    tests/              <i>questionnaires and link tracking</i>\n    calendar/           <i>sessions + Google Calendar</i>\n    blog/               <i>post editor</i>\n<b>lib/</b>\n  auth-guard.ts         <i>server-side role check</i>\n  tests.ts              <i>questionnaires and scales</i>\n  test-scoring.ts       <i>scoring and interpretation</i>\n  ai.ts                 <i>clinical summary, personal-data masking</i>\n  google.ts             <i>Google Calendar</i>\n  storage.ts            <i>files on the Fly volume</i>\n<b>prisma/</b>                 <i>13 models and migrations</i>\n<b>docs/</b>                   <i>guides for the psychologist</i>",
-        "psy.g1": "Public website",
-        "psy.g2": "About the psychologist",
-        "psy.g3": "Qualifications and formats",
-        "cq.tag": "An educational game where a space corporation is run by your own JavaScript. Every quest is a practical, story-driven task: until the function is written, the mechanic does not work and that part of the interface stays locked. Monaco editor, tests in a separate thread — and no backend at all.",
+        "psy.a.pre": "<b>app/</b>\n  page.tsx                 <i>public landing page</i>\n  landing-interactions.tsx  <i>menu, FAQs, scrolling</i>\n  landing.css              <i>component styles</i>\n  globals.css              <i>palette and typography</i>\n  layout.tsx               <i>fonts and metadata</i>\n  manifest.ts              <i>icons and standalone display</i>\n<b>lib/base-path.ts</b>         <i>GitHub Pages paths</i>\n<b>next.config.ts</b>           <i>output: export, basePath</i>\n<b>public/</b>                  <i>photographs and icons</i>\n<b>.github/workflows/pages.yml</b> <i>build and publication</i>",
+        "psy.g1": "Current landing page: hero",
+        "psy.g2": "Current version: background",
+        "psy.g3": "Current version: consultation formats",
+        "cq.tag": "A JavaScript learning platform with two campaigns. Space Corporation offers 17 quests; City Workshop grows from one shop into a production network controlled by your code. Monaco, multi-file ES modules, isolated execution and custom dashboards run in the browser.",
         "cq.cta": "Play in the browser",
-        "cq.m.type": "Educational game",
-        "cq.m.scale": "17 quests · ~12.9k lines",
-        "cq.o.h": "The interface computes nothing on its own",
-        "cq.o.p1": "The core principle: the corporation’s sections have no logic of their own. They ask to run the function the player wrote in a quest and display its result. Break the solution and the section honestly shows the error instead of data.",
-        "cq.o.p2": "Every quest takes two steps. First the function is written in the editor until the tests pass. Then it has to be called from the corporation console with real values — and the result lands in the database: type your own name and the registry shows your commander. Only then does the next menu item unlock.",
-        "cq.o.p3": "Functions are not written once and forgotten. <code>planFlight</code> appears simple in quest nine, and then the player extends it: quest ten adds cargo, quest eleven an emergency reserve. Earlier checks re-run as “previous behaviour”, because sections and neighbouring functions already depend on it.",
+        "cq.m.type": "Learning platform and economic sandbox",
+        "cq.m.scale": "2 campaigns · 17 + 17 tasks · 3 practice exercises",
+        "cq.o.h": "From your first function to your own system",
+        "cq.o.p1": "The campaigns have separate worlds and saves. In Space Corporation, written functions unlock interface sections; in City Workshop, JavaScript controls purchasing, production, sales, research and transfers.",
+        "cq.o.p2": "City Workshop has 17 guided tasks and three tested exercises. Lessons lead to multi-file strategies and network dispatching; mechanics are available from the start so players can experiment without completing the route.",
+        "cq.o.p3": "Each successful <code>main</code> applies commands and advances the world one step. Errors, cancellation and trial runs leave the save unchanged. <code>render</code> separately reads dashboard state; leaving the campaign stops the simulation, with no offline income.",
         "cq.f.h": "What is inside",
-        "cq.f1.t": "17 quests of rising difficulty",
-        "cq.f1.p": "From an object with four fields to a combat loop: methods and <code>this</code>, <code>reduce</code>, <code>some</code>, sorting with allocation under limits, <code>filter</code> and <code>map</code>, <code>while</code>. The next quest opens only once the previous one is fully closed.",
-        "cq.f2.t": "Player code in its own thread",
-        "cq.f2.p": "Solutions run in a Web Worker: a function stuck in an infinite loop is terminated without freezing the tab. The same worker computes section data and executes console commands.",
-        "cq.f3.t": "Versions of one function",
-        "cq.f3.p": "The editor opens with the previous stage’s code, a “what changed” block names the difference, and buttons show a line-by-line diff and restore the old version. A draft that fails its tests never reaches the app.",
-        "cq.f4.t": "A find-the-bug quest",
-        "cq.f4.p": "Quest thirteen hands you not an empty stub but a finished function with a bug: work out why fuel income and spending are counted the same way, and fix it. The Audit section checks your result against the real tank.",
-        "cq.f5.t": "An economy running on your code",
-        "cq.f5.p": "Fuel at 40 ¢ a tonne, a 600 t tank, a 150 t hold. Consumption is computed by your <code>planFlight</code>, expeditions are run by your <code>runExpedition</code>, ore is sold by your <code>sellOre</code> — so revenue depends on how you split the cargo.",
-        "cq.f6.t": "“My application”",
-        "cq.f6.p": "A showcase of what you have written: a card per function with its stages, a link to its code and to the section that computes with it. It fills up as you progress.",
+        "cq.f1.t": "Two learning campaigns",
+        "cq.f1.p": "17 Space Corporation quests and 17 City Workshop tasks. Functions unlock mechanics in the first campaign; guided tasks help players build their own strategy in the second.",
+        "cq.f2.t": "Isolated code execution",
+        "cq.f2.p": "Code runs in a Web Worker with a time limit. City Workshop uses a fresh environment per run; persistent state lives in <code>cq.memory</code>, rather than a continuously running process.",
+        "cq.f3.t": "Multi-file project",
+        "cq.f3.p": "Real ES modules with relative imports, Monaco, diagnostics and API hints. Switching files preserves the cursor and undo within the session; drafts stay separate from validated code.",
+        "cq.f4.t": "Practice and debugging",
+        "cq.f4.p": "A purchasing plan, production-line selection and dashboard report are tested on fixed inputs without changing the world. The console shows message levels and links to error lines; trial runs help assess a strategy.",
+        "cq.f5.t": "Production-site network",
+        "cq.f5.p": "The city, port and northern district have separate warehouses and equipment: up to 3 sites, 12 lines and 1,800 storage slots. Internal transfers take time and reserve capacity; money and research are shared.",
+        "cq.f6.t": "Custom dashboards and workspace",
+        "cq.f6.p": "The builder creates a normal JS file; metrics, tables, charts and filters can be extended in code. File, editor, dashboard and console panels are resizable, and the layout is saved in the browser.",
         "cq.a.h": "How it is put together",
-        "cq.a.p1": "A static site with no bundler: the browser loads ES modules directly, Monaco ships locally in <code>vendor/</code>, and game state is stored in the browser. There is no server — the game even works offline as a PWA.",
-        "cq.a.p2": "<code>appSource()</code> assembles exactly one active version of each function, so two declarations of <code>planFlight</code> from different stages never meet. Separate checks watch the economy, the editor, the charts and the quests themselves.",
+        "cq.a.p1": "The application is static HTML/CSS/ES modules on GitHub Pages. Monaco ships locally in <code>vendor/</code>, with its assets rebuilt separately using esbuild. State and code are stored in the browser; a service worker supports offline use.",
+        "cq.a.p2": "The space campaign activates validated function versions; City Workshop applies commands to a temporary world copy and saves only successful steps. <code>npm test</code> runs 14 checks, with separate browser scenarios for campaigns, APIs, practice and the production network.",
         "cq.a.tree": "repository layout",
-        "cq.a.pre": "<b>index.html</b>            <i>shell and corporation sections</i>\n<b>js/</b>\n  main.js             <i>entry point, section routing</i>\n  state.js            <i>game state, saved in the browser</i>\n  runner.js           <i>messaging with the worker</i>\n  runner-worker.js    <i>runs player code in a separate thread</i>\n  runner-core.js      <i>tests, section calls, console</i>\n  editor/             <i>Monaco wrapper, version diff</i>\n  data/               <i>17 quests: brief, tests, reward</i>\n  market.js           <i>ore sales</i>\n  enemy.js            <i>opponent for combat quests</i>\n<b>vendor/</b>               <i>Monaco Editor bundled locally, no CDN</i>\n<b>sw.js</b>                 <i>service worker, offline</i>\n<b>tests/</b>                <i>checks for quests, economy, editor, charts</i>",
-        "cq.g1": "Corporation path: 17 quests",
-        "cq.g2": "A quest and the Monaco editor",
+        "cq.a.pre": "<b>index.html</b>              <i>campaign selection and screens</i>\n<b>js/</b>\n  data/quests.js          <i>17 space quests</i>\n  runner*.js              <i>checks and Worker execution</i>\n  editor/                 <i>Monaco editor</i>\n  city/\n    engine.js             <i>world steps and atomic commands</i>\n    network.js            <i>sites, warehouses, transfers</i>\n    lessons.js            <i>17 guided tasks</i>\n    practice.js           <i>3 tested exercises</i>\n    dashboard-*.js        <i>builder and rendering</i>\n    worker.js             <i>isolated main and render</i>\n    workspace-layout.js   <i>panels and saved layout</i>\n<b>vendor/</b>                 <i>local Monaco build</i>\n<b>tests/</b>                  <i>logic and browser scenarios</i>\n<b>sw.js</b>                   <i>offline cache</i>",
         "mc.status": "Private server",
         "mc.tag": "A dedicated Minecraft Bedrock server with custom mechanics written in TypeScript — built for playing from a Nintendo Switch and a PlayStation 5. Neither console can connect to a server at an arbitrary address, so each one needed its own workaround.",
         "mc.nodemo": "Friends-only server — no public access",
         "mc.m.type": "Game server",
-        "mc.m.scale": "9 mechanics · ~5.6k lines",
+        "mc.m.scale": "9 mechanics · 29 TS modules",
         "mc.o.h": "Two consoles, two different workarounds",
         "mc.o.p1": "The PlayStation looks for LAN games with a UDP broadcast. <strong>Phantom</strong> answers it on behalf of the remote server, which then shows up under “LAN Games”. Phantom does not support the Switch — it connects through <strong>BedrockConnect</strong>: a substituted DNS shows a server-picker menu, and then the console connects directly by IP and port.",
         "mc.o.p2": "That leads to a non-obvious port story. Phantom itself must hold UDP 19132 on every interface or it never receives the console’s broadcast, so locally the server sits on 19133. The VPS does not need Phantom, and the server goes back to the standard port.",
@@ -518,9 +450,9 @@
         "mc.f1.t": "Crypto-hryvnia and an economy",
         "mc.f1.p": "A balance for every player, a 100,000 starting grant and a scoreboard on the right of the screen.",
         "mc.f2.t": "Plots with taxes",
-        "mc.f2.p": "16×16 and 32×32 plots: protection from outsiders and a tax paid to the owner.",
+        "mc.f2.p": "Plots of 16×16 or 32×32 blocks, payments, taxes, protection from other players and a chunk map in the communicator. Explosions cannot destroy others’ plots; settings are available in the panel.",
         "mc.f3.t": "Wars with rules",
-        "mc.f3.p": "PvP is off by default; a war goes through declaration, preparation, battle and results.",
+        "mc.f3.p": "PvP protection is enabled by default. Wars proceed through declaration, preparation, a two-minute battle and results; protection is lifted only between participants, then restored.",
         "mc.f4.t": "Building blueprints",
         "mc.f4.p": "A hologram of the footprint and construction of standard buildings from a catalogue; the operator saves new blueprints right inside the game.",
         "mc.f5.t": "A communicator instead of commands",
@@ -540,31 +472,31 @@
         "eib.o.h": "Checking the seams between two rulebooks",
         "eib.o.p1": "Procurements funded by EIB loans must satisfy Law 922-VIII, Cabinet Resolution No. 1178 and the bank’s own rules at the same time. The gaps between them are “seams”: places where a procurement can be lawful under one set of rules and in breach of another. The engine checks fourteen of these seams.",
         "eib.o.p2": "Each seam returns one of three states: <strong>fires</strong>, <strong>clear</strong> or <strong>not checkable</strong>. The third is essential: if the documents lack the data, the engine says so rather than counting the tender as clean. So the report shows not only findings but the real limit of what can be verified.",
-        "eib.o.p3": "Data comes from Prozorro’s public APIs: six tabs of the tender page, the canonical central database, and separately the contracts, because that is where amendments live. <code>.docx</code>, <code>.doc</code> and <code>.pdf</code> documents are parsed without third-party libraries.",
+        "eib.o.p3": "Data comes from Prozorro and central APIs. Python reads <code>.docx</code> and uses available system text extractors for legacy Word files and PDFs. Live browser mode supports only <code>.docx</code>; unsupported documents are marked uncheckable.",
         "eib.f.h": "What the engine does",
         "eib.f1.t": "14 seam checks",
         "eib.f1.p": "From localisation in mechanical engineering and the language of tender documents to EU sanctions screening and contract amendments. Each returns “fires”, “clear” or “not checkable”.",
         "eib.f2.t": "Normalise before the rules",
         "eib.f2.p": "Raw JSON is first turned into an audit object; the rules engine never sees raw data, so a change in the API format breaks one place, not fourteen.",
-        "eib.f3.t": "Dependency-free document parsing",
-        "eib.f3.p": "Text is extracted from <code>.docx</code>, <code>.doc</code> and <code>.pdf</code> in pure Python — to check what the tender documentation actually says.",
+        "eib.f3.t": "Documents and verification limits",
+        "eib.f3.p": "Python mode extracts text from <code>.docx</code>, legacy <code>.doc</code> and PDFs using available system tools. Browser mode unpacks only <code>.docx</code>; scans without OCR are not treated as clear results.",
         "eib.f4.t": "A reproducible audit in git",
         "eib.f4.p": "Prozorro’s API sends no CORS headers, so the computation runs in GitHub Actions: every Monday the corpus is rebuilt and the result committed to the repository. Every version of the audit is its own commit.",
         "eib.f5.t": "A report on GitHub Pages",
         "eib.f5.p": "A static page reads the prepared dataset: a corpus overview, seam calibration with the fire rate counted only among checkable cases, and a filterable register.",
         "eib.f6.t": "Spot-checking a single tender",
-        "eib.f6.p": "For checking one procurement live there is a Cloudflare Worker — a CORS proxy that forwards requests to Prozorro hosts only and is not an open proxy.",
+        "eib.f6.p": "A live single-tender audit runs in the browser through your Cloudflare Worker or local CORS proxy. Its address is saved only in the user’s browser; the proxy allows requests only to approved Prozorro hosts.",
         "eib.a.h": "How it is put together",
         "eib.a.p1": "The pipeline: search → tabs and central database → normalisation → documents → rules engine → findings. The Prozorro client caches everything on disk, so a re-run does not touch the network.",
-        "eib.a.p2": "No dependencies — only the Python 3.9+ standard library. A separate script checks that the Python rules and their browser copy have not drifted apart.",
+        "eib.a.p2": "<code>rules.json</code> is the single specification for 14 checks, executed by Python and JavaScript in their environments. A parity harness compares verdicts, text, evidence and confidence; a separate check validates the Pages copy of the specification.",
         "eib.a.tree": "repository layout",
-        "eib.a.pre": "<b>run.py</b>              <i>audit a single procurement</i>\n<b>src/</b>\n  pz.py             <i>Prozorro client: search, 6 tabs, CBD, contracts; disk cache</i>\n  normalize.py      <i>raw JSON → audit object</i>\n  docs.py           <i>text from .docx, .doc, .pdf</i>\n  rules.py          <i>14 seams: fires / clear / not_checkable</i>\n  corpus.py         <i>collecting the EIB tender corpus</i>\n  audit.py          <i>running the engine over the corpus</i>\n  export.py         <i>dataset for the report</i>\n  verify_parity.py  <i>Python vs. browser rule parity</i>\n<b>docs/</b>             <i>report on GitHub Pages</i>\n<b>worker/</b>           <i>Cloudflare Worker: CORS proxy to Prozorro only</i>",
+        "eib.a.pre": "<b>rules.json</b>             <i>single specification of 14 checks</i>\n<b>run.py</b>                 <i>single-tender audit</i>\n<b>src/</b>\n  pz.py                   <i>Prozorro API and cache</i>\n  normalize.py            <i>audit object</i>\n  docs.py                 <i>document text extraction</i>\n  rules.py                <i>Python specification executor</i>\n  export.py               <i>dataset and Pages rules copy</i>\n  verify_parity.py        <i>parity between both engines</i>\n  check_spec_sync.py      <i>specification-copy check</i>\n<b>docs/</b>\n  engine.js               <i>JavaScript rules executor</i>\n  live.js, prozorro.js    <i>live audit through a proxy</i>\n  data/audit.json         <i>113 tenders in the current dataset</i>\n<b>worker/</b>                 <i>Cloudflare CORS proxy</i>\n<b>dev-proxy.py</b>            <i>local development proxy</i>",
         "eib.g1": "Corpus overview and seam calibration",
         "proj.cop.name": "Chronicles of Power",
         "cop.tag": "A mobile political detective game where a language model writes the scenes, the consequences and the storylines that follow, while the player only chooses. A twelve-chapter season, four state indicators and delayed consequences that catch up a few turns later.",
         "cop.cta": "Play on your phone",
         "cop.m.type": "Story-driven PWA game",
-        "cop.m.scale": "~2.1k lines",
+        "cop.m.scale": "React interface · 1 Edge Function",
         "cop.o.h": "The model writes the story, the code guards causality",
         "cop.o.p1": "Each turn the player picks one of three actions. A server function sends the story state to the model and gets the next scene back strictly against a JSON schema, so the reply always has the expected shape: a scene, three options, indicator changes, new clues and theories.",
         "cop.o.p2": "Shape is not meaning, though. The model may “remember” a consequence of an option the player never picked. So after each reply the code checks <strong>causality</strong>: a delayed effect survives only if it comes from a choice actually made, not from the two rejected alternatives.",
@@ -598,49 +530,43 @@
         "cx.l3.p": "external APIs, language models, OAuth, devices",
         "cx.l4.t": "Reliability",
         "cx.l4.p": "tests, CI, deployment and handling real data",
-        "proj.space.why": "real-time multiplayer · own server and PostgreSQL · ~58k lines · 23 test suites",
-        "proj.uspih.why": "Firebase with security rules · Cloud Functions · IoT sensor · ~20k lines",
-        "proj.psy.kick": "Psychologist’s site and cabinet",
-        "proj.psy.why": "Next.js with a database · three access levels · Google Calendar and Claude API · ~10k lines",
-        "proj.psy.desc": "A public site with a blog, a client area and a closed case file in one application: questionnaires by link, a calendar and clinical summaries.",
-        "proj.psy.f1": "Three access levels, checked on the server",
-        "proj.psy.f2": "Questionnaires by single-use link, no sign-in",
-        "proj.psy.f3": "Personal data is masked before any model request",
-        "proj.cq.kick": "A game that teaches coding",
-        "proj.cq.why": "code sandbox in a Web Worker · Monaco · ~13k lines",
-        "proj.cq.desc": "A space corporation run by your own JavaScript: until the function is written, the section does not work. 17 quests and the Monaco editor.",
-        "proj.cq.f1": "Player code runs in a separate thread",
-        "proj.cq.f2": "One function is extended across several quests",
-        "proj.cq.f3": "The economy is computed by your own functions",
-        "proj.uabiz.why": "client-only · 16 managers and a general ledger · ~10k lines",
-        "proj.politics.why": "client-only + offline map generator · country AI · ~8k lines",
+        "proj.space.why": "server tick · PostgreSQL · 65 server modules · 12 offline test suites",
+        "proj.uspih.why": "Firebase security rules · server operations · 32 JS modules",
+        "proj.psy.kick": "Psychologist’s landing page",
+        "proj.psy.why": "Next.js static export · GitHub Pages · no database or runtime server",
+        "proj.psy.desc": "A static site for psychologist Tetiana Kovalenko: consultation formats, experience, FAQs and booking contacts. The previous client area, CRM and blog remain in Git history.",
+        "proj.psy.f1": "Public landing page built with Next.js and React",
+        "proj.psy.f2": "Automatic build and publication to GitHub Pages",
+        "proj.psy.f3": "Manifest for adding the site to a phone’s home screen",
+        "proj.cq.kick": "JavaScript learning platform",
+        "proj.cq.why": "2 campaigns · multi-file ES modules · Web Workers · 80 JS modules",
+        "proj.cq.desc": "JavaScript runs a space corporation or an industrial city workshop. Progress from individual functions to a multi-file project, production sites, logistics and your own dashboards.",
+        "proj.cq.f1": "Two campaigns with separate worlds and saves",
+        "proj.cq.f2": "A network of 3 sites and up to 12 production lines",
+        "proj.cq.f3": "Monaco, tested exercises and a dashboard builder",
+        "proj.uabiz.why": "local simulation · 15 managers · general ledger · saves",
+        "proj.politics.why": "resource economy · navy and diplomacy · PeerJS for 2–4 players",
         "proj.mc.kick": "Game server",
-        "proj.mc.why": "console networking workarounds · Docker and VPS · CI/CD · ~5.6k lines",
+        "proj.mc.why": "9 TypeScript mechanics · communicator · Docker and CI/CD",
         "proj.mc.desc": "A Minecraft Bedrock server for Nintendo Switch and PS5 with nine custom TypeScript mechanics: economy, plots, wars, blueprints.",
         "proj.mc.f1": "PS5 via Phantom, Switch via BedrockConnect",
-        "proj.mc.f2": "All controls live in a communicator item",
+        "proj.mc.f2": "Communicator, plot minimap and sidebar settings",
         "proj.mc.f3": "Docker locally, a DigitalOcean VPS in production",
         "proj.eib.kick": "Legal audit",
         "proj.eib.name": "EIB Procurement Audit",
-        "proj.eib.why": "dependency-free pipeline · GitHub Actions · ~3k lines",
+        "proj.eib.why": "14 shared rules · Python and browser engines · CORS proxy",
         "proj.eib.desc": "An engine that checks Prozorro procurements at the seams between Law 922-VIII, Cabinet Resolution 1178 and European Investment Bank requirements.",
         "proj.eib.f1": "14 checks: fires / clear / not checkable",
         "proj.eib.f2": "Weekly corpus rebuild in GitHub Actions",
-        "proj.eib.f3": "Python with zero dependencies",
+        "proj.eib.f3": "Live audit through your proxy and parity checks between engines",
         "proj.cop.kick": "A story game on a language model",
-        "proj.cop.why": "React + a server function calling a model · ~2k lines",
+        "proj.cop.why": "React and TypeScript · Supabase Edge Function · server-side model",
         "proj.cop.desc": "A mobile political detective: the model writes the scenes and consequences, and the code makes sure they only follow from choices actually made.",
         "proj.cop.f1": "Model replies strictly against a JSON schema",
         "proj.cop.f2": "The model key lives only in the server function",
         "proj.cop.f3": "Request rate limiting in Postgres",
-        "proj.bank.why": "design stage: no code yet",
+        "proj.bank.why": "README concept only · no implementation or demo yet",
         "proj.bank.cxl": "not rated",
-        "psy.g4": "Services",
-        "psy.g5": "Areas of work",
-        "psy.g6": "Booking and contacts",
-        "psy.g7": "Cabinet: case files (demo data, names blurred)",
-        "psy.g8": "Cabinet: client card (demo data, name blurred)",
-        "psy.g9": "Cabinet: questionnaires by link",
 
         /* ---------- Chumatskyi Shliakh (ex Space Strategy MMO) ---------- */
         "space.name": "Chumatskyi Shliakh",
@@ -655,6 +581,9 @@
         "space.f12.p": "23 illustrated articles with search and “How it works” links from every section. The server builds the articles from the same functions and constants as the game, and a dedicated test suite makes sure no NaN or undefined ever leaks into the text.",
         "space.g8": "Technology tree",
         "space.g9": "Shipyard and ship classes",
+        "bank.status": "Concept",
+        "cq.g3": "Two-campaign selection",
+        "cq.g4": "City Workshop: code and custom dashboard",
     };
 
     var STORE = 'sk-lang';

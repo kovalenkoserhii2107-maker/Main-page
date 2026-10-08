@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/css/main.css?v=20260925a">
+<link rel="stylesheet" href="assets/css/main.css?v=20261008a">
 </head>
 <body>
 
@@ -69,7 +69,7 @@
 
     <span class="status status-live" data-i18n="common.live">Працює</span>
     <h1 class="p-title" data-i18n="space.name">Чумацький Шлях</h1>
-    <p class="p-tag" data-i18n="space.tag">«Чумацький Шлях» — так українською називають Галактику. Браузерна мультиплеерна економічна стратегія: колонії на планетах, енергобаланс, дерево технологій, верфь, логістика флоту між системами, біржа за криптогривню без посередників, синдикати з Кошем і мережею Брам — і боти під керуванням мовної моделі. Усі розрахунки — на сервері; клієнт лише малює стан і надсилає наміри.</p>
+    <p class="p-tag" data-i18n="space.tag">«Чумацький Шлях» — браузерна мультиплеерна економічна стратегія. Колонії, технології, логістика флоту, синдикати з мережею Брам і боти під керуванням мовної моделі. Біржа поєднує торгівлю гравців із резервом хаба; клієнт показує стан, а всі розрахунки виконує сервер.</p>
 
     <div class="p-cta">
       <a class="btn btn-primary" href="https://spacemmo.fly.dev" target="_blank" rel="noopener">
@@ -85,8 +85,8 @@
     <dl class="meta-grid" data-reveal>
       <div><dt data-i18n="common.m.type">Тип</dt><dd data-i18n="space.m.type">Мультиплеерна стратегія</dd></div>
       <div><dt data-i18n="common.m.stack">Стек</dt><dd>TypeScript · Socket.IO · PostgreSQL</dd></div>
-      <div><dt data-i18n="common.m.scale">Обсяг</dt><dd data-i18n="space.m.scale">75 модулів сервера · ~40k рядків TS</dd></div>
-      <div><dt data-i18n="space.m.tests">Тести</dt><dd data-i18n="space.m.testsv">23 набори тестів</dd></div>
+      <div><dt data-i18n="common.m.scale">Обсяг</dt><dd data-i18n="space.m.scale">65 модулів серверної логіки</dd></div>
+      <div><dt data-i18n="space.m.tests">Тести</dt><dd data-i18n="space.m.testsv">12 офлайн-наборів + перевірки живого API</dd></div>
       <div><dt data-i18n="common.m.cx">Складність</dt><dd><span class="cx" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span> 5 / 5</dd></div>
     </dl>
   </section>
@@ -107,7 +107,7 @@
       <span class="eyebrow" data-i18n="common.s.overview">Огляд</span>
       <h2 data-i18n="space.o.h">Світ живе тіком, а не запитами</h2>
       <div class="prose" data-reveal>
-        <p data-i18n="space.o.p1">Це найбільший із моїх проєктів і єдиний по-справжньому багатокористувацький. Головне рішення архітектури таке саме, як у застосунку ОСББ, тільки доведене до кінця: <strong>клієнт не рахує нічого</strong>. Він малює стан і надсилає наміри, а всі формули — видобуток, бій, логістика, ціни — живуть на сервері.</p>
+        <p data-i18n="space.o.p1">Це найбільший із моїх проєктів: світ працює в одному серверному процесі. <strong>Клієнт показує стан і надсилає наміри</strong>, а видобуток, бій, логістика й торгівля обчислюються на сервері. В інших проєктах є локальні та мережеві режими, але тут світ продовжує жити без підключених гравців.</p>
         <p data-i18n="space.o.p2">Ігровий цикл іде раз на секунду незалежно від того, чи хтось у грі. Будівництво, дослідження й черги рахуються від абсолютних міток часу, тому процеси не зупиняються, поки гравець офлайн, і переживають перезапуск сервера. Видобуток за офлайн — до доби — нараховується відрізками між завершеннями таймерів.</p>
         <p data-i18n="space.o.p3">Через цей же тік гра розгорнута в одному екземплярі: <code>fly deploy --ha=false</code>, без автомасштабування й без засинання. Дві машини завели б два цикли зі своїми копіями світу, і вони почали б затирати одна одну.</p>
         <p data-i18n="space.o.p4">Економіка розрахована на місяць до повного відкриття контенту: перша сесія 30–60 хвилин, далі кілька коротких заходів на день. Видобуток росте повільніше за ціну рівнів, а головні ворота — наука: пізні рівні технологій вивчаються днями.</p>
@@ -142,8 +142,8 @@
         </article>
         <article class="card feat-item" data-reveal style="--d:140ms">
           <span class="feat-num">03</span>
-          <h3 data-i18n="space.f3.t">Біржа без посередників</h3>
-          <p data-i18n="space.f3.p">Станція не купує й не продає нічого — торгують між собою гравці. Зустрічні заявки зводяться по середній ціні: продаж по 10 проти купівлі по 12 виконується по 11, і виграш ділиться навпіл. Комісія 0.5% з продавця і 0.6% з покупця.</p>
+          <h3 data-i18n="space.f3.t">Біржа й резерв хаба</h3>
+          <p data-i18n="space.f3.p">Гравці торгують через спільний стакан із частковим виконанням заявок. Резерв хаба продає ресурси на верхній межі цінового коридору та викуповує на нижній — лише в межах накопиченого фонду. Викуп обмежений також кількістю в заявці, тому резерв не створює гроші без покриття.</p>
         </article>
         <article class="card feat-item" data-reveal style="--d:210ms">
           <span class="feat-num">04</span>
@@ -204,27 +204,19 @@
       </div>
       <div class="code-panel" data-reveal>
         <div class="code-head">SpaceMMO / <span data-i18n="space.a.tree">структура репозиторію</span></div>
-<pre data-i18n="space.a.pre"><b>src/index.ts</b>            <i>Express, Socket.IO, монтування роутів</i>
-<b>src/game/</b>            <i>чисті модулі правил — без звернень до БД</i>
-  rules.ts            <i>видобуток, вартість, енергія, місткість складів</i>
-  techTree.ts         <i>15 технологій: вимоги, час, бонуси</i>
-  ships.ts            <i>12 класів кораблів і бойові профілі</i>
-  combat.ts           <i>раунди, щити й корпус, скоростріл, уламки</i>
-  fleets.ts           <i>орбіти, гіперстрибки, трюми, паливо</i>
-  fogOfWar.ts         <i>видимість планет і старіння знімків розвідки</i>
-  market.ts           <i>ціна ринку, комісії, застави, склади хаба</i>
-  espionage.ts        <i>драбина шпигунства: що бачить зонд</i>
-  expeditions.ts      <i>подієвий рушій PvE</i>
-  score.ts            <i>рейтинг: у що вкладені ресурси</i>
-  gameLoop.ts         <i>ізольований тік: таймери, черги, догін офлайну</i>
-  bot/decide.ts       <i>рішення бота як чиста функція</i>
-  bot/mind.ts         <i>дві ролі мовної моделі: стратег і дипломат</i>
-  bot/llm.ts          <i>виклик провайдера; будь-яка невдача → null</i>
-<b>src/services/</b>        <i>біржа, синдикати, пошта, рейтинг, адмінка</i>
-<b>src/routes/</b>          <i>REST + авторизація і розбір вводу</i>
-<b>prisma/</b>              <i>схема і міграції</i>
-<b>public/</b>              <i>клієнт: карти, біржа, командний центр</i>
-<b>tests/</b>               <i>23 набори: формули + стрес по живому API</i></pre>
+<pre data-i18n="space.a.pre"><b>src/index.ts</b>            <i>Express і Socket.IO</i>
+<b>src/game/</b>
+  gameLoop.ts             <i>серверний тік</i>
+  market.ts               <i>спільний стакан і угоди</i>
+  reserve.ts              <i>ціновий коридор і фонд хаба</i>
+  fleets.ts               <i>логістика й місії флоту</i>
+  combat.ts               <i>раундовий бій</i>
+<b>src/services/</b>
+  reserveService.ts       <i>заявки резерву на біржі</i>
+<b>src/routes/</b>             <i>ігровий API</i>
+<b>prisma/</b>                 <i>схема й міграції PostgreSQL</i>
+<b>public/</b>                 <i>HTML/JS/CSS клієнт</i>
+<b>tests/</b>                  <i>12 офлайн-наборів + живий API</i></pre>
       </div>
     </div>
   </section>
@@ -306,7 +298,7 @@
   </div>
 </div>
 
-<script src="assets/js/i18n.js?v=20260925a"></script>
-<script src="assets/js/app.js?v=20260925a"></script>
+<script src="assets/js/i18n.js?v=20261008a"></script>
+<script src="assets/js/app.js?v=20261008a"></script>
 </body>
 </html>

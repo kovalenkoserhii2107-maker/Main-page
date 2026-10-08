@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/css/main.css?v=20260925a">
+<link rel="stylesheet" href="assets/css/main.css?v=20261008a">
 </head>
 <body>
 
@@ -68,7 +68,7 @@
 
     <span class="status status-live" data-i18n="common.live">Працює</span>
     <h1 class="p-title">UABiz</h1>
-    <p class="p-tag" data-i18n="uabiz.tag">Браузерна стратегія управління бізнесом. Старт — $25 000 і один магазин. Фініш — корпорація із заводами, складами, дослідницьким центром і власними акціями на біржі. Усе, що ви робите, потрапляє у фінансову звітність за МСФЗ.</p>
+    <p class="p-tag" data-i18n="uabiz.tag">Однокористувацький економічний симулятор у браузері: роздріб, заводи, дослідження, логістика, кредити й фондовий ринок. П’ять глав розвитку компанії, фінансова звітність, детальні грошові операції та перенесення збережень. Спільного онлайн-ринку й серверного рейтингу немає.</p>
 
     <div class="p-cta">
       <a class="btn btn-primary" href="https://kovalenkoserhii2107-maker.github.io/UABissGame/" target="_blank" rel="noopener">
@@ -84,8 +84,8 @@
     <dl class="meta-grid" data-reveal>
       <div><dt data-i18n="common.m.type">Тип</dt><dd data-i18n="uabiz.m.type">Економічна стратегія</dd></div>
       <div><dt data-i18n="common.m.stack">Стек</dt><dd>Vanilla JS · Chart.js</dd></div>
-      <div><dt data-i18n="common.m.scale">Обсяг</dt><dd data-i18n="uabiz.m.scale">16 менеджерів · ~9k рядків JS</dd></div>
-      <div><dt data-i18n="uabiz.m.res">Ресурси</dt><dd data-i18n="uabiz.m.resv">40 видів · 13 вкладок</dd></div>
+      <div><dt data-i18n="common.m.scale">Обсяг</dt><dd data-i18n="uabiz.m.scale">15 менеджерів · 27 модулів JS</dd></div>
+      <div><dt data-i18n="uabiz.m.res">Ресурси</dt><dd data-i18n="uabiz.m.resv">35 ресурсів · 14 вкладок</dd></div>
       <div><dt data-i18n="common.m.cx">Складність</dt><dd><span class="cx" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span> 3 / 5</dd></div>
     </dl>
   </section>
@@ -108,7 +108,7 @@
       <div class="prose" data-reveal>
         <p data-i18n="uabiz.o.p1">Більшість бізнес-симуляторів зводяться до однієї формули: купив дешевше — продав дорожче. UABiz побудований навколо іншої тези — <strong>цікаво не заробляти, а розуміти, звідки взявся прибуток</strong>.</p>
         <p data-i18n="uabiz.o.p2">Тому в грі немає абстрактного «балансу». Є каса, дебіторка, запаси на складах, товар у дорозі, основні засоби з амортизацією, кредити із заставою та податки. Кожна дія проходить через головну книгу, а вкладка «Звітність» збирає з неї P&amp;L, баланс і рух коштів за стандартом МСФЗ.</p>
-        <p data-i18n="uabiz.o.p3">Прогрес розбитий на п'ять розділів — від виживання роздрібної точки до національної корпорації. Навчання на 23 кроки проводить нового гравця через усі вкладки, не блокуючи досвідчених.</p>
+        <p data-i18n="uabiz.o.p3">П’ять глав ведуть від першого продажу до великої компанії. Навчання й довідник об’єднані в «Допомозі»; після дій і закриття дня прогрес автоматично зберігається. Конкуренти й ринок — локальна процедурна симуляція.</p>
       </div>
       <div class="chip-row" style="margin-top:26px">
         <span class="chip">Vanilla JS (ES2022)</span>
@@ -129,7 +129,7 @@
         <article class="card feat-item" data-reveal>
           <span class="feat-num">01</span>
           <h3 data-i18n="uabiz.f1.t">Звітність за МСФЗ</h3>
-          <p data-i18n="uabiz.f1.p">Звіт про прибутки і збитки, баланс (активи = пасиви + капітал), рух грошових коштів і фінансові коефіцієнти: ROS, ROE, ROA, EBITDA margin, current ratio.</p>
+          <p data-i18n="uabiz.f1.p">P&amp;L, баланс і Cash Flow розділяють прибуток, капіталізацію та залишок грошей. Закупівля й доставка входять у собівартість запасів, яка списується при продажі; вкладка «Компанія» показує розшифровку грошових операцій.</p>
         </article>
         <article class="card feat-item" data-reveal style="--d:70ms">
           <span class="feat-num">02</span>
@@ -153,8 +153,8 @@
         </article>
         <article class="card feat-item" data-reveal style="--d:350ms">
           <span class="feat-num">06</span>
-          <h3 data-i18n="uabiz.f6.t">B2B, B2G і фондовий ринок</h3>
-          <p data-i18n="uabiz.f6.p">Оптова біржа з динамічним ціноутворенням, державні тендери, маркетинг із силою бренду й вихід на біржу з власними акціями.</p>
+          <h3 data-i18n="uabiz.f6.t">Збереження, рестарт і вихід на біржу</h3>
+          <p data-i18n="uabiz.f6.p">Автозбереження доповнене експортом та імпортом JSON. Рестарт потребує підтвердження й залишає резервну копію; некоректний імпорт не стирає прогрес. IPO запускається вручну при капіталізації від $500 000.</p>
         </article>
       </div>
     </div>
@@ -165,39 +165,27 @@
       <span class="eyebrow" data-i18n="common.s.arch">Архітектура</span>
       <h2 data-i18n="uabiz.a.h">Як це влаштовано</h2>
       <div class="prose" style="margin-bottom:26px" data-reveal>
-        <p data-i18n="uabiz.a.p">Ядро — один операційний день. Цикл <code>gameLoop</code> послідовно викликає менеджерів, кожен із яких відповідає за свою предметну область і не знає про інтерфейс. Стан гри лежить в одному об'єкті, інтерфейс лише читає його та перемальовує активну вкладку.</p>
+        <p data-i18n="uabiz.a.p">Статичні HTML/JS без збірки та сервера застосунку. Chart.js 4.5.1 включений у репозиторій, тому механіки працюють без інтернету. Закриття дня відновлює попередній стан при помилці; тести логіки охоплюють торгівлю, облік, доставку й збереження.</p>
       </div>
       <div class="code-panel" data-reveal>
         <div class="code-head">UABissGame / <span data-i18n="uabiz.a.tree">структура репозиторію</span></div>
-<pre data-i18n="uabiz.a.pre"><b>index.html</b>          <i>усі 13 вкладок інтерфейсу</i>
+<pre data-i18n="uabiz.a.pre"><b>index.html</b>             <i>14 вкладок інтерфейсу</i>
 <b>js/core/</b>
-  gameLoop.js       <i>операційний день: порядок виклику менеджерів</i>
-  state.js          <i>єдиний об'єкт стану гри</i>
-  utils.js          <i>формати грошей, дат, чисел</i>
-<b>js/data/</b>
-  recipes.js        <i>40 ресурсів і рецепти виробництва</i>
-  geoData.js        <i>міста, податки, макроекономіка</i>
-<b>js/managers/</b>
-  ledger.js         <i>головна книга: подвійний запис</i>
-  finance.js        <i>P&amp;L, баланс, cash flow, коефіцієнти</i>
-  production.js     <i>заводи, станки, зміни</i>
-  warehouse.js      <i>склади, обсяги, залишки</i>
-  logistics.js      <i>маршрути й вартість доставки</i>
-  market.js         <i>роздрібний попит і ціни</i>
-  b2bAI.js          <i>поведінка оптових контрагентів</i>
-  contracts.js      <i>B2B-угоди та B2G-тендери</i>
-  retail.js         <i>магазини, вітрини, персонал</i>
-  rnd.js            <i>дослідження й дерево технологій</i>
-  stockMarket.js    <i>котирування та емісія акцій</i>
-  taxes.js          <i>податок на прибуток, ЄСВ, ПДВ</i>
-  hr.js             <i>наймання, зарплати, продуктивність</i>
-  events.js         <i>випадкові події та кризи</i>
-  quests.js         <i>п'ять розділів прогресу</i>
-<b>js/ui/</b>
-  dashboardUI.js    <i>рендер вкладок і графіків</i>
-  wikiUI.js         <i>вбудована база знань</i>
-  tutorial.js       <i>навчання на 23 кроки</i>
-  notify.js         <i>сповіщення й бізнес-журнал</i></pre>
+  state.js                <i>стан компанії</i>
+  operations.js           <i>спільні операції із запасами</i>
+  persistence.js          <i>збереження, імпорт, рестарт</i>
+  gameLoop.js             <i>закриття дня й відновлення при помилці</i>
+<b>js/managers/</b>            <i>15 менеджерів</i>
+  ledger.js               <i>журнал грошових операцій</i>
+  finance.js              <i>прибуток, активи, Cash Flow</i>
+  production.js           <i>виробничі лінії</i>
+  warehouse.js            <i>склади й запаси</i>
+  logistics.js            <i>маршрути й доставки</i>
+  stockMarket.js          <i>ручне IPO й біржа</i>
+  quests.js               <i>5 глав розвитку</i>
+<b>js/ui/</b>                  <i>дашборди, допомога, доступність</i>
+<b>js/vendor/</b>              <i>локальний Chart.js</i>
+<b>tests/</b>                  <i>логіка, збереження, браузерні сценарії</i></pre>
       </div>
     </div>
   </section>
@@ -263,7 +251,7 @@
   </div>
 </div>
 
-<script src="assets/js/i18n.js?v=20260925a"></script>
-<script src="assets/js/app.js?v=20260925a"></script>
+<script src="assets/js/i18n.js?v=20261008a"></script>
+<script src="assets/js/app.js?v=20261008a"></script>
 </body>
 </html>

@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>UABankSim — банківський симулятор (у розробці) | Сергій Коваленко</title>
-<meta name="description" content="Симулятор комерційного банку в Україні: подвійний запис у головній книзі, нормативи НБУ, три бізнес-вертикалі та стрес-тести. Проєкт у розробці.">
+<title>UABankSim — концепція банківського симулятора | Сергій Коваленко</title>
+<meta name="description" content="Концепція симулятора українського банку: головна книга, ризики та нормативи НБУ. Наразі лише README — реалізації, тестів і демо ще немає.">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#05060a">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UABankSim — банківський симулятор">
-<meta property="og:description" content="Кожна дія породжує реальні бухгалтерські проводки. Нормативи НБУ, роздріб, МСБ і VIP-банкінг.">
+<meta property="og:description" content="Концепція симулятора українського банку: головна книга, ризики та нормативи НБУ. Наразі лише README — реалізації, тестів і демо ще немає.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/css/main.css?v=20260925a">
+<link rel="stylesheet" href="assets/css/main.css?v=20261008a">
 </head>
 <body>
 
@@ -66,9 +66,9 @@
       <span data-i18n="common.back">Усі проєкти</span>
     </a>
 
-    <span class="status status-wip" data-i18n="common.wip">У розробці</span>
+    <span class="status status-wip" data-i18n="bank.status">Концепція</span>
     <h1 class="p-title">UABankSim</h1>
-    <p class="p-tag" data-i18n="bank.tag">Симулятор комерційного банку в Україні. Ви — голова правління, ваш продукт — не товар, а гроші, а головний інструмент — управління ризиком. Кожна дія, від видачі кредиту до заправки інкасаторського авто, породжує реальні бухгалтерські проводки.</p>
+    <p class="p-tag" data-i18n="bank.tag">Концепція симулятора комерційного банку в Україні. Задум поєднує бухгалтерські проводки, ризик-менеджмент, нормативи НБУ та розвиток банку від окремого напрямку до рівня правління. Наразі в репозиторії є лише README; код, тести й демоверсія ще не реалізовані.</p>
 
     <div class="p-cta">
       <a class="btn btn-primary" href="https://github.com/kovalenkoserhii2107-maker/UABankSim" target="_blank" rel="noopener">
@@ -80,9 +80,9 @@
 
     <dl class="meta-grid" data-reveal>
       <div><dt data-i18n="common.m.type">Тип</dt><dd data-i18n="bank.m.type">Фінансовий симулятор</dd></div>
-      <div><dt data-i18n="common.m.stack">Стек</dt><dd data-i18n="bank.m.stack">JS · Event-driven ядро</dd></div>
-      <div><dt data-i18n="common.m.status">Статус</dt><dd data-i18n="bank.m.statusv">Проєктування та ядро</dd></div>
-      <div><dt data-i18n="bank.m.base">Основа</dt><dd data-i18n="bank.m.basev">Головна книга й нормативи НБУ</dd></div>
+      <div><dt data-i18n="common.m.stack">Стек</dt><dd data-i18n="bank.m.stack">Заплановано: event-driven архітектура</dd></div>
+      <div><dt data-i18n="common.m.status">Статус</dt><dd data-i18n="bank.m.statusv">Концепція в README · без реалізації</dd></div>
+      <div><dt data-i18n="bank.m.base">Основа</dt><dd data-i18n="bank.m.basev">Заплановані головна книга й нормативи НБУ</dd></div>
       <div><dt data-i18n="common.m.cx">Складність</dt><dd data-i18n="bank.cx">оцінка після першого релізу</dd></div>
     </dl>
   </section>
@@ -104,8 +104,8 @@
       <h2 data-i18n="bank.o.h">Чому банк, а не завод</h2>
       <div class="prose" data-reveal>
         <p data-i18n="bank.o.p1">UABiz показав, що симулятор стає цікавим тоді, коли під ним лежить справжня бухгалтерія. UABankSim доводить цю ідею до кінця: у банку <strong>немає нічого, крім бухгалтерії</strong> — товару не існує, є лише зобов'язання, вимоги та ризик, що вони не будуть виконані.</p>
-        <p data-i18n="bank.o.p2">Кар'єра масштабується разом із гравцем. Спочатку ви керуєте одним напрямком — наприклад, картковими продуктами або валютообмінними операціями. Далі піднімаєтесь до рівня правління, де вже вирішуєте питання макроекономіки всього банку.</p>
-        <p data-i18n="bank.o.p3">Ринок — український і конкретний: облікова ставка НБУ за історичними даними, обов'язкові резерви, норматив достатності капіталу Н2, депозитні сертифікати НБУ та ОВДП. Кризи в грі — теж не абстрактні.</p>
+        <p data-i18n="bank.o.p2">У задумі кар’єра масштабується від керування окремим напрямком, наприклад картками чи валютними операціями, до рівня правління. Цей маршрут ще не реалізовано.</p>
+        <p data-i18n="bank.o.p3">Концепція орієнтується на український ринок: історичні ставки НБУ, обов’язкові резерви, достатність капіталу, депозитні сертифікати й ОВДП. Інтеграцій із даними та розрахункових модулів у поточному репозиторії немає.</p>
       </div>
       <div class="chip-row" style="margin-top:26px">
         <span class="chip">Event-driven architecture</span>
@@ -125,32 +125,32 @@
         <article class="card feat-item" data-reveal>
           <span class="feat-num">01</span>
           <h3 data-i18n="bank.f1.t">Повноцінна головна книга</h3>
-          <p data-i18n="bank.f1.p">Абсолютно кожна дія формує проводку і одразу відображається в балансі та звіті про прибутки і збитки. Баланс має сходитися завжди — це головне правило проєкту.</p>
+          <p data-i18n="bank.f1.p">Планується подвійний запис для кожної операції та формування балансу й P&amp;L. Це вимога до майбутнього ядра, а не вже наявна бухгалтерська система.</p>
         </article>
         <article class="card feat-item" data-reveal style="--d:70ms">
           <span class="feat-num">02</span>
           <h3 data-i18n="bank.f2.t">Нормативи та регулятор</h3>
-          <p data-i18n="bank.f2.p">Обов'язкові резерви, норматив достатності капіталу Н2, депозитні сертифікати НБУ та ОВДП. Порушення нормативу — не попередження, а наслідки.</p>
+          <p data-i18n="bank.f2.p">У концепції передбачені обов’язкові резерви, достатність капіталу, депозитні сертифікати НБУ й ОВДП. Формули та наслідки порушень ще потрібно реалізувати.</p>
         </article>
         <article class="card feat-item" data-reveal style="--d:140ms">
           <span class="feat-num">03</span>
           <h3 data-i18n="bank.f3.t">Три бізнес-вертикалі</h3>
-          <p data-i18n="bank.f3.p">Масовий роздріб — великі обсяги й високий NPL. МСБ — розрахунково-касове обслуговування та зарплатні проєкти. VIP — консьєрж, індивідуальний курс і надчутлива репутація.</p>
+          <p data-i18n="bank.f3.p">Заплановано масовий роздріб, МСБ і VIP-банкінг із різними профілями ризику й обслуговування. Продуктових модулів поки немає.</p>
         </article>
         <article class="card feat-item" data-reveal style="--d:210ms">
           <span class="feat-num">04</span>
           <h3 data-i18n="bank.f4.t">Інфраструктура й CAPEX</h3>
-          <p data-i18n="bank.f4.p">Чотири типи відділень, парк банкоматів, інкасація. Ключове рішення: платити за аутсорсинговий процесинг карток чи будувати власний центр.</p>
+          <p data-i18n="bank.f4.p">Задум передбачає типи відділень, банкомати, інкасацію та вибір між власним процесингом і аутсорсингом. Це майбутні механіки CAPEX та OPEX.</p>
         </article>
         <article class="card feat-item" data-reveal style="--d:280ms">
           <span class="feat-num">05</span>
           <h3 data-i18n="bank.f5.t">Стрес-тести</h3>
-          <p data-i18n="bank.f5.p">Блекаути, набіги вкладників, хакерські атаки та раптові перевірки фінансового моніторингу — сценарії, які перевіряють запас міцності моделі.</p>
+          <p data-i18n="bank.f5.p">Блекаути, набіги вкладників, кібератаки та перевірки фінмоніторингу описані як майбутні сценарії. Реалізованого рушія стрес-тестів поки немає.</p>
         </article>
         <article class="card feat-item" data-reveal style="--d:350ms">
           <span class="feat-num">06</span>
           <h3 data-i18n="bank.f6.t">Історичні дані НБУ</h3>
-          <p data-i18n="bank.f6.p">Облікова ставка та кризові періоди беруться з реальної історії, тож умови гри повторюють те, через що проходив український банківський сектор.</p>
+          <p data-i18n="bank.f6.p">Планується використання історичних ставок і кризових періодів НБУ. Джерела даних та імпорт ще потрібно визначити й реалізувати.</p>
         </article>
       </div>
     </div>
@@ -159,13 +159,13 @@
   <section class="block" id="arch">
     <div class="shell">
       <span class="eyebrow" data-i18n="common.s.arch">Архітектура</span>
-      <h2 data-i18n="bank.a.h">Подієво-орієнтоване ядро</h2>
+      <h2 data-i18n="bank.a.h">Запланована архітектура</h2>
       <div class="prose" style="margin-bottom:26px" data-reveal>
-        <p data-i18n="bank.a.p1">Ядро симуляції повністю ізольоване від продуктових модулів. Модуль не змінює стан безпосередньо — він публікує подію, ядро проводить її через головну книгу, а решта модулів реагують на результат.</p>
-        <p data-i18n="bank.a.p2">Завдяки цьому новий банківський продукт додається без переписування фундаменту: достатньо описати, які проводки він породжує і на які події реагує.</p>
+        <p data-i18n="bank.a.p1">README пропонує модульну event-driven архітектуру з ядром, відокремленим від продуктових модулів. Наведений нижче потік — ілюстрація задуму, а не код наявного рушія.</p>
+        <p data-i18n="bank.a.p2">Перший технічний етап — реалізувати головну книгу, модель стану та контракти подій і перевірити їх тестами. Після цього можна додавати продукти, інтерфейс і сценарії.</p>
       </div>
       <div class="code-panel" data-reveal>
-        <div class="code-head">UABankSim / <span data-i18n="bank.a.flow">потік однієї операції</span></div>
+        <div class="code-head">UABankSim / <span data-i18n="bank.a.flow">ілюстрація майбутньої операції</span></div>
 <pre data-i18n="bank.a.pre"><i>// видача кредиту на 250 000 ₴</i>
 
 module <b>retail.loans</b>
@@ -193,20 +193,20 @@ subscribers
   <section class="block" id="road">
     <div class="shell">
       <span class="eyebrow" data-i18n="common.s.road">Дорожня карта</span>
-      <h2 data-i18n="bank.r.h">Стан робіт</h2>
+      <h2 data-i18n="bank.r.h">Концепція та наступні кроки</h2>
       <ul class="road" data-reveal>
         <li data-done="1">
           <span class="road-dot">01</span>
           <div>
             <h3 data-i18n="bank.r1.t">Модель предметної області</h3>
-            <p data-i18n="bank.r1.p">План рахунків, перелік продуктів, нормативи НБУ та джерела історичних даних — описані.</p>
+            <p data-i18n="bank.r1.p">README описує мету, продуктові напрямки, регуляторні механіки та архітектурний задум. Детальний план рахунків і контракти модулів ще потрібно розробити.</p>
           </div>
         </li>
-        <li data-done="1">
+        <li>
           <span class="road-dot">02</span>
           <div>
             <h3 data-i18n="bank.r2.t">Ядро головної книги</h3>
-            <p data-i18n="bank.r2.p">Подвійний запис, шина подій і контракт між ядром та продуктовими модулями.</p>
+            <p data-i18n="bank.r2.p">Наступний етап: реалізувати подвійний запис, шину подій та інваріанти балансу. Готового ядра в репозиторії немає.</p>
           </div>
         </li>
         <li>
@@ -265,7 +265,7 @@ subscribers
   </div>
 </div>
 
-<script src="assets/js/i18n.js?v=20260925a"></script>
-<script src="assets/js/app.js?v=20260925a"></script>
+<script src="assets/js/i18n.js?v=20261008a"></script>
+<script src="assets/js/app.js?v=20261008a"></script>
 </body>
 </html>

@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/css/main.css?v=20260925a">
+<link rel="stylesheet" href="assets/css/main.css?v=20261008a">
 </head>
 <body>
 
@@ -83,7 +83,7 @@
 
     <dl class="meta-grid" data-reveal>
       <div><dt data-i18n="common.m.type">Тип</dt><dd data-i18n="eib.m.type">Аналітичний рушій</dd></div>
-      <div><dt data-i18n="common.m.stack">Стек</dt><dd>Python · GitHub Actions</dd></div>
+      <div><dt data-i18n="common.m.stack">Стек</dt><dd>Python · JavaScript · Cloudflare Workers</dd></div>
       <div><dt data-i18n="eib.m.corpus">Корпус</dt><dd data-i18n="eib.m.corpusv">113 тендерів · 14 перевірок</dd></div>
       <div><dt data-i18n="common.m.cx">Складність</dt><dd><span class="cx" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span> 2 / 5</dd></div>
     </dl>
@@ -107,7 +107,7 @@
       <div class="prose" data-reveal>
         <p data-i18n="eib.o.p1">Закупівлі за кредитні кошти ЄІБ мусять одночасно відповідати Закону 922-VIII, постанові КМУ № 1178 і правилам банку. Розбіжності між ними — це «шви»: місця, де закупівля може бути законною за одним набором правил і порушувати інший. Рушій перевіряє чотирнадцять таких швів.</p>
         <p data-i18n="eib.o.p2">Кожен шов повертає один із трьох станів: <strong>спрацював</strong>, <strong>чисто</strong> або <strong>неможливо перевірити</strong>. Третій стан принциповий: якщо в документах немає даних, рушій так і каже, а не зараховує тендер до чистих. Тому звіт показує не лише знахідки, а й реальну межу можливостей перевірки.</p>
-        <p data-i18n="eib.o.p3">Дані тягнуться з публічних API Prozorro: шість вкладок сторінки тендера, канонічна база ЦБД і окремо — договори, бо саме там живуть зміни. Документи <code>.docx</code>, <code>.doc</code> і <code>.pdf</code> розбираються без сторонніх бібліотек.</p>
+        <p data-i18n="eib.o.p3">Дані беруться з API Prozorro та ЦБД. Python читає <code>.docx</code>, а для старих Word-файлів і PDF використовує доступні системні засоби витягу тексту. Живий браузерний режим підтримує лише <code>.docx</code>; непідтримувані документи позначаються як неперевірені.</p>
       </div>
       <div class="chip-row" style="margin-top:26px">
         <span class="chip">Python 3 (stdlib)</span>
@@ -136,8 +136,8 @@
         </article>
         <article class="card feat-item" data-reveal style="--d:140ms">
           <span class="feat-num">03</span>
-          <h3 data-i18n="eib.f3.t">Розбір документів без залежностей</h3>
-          <p data-i18n="eib.f3.p">Текст витягується з <code>.docx</code>, <code>.doc</code> і <code>.pdf</code> на чистому Python — щоб перевірити, що саме написано в тендерній документації.</p>
+          <h3 data-i18n="eib.f3.t">Документи й межі перевірки</h3>
+          <p data-i18n="eib.f3.p">Python-режим витягує текст із <code>.docx</code>, старого <code>.doc</code> і PDF з урахуванням доступних системних інструментів. Браузерний режим розпаковує лише <code>.docx</code>; скани без OCR не перетворюються на «чистий» результат.</p>
         </article>
         <article class="card feat-item" data-reveal style="--d:210ms">
           <span class="feat-num">04</span>
@@ -152,7 +152,7 @@
         <article class="card feat-item" data-reveal style="--d:350ms">
           <span class="feat-num">06</span>
           <h3 data-i18n="eib.f6.t">Точкова перевірка тендера</h3>
-          <p data-i18n="eib.f6.p">Для перевірки однієї закупівлі «наживо» є Cloudflare Worker — CORS-проксі, що пропускає запити лише до хостів Prozorro й відкритим проксі не є.</p>
+          <p data-i18n="eib.f6.p">Живий аудит окремої закупівлі запускається в браузері через власний Cloudflare Worker або локальний CORS-проксі. Адреса зберігається лише в браузері користувача; проксі пропускає запити тільки до дозволених хостів Prozorro.</p>
         </article>
       </div>
     </div>
@@ -164,22 +164,26 @@
       <h2 data-i18n="eib.a.h">Як це влаштовано</h2>
       <div class="prose" style="margin-bottom:26px" data-reveal>
         <p data-i18n="eib.a.p1">Конвеєр: пошук → вкладки й ЦБД → нормалізація → документи → рушій правил → знахідки. Клієнт Prozorro кешує все на диск, тож повторний прогін не ходить у мережу.</p>
-        <p data-i18n="eib.a.p2">Жодних залежностей — лише стандартна бібліотека Python 3.9+. Окремий скрипт звіряє, що правила в Python і їхня копія для браузера не розійшлися.</p>
+        <p data-i18n="eib.a.p2"><code>rules.json</code> — єдина специфікація 14 перевірок; Python і JavaScript виконують її у своїх середовищах. Стенд паритету звіряє вердикти, тексти, докази й впевненість, а окрема перевірка контролює копію специфікації для Pages.</p>
       </div>
       <div class="code-panel" data-reveal>
         <div class="code-head">eib-audit / <span data-i18n="eib.a.tree">структура репозиторію</span></div>
-<pre data-i18n="eib.a.pre"><b>run.py</b>              <i>аудит однієї закупівлі</i>
+<pre data-i18n="eib.a.pre"><b>rules.json</b>             <i>єдина специфікація 14 перевірок</i>
+<b>run.py</b>                 <i>аудит однієї закупівлі</i>
 <b>src/</b>
-  pz.py             <i>клієнт Prozorro: пошук, 6 вкладок, ЦБД, договори; кеш на диску</i>
-  normalize.py      <i>сирий JSON → аудит-об’єкт</i>
-  docs.py           <i>текст із .docx, .doc, .pdf</i>
-  rules.py          <i>14 швів: fires / clear / not_checkable</i>
-  corpus.py         <i>збір корпусу тендерів ЄІБ</i>
-  audit.py          <i>прогін рушія по корпусу</i>
-  export.py         <i>датасет для звіту</i>
-  verify_parity.py  <i>звірка правил Python і браузера</i>
-<b>docs/</b>             <i>звіт на GitHub Pages</i>
-<b>worker/</b>           <i>Cloudflare Worker: CORS-проксі лише до Prozorro</i></pre>
+  pz.py                   <i>API Prozorro й кеш</i>
+  normalize.py            <i>аудит-об’єкт</i>
+  docs.py                 <i>витяг тексту з документів</i>
+  rules.py                <i>Python-виконавець специфікації</i>
+  export.py               <i>датасет і копія правил для Pages</i>
+  verify_parity.py        <i>звірка двох рушіїв</i>
+  check_spec_sync.py      <i>перевірка копії специфікації</i>
+<b>docs/</b>
+  engine.js               <i>JavaScript-виконавець правил</i>
+  live.js, prozorro.js    <i>живий аудит через проксі</i>
+  data/audit.json         <i>113 тендерів у поточному датасеті</i>
+<b>worker/</b>                 <i>CORS-проксі Cloudflare</i>
+<b>dev-proxy.py</b>            <i>локальний проксі для розробки</i></pre>
       </div>
     </div>
   </section>
@@ -230,7 +234,7 @@
   </div>
 </div>
 
-<script src="assets/js/i18n.js?v=20260925a"></script>
-<script src="assets/js/app.js?v=20260925a"></script>
+<script src="assets/js/i18n.js?v=20261008a"></script>
+<script src="assets/js/app.js?v=20261008a"></script>
 </body>
 </html>

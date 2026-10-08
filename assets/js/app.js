@@ -222,15 +222,16 @@
         var idx = 0, lastFocus = null;
 
         var shots = figs.map(function (f) {
-            var im = $('img', f), fc = $('figcaption', f);
-            return { src: im.getAttribute('src'), alt: im.getAttribute('alt') || '', cap: fc ? fc.textContent : '' };
+            var im = $('img', f);
+            return { src: im.getAttribute('src'), alt: im.getAttribute('alt') || '' };
         });
 
         function show(n) {
             idx = (n + shots.length) % shots.length;
             img.src = shots[idx].src;
             img.alt = shots[idx].alt;
-            cap.textContent = shots[idx].cap + '  ·  ' + (idx + 1) + '/' + shots.length;
+            var fc = $('figcaption', figs[idx]);
+            cap.textContent = (fc ? fc.textContent : '') + '  ·  ' + (idx + 1) + '/' + shots.length;
         }
         function open(n) {
             lastFocus = document.activeElement;
@@ -265,6 +266,9 @@
             if (e.key === 'ArrowRight') show(idx + 1);
             if (e.key === 'ArrowLeft') show(idx - 1);
         });
+        document.addEventListener('i18n:change', function () {
+            if (lb.classList.contains('is-open')) show(idx);
+        });
     })();
 
     /* ---------- command palette ---------- */
@@ -280,13 +284,13 @@
             { uk: 'Головна', en: 'Home', kind: 'сторінка', kindEn: 'page', href: 'index.html' },
             { uk: 'Чумацький Шлях — космічна стратегія (Space MMO)', en: 'Chumatskyi Shliakh — space strategy MMO', kind: 'проєкт', kindEn: 'project', href: 'space.html' },
             { uk: 'ОСББ «Успіх-25»', en: 'HOA "Uspih-25"', kind: 'проєкт', kindEn: 'project', href: 'uspih25.html' },
-            { uk: 'PsyKovalenko — сайт і кабінет психологині', en: 'PsyKovalenko — psychologist site', kind: 'проєкт', kindEn: 'project', href: 'psy.html' },
             { uk: 'CodeQuest — гра, що вчить програмувати', en: 'CodeQuest — learn-to-code game', kind: 'проєкт', kindEn: 'project', href: 'codequest.html' },
             { uk: 'UABiz — економічний симулятор', en: 'UABiz — economic sim', kind: 'проєкт', kindEn: 'project', href: 'uabiz.html' },
             { uk: 'Grand Strategy — політичний симулятор', en: 'Grand Strategy — political sim', kind: 'проєкт', kindEn: 'project', href: 'politics.html' },
             { uk: 'Minecraft Bedrock Server — сервер Майнкрафт', en: 'Minecraft Bedrock Server', kind: 'проєкт', kindEn: 'project', href: 'minecraft.html' },
             { uk: 'Аудит закупівель ЄІБ', en: 'EIB Procurement Audit', kind: 'проєкт', kindEn: 'project', href: 'eib.html' },
             { uk: 'Хроніки влади', en: 'Chronicles of Power', kind: 'проєкт', kindEn: 'project', href: 'chronicles.html' },
+            { uk: 'PsyKovalenko — лендинг психологині', en: 'PsyKovalenko — psychologist landing page', kind: 'проєкт', kindEn: 'project', href: 'psy.html' },
             { uk: 'UABankSim — банківський симулятор', en: 'UABankSim — banking sim', kind: 'проєкт', kindEn: 'project', href: 'uabank.html' },
             { uk: 'Стек', en: 'Stack', kind: 'секція', kindEn: 'section', href: 'index.html#stack' },
             { uk: 'Про мене', en: 'About', kind: 'секція', kindEn: 'section', href: 'index.html#about' },

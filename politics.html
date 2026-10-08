@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Grand Strategy — політичний симулятор | Сергій Коваленко</title>
-<meta name="description" content="Покрокова стратегія на карті світу: 236 держав, 743 згенеровані області, армії, податки й дипломатія. Власний SVG-рушій без бібліотек.">
+<title>Grand Strategy — світова політична й економічна стратегія | Сергій Коваленко</title>
+<meta name="description" content="180 країн, 799 областей, 1203 міста: ресурсна економіка, дипломатія, флот і мережеві партії на 2–4 гравців у браузері.">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#05060a">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Grand Strategy — політичний симулятор">
-<meta property="og:description" content="236 держав, 743 області, нарізані з Natural Earth офлайн-генератором. Карта, армії, бюджет.">
+<meta property="og:description" content="180 країн, 799 областей, 1203 міста: ресурсна економіка, дипломатія, флот і мережеві партії на 2–4 гравців у браузері.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/css/main.css?v=20260925a">
+<link rel="stylesheet" href="assets/css/main.css?v=20261008a">
 </head>
 <body>
 
@@ -68,7 +68,7 @@
 
     <span class="status status-live" data-i18n="common.live">Працює</span>
     <h1 class="p-title">Grand Strategy</h1>
-    <p class="p-tag" data-i18n="politics.tag">Покрокова політична стратегія на карті світу. Оберіть будь-яку з 236 держав, керуйте бюджетом і армією, віддавайте накази областям і закривайте хід. Карта не намальована вручну — вона згенерована з реальних географічних даних.</p>
+    <p class="p-tag" data-i18n="politics.tag">Покрокова політична й економічна стратегія на карті світу. Поточні дані містять 180 країн, 799 областей і 1203 міста. Керуйте ресурсами, бюджетом, боргом, дипломатією, армією та флотом; грайте самостійно або на 2–4 учасників.</p>
 
     <div class="p-cta">
       <a class="btn btn-primary" href="https://kovalenkoserhii2107-maker.github.io/Politics-Game/" target="_blank" rel="noopener">
@@ -84,8 +84,8 @@
     <dl class="meta-grid" data-reveal>
       <div><dt data-i18n="common.m.type">Тип</dt><dd data-i18n="politics.m.type">Покрокова стратегія</dd></div>
       <div><dt data-i18n="common.m.stack">Стек</dt><dd>Vanilla JS · SVG · Node.js</dd></div>
-      <div><dt data-i18n="politics.m.world">Світ</dt><dd data-i18n="politics.m.worldv">236 держав · 743 області</dd></div>
-      <div><dt data-i18n="politics.m.cities">Міста</dt><dd data-i18n="politics.m.citiesv">1013 у довіднику</dd></div>
+      <div><dt data-i18n="politics.m.world">Світ</dt><dd data-i18n="politics.m.worldv">180 країн · 799 областей</dd></div>
+      <div><dt data-i18n="politics.m.cities">Міста</dt><dd data-i18n="politics.m.citiesv">1203 у довіднику</dd></div>
       <div><dt data-i18n="common.m.cx">Складність</dt><dd><span class="cx" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span> 3 / 5</dd></div>
     </dl>
   </section>
@@ -130,7 +130,7 @@
         <article class="card feat-item" data-reveal>
           <span class="feat-num">01</span>
           <h3 data-i18n="politics.f1.t">Згенерована карта світу</h3>
-          <p data-i18n="politics.f1.p">743 області, нарізані з геометрії 236 держав. Проєкція Web Mercator у системі координат viewBox 1200×800, граф областей кожної країни гарантовано зв'язний.</p>
+          <p data-i18n="politics.f1.p">799 областей із геометрії 180 країн; морська карта містить 513 зон. Географічні дані й сусідство готуються офлайн, а у браузері працює власний рушій відображення.</p>
         </article>
         <article class="card feat-item" data-reveal style="--d:70ms">
           <span class="feat-num">02</span>
@@ -139,13 +139,13 @@
         </article>
         <article class="card feat-item" data-reveal style="--d:140ms">
           <span class="feat-num">03</span>
-          <h3 data-i18n="politics.f3.t">Економіка держави</h3>
-          <p data-i18n="politics.f3.p">Податкова ставка від 1% до 20%, прогноз бюджету на хід, населення, нафта, аграрний та індустріальний потенціал кожної області.</p>
+          <h3 data-i18n="politics.f3.t">Ресурси, бюджет і борг</h3>
+          <p data-i18n="politics.f3.p">Їжа, енергія й товари виробляються, споживаються та торгуються на спільному ігровому ринку. Фінансове вікно порівнює прогноз із фактом; доступні облігації, програми МВФ і банківські кредити.</p>
         </article>
         <article class="card feat-item" data-reveal style="--d:210ms">
           <span class="feat-num">04</span>
-          <h3 data-i18n="politics.f4.t">Роди військ і контрзаходи</h3>
-          <p data-i18n="politics.f4.p">Піхота, танки, артилерія, авіація та ППО. У кожного — атака, захист, вартість утримання, вимога до індустрії області та список того, кого він контрить.</p>
+          <h3 data-i18n="politics.f4.t">Армія, морський флот і протоки</h3>
+          <p data-i18n="politics.f4.p">Сухопутні й відкриті дослідженнями роди військ, верфі та кораблі. Флот переходить між морськими зонами, підтримує прибережні бої й блокує порти; власники проток можуть обмежувати прохід і стягувати плату.</p>
         </article>
         <article class="card feat-item" data-reveal style="--d:280ms">
           <span class="feat-num">05</span>
@@ -154,8 +154,8 @@
         </article>
         <article class="card feat-item" data-reveal style="--d:350ms">
           <span class="feat-num">06</span>
-          <h3 data-i18n="politics.f6.t">Довідник із 1013 міст</h3>
-          <p data-i18n="politics.f6.p">Координати й населення міст беруться з відкритих наборів даних і використовуються для назв областей та розрахунку їхньої ваги.</p>
+          <h3 data-i18n="politics.f6.t">Міста й географічні дані</h3>
+          <p data-i18n="politics.f6.p">1203 міста з координатами й населенням використовуються для назв областей і відображення світу. Економіка також враховує відмінності країн і географію морської торгівлі.</p>
         </article>
         <article class="card feat-item" data-reveal style="--d:0ms">
           <span class="feat-num">07</span>
@@ -165,12 +165,12 @@
         <article class="card feat-item" data-reveal style="--d:70ms">
           <span class="feat-num">08</span>
           <h3 data-i18n="politics.f8.t">Дипломатія й «Сценарій 2024»</h3>
-          <p data-i18n="politics.f8.p">Атакувати можна лише країну, з якою йде війна. Оголошення війни й мир коштують впливу, після миру — перемир’я на 10 ходів. «Сценарій 2024» стартує з війною Росії проти України з першого ходу.</p>
+          <p data-i18n="politics.f8.p">Договори, союзи, данина, допомога, ООН із голосуванням та санкціями й ядерне стримування. «Сценарій 2024» починається з війни Росії проти України; мирний сценарій стартує без неї.</p>
         </article>
         <article class="card feat-item" data-reveal style="--d:140ms">
           <span class="feat-num">09</span>
-          <h3 data-i18n="politics.f9.t">Дослідження, збереження, PWA</h3>
-          <p data-i18n="politics.f9.p">Дослідження підсилюють роди військ і швидкість маршу. Гра зберігається автоматично після кожного ходу й ставиться на домашній екран як застосунок.</p>
+          <h3 data-i18n="politics.f9.t">Спільна гра й збереження</h3>
+          <p data-i18n="politics.f9.p">На одному пристрої можна грати на 2–4 учасників; мережевий режим використовує PeerJS і хост у браузері одного гравця. Є одночасний хід, чат, експорт та імпорт збережень і маніфест для встановлення на телефон.</p>
         </article>
       </div>
     </div>
@@ -185,25 +185,24 @@
       </div>
       <div class="code-panel" data-reveal>
         <div class="code-head">Politics-Game / <span data-i18n="politics.a.tree">структура репозиторію</span></div>
-<pre data-i18n="politics.a.pre"><b>index.html</b>          <i>розмітка й стилі інтерфейсу</i>
+<pre data-i18n="politics.a.pre"><b>index.html</b>           <i>інтерфейс і старт партії</i>
 <b>js/</b>
-  main.js           <i>контролер і стартовий екран</i>
-  GameData.js       <i>модель світу, накази, розв'язання ходу</i>
-  MapEngine.js      <i>відрисовка карти, камера, підписи</i>
-  UIManager.js      <i>бічна панель, модалки, журнал</i>
-  GameLoop.js       <i>хід і економіка</i>
-  AI.js             <i>ІІ країн: накази в ті самі черги, що й у гравця</i>
-  UnitsDB.js        <i>роди військ</i>
-  data/             <i>ЗГЕНЕРОВАНО — вручну не правити</i>
-    RegionsDB.js    <i>743 області · 1.5 МБ SVG-шляхів</i>
-    CountriesDB.js  <i>236 держав</i>
-    CitiesDB.js     <i>1013 міст</i>
-    NeighborsDB.js  <i>граф сусідства</i>
-<b>tools/</b>          <i>офлайн-генератор, ~40 с на перезбірку</i>
-  build_map.js      <i>точка входу генератора</i>
-  lib/geo.js        <i>проєкція Web Mercator, константи</i>
-  lib/svgmap.js     <i>нарізка країн і обрізка по кордону</i>
-  lib/translit.js   <i>транслітерація назв міст</i></pre>
+  GameData.js           <i>стан світу й правила</i>
+  Economy.js            <i>їжа, енергія, товари, ринок</i>
+  Finance.js, Credit.js <i>бюджет, борг, прогноз і факт</i>
+  Navy.js, Shipping.js  <i>флот, порти, протоки</i>
+  Diplomacy.js          <i>відносини й договори</i>
+  Council.js, Nuclear.js <i>ООН і ядерне стримування</i>
+  Net.js                <i>PeerJS і спільний хід</i>
+  AI.js                 <i>комп’ютерні держави</i>
+  MapEngine.js          <i>карта й камера</i>
+  data/
+    CountriesDB.js      <i>180 країн</i>
+    RegionsDB.js        <i>799 областей</i>
+    CitiesDB.js         <i>1203 міста</i>
+    SeasDB.js           <i>513 морських зон</i>
+<b>tools/</b>                <i>генерація географічних даних</i>
+<b>tests/</b>                <i>ігрова логіка й ресурси</i></pre>
       </div>
     </div>
   </section>
@@ -269,7 +268,7 @@
   </div>
 </div>
 
-<script src="assets/js/i18n.js?v=20260925a"></script>
-<script src="assets/js/app.js?v=20260925a"></script>
+<script src="assets/js/i18n.js?v=20261008a"></script>
+<script src="assets/js/app.js?v=20261008a"></script>
 </body>
 </html>

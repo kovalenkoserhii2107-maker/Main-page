@@ -4,17 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ОСББ «Успіх-25» — PWA для управління будинком | Сергій Коваленко</title>
-<meta name="description" content="Progressive Web App для ОСББ: захищене голосування з кворумом за площею, білінг, звернення мешканців, графіки відключень ДТЕК. Vanilla JS + Firebase.">
+<meta name="description" content="PWA для мешканців і правління ОСББ: збори, голоси співвласників, PDF-протоколи, фінанси й електропостачання. JavaScript, Firebase та серверні операції.">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#05060a">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ОСББ «Успіх-25» — PWA для управління будинком">
-<meta property="og:description" content="Голосування з кворумом за площею, білінг, офлайн-режим і власний генератор .xlsx у браузері.">
+<meta property="og:description" content="PWA для мешканців і правління ОСББ: збори, голоси співвласників, PDF-протоколи, фінанси й електропостачання. JavaScript, Firebase та серверні операції.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/css/main.css?v=20260925a">
+<link rel="stylesheet" href="assets/css/main.css?v=20261008a">
 </head>
 <body>
 
@@ -68,7 +68,7 @@
 
     <span class="status status-live" data-i18n="common.inprod">Працює в реальному будинку</span>
     <h1 class="p-title">ОСББ «Успіх-25»</h1>
-    <p class="p-tag" data-i18n="uspih.tag">Progressive Web App для об'єднання співвласників: голосування з юридично коректним кворумом, білінг, звернення мешканців і графіки відключень світла — замість паперу, чатів і таблиць.</p>
+    <p class="p-tag" data-i18n="uspih.tag">PWA для мешканців і правління ОСББ: загальні збори з електронними та паперовими голосами, PDF-протоколи, фінанси, звернення й графіки відключень. Підсумки зборів рахуються за числом співвласників відповідно до статуту; завершення й публікація протоколу виконуються на сервері.</p>
 
     <div class="p-cta">
       <a class="btn btn-primary" href="https://kovalenkoserhii2107-maker.github.io/USPIH-25/" target="_blank" rel="noopener">
@@ -85,7 +85,7 @@
       <div><dt data-i18n="common.m.type">Тип</dt><dd data-i18n="uspih.m.type">PWA, offline-first</dd></div>
       <div><dt data-i18n="common.m.stack">Стек</dt><dd>Vanilla JS · Firebase</dd></div>
       <div><dt data-i18n="common.m.role">Роль</dt><dd data-i18n="common.solo">Один розробник</dd></div>
-      <div><dt data-i18n="common.m.scale">Обсяг</dt><dd data-i18n="uspih.m.scale">31 модуль · ~13k рядків JS</dd></div>
+      <div><dt data-i18n="common.m.scale">Обсяг</dt><dd data-i18n="uspih.m.scale">32 модулі JS · Cloud Functions</dd></div>
       <div><dt data-i18n="common.m.cx">Складність</dt><dd><span class="cx" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span> 4 / 5</dd></div>
     </dl>
   </section>
@@ -129,13 +129,13 @@
       <div class="feat">
         <article class="card feat-item" data-reveal>
           <span class="feat-num">01</span>
-          <h3 data-i18n="uspih.f1.t">Голосування з кворумом за площею</h3>
-          <p data-i18n="uspih.f1.p">Правило «1 квартира = 1 голос» закріплене в Firestore Rules, а не в інтерфейсі. Кворум рахується за площею та часткою власності — так, як вимагає закон про ОСББ.</p>
+          <h3 data-i18n="uspih.f1.t">Збори й голоси співвласників</h3>
+          <p data-i18n="uspih.f1.p">Голос зберігається за номером квартири, а підсумки враховують її співвласників. За статутом рішення приймається більшістю від загальної кількості співвласників; голову й секретаря обирає більшість присутніх. Площа відображається в документах окремо. Електронний підпис ще запланований.</p>
         </article>
         <article class="card feat-item" data-reveal style="--d:70ms">
           <span class="feat-num">02</span>
           <h3 data-i18n="uspih.f2.t">Білінг і квитанції</h3>
-          <p data-i18n="uspih.f2.p">Імпорт заборгованостей із CSV власним парсером, звіти про витрати ОСББ, реквізити для оплати й історія нарахувань по кожній квартирі.</p>
+          <p data-i18n="uspih.f2.p">Імпорт заборгованостей із CSV, звіти витрат, реквізити й історія нарахувань по квартирі. Журнал операцій пристосований до читання на телефоні; фінанси й документи доступні відповідно до ролі мешканця або правління.</p>
         </article>
         <article class="card feat-item" data-reveal style="--d:140ms">
           <span class="feat-num">03</span>
@@ -230,10 +230,10 @@
   </section>
 
   <div class="shell">
-    <a class="card next-strip stretch" href="psy.html" data-reveal>
+    <a class="card next-strip stretch" href="codequest.html" data-reveal>
       <span>
         <small data-i18n="common.next">Наступний проєкт</small>
-        <strong>PsyKovalenko — <span data-i18n="proj.psy.kick">Сайт і кабінет психологині</span></strong>
+        <strong>CodeQuest — <span data-i18n="proj.cq.kick">Навчальна платформа JavaScript</span></strong>
       </span>
       <span class="link-arrow"><span data-i18n="common.more">Детальніше</span> <svg><use href="#i-arrow"></use></svg></span>
     </a>
@@ -260,7 +260,7 @@
   </div>
 </div>
 
-<script src="assets/js/i18n.js?v=20260925a"></script>
-<script src="assets/js/app.js?v=20260925a"></script>
+<script src="assets/js/i18n.js?v=20261008a"></script>
+<script src="assets/js/app.js?v=20261008a"></script>
 </body>
 </html>
