@@ -41,7 +41,7 @@ def main():
                 const problems = [];
                 document.querySelectorAll('.slide').forEach((slide, idx) => {
                     const box = slide.getBoundingClientRect();
-                    slide.querySelectorAll('h1,h2,h3,p,.chip,.pilot-contact,.cover-foot,.part,.part span').forEach(el => {
+                    slide.querySelectorAll('h1,h2,h3,p,figcaption,.resident-note,.power-source,.governance-strip,.chip,.pilot-contact,.cover-foot,.part,.part span').forEach(el => {
                         const r = el.getBoundingClientRect();
                         if (r.left < box.left + 30 || r.right > box.right - 30 || r.bottom > box.bottom - 57) {
                             problems.push({slide:idx + 1, element:el.tagName, text:el.textContent.trim(), bottom:Math.round(r.bottom-box.top), right:Math.round(r.right-box.left)});
@@ -81,8 +81,8 @@ def main():
             metadata = pdf.metadata
             metadata.update(title='Успіх-25 — повний цикл ОСББ',
                             author='Сергій Коваленко',
-                            subject='Для голів правлінь і бухгалтерів ОСББ: функціональність, повний цикл, автономність процесів',
-                            keywords='Успіх-25, ОСББ, бухгалтерія, повний цикл, автоматизація',
+                            subject='Для голів правлінь і бухгалтерів ОСББ: кабінет мешканця, оплата, світло, FAQ, чат, прозорість, повний цикл та автономність',
+                            keywords='Успіх-25, ОСББ, мешканці, оплата, світло, FAQ, чат, прозорість, бухгалтерія, повний цикл, автоматизація',
                             creator='Успіх-25 · HTML/CSS · Chromium')
             pdf.set_metadata(metadata)
             pdf.save(output, garbage=4, deflate=True)
