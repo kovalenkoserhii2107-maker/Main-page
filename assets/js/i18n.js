@@ -69,10 +69,10 @@
         'proj.title':   'Projects',
         "proj.lede": "Ordered by complexity — from the largest system to the smallest. The 1–5 level weighs architecture, code size, integrations, tests and infrastructure; under each project’s name is why it got that level.",
 
-        "proj.uspih.desc": "An app for residents and an HOA board: general meetings, online and paper votes, PDF minutes, finances, maintenance requests and power status.",
-        'proj.uspih.f1':   "Votes and quorum counted by co-owners under the HOA charter",
-        'proj.uspih.f2':   'Custom .xlsx generator built on Typed Arrays',
-        "proj.uspih.f3": "PDF minutes and server publication without duplicates",
+        "proj.uspih.desc": "A system for HOA residents, the board and the accountant: contributions, bank reconciliation, payments, payroll, journal entries and reporting. Meetings, meters, documents and requests share one PWA.",
+        "proj.uspih.f1": "PrivatBank: statements, payment matching and instructions for signing",
+        "proj.uspih.f2": "Double-entry accounting, trial balance and checked month-end closing",
+        "proj.uspih.f3": "Payroll, XML tax reports and PDF meeting minutes",
 
         'proj.uabiz.kick': 'Economic simulator',
         'proj.uabiz.desc': "A single-player business simulator: retail, production, research, logistics, loans and an IPO. Finances separate profit from cash movement; progress can be saved and transferred.",
@@ -117,59 +117,36 @@
         'about.t3':      'Open to collaboration',
 
         /* ---------- Uspih-25 ---------- */
-        'uspih.tag':     "A PWA for residents and an HOA board: general meetings with online and paper votes, PDF minutes, finances, requests and outage schedules. Meeting results count co-owners under the charter; completion and publication run on the server.",
+        "uspih.tag": "An HOA management and accounting system with three portals: resident, board and accountant. From monthly charges and bank reconciliation to payroll, journal entries, month-end closing and XML tax reports. Meetings, documents, meters and maintenance requests stay in the same app.",
         'uspih.cta':     'Open the app',
-        'uspih.m.type':  'PWA, offline-first',
-        'uspih.m.scale': "32 JS modules · Cloud Functions",
+        "uspih.m.type": "PWA · HOA management and accounting",
+        "uspih.m.scale": "87 client · 29 server modules",
 
         'uspih.o.h':  'The problem',
-        'uspih.o.p1': 'Running an apartment building usually rests on paper ballots, messenger groups and a spreadsheet kept by one person. Votes are easy to challenge, only the accountant can see the debts, and requests get lost in the message feed.',
-        'uspih.o.p2': '“Uspih-25” pulls all of that into one app with two roles — resident and board. It installs on a phone like a normal application, works without a network, and needs neither an app store nor a server of my own.',
-        'uspih.o.p3': 'The key architectural decision: <strong>trust lives on the server, not on the client</strong>. The apartment number comes from the auth token rather than from text on screen, and Firestore rules confirm it on every write.',
+        "uspih.o.p1": "An HOA needs to connect resident contributions, bank transactions, supplier invoices, payroll and reporting. When those records live in separate spreadsheets and chats, it is hard to explain an apartment’s debt, verify an invoice payment or reconcile balances before closing a month.",
+        "uspih.o.p2": "“Uspih-25” connects these workflows in three separate portals. Residents see their apartment and building information; the board manages meetings and requests; the accountant works through a monthly cycle in a dedicated interface with a task queue. Chair, board member and accountant permissions are distinct.",
+        "uspih.o.p3": "Financial changes run through <strong>server operations with role checks</strong>. Charges, bank allocation and journal entries guard against duplicate execution and record an audit trail. Firestore/Storage rules isolate apartment data, and the bank token stays on the server.",
 
-        'uspih.f.h':  'What the app does',
-        'uspih.f1.t': "Meetings and co-owner votes",
-        'uspih.f1.p': "A vote is stored under the apartment number, and totals account for its co-owners. Under the charter, decisions require a majority of all co-owners; the chair and secretary are elected by those present. Area is reported separately in documents. Electronic signatures remain planned.",
-        'uspih.f2.t': 'Billing and receipts',
-        'uspih.f2.p': "CSV debt import, expense reports, payment details and apartment charge history. The transaction ledger is adapted for phone screens; finances and documents are available according to the resident or board role.",
-        'uspih.f3.t': 'Power: a sensor and DTEK schedules',
-        'uspih.f3.p': 'A hardware sensor built on Android + MacroDroid reports the real power state into the app, while a Cloud Function scrapes the outage schedules from the DTEK site every day.',
-        'uspih.f4.t': 'An .xlsx generator in the browser',
-        'uspih.f4.p': 'Ownership registries export to a genuine <code>.xlsx</code> file. The archive (ZIP + XML) is assembled by hand on Typed Arrays — no heavy library, no round trip to a server.',
-        'uspih.f5.t': 'Requests and a document base',
-        'uspih.f5.p': 'A resident files a request with photos; the board sees a queue with statuses. Bylaws, minutes and reports live in a shared store with a built-in document viewer.',
-        'uspih.f6.t': 'Offline and install-to-home-screen',
-        'uspih.f6.p': 'A service worker caches the interface and the FAQ section, so the app opens with no connection. The pull-to-refresh gesture is hand-written to feel the way it does in native apps.',
+        "uspih.f.h": "From the resident portal to month-end closing",
+        "uspih.f1.t": "Apartment balance and contributions",
+        "uspih.f1.p": "Balances, charge and payment history, receipts and published building expenses. Payment options include bank links and an NBU QR code; debt statements export to PDF.",
+        "uspih.f2.t": "Accountant portal",
+        "uspih.f2.p": "The Today screen collects tasks and reminders. The Month view guides the accountant through charges, bank transactions, documents, payroll, checks and closing; desktop tables have mobile card views.",
+        "uspih.f3.t": "Bank reconciliation",
+        "uspih.f3.p": "PrivatBank Autoclient synchronizes statements hourly. Incoming funds match apartments by account details and payment references; ambiguous transactions enter a decision queue. Multiple accounts, refunds and duplicate-safe reimports are supported.",
+        "uspih.f4.t": "Payments and chair approval",
+        "uspih.f4.p": "Supplier and employee payments are prepared on the server and sent to Privat24 for Business. The chair signs with a qualified electronic signature in the bank; the app confirms the debit from the bank statement rather than treating a prepared instruction as a completed payment.",
+        "uspih.f5.t": "Documents, contracts and budget",
+        "uspih.f5.p": "Invoices, acts, contracts and attachments link to payments and bank transactions. An act does not duplicate an invoice expense. The budget compares planned and actual spending; residents see a published report with item breakdowns.",
+        "uspih.f6.t": "Payroll and taxes",
+        "uspih.f6.p": "Employees and civil-contract workers, timesheets, advances and final payments, income tax, military levy and social contributions. Calculations include leave and sick pay; payments link to bank records and feed reporting.",
 
         'uspih.a.h':    'How it is put together',
-        'uspih.a.p':    'No bundler and no build step: the browser loads ES modules directly, GitHub Pages serves the static files, and Firebase covers auth, data and storage. The whole palette and type scale live in CSS variables in a single file.',
+        "uspih.a.p": "The client uses ES modules without a UI framework. esbuild bundles three entry points, with shared and lazy modules in content-hashed files; GitHub Pages publishes the _site directory. Firebase provides authentication, Firestore, files and server logic. Cloud Functions and access rules deploy through a separate workflow.",
         'uspih.a.tree': 'repository layout',
-        'uspih.a.pre':
-'<b>index.html</b>          <i>markup for every screen</i>\n' +
-'<b>style.css</b>           <i>design system, all colours in :root</i>\n' +
-'<b>firestore.rules</b>     <i>297 lines of access rules — the real guard</i>\n' +
-'<b>sw.js</b>               <i>service worker, offline cache</i>\n' +
-'<b>manifest.json</b>       <i>install to home screen</i>\n' +
-'<b>js/</b>\n' +
-'  firebase.js       <i>init + session object</i>\n' +
-'  app.js            <i>login, screen routing, navigation</i>\n' +
-'  polls.js          <i>voting and quorum maths</i>\n' +
-'  finance.js        <i>balance, expenses, receipts</i>\n' +
-'  owners.js         <i>co-owners, atomic writes</i>\n' +
-'  requests.js       <i>requests + association documents</i>\n' +
-'  dtek.js           <i>power-outage schedules</i>\n' +
-'  power.js          <i>live electricity status</i>\n' +
-'  xlsx-write.js     <i>custom .xlsx generator</i>\n' +
-'  meetings.js       <i>general meetings: agenda, voting</i>\n' +
-'  paper_votes.js    <i>entering votes from the door-to-door round</i>\n' +
-'  protocol_pdf.js   <i>meeting minutes as a PDF</i>\n' +
-'  ledger.js         <i>operations journal</i>\n' +
-'  ui.js             <i>panels, toasts, formatting</i>\n' +
-'  <i>… 17 more modules</i>\n' +
-'<b>functions/</b>\n' +
-'  dtek.js           <i>Cloud Function: DTEK schedule scraper</i>',
-        'uspih.g1': 'Resident dashboard',
-        'uspih.g2': 'Sign-in by apartment number',
+        "uspih.a.pre": "<b>index.html</b>          <i>resident portal</i>\n<b>admin.html</b>          <i>board portal</i>\n<b>buh.html</b>            <i>accountant portal</i>\n<b>js/</b>                 <i>87 authored client modules</i>\n  buh-*.js          <i>monthly cycle, banking, payroll, reporting</i>\n  staff-core.js     <i>staff roles and permissions</i>\n  nbu-qr.js         <i>payment QR code</i>\n  meeting.js        <i>co-owner vote counting</i>\n<b>functions/</b>          <i>29 server modules, 16 exported functions</i>\n  bank*.js          <i>statements, matching and reconciliation</i>\n  payments*.js      <i>payments and refunds</i>\n  payroll*.js       <i>payroll and taxes</i>\n  journal*.js       <i>journal entries and period closing</i>\n  reports*.js       <i>tax report packages and receipts</i>\n<b>firestore.rules</b>     <i>role-based data access</i>\n<b>storage.rules</b>       <i>file access</i>\n<b>scripts/</b>            <i>project checks and esbuild bundling</i>\n<b>tests/</b>              <i>unit tests and Firebase Emulator checks</i>\n<b>.github/workflows/</b>  <i>checks, Pages and Firebase deployment</i>",
+        "uspih.g1": "Accountant portal: desktop menu",
+        "uspih.g2": "Accountant portal: mobile menu",
 
         /* ---------- UABiz ---------- */
         'uabiz.tag':     "A single-player browser economic simulator: retail, factories, research, logistics, loans and the stock market. Five company-development chapters, financial reports, detailed cash transactions and transferable saves. There is no shared online market or server ranking.",
@@ -363,11 +340,11 @@
         "space.f8.t": "Shared colony research",
         "space.f8.p": "Technologies are shared across all colonies and only one is researched at a time. A lab in another colony can join and take on a share: an equal or stronger lab takes half, a weaker one proportionally to its level. The duration shrinks by that share, and the same share of the price is paid from that colony’s storage.",
         "space.g7": "Exchange: price corridor and hub reserve",
-        "uspih.f7.t": "General meetings with PDF minutes",
-        "uspih.f7.p": "An agenda with draft resolutions and a for / against / abstain vote on every item. Voting opens only when the meeting starts — enforced by both the app and the Firestore rules, because a vote before the discussion is a blind vote. The “Generate minutes” button produces a finished PDF that is filed in the document base and sent to the whole building.",
-        "uspih.f8.t": "Paper ballots in the same cut",
-        "uspih.f8.p": "Ballot sheets are printed as a separate set for every item and every entrance, with the name of the person responsible and a place to sign. Collected votes are entered in the same cut — item, entrance, a running list of apartments — and merged on write, so a vote on item two never overwrites item one.",
-        "uspih.g3": "Board dashboard: meeting and quorum",
+        "uspih.f7.t": "Journal entries and month-end closing",
+        "uspih.f7.p": "Double-entry accounting, a trial balance and apartment and bank subledgers. Monetary calculations use integer kopecks. Discrepancies block closing; only the chair can reopen a period, with a recorded reason.",
+        "uspih.f8.t": "XML tax reporting",
+        "uspih.f8.p": "The J0500111 return with D1, 4DF and D5 annexes when applicable, CSV exports and a versioned XML archive. Receipts No. 1 and No. 2 are stored with statuses. Upload, signature and submission take place manually in the tax authority’s Electronic Cabinet.",
+        "uspih.g3": "Board portal: demo overview",
         "politics.f7.t": "Computer-controlled countries",
         "politics.f7.p": "Before the turn resolves, the AI puts its orders into the same queues as the player, so combat, marches and recruitment are computed by one piece of code for everyone. Only those who need to think do: countries at war and the player’s neighbours. Wars between AIs are limited — take a fifth of the land, then make peace.",
         "politics.f8.t": "Diplomacy and “Scenario 2024”",
@@ -527,7 +504,7 @@
         "cx.l4.t": "Reliability",
         "cx.l4.p": "tests, CI, deployment and handling real data",
         "proj.space.why": "server tick · PostgreSQL · 65 server modules · 12 offline test suites",
-        "proj.uspih.why": "Firebase security rules · server operations · 32 JS modules",
+        "proj.uspih.why": "3 portals · server-side accounting and banking · 87 client modules",
         "proj.psy.kick": "Psychologist’s landing page",
         "proj.psy.why": "Next.js static export · GitHub Pages · no database or runtime server",
         "proj.psy.desc": "A static site for psychologist Tetiana Kovalenko: consultation formats, experience, FAQs and booking contacts. The previous client area, CRM and blog remain in Git history.",
@@ -652,6 +629,17 @@
         "stack.c2": "Firebase or Supabase handle sign-in, data and access rules. A Cloudflare Worker combines external APIs and server-side AI requests; a dedicated Node.js server and database support a world that runs on ticks.",
         "about.p2": "I choose the simplest tool that fits. JavaScript powers simulators and network games; React and TypeScript power the media library and language-model game, while Next.js static export serves the psychologist’s landing page.",
         "about.p3": "The largest is Chumatskyi Shliakh: a world with a server tick, PostgreSQL and a shared market. Alongside it are HOA Uspih-25, the Umbra media library, CodeQuest’s learning campaigns and networked TikTakToe. UABankSim remains a concept; its core and public demo have not been implemented.",
+        "uspih.f9.t": "Charges and meters",
+        "uspih.f9.p": "Monthly contributions based on floor area and resident count, historical tariffs and opening balances. Apartment and building meters cover water, heat and electricity; the informational heat allocation is shown separately from the accounting balance.",
+        "uspih.f10.t": "Co-owner meetings",
+        "uspih.f10.p": "Under the charter, decisions count co-owners rather than floor area. Paper votes are recorded per co-owner without double-counting a person who owns several apartments; online votes are still stored per apartment. Finalizing meetings and publishing PDF minutes are server operations.",
+        "uspih.f11.t": "Requests, documents and power",
+        "uspih.f11.p": "Requests with photos and statuses, chat, announcements and shared documents. Android + MacroDroid reports the power state, while the server retrieves DTEK schedules. A custom browser-side .xlsx generator exports the co-owner registry.",
+        "uspih.f12.t": "Installation, caching and notifications",
+        "uspih.f12.p": "The PWA installs on a phone. A service worker caches the resident shell, with other portals cached after the first visit; financial operations require a connection. FCM sends task and payment-signing notifications after the user grants permission.",
+        "uspih.f.next": "Next steps: cash orders and a cash book, fixed assets and depreciation, bank-statement file import and automated tax submission. An electronic signature for an individual co-owner’s vote also remains planned.",
+        "uspih.a.tests": "The repository contains 54 test files: 20 client unit files, 18 server files and 16 integration files for rules and server operations. They cover calculations, repeated requests, access permissions and a full monthly cycle on Firebase Emulator. Banking and tax integrations in production require separate verification.",
+        "proj.uspih.kick": "HOA management and accounting",
     };
 
     var STORE = 'sk-lang';

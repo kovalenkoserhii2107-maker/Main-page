@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ОСББ «Успіх-25» — PWA для управління будинком | Сергій Коваленко</title>
-<meta name="description" content="PWA для мешканців і правління ОСББ: збори, голоси співвласників, PDF-протоколи, фінанси й електропостачання. JavaScript, Firebase та серверні операції.">
+<title>ОСББ «Успіх-25» — управління й облік будинку | Сергій Коваленко</title>
+<meta name="description" content="Три кабінети ОСББ: мешканця, правління й бухгалтера. Нарахування, банківська звірка, зарплата, проводки, XML-звітність, збори та документи. JavaScript і Firebase.">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#05060a">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ОСББ «Успіх-25» — PWA для управління будинком">
-<meta property="og:description" content="PWA для мешканців і правління ОСББ: збори, голоси співвласників, PDF-протоколи, фінанси й електропостачання. JavaScript, Firebase та серверні операції.">
+<meta property="og:title" content="ОСББ «Успіх-25» — управління й облік будинку">
+<meta property="og:description" content="Три кабінети ОСББ: мешканця, правління й бухгалтера. Нарахування, банківська звірка, зарплата, проводки, XML-звітність, збори та документи. JavaScript і Firebase.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -68,7 +68,7 @@
 
     <span class="status status-live" data-i18n="common.inprod">Працює в реальному будинку</span>
     <h1 class="p-title">ОСББ «Успіх-25»</h1>
-    <p class="p-tag" data-i18n="uspih.tag">PWA для мешканців і правління ОСББ: загальні збори з електронними та паперовими голосами, PDF-протоколи, фінанси, звернення й графіки відключень. Підсумки зборів рахуються за числом співвласників відповідно до статуту; завершення й публікація протоколу виконуються на сервері.</p>
+    <p class="p-tag" data-i18n="uspih.tag">Система управління й обліку ОСББ із трьома кабінетами: мешканця, правління та бухгалтера. Від нарахувань і банківської звірки до зарплати, проводок, закриття місяця та XML-звітності ДПС. Збори, документи, лічильники й звернення залишаються в одному застосунку.</p>
 
     <div class="p-cta">
       <a class="btn btn-primary" href="https://kovalenkoserhii2107-maker.github.io/USPIH-25/" target="_blank" rel="noopener">
@@ -82,11 +82,11 @@
     </div>
 
     <dl class="meta-grid" data-reveal>
-      <div><dt data-i18n="common.m.type">Тип</dt><dd data-i18n="uspih.m.type">PWA, offline-first</dd></div>
+      <div><dt data-i18n="common.m.type">Тип</dt><dd data-i18n="uspih.m.type">PWA · управління й облік ОСББ</dd></div>
       <div><dt data-i18n="common.m.stack">Стек</dt><dd>Vanilla JS · Firebase</dd></div>
       <div><dt data-i18n="common.m.role">Роль</dt><dd data-i18n="common.solo">Один розробник</dd></div>
-      <div><dt data-i18n="common.m.scale">Обсяг</dt><dd data-i18n="uspih.m.scale">32 модулі JS · Cloud Functions</dd></div>
-      <div><dt data-i18n="common.m.cx">Складність</dt><dd><span class="cx" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span> 4 / 5</dd></div>
+      <div><dt data-i18n="common.m.scale">Обсяг</dt><dd data-i18n="uspih.m.scale">87 клієнтських · 29 серверних модулів</dd></div>
+      <div><dt data-i18n="common.m.cx">Складність</dt><dd><span class="cx" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span> 5 / 5</dd></div>
     </dl>
   </section>
 
@@ -106,9 +106,9 @@
       <span class="eyebrow" data-i18n="common.s.overview">Огляд</span>
       <h2 data-i18n="uspih.o.h">Задача</h2>
       <div class="prose" data-reveal>
-        <p data-i18n="uspih.o.p1">Управління багатоквартирним будинком тримається на паперових бюлетенях, чатах у месенджерах і таблицях, які веде хтось один. Голосування легко оскаржити, борги видно тільки бухгалтеру, а звернення губляться у стрічці повідомлень.</p>
-        <p data-i18n="uspih.o.p2">«Успіх-25» збирає це в один застосунок із двома ролями — мешканець і правління. Він встановлюється на телефон як звичайна програма, працює без мережі й не потребує ані магазину застосунків, ані власного сервера.</p>
-        <p data-i18n="uspih.o.p3">Найважливіше рішення архітектури — <strong>довіра лежить на сервері, а не на клієнті</strong>. Номер квартири береться не з тексту на екрані, а з токена автентифікації, і правила Firestore підтверджують це на кожен запис.</p>
+        <p data-i18n="uspih.o.p1">ОСББ потрібно пов’язати внески мешканців, банківські операції, рахунки постачальників, зарплату й звітність. Коли вони живуть у різних таблицях і чатах, складно пояснити борг квартири, перевірити оплату документа або узгодити залишки перед закриттям місяця.</p>
+        <p data-i18n="uspih.o.p2">«Успіх-25» об’єднує ці процеси у трьох окремих кабінетах. Мешканець бачить свою квартиру й дані будинку; правління працює зі зборами та зверненнями; бухгалтер проходить місячний цикл у спеціальному інтерфейсі з чергою завдань. Права голови, члена правління й бухгалтера розділені.</p>
+        <p data-i18n="uspih.o.p3">Фінансові зміни виконуються через <strong>серверні операції з перевіркою ролей</strong>. Нарахування, рознесення банку й проводки мають захист від повторного виконання та журнал дій. Дані квартири відокремлені правилами Firestore/Storage, а банківський токен зберігається лише на сервері.</p>
       </div>
       <div class="chip-row" style="margin-top:26px">
         <span class="chip">Vanilla JS (ES Modules)</span>
@@ -118,6 +118,9 @@
         <span class="chip">Cloud Functions</span>
         <span class="chip">Service Workers</span>
         <span class="chip">GitHub Pages</span>
+        <span class="chip">esbuild</span>
+        <span class="chip">PrivatBank Autoclient</span>
+        <span class="chip">Firebase Cloud Messaging</span>
       </div>
     </div>
   </section>
@@ -125,49 +128,70 @@
   <section class="block" id="features">
     <div class="shell">
       <span class="eyebrow" data-i18n="common.s.features">Можливості</span>
-      <h2 data-i18n="uspih.f.h">Що вміє застосунок</h2>
+      <h2 data-i18n="uspih.f.h">Від кабінету мешканця до закриття місяця</h2>
       <div class="feat">
-        <article class="card feat-item" data-reveal>
+        <article class="card feat-item" data-reveal style="--d:0ms">
           <span class="feat-num">01</span>
-          <h3 data-i18n="uspih.f1.t">Збори й голоси співвласників</h3>
-          <p data-i18n="uspih.f1.p">Голос зберігається за номером квартири, а підсумки враховують її співвласників. За статутом рішення приймається більшістю від загальної кількості співвласників; голову й секретаря обирає більшість присутніх. Площа відображається в документах окремо. Електронний підпис ще запланований.</p>
+          <h3 data-i18n="uspih.f1.t">Квартира й оплата внесків</h3>
+          <p data-i18n="uspih.f1.p">Баланс, історія нарахувань і платежів, квитанції та опубліковані витрати будинку. Для оплати є банківські посилання й QR-код НБУ; довідка про заборгованість формується у PDF.</p>
         </article>
         <article class="card feat-item" data-reveal style="--d:70ms">
           <span class="feat-num">02</span>
-          <h3 data-i18n="uspih.f2.t">Білінг і квитанції</h3>
-          <p data-i18n="uspih.f2.p">Імпорт заборгованостей із CSV, звіти витрат, реквізити й історія нарахувань по квартирі. Журнал операцій пристосований до читання на телефоні; фінанси й документи доступні відповідно до ролі мешканця або правління.</p>
+          <h3 data-i18n="uspih.f2.t">Кабінет бухгалтера</h3>
+          <p data-i18n="uspih.f2.p">Екран «Сьогодні» збирає завдання й нагадування. Розділ «Місяць» веде через нарахування, банк, документи, зарплату, перевірки й закриття; таблиці на комп’ютері доповнюються картками на телефоні.</p>
         </article>
         <article class="card feat-item" data-reveal style="--d:140ms">
           <span class="feat-num">03</span>
-          <h3 data-i18n="uspih.f3.t">Світло: датчик і графіки ДТЕК</h3>
-          <p data-i18n="uspih.f3.p">Апаратний датчик на базі Android + MacroDroid передає в застосунок реальний стан електропостачання, а Cloud Function щодня знімає графіки відключень із сайту ДТЕК.</p>
+          <h3 data-i18n="uspih.f3.t">Банківська звірка</h3>
+          <p data-i18n="uspih.f3.p">ПриватБанк Autoclient синхронізує виписки щогодини. Надходження зіставляються з квартирами за реквізитами й призначенням; неоднозначні операції потрапляють у чергу рішень. Підтримуються кілька рахунків, повернення та повторне завантаження без дублікатів.</p>
         </article>
-        <article class="card feat-item" data-reveal style="--d:210ms">
+        <article class="card feat-item" data-reveal style="--d:0ms">
           <span class="feat-num">04</span>
-          <h3 data-i18n="uspih.f4.t">Генератор .xlsx у браузері</h3>
-          <p data-i18n="uspih.f4.p">Реєстри співвласників вивантажуються у справжній <code>.xlsx</code>. Файл (ZIP + XML) збирається вручну на Typed Arrays — без важких бібліотек і без запиту на сервер.</p>
+          <h3 data-i18n="uspih.f4.t">Платежі й підпис голови</h3>
+          <p data-i18n="uspih.f4.p">Платіж постачальнику або працівнику готується на сервері й передається до Приват24 для бізнесу. Голова підписує його КЕП у банку; застосунок підтверджує списання за випискою, а не лише за фактом створення доручення.</p>
         </article>
-        <article class="card feat-item" data-reveal style="--d:280ms">
+        <article class="card feat-item" data-reveal style="--d:70ms">
           <span class="feat-num">05</span>
-          <h3 data-i18n="uspih.f5.t">Звернення й база документів</h3>
-          <p data-i18n="uspih.f5.p">Мешканець створює звернення з фото, правління бачить чергу зі статусами. Статут, протоколи та акти лежать у спільній базі з переглядачем документів.</p>
+          <h3 data-i18n="uspih.f5.t">Документи, договори й кошторис</h3>
+          <p data-i18n="uspih.f5.p">Рахунки, акти, договори та вкладення зв’язуються з оплатою й банківською операцією. Акт не подвоює витрату рахунку. Кошторис показує план і факт; мешканці отримують опублікований звіт із розшифровкою статей.</p>
         </article>
-        <article class="card feat-item" data-reveal style="--d:350ms">
+        <article class="card feat-item" data-reveal style="--d:140ms">
           <span class="feat-num">06</span>
-          <h3 data-i18n="uspih.f6.t">Офлайн і встановлення на телефон</h3>
-          <p data-i18n="uspih.f6.p">Service Worker кешує інтерфейс і розділ питань-відповідей, тож застосунок відкривається без мережі. Жест pull-to-refresh написаний власноруч, щоб поводитись як у нативних застосунках.</p>
+          <h3 data-i18n="uspih.f6.t">Зарплата й податки</h3>
+          <p data-i18n="uspih.f6.p">Працівники та виконавці за ЦПД, табель, аванс і остаточна виплата, ПДФО, військовий збір та ЄСВ. Розрахунки враховують відпустки й лікарняні; виплати зв’язуються з банком, а дані переходять у звітність.</p>
         </article>
         <article class="card feat-item" data-reveal style="--d:0ms">
           <span class="feat-num">07</span>
-          <h3 data-i18n="uspih.f7.t">Загальні збори й протокол у PDF</h3>
-          <p data-i18n="uspih.f7.p">Порядок денний із проєктами рішень і голосування «за / проти / утримався» по кожному питанню. Голосування відкривається лише в час початку зборів — і це перевіряють і застосунок, і правила Firestore: голос до обговорення — це голос наосліп. Кнопка «Сформувати протокол» дає готовий PDF, який лягає в базу документів і йде розсилкою всьому будинку.</p>
+          <h3 data-i18n="uspih.f7.t">Проводки й закриття місяця</h3>
+          <p data-i18n="uspih.f7.p">Подвійний запис, оборотно-сальдова відомість і аналітика квартир та банківських рахунків. Грошові розрахунки виконуються в цілих копійках. Закриття блокується за розбіжностей; повторно відкрити період може лише голова із зазначенням причини.</p>
         </article>
         <article class="card feat-item" data-reveal style="--d:70ms">
           <span class="feat-num">08</span>
-          <h3 data-i18n="uspih.f8.t">Паперове голосування тим самим розрізом</h3>
-          <p data-i18n="uspih.f8.p">Листки опитування друкуються окремим комплектом на кожне питання й кожну парадну, з ПІБ відповідальної особи й місцем для підпису. Зібрані голоси вносяться тим самим розрізом — питання, парадна, суцільний список квартир — і записуються злиттям, тож голос за друге питання не стирає перший.</p>
+          <h3 data-i18n="uspih.f8.t">XML-звітність ДПС</h3>
+          <p data-i18n="uspih.f8.p">Розрахунок J0500111 із додатками Д1, 4ДФ і Д5 за потреби, CSV та версійований XML-архів. Квитанції № 1 і № 2 зберігаються зі статусами. Завантаження, підпис і подача виконуються вручну в Електронному кабінеті ДПС.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:140ms">
+          <span class="feat-num">09</span>
+          <h3 data-i18n="uspih.f9.t">Нарахування й лічильники</h3>
+          <p data-i18n="uspih.f9.p">Місячні внески за площею та числом мешканців, історія тарифів і початкові залишки. Квартирні та будинкові лічильники підтримують воду, тепло й електроенергію; інформаційний розподіл тепла показується окремо від облікового балансу.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:0ms">
+          <span class="feat-num">10</span>
+          <h3 data-i18n="uspih.f10.t">Збори співвласників</h3>
+          <p data-i18n="uspih.f10.p">За статутом рішення рахуються за кількістю співвласників, а не площею. Паперові голоси вносяться по кожному співвласнику без повторного обліку людини з кількома квартирами; електронний голос поки фіксується за квартирою. Завершення й публікація PDF-протоколу — серверні операції.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:70ms">
+          <span class="feat-num">11</span>
+          <h3 data-i18n="uspih.f11.t">Звернення, документи й світло</h3>
+          <p data-i18n="uspih.f11.p">Звернення з фото та статусами, чат, оголошення й спільні документи. Android + MacroDroid передає стан електропостачання, а сервер отримує графіки ДТЕК. Реєстр співвласників експортується власним генератором .xlsx у браузері.</p>
+        </article>
+        <article class="card feat-item" data-reveal style="--d:140ms">
+          <span class="feat-num">12</span>
+          <h3 data-i18n="uspih.f12.t">Встановлення, кеш і сповіщення</h3>
+          <p data-i18n="uspih.f12.p">PWA встановлюється на телефон. Service Worker кешує оболонку мешканця, а інші кабінети — після першого відкриття; фінансові операції потребують мережі. FCM надсилає сповіщення про завдання й платежі на підпис після дозволу користувача.</p>
         </article>
       </div>
+      <p class="prose" style="margin-top:26px" data-i18n="uspih.f.next">Наступні етапи: касові ордери й касова книга, основні засоби та амортизація, імпорт банківської виписки з файлу й автоматична подача звітності. Електронний підпис голосу конкретного співвласника також залишається в плані.</p>
     </div>
   </section>
 
@@ -176,33 +200,30 @@
       <span class="eyebrow" data-i18n="common.s.arch">Архітектура</span>
       <h2 data-i18n="uspih.a.h">Як це влаштовано</h2>
       <div class="prose" style="margin-bottom:26px" data-reveal>
-        <p data-i18n="uspih.a.p">Жодного бандлера і жодного кроку збірки: браузер сам вантажить ES-модулі, GitHub Pages роздає статику, Firebase закриває автентифікацію, дані та файли. Уся палітра та типографіка живуть у CSS-змінних одного файлу.</p>
+        <p data-i18n="uspih.a.p">Клієнт написаний на ES-модулях без UI-фреймворку. esbuild збирає три точки входу, спільні та відкладені модулі — у файли з хешами в назвах; GitHub Pages публікує каталог _site. Firebase забезпечує автентифікацію, Firestore, файли й серверну логіку. Cloud Functions і правила доступу розгортаються окремим workflow.</p>
+        <p data-i18n="uspih.a.tests">У репозиторії — 54 тестові файли: 20 клієнтських unit, 18 серверних і 16 інтеграційних для правил та серверних операцій. Перевіряються розрахунки, повторні запити, права доступу й повний місячний цикл на Firebase Emulator. Банківські та податкові інтеграції в робочому середовищі потребують окремої перевірки.</p>
       </div>
       <div class="code-panel" data-reveal>
         <div class="code-head">USPIH-25 / <span data-i18n="uspih.a.tree">структура репозиторію</span></div>
-<pre data-i18n="uspih.a.pre"><b>index.html</b>          <i>розмітка всіх екранів</i>
-<b>style.css</b>           <i>дизайн-система, усі кольори в :root</i>
-<b>firestore.rules</b>     <i>297 рядків правил доступу — головний захист</i>
-<b>sw.js</b>               <i>service worker, офлайн-кеш</i>
-<b>manifest.json</b>       <i>встановлення на домашній екран</i>
-<b>js/</b>
-  firebase.js       <i>ініціалізація + об'єкт сесії</i>
-  app.js            <i>вхід, маршрутизація екранів, навігація</i>
-  polls.js          <i>голосування, підрахунок кворуму</i>
-  finance.js        <i>баланс, витрати, квитанції</i>
-  owners.js         <i>співвласники, атомарне збереження</i>
-  requests.js       <i>звернення + база документів ОСББ</i>
-  dtek.js           <i>графіки відключень</i>
-  power.js          <i>статус електропостачання</i>
-  xlsx-write.js     <i>власний генератор .xlsx</i>
-  meetings.js       <i>загальні збори: порядок денний, голосування</i>
-  paper_votes.js    <i>внесення голосів з обходу квартир</i>
-  protocol_pdf.js   <i>протокол зборів у PDF</i>
-  ledger.js         <i>журнал операцій</i>
-  ui.js             <i>панелі, сповіщення, формати</i>
-  <i>… ще 17 модулів</i>
-<b>functions/</b>
-  dtek.js           <i>Cloud Function: скрейпер графіків ДТЕК</i></pre>
+<pre data-i18n="uspih.a.pre"><b>index.html</b>          <i>кабінет мешканця</i>
+<b>admin.html</b>          <i>кабінет правління</i>
+<b>buh.html</b>            <i>кабінет бухгалтера</i>
+<b>js/</b>                 <i>87 авторських клієнтських модулів</i>
+  buh-*.js          <i>місячний цикл, банк, зарплата, звітність</i>
+  staff-core.js     <i>ролі й права співробітників</i>
+  nbu-qr.js         <i>платіжний QR-код</i>
+  meeting.js        <i>підрахунок за співвласниками</i>
+<b>functions/</b>          <i>29 серверних модулів, 16 експортованих функцій</i>
+  bank*.js          <i>виписки, зіставлення й звірка</i>
+  payments*.js      <i>платежі та повернення</i>
+  payroll*.js       <i>зарплата й податки</i>
+  journal*.js       <i>проводки й закриття періоду</i>
+  reports*.js       <i>звітні пакети й квитанції ДПС</i>
+<b>firestore.rules</b>     <i>доступ до даних за роллю</i>
+<b>storage.rules</b>       <i>доступ до файлів</i>
+<b>scripts/</b>            <i>перевірка проєкту й збірка esbuild</i>
+<b>tests/</b>              <i>unit-тести й перевірки Firebase Emulator</i>
+<b>.github/workflows/</b>  <i>перевірки, Pages і Firebase deployment</i></pre>
       </div>
     </div>
   </section>
@@ -213,17 +234,17 @@
       <h2 data-i18n="common.shots.h">Інтерфейс</h2>
       <p class="prose" style="margin-bottom:26px" data-i18n="common.shots.hint">Натисніть на зображення, щоб відкрити його на весь екран. Стрілки ← → гортають галерею.</p>
       <div class="gal" data-reveal>
-        <figure class="tall">
-          <img src="assets/screens/uspih-dashboard.webp" alt="Головний екран мешканця: квартира, статус світла, переплата, залишок на рахунку ОСББ" loading="lazy" width="900" height="1653">
-          <figcaption data-i18n="uspih.g1">Кабінет мешканця</figcaption>
+        <figure>
+          <img src="assets/screens/uspih-accounting-desktop.webp" alt="Меню бухгалтерії на комп’ютері: рішення, нарахування, кошторис, проводки й налаштування" loading="lazy" width="2880" height="1800">
+          <figcaption data-i18n="uspih.g1">Кабінет бухгалтера: меню на комп’ютері</figcaption>
         </figure>
         <figure class="tall">
-          <img src="assets/screens/uspih-login.webp" alt="Екран входу за номером квартири та паролем" loading="lazy" width="900" height="1060">
-          <figcaption data-i18n="uspih.g2">Вхід за номером квартири</figcaption>
+          <img src="assets/screens/uspih-accounting-mobile.webp" alt="Мобільне меню бухгалтера з розділами квартири, документи, зарплата та звіти" loading="lazy" width="780" height="1688">
+          <figcaption data-i18n="uspih.g2">Кабінет бухгалтера: меню на телефоні</figcaption>
         </figure>
         <figure>
-          <img src="assets/screens/uspih-admin.webp" alt="Панель правління: поточні збори, кворум, порядок денний і термінові завдання" loading="lazy" width="1600" height="1046">
-          <figcaption data-i18n="uspih.g3">Панель правління: збори й кворум</figcaption>
+          <img src="assets/screens/uspih-board.webp" alt="Демонстраційний огляд правління: термінові завдання, звернення та загальні збори" loading="lazy" width="1600" height="1000">
+          <figcaption data-i18n="uspih.g3">Правління: демонстраційний огляд</figcaption>
         </figure>
       </div>
     </div>
@@ -260,7 +281,7 @@
   </div>
 </div>
 
-<script src="assets/js/i18n.js?v=20261008b"></script>
+<script src="assets/js/i18n.js?v=20261011a"></script>
 <script src="assets/js/app.js?v=20261008c"></script>
 </body>
 </html>
